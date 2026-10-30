@@ -1,0 +1,2 @@
+Esta pasta guarda a chave da segunda validacao: para cada caso do caderno, se o filtro de curadoria confirmou ou descartou aquela funcao - e saber isso antes de anotar puxa o julgamento na direcao do filtro e anula justamente o que esta validacao mede, o acerto do filtro julgado por quem nao sabe o que ele disse.
+Abra so depois de terminar as anotacoes e entregar a planilha para a analise, e nao edite nada aqui: o SHA-256 da chave esta no pre-registro, e o script de analise recusa rodar se ele mudar.

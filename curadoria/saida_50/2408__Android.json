@@ -1,0 +1,55 @@
+{
+  "alvo": "ih264d_start_of_pic",
+  "arquivo": "arquivo__ih264d_parse_slice.c",
+  "linha_inicio": 161,
+  "linha_fim": 726,
+  "camada1": {
+    "por_categoria": {
+      "copia": 2,
+      "escrita": 3
+    },
+    "por_nome": {
+      "memcpy": 2,
+      "memset": 3
+    },
+    "acessos_indexados": 29,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 48,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 41,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 12,
+    "sinks_indice": 29,
+    "fontes_parametro": 5,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 46,
+    "estruturas": {
+      "BREAK": 5,
+      "CONTINUE": 1,
+      "ELSE": 6,
+      "FOR": 3,
+      "IF": 41,
+      "SWITCH": 1,
+      "WHILE": 1
+    }
+  },
+  "saude": {
+    "span": 566,
+    "nos_ast": 1974,
+    "blocos": 143,
+    "locais": 57,
+    "chamadas_total": 766,
+    "chamadas_nao_operador": 31,
+    "estruturas_total": 58,
+    "externo": false
+  },
+  "item": "2408__Android",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "Android"
+}

@@ -1,0 +1,49 @@
+{
+  "alvo": "flx_set_palette_vector",
+  "arquivo": "arquivo__flx_color.c",
+  "linha_inicio": 80,
+  "linha_fim": 105,
+  "camada1": {
+    "por_categoria": {
+      "copia": 1
+    },
+    "por_nome": {
+      "memcpy": 1
+    },
+    "acessos_indexados": 7,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 9,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 4,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 3,
+    "sinks_indice": 7,
+    "fontes_parametro": 5,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 2,
+    "estruturas": {
+      "ELSE": 1,
+      "IF": 1,
+      "WHILE": 1
+    }
+  },
+  "saude": {
+    "span": 26,
+    "nos_ast": 108,
+    "blocos": 6,
+    "locais": 3,
+    "chamadas_total": 41,
+    "chamadas_nao_operador": 3,
+    "estruturas_total": 3,
+    "externo": false
+  },
+  "item": "0187__gstreamer",
+  "cwe_bigvul": "CWE-125",
+  "projeto": "gstreamer"
+}

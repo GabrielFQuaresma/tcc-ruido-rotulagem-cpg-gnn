@@ -1,0 +1,111 @@
+{
+  "modo": "abrir",
+  "aberto_em": "30/10/2026 14:09:03",
+  "tabela": {
+    "confirmado": {
+      "A": 0,
+      "B": 4,
+      "C": 8,
+      "D": 18,
+      "?": 0
+    },
+    "descartado": {
+      "A": 1,
+      "B": 7,
+      "C": 9,
+      "D": 13,
+      "?": 0
+    }
+  },
+  "medidas": {
+    "n_conf": 30,
+    "n_desc": 30,
+    "d_conf": 18,
+    "d_desc": 13,
+    "precisao": 60.0,
+    "taxa_desc": 43.333333333333336,
+    "taxa_base": 48.81185426862425,
+    "ganho": 11.188145731375748,
+    "cobertura": 40.405503258508325
+  },
+  "ic95": {
+    "precisao": [
+      41.935483870967744,
+      80.0
+    ],
+    "taxa_desc": [
+      25.806451612903224,
+      62.06896551724138
+    ],
+    "taxa_base": [
+      35.60742731023894,
+      62.83078456111027
+    ],
+    "ganho": [
+      -6.399710134377202,
+      28.76951759496621
+    ]
+  },
+  "bootstrap": {
+    "n_boot": 10000,
+    "semente": 7074,
+    "validas": 10000,
+    "vazios": 0,
+    "clusters": {
+      "confirmado": 26,
+      "descartado": 26
+    }
+  },
+  "descritivas": {
+    "A_confirmados": 0,
+    "A_total": 1,
+    "B_confirmados": 4,
+    "B_total": 11,
+    "cobertura_D": 40.405503258508325
+  },
+  "sensibilidades": {
+    "8.1 sem commit ja visto": {
+      "n_conf": 23,
+      "n_desc": 18,
+      "d_conf": 15,
+      "d_desc": 9,
+      "precisao": 65.21739130434783,
+      "taxa_desc": 50.0,
+      "taxa_base": 55.00212781048302,
+      "ganho": 10.21526349386481,
+      "cobertura": 38.97611141558399
+    },
+    "8.2 uma linha por commit": {
+      "n_conf": 26,
+      "n_desc": 26,
+      "d_conf": 17,
+      "d_desc": 13,
+      "precisao": 65.38461538461539,
+      "taxa_desc": 50.0,
+      "taxa_base": 55.05709624796085,
+      "ganho": 10.327519136654537,
+      "cobertura": 39.03703703703704
+    },
+    "8.3 so confianca alta": {
+      "n_conf": 13,
+      "n_desc": 13,
+      "d_conf": 12,
+      "d_desc": 8,
+      "precisao": 92.3076923076923,
+      "taxa_desc": 61.53846153846154,
+      "taxa_base": 71.65265403438323,
+      "ganho": 20.655038273309074,
+      "cobertura": 42.34676007005254
+    }
+  },
+  "interrogacoes": {
+    "confirmado": 0,
+    "descartado": 0
+  },
+  "frase": "continua valendo a frase atual do artigo, agora com esta amostra: compativel com ganho (+11,2 pontos, IC 95% [-6,4; +28,8]), mas nao exclui ganho nulo a 95%",
+  "entradas_sha256": {
+    "PRE_REGISTRO_SEGUNDA.md": "c877d06a3b0c5cfddba56228b3d1061d7f1d5487a028a9e05294491b8ed34066",
+    "anotacao_segunda.csv": "11a916170d491a5b82bc8c5b38ea38b01f3fdd094b685abec00917751b9a6caa",
+    "chave/chave_segunda.csv": "013f16819667bf3d8b4225652c031165abc824f9f06f3638d0a5a5e8bcf50afb"
+  }
+}

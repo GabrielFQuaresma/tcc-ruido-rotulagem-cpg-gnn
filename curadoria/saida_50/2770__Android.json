@@ -1,0 +1,45 @@
+{
+  "alvo": "ParseEncryptionEntry",
+  "arquivo": "arquivo__mkvparser.cpp",
+  "linha_inicio": 5349,
+  "linha_fim": 5466,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 0,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 0,
+    "fontes_parametro": 9,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 20,
+    "estruturas": {
+      "ELSE": 6,
+      "IF": 19,
+      "WHILE": 1
+    }
+  },
+  "saude": {
+    "span": 118,
+    "nos_ast": 391,
+    "blocos": 12,
+    "locais": 19,
+    "chamadas_total": 104,
+    "chamadas_nao_operador": 11,
+    "estruturas_total": 26,
+    "externo": false
+  },
+  "item": "2770__Android",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "Android"
+}

@@ -1,0 +1,41 @@
+{
+  "alvo": "usage_exit",
+  "arquivo": "arquivo__set_maps.c",
+  "linha_inicio": 58,
+  "linha_fim": 62,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 0,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 0,
+    "fontes_parametro": 0,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 0,
+    "estruturas": {}
+  },
+  "saude": {
+    "span": 5,
+    "nos_ast": 12,
+    "blocos": 5,
+    "locais": 3,
+    "chamadas_total": 2,
+    "chamadas_nao_operador": 2,
+    "estruturas_total": 0,
+    "externo": false
+  },
+  "item": "2831__Android",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "Android"
+}

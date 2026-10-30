@@ -1,0 +1,44 @@
+{
+  "alvo": "load_device_tree",
+  "arquivo": "arquivo__device_tree.c",
+  "linha_inicio": 73,
+  "linha_fim": 119,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 0,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 0,
+    "fontes_parametro": 2,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 4,
+    "estruturas": {
+      "GOTO": 4,
+      "IF": 4
+    }
+  },
+  "saude": {
+    "span": 47,
+    "nos_ast": 89,
+    "blocos": 22,
+    "locais": 5,
+    "chamadas_total": 24,
+    "chamadas_nao_operador": 10,
+    "estruturas_total": 8,
+    "externo": false
+  },
+  "item": "0173__qemu",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "qemu"
+}

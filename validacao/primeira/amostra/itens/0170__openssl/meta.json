@@ -1,0 +1,10 @@
+{
+  "id": 170,
+  "project": "openssl",
+  "commit_id": "f5da52e308a6aeea6d5f3df98c4da295d7e9cc27",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2016-2108",
+  "file_name": "nan"
+}

@@ -1,0 +1,50 @@
+{
+  "alvo": "wdm_in_callback",
+  "arquivo": "arquivo__cdc-wdm.c",
+  "linha_inicio": 154,
+  "linha_fim": 196,
+  "camada1": {
+    "por_categoria": {
+      "copia": 1
+    },
+    "por_nome": {
+      "memmove": 1
+    },
+    "acessos_indexados": 0,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 3,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 3,
+    "sinks_indice": 0,
+    "fontes_parametro": 1,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 2,
+    "estruturas": {
+      "BREAK": 2,
+      "GOTO": 3,
+      "IF": 1,
+      "SWITCH": 1
+    }
+  },
+  "saude": {
+    "span": 43,
+    "nos_ast": 154,
+    "blocos": 19,
+    "locais": 6,
+    "chamadas_total": 60,
+    "chamadas_nao_operador": 13,
+    "estruturas_total": 7,
+    "externo": false
+  },
+  "item": "0322__linux",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "linux"
+}

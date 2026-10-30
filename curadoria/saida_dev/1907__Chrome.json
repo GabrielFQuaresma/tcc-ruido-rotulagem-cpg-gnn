@@ -1,0 +1,45 @@
+{
+  "alvo": "xmlParseElement",
+  "arquivo": "arquivo__parser.c",
+  "linha_inicio": 9429,
+  "linha_fim": 9591,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 1,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 1,
+    "fontes_parametro": 1,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 22,
+    "estruturas": {
+      "DO": 1,
+      "ELSE": 3,
+      "IF": 21
+    }
+  },
+  "saude": {
+    "span": 163,
+    "nos_ast": 596,
+    "blocos": 34,
+    "locais": 16,
+    "chamadas_total": 229,
+    "chamadas_nao_operador": 41,
+    "estruturas_total": 25,
+    "externo": false
+  },
+  "item": "1907__Chrome",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "Chrome"
+}

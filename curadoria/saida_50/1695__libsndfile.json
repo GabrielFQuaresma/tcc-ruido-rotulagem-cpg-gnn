@@ -1,0 +1,43 @@
+{
+  "alvo": "header_put_be_short",
+  "arquivo": "arquivo__common.c",
+  "linha_inicio": 434,
+  "linha_fim": 440,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 2,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 4,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 2,
+    "fontes_parametro": 2,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 1,
+    "estruturas": {
+      "IF": 1
+    }
+  },
+  "saude": {
+    "span": 7,
+    "nos_ast": 42,
+    "blocos": 1,
+    "locais": 0,
+    "chamadas_total": 16,
+    "chamadas_nao_operador": 1,
+    "estruturas_total": 1,
+    "externo": false
+  },
+  "item": "1695__libsndfile",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "libsndfile"
+}

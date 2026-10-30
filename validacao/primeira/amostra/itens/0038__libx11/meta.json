@@ -1,0 +1,10 @@
+{
+  "id": 38,
+  "project": "libx11",
+  "commit_id": "dbf72805fd9d7b1846fe9a11b46f3994bfc27fea",
+  "cwe_bigvul": "CWE-787",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2018-14600",
+  "file_name": "nan"
+}

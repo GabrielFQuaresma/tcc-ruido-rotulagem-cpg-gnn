@@ -1,0 +1,10 @@
+{
+  "id": 83,
+  "project": "savannah",
+  "commit_id": "e6699596af5c5d6f0ae0ea06e19df87dce088df8",
+  "cwe_bigvul": "CWE-787",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2017-7864",
+  "file_name": "nan"
+}

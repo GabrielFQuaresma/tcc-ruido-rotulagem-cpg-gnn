@@ -1,0 +1,49 @@
+{
+  "alvo": "LE_command",
+  "arquivo": "arquivo__EffectLoudnessEnhancer.cpp",
+  "linha_inicio": 310,
+  "linha_fim": 427,
+  "camada1": {
+    "por_categoria": {
+      "copia": 1
+    },
+    "por_nome": {
+      "memcpy": 1
+    },
+    "acessos_indexados": 0,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 9,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 3,
+    "sinks_indice": 0,
+    "fontes_parametro": 6,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 15,
+    "estruturas": {
+      "BREAK": 13,
+      "IF": 12,
+      "SWITCH": 3
+    }
+  },
+  "saude": {
+    "span": 118,
+    "nos_ast": 481,
+    "blocos": 29,
+    "locais": 27,
+    "chamadas_total": 180,
+    "chamadas_nao_operador": 11,
+    "estruturas_total": 28,
+    "externo": false
+  },
+  "item": "2356__Android",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "Android"
+}

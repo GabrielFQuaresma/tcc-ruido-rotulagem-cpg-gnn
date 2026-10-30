@@ -1,0 +1,10 @@
+{
+  "id": 183,
+  "project": "libXpm",
+  "commit_id": "d1167418f0fd02a27f617ec5afd6db053afbe185",
+  "cwe_bigvul": "CWE-787",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2016-10164",
+  "file_name": "nan"
+}

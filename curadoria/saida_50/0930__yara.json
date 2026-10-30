@@ -1,0 +1,44 @@
+{
+  "alvo": "_yr_scan_match_callback",
+  "arquivo": "arquivo__scan.c",
+  "linha_inicio": 427,
+  "linha_fim": 525,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 2,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 2,
+    "fontes_parametro": 4,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 9,
+    "estruturas": {
+      "ELSE": 2,
+      "IF": 9
+    }
+  },
+  "saude": {
+    "span": 99,
+    "nos_ast": 268,
+    "blocos": 20,
+    "locais": 11,
+    "chamadas_total": 100,
+    "chamadas_nao_operador": 16,
+    "estruturas_total": 11,
+    "externo": false
+  },
+  "item": "0930__yara",
+  "cwe_bigvul": "CWE-125",
+  "projeto": "yara"
+}

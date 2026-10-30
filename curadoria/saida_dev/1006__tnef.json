@@ -1,0 +1,51 @@
+{
+  "alvo": "mapi_attr_read",
+  "arquivo": "arquivo__mapi_attr.c",
+  "linha_inicio": 170,
+  "linha_fim": 348,
+  "camada1": {
+    "por_categoria": {
+      "copia": 1
+    },
+    "por_nome": {
+      "memmove": 1
+    },
+    "acessos_indexados": 13,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 6,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 18,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 3,
+    "sinks_indice": 13,
+    "fontes_parametro": 2,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 14,
+    "estruturas": {
+      "BREAK": 7,
+      "ELSE": 3,
+      "FOR": 4,
+      "IF": 9,
+      "SWITCH": 1
+    }
+  },
+  "saude": {
+    "span": 179,
+    "nos_ast": 660,
+    "blocos": 39,
+    "locais": 35,
+    "chamadas_total": 235,
+    "chamadas_nao_operador": 45,
+    "estruturas_total": 24,
+    "externo": false
+  },
+  "item": "1006__tnef",
+  "cwe_bigvul": "CWE-125",
+  "projeto": "tnef"
+}

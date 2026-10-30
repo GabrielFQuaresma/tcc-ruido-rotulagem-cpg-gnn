@@ -1,0 +1,11 @@
+id,project,commit_id,cwe_bigvul,arquivo_inteiro,status_download,cve_id,file_name,url_repo,origem_url
+1,php,c351b47ce85a3a147cfa801fa9f0149ab4160834,CWE-119,arquivo__php_pcre.c,ok,CVE-2015-8382,nan,https://github.com/php/php-src.git,mapa
+2,php,12fe4e90be7bfa2a763197079f68f5568a14e071,CWE-119,arquivo__parse_iso_intervals.c,ok,CVE-2013-6712,nan,https://github.com/php/php-src.git,mapa
+3,php,c1224573c773b6845e83505f717fbf820fc18415,CWE-119,arquivo__openssl.c,ok,CVE-2013-6420,nan,https://github.com/php/php-src.git,mapa
+4,savannah,190cef6eed37d0e73a73c1e205eb31d45ab60a3c,CWE-119,,sem_url,CVE-2011-4128,nan,,nao_resolvido
+5,savannah,e82ef4545e9e98cbcb032f55d7c750b81e3a0450,CWE-119,,sem_url,CVE-2011-4128,nan,,nao_resolvido
+6,haproxy,efbbdf72992cd20458259962346044cafd9331c0,CWE-125,,sem_url,CVE-2018-20102,nan,,nao_resolvido
+7,pengutronix,574ce994016107ad8ab0f845a785f28d7eaa5208,CWE-119,,clone_falhou,CVE-2019-15938,nan,https://git.pengutronix.de/barebox.git,codelink
+8,pengutronix,84986ca024462058574432b5483f4bf9136c538d,CWE-119,,clone_falhou,CVE-2019-15937,nan,https://git.pengutronix.de/barebox.git,codelink
+9,libxfont,d11ee5886e9d9ec610051a206b135a4cdc1e09a0,CWE-119,,clone_falhou,CVE-2011-2895,nan,https://cgit.freedesktop.org/xorg/lib/libXfont.git,codelink
+10,musl,45ca5d3fcb6f874bf5ba55d0e9651cef68515395,CWE-119,,clone_falhou,CVE-2017-15650,nan,https://git.musl-libc.org/musl.git,codelink

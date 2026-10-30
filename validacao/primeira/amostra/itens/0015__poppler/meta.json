@@ -1,0 +1,10 @@
+{
+  "id": 15,
+  "project": "poppler",
+  "commit_id": "da63c35549e8852a410946ab016a3f25ac701bdf",
+  "cwe_bigvul": "CWE-125",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2017-14976",
+  "file_name": "nan"
+}

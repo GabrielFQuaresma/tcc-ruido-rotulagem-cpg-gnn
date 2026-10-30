@@ -1,0 +1,10 @@
+{
+  "id": 173,
+  "project": "qemu",
+  "commit_id": "da885fe1ee8b4589047484bd7fa05a4905b52b17",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2018-20815",
+  "file_name": "nan"
+}

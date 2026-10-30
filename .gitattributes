@@ -1,0 +1,3 @@
+# Nenhuma conversão de fim de linha: os arquivos congelados precisam chegar byte a byte iguais,
+# para o SHA-256 conferir com a Tabela C.5 dos apêndices.
+* -text

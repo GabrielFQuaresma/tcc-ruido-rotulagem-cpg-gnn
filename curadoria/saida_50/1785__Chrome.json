@@ -1,0 +1,46 @@
+{
+  "alvo": "getPositionOffsetValue",
+  "arquivo": "arquivo__CSSComputedStyleDeclaration.cpp",
+  "linha_inicio": 569,
+  "linha_fim": 607,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 0,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 0,
+    "fontes_parametro": 6,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 6,
+    "estruturas": {
+      "BREAK": 4,
+      "ELSE": 1,
+      "IF": 5,
+      "SWITCH": 1
+    }
+  },
+  "saude": {
+    "span": 39,
+    "nos_ast": 124,
+    "blocos": 15,
+    "locais": 10,
+    "chamadas_total": 30,
+    "chamadas_nao_operador": 19,
+    "estruturas_total": 11,
+    "externo": false
+  },
+  "item": "1785__Chrome",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "Chrome"
+}

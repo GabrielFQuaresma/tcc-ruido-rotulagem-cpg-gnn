@@ -1,0 +1,20 @@
+nome	tipo	saida	fonte	nota
+<parametro>	estrutural	-	estrutural	todo parametro da funcao; a funcao nao controla quem a chama
+read	libc_io	1	libc	le do descritor para o buffer do arg 1
+pread	libc_io	1	libc	idem read, com deslocamento
+readv	libc_io	1	libc	espalha em iovec
+recv	libc_io	1	libc	socket
+recvfrom	libc_io	1	libc	socket
+recvmsg	libc_io	1	libc	socket
+fread	libc_io	0	libc	le do FILE para o buffer do arg 0
+fgets	libc_io	0	libc	le linha para o buffer do arg 0
+gets	libc_io	0	li2018	sem limite; removida no C11
+getline	libc_io	0	libc	aloca e escreve no ponteiro do arg 0
+getdelim	libc_io	0	libc	idem getline
+getchar	libc_io	ret	li2018	retorno e o dado
+fgetc	libc_io	ret	libc	retorno e o dado
+getc	libc_io	ret	libc	retorno e o dado
+scanf	libc_io	-	li2018	destinos variadicos; nao rastreavel por posicao
+sscanf	libc_io	-	libc	destinos variadicos; nao rastreavel por posicao
+fscanf	libc_io	-	libc	destinos variadicos; nao rastreavel por posicao
+getenv	libc_env	ret	li2018	ambiente e controlavel por quem invoca o processo

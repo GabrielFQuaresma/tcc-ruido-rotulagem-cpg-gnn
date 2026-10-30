@@ -1,0 +1,41 @@
+{
+  "alvo": "calculateMinimumScrollPosition",
+  "arquivo": "arquivo__InRegionScrollableArea.cpp",
+  "linha_inicio": 113,
+  "linha_fim": 120,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 0,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 0,
+    "fontes_parametro": 5,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 0,
+    "estruturas": {}
+  },
+  "saude": {
+    "span": 8,
+    "nos_ast": 31,
+    "blocos": 2,
+    "locais": 0,
+    "chamadas_total": 10,
+    "chamadas_nao_operador": 5,
+    "estruturas_total": 0,
+    "externo": false
+  },
+  "item": "1792__Chrome",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "Chrome"
+}

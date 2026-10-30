@@ -1,0 +1,10 @@
+{
+  "id": 195,
+  "project": "libxfont",
+  "commit_id": "4d024ac10f964f6bd372ae0dd14f02772a6e5f63",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2013-6462",
+  "file_name": "nan"
+}

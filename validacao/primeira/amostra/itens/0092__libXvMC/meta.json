@@ -1,0 +1,10 @@
+{
+  "id": 92,
+  "project": "libXvMC",
+  "commit_id": "2cd95e7da8367cccdcdd5c9b160012d1dec5cbdb",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2016-7953",
+  "file_name": "nan"
+}

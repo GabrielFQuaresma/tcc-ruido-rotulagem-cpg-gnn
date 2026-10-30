@@ -1,0 +1,4115 @@
+id,project,commit_id,cve_id,cwe_bigvul,commit_message,cve_summary,func_before,e_vulneravel,cwe_correta,confianca,observacao
+1,ImageMagick,f6e9d0d9955e85bdd7540b251cd50d598dacc5e6,CVE-2016-10066,CWE-119,,Buffer overflow in the ReadVIFFImage function in coders/viff.c in ImageMagick before 6.9.4-5 allows remote attackers to cause a denial of service (application crash) via a crafted file.,"static Image *ReadCLIPBOARDImage(const ImageInfo *image_info,
+  ExceptionInfo *exception)
+{
+  Image
+    *image;
+
+  register ssize_t
+    x;
+
+  register PixelPacket
+    *q;
+
+  ssize_t
+    y;
+
+  assert(image_info != (const ImageInfo *) NULL);
+  assert(image_info->signature == MagickSignature);
+  if (image_info->debug != MagickFalse)
+    (void) LogMagickEvent(TraceEvent,GetMagickModule(),""%s"",
+      image_info->filename);
+  assert(exception != (ExceptionInfo *) NULL);
+  assert(exception->signature == MagickSignature);
+  image=AcquireImage(image_info);
+  {
+    HBITMAP
+      bitmapH;
+
+    HPALETTE
+      hPal;
+
+    OpenClipboard(NULL);
+     bitmapH=(HBITMAP) GetClipboardData(CF_BITMAP);
+     hPal=(HPALETTE) GetClipboardData(CF_PALETTE);
+     CloseClipboard();
+    if ( bitmapH == NULL )
+       ThrowReaderException(CoderError,""NoBitmapOnClipboard"");
+     {
+       BITMAPINFO
+        DIBinfo;
+
+      BITMAP
+        bitmap;
+
+      HBITMAP
+        hBitmap,
+        hOldBitmap;
+
+      HDC
+        hDC,
+        hMemDC;
+
+      RGBQUAD
+        *pBits,
+        *ppBits;
+
+      /* create an offscreen DC for the source */
+      hMemDC=CreateCompatibleDC(NULL);
+      hOldBitmap=(HBITMAP) SelectObject(hMemDC,bitmapH);
+       GetObject(bitmapH,sizeof(BITMAP),(LPSTR) &bitmap);
+       if ((image->columns == 0) || (image->rows == 0))
+         {
+          image->rows=bitmap.bmHeight;
+           image->columns=bitmap.bmWidth;
+         }
+       /*
+         Initialize the bitmap header info.
+      */
+      (void) ResetMagickMemory(&DIBinfo,0,sizeof(BITMAPINFO));
+      DIBinfo.bmiHeader.biSize=sizeof(BITMAPINFOHEADER);
+      DIBinfo.bmiHeader.biWidth=(LONG) image->columns;
+      DIBinfo.bmiHeader.biHeight=(-1)*(LONG) image->rows;
+      DIBinfo.bmiHeader.biPlanes=1;
+      DIBinfo.bmiHeader.biBitCount=32;
+      DIBinfo.bmiHeader.biCompression=BI_RGB;
+      hDC=GetDC(NULL);
+      if (hDC == 0)
+        ThrowReaderException(CoderError,""UnableToCreateADC"");
+      hBitmap=CreateDIBSection(hDC,&DIBinfo,DIB_RGB_COLORS,(void **) &ppBits,
+        NULL,0);
+      ReleaseDC(NULL,hDC);
+      if (hBitmap == 0)
+        ThrowReaderException(CoderError,""UnableToCreateBitmap"");
+      /* create an offscreen DC */
+      hDC=CreateCompatibleDC(NULL);
+      if (hDC == 0)
+        {
+          DeleteObject(hBitmap);
+          ThrowReaderException(CoderError,""UnableToCreateADC"");
+        }
+      hOldBitmap=(HBITMAP) SelectObject(hDC,hBitmap);
+      if (hOldBitmap == 0)
+        {
+          DeleteDC(hDC);
+          DeleteObject(hBitmap);
+          ThrowReaderException(CoderError,""UnableToCreateBitmap"");
+        }
+      if (hPal != NULL)
+      {
+        /* Kenichi Masuko says this needed */
+        SelectPalette(hDC, hPal, FALSE);
+        RealizePalette(hDC);
+      }
+      /* bitblt from the memory to the DIB-based one */
+      BitBlt(hDC,0,0,(int) image->columns,(int) image->rows,hMemDC,0,0,SRCCOPY);
+      /* finally copy the pixels! */
+      pBits=ppBits;
+      for (y=0; y < (ssize_t) image->rows; y++)
+      {
+        q=QueueAuthenticPixels(image,0,y,image->columns,1,exception);
+        if (q == (PixelPacket *) NULL)
+          break;
+        for (x=0; x < (ssize_t) image->columns; x++)
+        {
+          SetPixelRed(q,ScaleCharToQuantum(pBits->rgbRed));
+          SetPixelGreen(q,ScaleCharToQuantum(pBits->rgbGreen));
+          SetPixelBlue(q,ScaleCharToQuantum(pBits->rgbBlue));
+          SetPixelOpacity(q,OpaqueOpacity);
+          pBits++;
+          q++;
+        }
+        if (SyncAuthenticPixels(image,exception) == MagickFalse)
+          break;
+      }
+      DeleteDC(hDC);
+      DeleteObject(hBitmap);
+    }
+  }
+  (void) CloseBlob(image);
+  return(GetFirstImageInList(image));
+}
+",,,,
+2,Android,a78887bcffbc2995cf9ed72e0697acf560875e9e,CVE-2016-3820,CWE-119,"Decoder: Fix slice number increment for error clips
+
+Bug: 28673410
+","The ih264d decoder in mediaserver in Android 6.x before 2016-08-01 mishandles slice numbers, which allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file, aka internal bug 28673410.","WORD32 ih264d_start_of_pic(dec_struct_t *ps_dec,
+                         WORD32 i4_poc,
+ pocstruct_t *ps_temp_poc,
+                         UWORD16 u2_frame_num,
+ dec_pic_params_t *ps_pps)
+{
+ pocstruct_t *ps_prev_poc = &ps_dec->s_cur_pic_poc;
+ pocstruct_t *ps_cur_poc = ps_temp_poc;
+
+ pic_buffer_t *pic_buf;
+
+ ivd_video_decode_op_t * ps_dec_output =
+ (ivd_video_decode_op_t *)ps_dec->pv_dec_out;
+ dec_slice_params_t *ps_cur_slice = ps_dec->ps_cur_slice;
+ dec_seq_params_t *ps_seq = ps_pps->ps_sps;
+    UWORD8 u1_bottom_field_flag = ps_cur_slice->u1_bottom_field_flag;
+    UWORD8 u1_field_pic_flag = ps_cur_slice->u1_field_pic_flag;
+ /* high profile related declarations */
+ high_profile_tools_t s_high_profile;
+    WORD32 ret;
+
+    H264_MUTEX_LOCK(&ps_dec->process_disp_mutex);
+
+    ps_prev_poc->i4_pic_order_cnt_lsb = ps_cur_poc->i4_pic_order_cnt_lsb;
+    ps_prev_poc->i4_pic_order_cnt_msb = ps_cur_poc->i4_pic_order_cnt_msb;
+    ps_prev_poc->i4_delta_pic_order_cnt_bottom =
+                    ps_cur_poc->i4_delta_pic_order_cnt_bottom;
+    ps_prev_poc->i4_delta_pic_order_cnt[0] =
+                    ps_cur_poc->i4_delta_pic_order_cnt[0];
+    ps_prev_poc->i4_delta_pic_order_cnt[1] =
+                    ps_cur_poc->i4_delta_pic_order_cnt[1];
+    ps_prev_poc->u1_bot_field = ps_dec->ps_cur_slice->u1_bottom_field_flag;
+    ps_prev_poc->i4_prev_frame_num_ofst = ps_cur_poc->i4_prev_frame_num_ofst;
+    ps_prev_poc->u2_frame_num = u2_frame_num;
+    ps_dec->i1_prev_mb_qp_delta = 0;
+    ps_dec->i1_next_ctxt_idx = 0;
+
+
+    ps_dec->u4_nmb_deblk = 0;
+ if(ps_dec->u4_num_cores == 1)
+       ps_dec->u4_nmb_deblk = 1;
+
+
+
+ if(ps_seq->u1_mb_aff_flag == 1)
+ {
+        ps_dec->u4_nmb_deblk = 0;
+ if(ps_dec->u4_num_cores > 2)
+            ps_dec->u4_num_cores = 2;
+ }
+
+        ps_dec->u4_use_intrapred_line_copy = 0;
+
+
+
+ if (ps_seq->u1_mb_aff_flag == 0)
+ {
+        ps_dec->u4_use_intrapred_line_copy = 1;
+ }
+
+    ps_dec->u4_app_disable_deblk_frm = 0;
+ /* If degrade is enabled, set the degrade flags appropriately */
+ if(ps_dec->i4_degrade_type && ps_dec->i4_degrade_pics)
+ {
+        WORD32 degrade_pic;
+        ps_dec->i4_degrade_pic_cnt++;
+        degrade_pic = 0;
+
+ /* If degrade is to be done in all frames, then do not check further */
+ switch(ps_dec->i4_degrade_pics)
+ {
+ case 4:
+ {
+                degrade_pic = 1;
+ break;
+ }
+ case 3:
+ {
+ if(ps_cur_slice->u1_slice_type != I_SLICE)
+                    degrade_pic = 1;
+
+ break;
+ }
+ case 2:
+ {
+
+ /* If pic count hits non-degrade interval or it is an islice, then do not degrade */
+ if((ps_cur_slice->u1_slice_type != I_SLICE)
+ && (ps_dec->i4_degrade_pic_cnt
+ != ps_dec->i4_nondegrade_interval))
+                    degrade_pic = 1;
+
+ break;
+ }
+ case 1:
+ {
+ /* Check if the current picture is non-ref */
+ if(0 == ps_cur_slice->u1_nal_ref_idc)
+ {
+                    degrade_pic = 1;
+ }
+ break;
+ }
+
+ }
+ if(degrade_pic)
+ {
+ if(ps_dec->i4_degrade_type & 0x2)
+                ps_dec->u4_app_disable_deblk_frm = 1;
+
+ /* MC degrading is done only for non-ref pictures */
+ if(0 == ps_cur_slice->u1_nal_ref_idc)
+ {
+ if(ps_dec->i4_degrade_type & 0x4)
+                    ps_dec->i4_mv_frac_mask = 0;
+
+ if(ps_dec->i4_degrade_type & 0x8)
+                    ps_dec->i4_mv_frac_mask = 0;
+ }
+ }
+ else
+            ps_dec->i4_degrade_pic_cnt = 0;
+ }
+
+ {
+ dec_err_status_t * ps_err = ps_dec->ps_dec_err_status;
+ if(ps_dec->u1_sl_typ_5_9
+ && ((ps_cur_slice->u1_slice_type == I_SLICE)
+ || (ps_cur_slice->u1_slice_type
+ == SI_SLICE)))
+            ps_err->u1_cur_pic_type = PIC_TYPE_I;
+ else
+            ps_err->u1_cur_pic_type = PIC_TYPE_UNKNOWN;
+
+ if(ps_err->u1_pic_aud_i == PIC_TYPE_I)
+ {
+            ps_err->u1_cur_pic_type = PIC_TYPE_I;
+            ps_err->u1_pic_aud_i = PIC_TYPE_UNKNOWN;
+ }
+
+ if(ps_cur_slice->u1_nal_unit_type == IDR_SLICE_NAL)
+ {
+ if(ps_err->u1_err_flag)
+                ih264d_reset_ref_bufs(ps_dec->ps_dpb_mgr);
+            ps_err->u1_err_flag = ACCEPT_ALL_PICS;
+ }
+ }
+
+ if(ps_dec->u1_init_dec_flag && ps_dec->s_prev_seq_params.u1_eoseq_pending)
+ {
+ /* Reset the decoder picture buffers */
+        WORD32 j;
+ for(j = 0; j < MAX_DISP_BUFS_NEW; j++)
+ {
+
+            ih264_buf_mgr_release((buf_mgr_t *)ps_dec->pv_pic_buf_mgr,
+                                  j,
+                                  BUF_MGR_REF);
+            ih264_buf_mgr_release((buf_mgr_t *)ps_dec->pv_mv_buf_mgr,
+                                  ps_dec->au1_pic_buf_id_mv_buf_id_map[j],
+                                  BUF_MGR_REF);
+            ih264_buf_mgr_release((buf_mgr_t *)ps_dec->pv_pic_buf_mgr,
+                                  j,
+                                  BUF_MGR_IO);
+ }
+
+ /* reset the decoder structure parameters related to buffer handling */
+        ps_dec->u1_second_field = 0;
+        ps_dec->i4_cur_display_seq = 0;
+
+ /********************************************************************/
+ /* indicate in the decoder output i4_status that some frames are being */
+ /* dropped, so that it resets timestamp and wait for a new sequence */
+ /********************************************************************/
+
+        ps_dec->s_prev_seq_params.u1_eoseq_pending = 0;
+ }
+    ret = ih264d_init_pic(ps_dec, u2_frame_num, i4_poc, ps_pps);
+ if(ret != OK)
+ return ret;
+
+    ps_dec->pv_parse_tu_coeff_data = ps_dec->pv_pic_tu_coeff_data;
+    ps_dec->pv_proc_tu_coeff_data  = ps_dec->pv_pic_tu_coeff_data;
+    ps_dec->ps_nmb_info = ps_dec->ps_frm_mb_info;
+ if(ps_dec->u1_separate_parse)
+ {
+        UWORD16 pic_wd;
+        UWORD16 pic_ht;
+        UWORD32 num_mbs;
+
+        pic_wd = ps_dec->u2_pic_wd;
+        pic_ht = ps_dec->u2_pic_ht;
+        num_mbs = (pic_wd * pic_ht) >> 8;
+
+ if(ps_dec->pu1_dec_mb_map)
+ {
+            memset((void *)ps_dec->pu1_dec_mb_map, 0, num_mbs);
+ }
+
+ if(ps_dec->pu1_recon_mb_map)
+ {
+
+            memset((void *)ps_dec->pu1_recon_mb_map, 0, num_mbs);
+ }
+
+ if(ps_dec->pu2_slice_num_map)
+ {
+            memset((void *)ps_dec->pu2_slice_num_map, 0,
+ (num_mbs * sizeof(UWORD16)));
+ }
+
+ }
+
+
+     ps_dec->ps_parse_cur_slice = &(ps_dec->ps_dec",,,,
+3,Chrome,02c8303512ebed345011f7b545e2f418799be2f0,CVE-2013-0917,CWE-119,"Oilpan: Ship Oilpan for SyncCallbackHelper, CreateFileResult and CallbackWrapper in filesystem/
+
+These are leftovers when we shipped Oilpan for filesystem/ once.
+
+BUG=340522
+
+Review URL: https://codereview.chromium.org/501263003
+
+git-svn-id: svn://svn.chromium.org/blink/trunk@180909 bbb929c8-8fbe-4397-9dbb-9b2b20218538",The URL loader in Google Chrome before 26.0.1410.43 allows remote attackers to cause a denial of service (out-of-bounds read) via unspecified vectors.," Metadata* EntrySync::getMetadata(ExceptionState& exceptionState)
+ {
+    RefPtr<MetadataSyncCallbackHelper> helper = MetadataSyncCallbackHelper::create();
+     m_fileSystem->getMetadata(this, helper->successCallback(), helper->errorCallback(), DOMFileSystemBase::Synchronous);
+     return helper->getResult(exceptionState);
+ }
+",,,,
+4,libgd,fb0e0cce0b9f25389ab56604c3547351617e1415,CVE-2016-6906,CWE-125,"Fix OOB reads of the TGA decompression buffer
+
+It is possible to craft TGA files which will overflow the decompression
+buffer, but not the image's bitmap. Therefore we augment the check for the
+bitmap's overflow with a check for the buffer's overflow.
+
+This issue had been reported by Ibrahim El-Sayed to security@libgd.org.
+
+CVE-2016-6906","The read_image_tga function in gd_tga.c in the GD Graphics Library (aka libgd) before 2.2.4 allows remote attackers to cause a denial of service (out-of-bounds read) via a crafted TGA file, related to the decompression buffer.","int read_image_tga( gdIOCtx *ctx, oTga *tga )
+{
+	int pixel_block_size = (tga->bits / 8);
+	int image_block_size = (tga->width * tga->height) * pixel_block_size;
+	int* decompression_buffer = NULL;
+	unsigned char* conversion_buffer = NULL;
+	int buffer_caret = 0;
+	int bitmap_caret = 0;
+	int i = 0;
+	int encoded_pixels;
+	int rle_size;
+
+	if(overflow2(tga->width, tga->height)) {
+		return -1;
+	}
+
+	if(overflow2(tga->width * tga->height, pixel_block_size)) {
+		return -1;
+	}
+
+	if(overflow2(image_block_size, sizeof(int))) {
+		return -1;
+	}
+
+	/*! \todo Add more image type support.
+	 */
+	if (tga->imagetype != TGA_TYPE_RGB && tga->imagetype != TGA_TYPE_RGB_RLE)
+		return -1;
+
+	/*!	\brief Allocate memmory for image block
+	 *  Allocate a chunk of memory for the image block to be passed into.
+	 */
+	tga->bitmap = (int *) gdMalloc(image_block_size * sizeof(int));
+	if (tga->bitmap == NULL)
+		return -1;
+
+	switch (tga->imagetype) {
+	case TGA_TYPE_RGB:
+		/*! \brief Read in uncompressed RGB TGA
+		 *  Chunk load the pixel data from an uncompressed RGB type TGA.
+		 */
+		conversion_buffer = (unsigned char *) gdMalloc(image_block_size * sizeof(unsigned char));
+		if (conversion_buffer == NULL) {
+			return -1;
+		}
+
+		if (gdGetBuf(conversion_buffer, image_block_size, ctx) != image_block_size) {
+			gd_error(""gd-tga: premature end of image data\n"");
+			gdFree(conversion_buffer);
+			return -1;
+		}
+
+		while (buffer_caret < image_block_size) {
+			tga->bitmap[buffer_caret] = (int) conversion_buffer[buffer_caret];
+			buffer_caret++;
+		}
+
+		gdFree(conversion_buffer);
+		break;
+
+	case TGA_TYPE_RGB_RLE:
+		/*! \brief Read in RLE compressed RGB TGA
+		 *  Chunk load the pixel data from an RLE compressed RGB type TGA.
+		 */
+		decompression_buffer = (int*) gdMalloc(image_block_size * sizeof(int));
+		if (decompression_buffer == NULL) {
+			return -1;
+		}
+		conversion_buffer = (unsigned char *) gdMalloc(image_block_size * sizeof(unsigned char));
+		if (conversion_buffer == NULL) {
+			gd_error(""gd-tga: premature end of image data\n"");
+			gdFree( decompression_buffer );
+			return -1;
+		}
+
+		rle_size = gdGetBuf(conversion_buffer, image_block_size, ctx);
+		if (rle_size <= 0) {
+			gdFree(conversion_buffer);
+			gdFree(decompression_buffer);
+			return -1;
+		}
+
+		buffer_caret = 0;
+
+		while( buffer_caret < rle_size) {
+			decompression_buffer[buffer_caret] = (int)conversion_buffer[buffer_caret];
+			buffer_caret++;
+		}
+
+		buffer_caret = 0;
+
+		while( bitmap_caret < image_block_size ) {
+			
+			if ((decompression_buffer[buffer_caret] & TGA_RLE_FLAG) == TGA_RLE_FLAG) {
+ 				encoded_pixels = ( ( decompression_buffer[ buffer_caret ] & ~TGA_RLE_FLAG ) + 1 );
+ 				buffer_caret++;
+ 
+				if ((bitmap_caret + (encoded_pixels * pixel_block_size)) > image_block_size) {
+ 					gdFree( decompression_buffer );
+ 					gdFree( conversion_buffer );
+ 					return -1;
+				}
+
+				for (i = 0; i < encoded_pixels; i++) {
+					memcpy(tga->bitmap + bitmap_caret, decompression_buffer + buffer_caret, pixel_block_size * sizeof(int));
+					bitmap_caret += pixel_block_size;
+				}
+				buffer_caret += pixel_block_size;
+
+			} else {
+ 				encoded_pixels = decompression_buffer[ buffer_caret ] + 1;
+ 				buffer_caret++;
+ 
+				if ((bitmap_caret + (encoded_pixels * pixel_block_size)) > image_block_size) {
+ 					gdFree( decompression_buffer );
+ 					gdFree( conversion_buffer );
+ 					return -1;
+				}
+
+				memcpy(tga->bitmap + bitmap_caret, decompression_buffer + buffer_caret, encoded_pixels * pixel_block_size * sizeof(int));
+				bitmap_caret += (encoded_pixels * pixel_block_size);
+				buffer_caret += (encoded_pixels * pixel_block_size);
+			}
+		}
+		gdFree( decompression_buffer );
+		gdFree( conversion_buffer );
+		break;
+	}
+
+	return 1;
+}
+",,,,
+5,radare2,40b021ba29c8f90ccf7c879fde2580bc73a17e8e,CVE-2018-14016,CWE-125,Fix #10464 - oobread crash in mdmp,The r_bin_mdmp_init_directory_entry function in mdmp.c in radare2 2.7.0 allows remote attackers to cause a denial of service (heap-based buffer over-read and application crash) via a crafted Mini Crash Dump file.,"static bool r_bin_mdmp_init_directory_entry(struct r_bin_mdmp_obj *obj, struct minidump_directory *entry) {
+	int i;
+
+	struct minidump_handle_operation_list *handle_operation_list;
+	struct minidump_memory_list *memory_list;
+	struct minidump_memory64_list *memory64_list;
+	struct minidump_memory_info_list *memory_info_list;
+	struct minidump_module_list *module_list;
+	struct minidump_thread_list *thread_list;
+	struct minidump_thread_ex_list *thread_ex_list;
+	struct minidump_thread_info_list *thread_info_list;
+	struct minidump_unloaded_module_list *unloaded_module_list;
+
+	struct avrf_handle_operation *handle_operations;
+	struct minidump_memory_descriptor *memories;
+	struct minidump_memory_descriptor64 *memories64;
+	struct minidump_memory_info *memory_infos;
+	struct minidump_module *modules;
+	struct minidump_thread *threads;
+	struct minidump_thread_ex *ex_threads;
+	struct minidump_thread_info *thread_infos;
+	struct minidump_unloaded_module *unloaded_modules;
+
+ 	/* We could confirm data sizes but a malcious MDMP will always get around
+ 	** this! But we can ensure that the data is not outside of the file */
+ 	if (entry->location.rva + entry->location.data_size > obj->b->length) {
+		eprintf(""[ERROR] Size Mismatch - Stream data is larger than file size!\n"");
+ 		return false;
+ 	}
+ 
+	switch (entry->stream_type) {
+	case THREAD_LIST_STREAM:
+		thread_list = (struct minidump_thread_list *)(obj->b->buf + entry->location.rva);
+
+		sdb_set (obj->kv, ""mdmp_thread.format"", ""ddddq?? ""
+			""ThreadId SuspendCount PriorityClass Priority ""
+			""Teb (mdmp_memory_descriptor)Stack ""
+			""(mdmp_location_descriptor)ThreadContext"", 0);
+		sdb_num_set (obj->kv, ""mdmp_thread_list.offset"",
+			entry->location.rva, 0);
+		sdb_set (obj->kv, ""mdmp_thread_list.format"",
+			sdb_fmt (""d[%i]? ""
+				""NumberOfThreads (mdmp_thread)Threads"",
+				thread_list->number_of_threads),
+			0);
+
+		/* TODO: Not yet fully parsed or utilised */
+		for (i = 0; i < thread_list->number_of_threads; i++) {
+			threads = (struct minidump_thread *)(&(thread_list->threads));
+			r_list_append (obj->streams.threads, &(threads[i]));
+		}
+		break;
+	case MODULE_LIST_STREAM:
+		module_list = (struct minidump_module_list *)(obj->b->buf + entry->location.rva);
+
+		sdb_set (obj->kv, ""mdmp_module.format"", ""qddtd???qq ""
+			""BaseOfImage SizeOfImage CheckSum ""
+			""TimeDateStamp ModuleNameRVA ""
+			""(mdmp_vs_fixedfileinfo)VersionInfo ""
+			""(mdmp_location_descriptor)CvRecord ""
+			""(mdmp_location_descriptor)MiscRecord ""
+			""Reserved0 Reserved1"", 0);
+		sdb_num_set (obj->kv, ""mdmp_module_list.offset"",
+			entry->location.rva, 0);
+		sdb_set (obj->kv, ""mdmp_module_list.format"",
+			sdb_fmt (""d[%i]? ""
+				""NumberOfModule (mdmp_module)Modules"",
+				module_list->number_of_modules,
+				0),
+			0);
+
+		for (i = 0; i < module_list->number_of_modules; i++) {
+			modules = (struct minidump_module *)(&(module_list->modules));
+			r_list_append(obj->streams.modules, &(modules[i]));
+		}
+		break;
+	case MEMORY_LIST_STREAM:
+		memory_list = (struct minidump_memory_list *)(obj->b->buf + entry->location.rva);
+
+		sdb_num_set (obj->kv, ""mdmp_memory_list.offset"",
+			entry->location.rva, 0);
+		sdb_set (obj->kv, ""mdmp_memory_list.format"",
+			sdb_fmt (""d[%i]? ""
+				""NumberOfMemoryRanges ""
+				""(mdmp_memory_descriptor)MemoryRanges "",
+				memory_list->number_of_memory_ranges,
+				0),
+			0);
+
+		for (i = 0; i < memory_list->number_of_memory_ranges; i++) {
+			memories = (struct minidump_memory_descriptor *)(&(memory_list->memory_ranges));
+			r_list_append (obj->streams.memories, &(memories[i]));
+		}
+		break;
+	case EXCEPTION_STREAM:
+		/* TODO: Not yet fully parsed or utilised */
+		obj->streams.exception = (struct minidump_exception_stream *)(obj->b->buf + entry->location.rva);
+
+		sdb_set (obj->kv, ""mdmp_exception.format"", ""[4]E[4]Eqqdd[15]q ""
+			""(mdmp_exception_code)ExceptionCode ""
+			""(mdmp_exception_flags)ExceptionFlags ""
+			""ExceptionRecord ExceptionAddress ""
+			""NumberParameters __UnusedAlignment ""
+			""ExceptionInformation"", 0);
+		sdb_num_set (obj->kv, ""mdmp_exception_stream.offset"",
+			entry->location.rva, 0);
+		sdb_set (obj->kv, ""mdmp_exception_stream.format"", ""dd?? ""
+			""ThreadId __Alignment ""
+			""(mdmp_exception)ExceptionRecord ""
+			""(mdmp_location_descriptor)ThreadContext"", 0);
+
+		break;
+	case SYSTEM_INFO_STREAM:
+		obj->streams.system_info = (struct minidump_system_info *)(obj->b->buf + entry->location.rva);
+
+		sdb_num_set (obj->kv, ""mdmp_system_info.offset"",
+			entry->location.rva, 0);
+		/* TODO: We need E as a byte! */
+		sdb_set (obj->kv, ""mdmp_system_info.format"", ""[2]EwwbBddd[4]Ed[2]Ew[2]q ""
+			""(mdmp_processor_architecture)ProcessorArchitecture ""
+			""ProcessorLevel ProcessorRevision NumberOfProcessors ""
+			""(mdmp_product_type)ProductType ""
+			""MajorVersion MinorVersion BuildNumber (mdmp_platform_id)PlatformId ""
+			""CsdVersionRva (mdmp_suite_mask)SuiteMask Reserved2 ProcessorFeatures"", 0);
+
+		break;
+	case THREAD_EX_LIST_STREAM:
+		/* TODO: Not yet fully parsed or utilised */
+		thread_ex_list = (struct minidump_thread_ex_list *)(obj->b->buf + entry->location.rva);
+
+		sdb_set (obj->kv, ""mdmp_thread_ex.format"", ""ddddq??? ""
+			""ThreadId SuspendCount PriorityClass Priority ""
+			""Teb (mdmp_memory_descriptor)Stack ""
+			""(mdmp_location_descriptor)ThreadContext ""
+			""(mdmp_memory_descriptor)BackingStore"", 0);
+		sdb_num_set (obj->kv, ""mdmp_thread_ex_list.offset"",
+			entry->location.rva, 0);
+		sdb_set (obj->kv, ""mdmp_thread_ex_list.format"",
+			sdb_fmt (""d[%i]? NumberOfThreads ""
+				""(mdmp_thread_ex)Threads"",
+				thread_ex_list->number_of_threads, 0),
+			0);
+
+		for (i = 0; i < thread_ex_list->number_of_threads; i++) {
+			ex_threads = (struct minidump_thread_ex *)(&(thread_ex_list->threads));
+			r_list_append (obj->streams.ex_threads, &(ex_threads[i]));
+		}
+		break;
+	case MEMORY_64_LIST_STREAM:
+		memory64_list = (struct minidump_memory64_list *)(obj->b->buf + entry->location.rva);
+
+		sdb_num_set (obj->kv, ""mdmp_memory64_list.offset"",
+			entry->location.rva, 0);
+		sdb_set (obj->kv, ""mdmp_memory64_list.format"",
+			sdb_fmt ",,,,
+6,linux,6e94e0cfb0887e4013b3b930fa6ab1fe6bb6ba91,CVE-2016-4998,CWE-119,"netfilter: x_tables: make sure e->next_offset covers remaining blob size
+
+Otherwise this function may read data beyond the ruleset blob.
+
+Signed-off-by: Florian Westphal <fw@strlen.de>
+Signed-off-by: Pablo Neira Ayuso <pablo@netfilter.org>",The IPT_SO_SET_REPLACE setsockopt implementation in the netfilter subsystem in the Linux kernel before 4.6 allows local users to cause a denial of service (out-of-bounds read) or possibly obtain sensitive information from kernel heap memory by leveraging in-container root access to provide a crafted offset value that leads to crossing a ruleset blob boundary.,"check_entry_size_and_hooks(struct ipt_entry *e,
+			   struct xt_table_info *newinfo,
+			   const unsigned char *base,
+			   const unsigned char *limit,
+			   const unsigned int *hook_entries,
+			   const unsigned int *underflows,
+			   unsigned int valid_hooks)
+{
+	unsigned int h;
+ 	int err;
+ 
+ 	if ((unsigned long)e % __alignof__(struct ipt_entry) != 0 ||
+	    (unsigned char *)e + sizeof(struct ipt_entry) >= limit) {
+ 		duprintf(""Bad offset %p\n"", e);
+ 		return -EINVAL;
+ 	}
+
+	if (e->next_offset
+	    < sizeof(struct ipt_entry) + sizeof(struct xt_entry_target)) {
+		duprintf(""checking: element %p size %u\n"",
+			 e, e->next_offset);
+		return -EINVAL;
+	}
+
+	err = check_entry(e);
+	if (err)
+		return err;
+
+	/* Check hooks & underflows */
+	for (h = 0; h < NF_INET_NUMHOOKS; h++) {
+		if (!(valid_hooks & (1 << h)))
+			continue;
+		if ((unsigned char *)e - base == hook_entries[h])
+			newinfo->hook_entry[h] = hook_entries[h];
+		if ((unsigned char *)e - base == underflows[h]) {
+			if (!check_underflow(e)) {
+				pr_err(""Underflows must be unconditional and ""
+				       ""use the STANDARD target with ""
+				       ""ACCEPT/DROP\n"");
+				return -EINVAL;
+			}
+			newinfo->underflow[h] = underflows[h];
+		}
+	}
+
+	/* Clear counters and comefrom */
+	e->counters = ((struct xt_counters) { 0, 0 });
+	e->comefrom = 0;
+	return 0;
+}
+",,,,
+7,Android,04839626ed859623901ebd3a5fd483982186b59d,CVE-2016-1621,CWE-119,"libwebm: Pull from upstream
+
+Rolling mkvparser from upstream. Primarily for fixing a bug on parsing
+failures with certain Opus WebM files.
+
+Upstream commit hash of this pull: 574045edd4ecbeb802ee3f1d214b5510269852ae
+
+The diff is so huge because there were some style clean ups upstream.
+But it was ensured that there were no breaking changes when the style
+clean ups was done upstream.
+
+Change-Id: Ib6e907175484b4b0ae1b55ab39522ea3188ad039","libvpx in mediaserver in Android 4.x before 4.4.4, 5.x before 5.1.1 LMY49H, and 6.0 before 2016-03-01 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file, related to libwebm/mkvparser.cpp and other files, aka internal bug 23452792.","int Chapters::Edition::GetAtomCount() const
+{
+    return m_atoms_count;
+ }
+",,,,
+8,Android,ba604d336b40fd4bde1622f64d67135bdbd61301,CVE-2016-0835,CWE-119,"Fix for handling streams which resulted in negative num_mbs_left
+
+Bug: 26070014
+Change-Id: Id9f063a2c72a802d991b92abaf00ec687db5bb0f
+","decoder/impeg2d_dec_hdr.c in mediaserver in Android 6.x before 2016-04-01 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file that triggers a certain negative value, aka internal bug 26070014.","WORD32 impeg2d_get_slice_pos(dec_state_multi_core_t *ps_dec_state_multi_core)
+{
+    WORD32 u4_bits;
+    WORD32 i4_row;
+
+
+ dec_state_t *ps_dec = ps_dec_state_multi_core->ps_dec_state[0];
+    WORD32 i4_prev_row;
+ stream_t s_bitstrm;
+    WORD32 i4_start_row;
+    WORD32 i4_slice_bistream_ofst;
+    WORD32 i;
+    s_bitstrm = ps_dec->s_bit_stream;
+    i4_prev_row = -1;
+
+    ps_dec_state_multi_core->ps_dec_state[0]->i4_start_mb_y = 0;
+    ps_dec_state_multi_core->ps_dec_state[1]->i4_start_mb_y = -1;
+    ps_dec_state_multi_core->ps_dec_state[2]->i4_start_mb_y = -1;
+    ps_dec_state_multi_core->ps_dec_state[3]->i4_start_mb_y = -1;
+
+    ps_dec_state_multi_core->ps_dec_state[0]->i4_end_mb_y = ps_dec->u2_num_vert_mb;
+    ps_dec_state_multi_core->ps_dec_state[1]->i4_end_mb_y = -1;
+    ps_dec_state_multi_core->ps_dec_state[2]->i4_end_mb_y = -1;
+    ps_dec_state_multi_core->ps_dec_state[3]->i4_end_mb_y = -1;
+
+ if(ps_dec->i4_num_cores == 1)
+ return 0;
+ /* Reset the jobq to start of the jobq buffer */
+    impeg2_jobq_reset((jobq_t *)ps_dec->pv_jobq);
+
+    i4_start_row = -1;
+    i4_slice_bistream_ofst = 0;
+ while(1)
+ {
+        WORD32 i4_is_slice;
+
+ if(s_bitstrm.u4_offset + START_CODE_LEN >= s_bitstrm.u4_max_offset)
+ {
+ break;
+ }
+        u4_bits = impeg2d_bit_stream_nxt(&s_bitstrm,START_CODE_LEN);
+
+        i4_row = u4_bits & 0xFF;
+
+ /* Detect end of frame */
+        i4_is_slice = (((u4_bits >> 8) == 0x01) && (i4_row) && (i4_row <= ps_dec->u2_num_vert_mb));
+ if(!i4_is_slice)
+ break;
+
+
+         i4_row -= 1;
+ 
+ 
+        if(i4_prev_row != i4_row)
+         {
+             /* Create a job for previous slice row */
+             if(i4_start_row != -1)
+ {
+ job_t s_job;
+                IV_API_CALL_STATUS_T ret;
+                s_job.i2_start_mb_y = i4_start_row;
+                s_job.i2_end_mb_y = i4_row;
+                s_job.i4_cmd = CMD_PROCESS;
+                s_job.i4_bistream_ofst = i4_slice_bistream_ofst;
+                ret = impeg2_jobq_queue(ps_dec->pv_jobq, &s_job, sizeof(s_job), 1, 0);
+ if(ret != IV_SUCCESS)
+ return ret;
+
+ }
+ /* Store current slice's bitstream offset */
+            i4_slice_bistream_ofst = s_bitstrm.u4_offset >> 3;
+            i4_slice_bistream_ofst -= (size_t)s_bitstrm.pv_bs_buf & 3;
+            i4_prev_row = i4_row;
+
+
+             /* Store current slice's row position */
+             i4_start_row = i4_row;
+ 
+         }
+ 
+ 
+        impeg2d_bit_stream_flush(&s_bitstrm, START_CODE_LEN);
+
+ /* Flush the bytes till a  start code is encountered  */
+ while(impeg2d_bit_stream_nxt(&s_bitstrm, 24) != START_CODE_PREFIX)
+ {
+            impeg2d_bit_stream_get(&s_bitstrm, 8);
+
+ if(s_bitstrm.u4_offset >= s_bitstrm.u4_max_offset)
+ {
+ break;
+ }
+ }
+ }
+
+ /* Create job for the last slice row */
+ {
+ job_t s_job;
+        IV_API_CALL_STATUS_T e_ret;
+        s_job.i2_start_mb_y = i4_start_row;
+        s_job.i2_end_mb_y = ps_dec->u2_num_vert_mb;
+        s_job.i4_cmd = CMD_PROCESS;
+        s_job.i4_bistream_ofst = i4_slice_bistream_ofst;
+        e_ret = impeg2_jobq_queue(ps_dec->pv_jobq, &s_job, sizeof(s_job), 1, 0);
+ if(e_ret != IV_SUCCESS)
+ return e_ret;
+
+ }
+ if((NULL != ps_dec->ps_disp_pic) && ((0 == ps_dec->u4_share_disp_buf) || (IV_YUV_420P != ps_dec->i4_chromaFormat)))
+ {
+ for(i = 0; i < ps_dec->u2_vertical_size; i+=64)
+ {
+ job_t s_job;
+            IV_API_CALL_STATUS_T ret;
+            s_job.i2_start_mb_y = i;
+            s_job.i2_start_mb_y >>= 4;
+            s_job.i2_end_mb_y = (i + 64);
+            s_job.i2_end_mb_y >>= 4;
+            s_job.i4_cmd = CMD_FMTCONV;
+            s_job.i4_bistream_ofst = 0;
+            ret = impeg2_jobq_queue(ps_dec->pv_jobq, &s_job, sizeof(s_job), 1, 0);
+ if(ret != IV_SUCCESS)
+ return ret;
+
+ }
+ }
+
+    impeg2_jobq_terminate(ps_dec->pv_jobq);
+    ps_dec->i4_bytes_consumed = s_bitstrm.u4_offset >> 3;
+    ps_dec->i4_bytes_consumed -= ((size_t)s_bitstrm.pv_bs_buf & 3);
+
+ return 0;
+}
+",,,,
+9,Chrome,7f0126ff011142c8619b10a6e64d04d1745c503a,CVE-2012-5157,CWE-119,"Revert 162155 ""This review merges the two existing page serializ...""
+
+Change r162155 broke the world even though it was landed using the CQ.
+
+> This review merges the two existing page serializers, WebPageSerializerImpl and
+> PageSerializer, into one, PageSerializer. In addition to this it moves all
+> the old tests from WebPageNewSerializerTest and WebPageSerializerTest to the
+> PageSerializerTest structure and splits out one test for MHTML into a new
+> MHTMLTest file.
+> 
+> Saving as 'Webpage, Complete', 'Webpage, HTML Only' and as MHTML when the
+> 'Save Page as MHTML' flag is enabled now uses the same code, and should thus
+> have the same feature set. Meaning that both modes now should be a bit better.
+> 
+> Detailed list of changes:
+> 
+> - PageSerializerTest: Prepare for more DTD test
+> - PageSerializerTest: Remove now unneccesary input image test
+> - PageSerializerTest: Remove unused WebPageSerializer/Impl code
+> - PageSerializerTest: Move data URI morph test
+> - PageSerializerTest: Move data URI test
+> - PageSerializerTest: Move namespace test
+> - PageSerializerTest: Move SVG Image test
+> - MHTMLTest: Move MHTML specific test to own test file
+> - PageSerializerTest: Delete duplicate XML header test
+> - PageSerializerTest: Move blank frame test
+> - PageSerializerTest: Move CSS test
+> - PageSerializerTest: Add frameset/frame test
+> - PageSerializerTest: Move old iframe test
+> - PageSerializerTest: Move old elements test
+> - Use PageSerizer for saving web pages
+> - PageSerializerTest: Test for rewriting links
+> - PageSerializer: Add rewrite link accumulator
+> - PageSerializer: Serialize images in iframes/frames src
+> - PageSerializer: XHTML fix for meta tags
+> - PageSerializer: Add presentation CSS
+> - PageSerializer: Rename out parameter
+> 
+> BUG=
+> R=abarth@chromium.org
+> 
+> Review URL: https://codereview.chromium.org/68613003
+
+TBR=tiger@opera.com
+
+Review URL: https://codereview.chromium.org/73673003
+
+git-svn-id: svn://svn.chromium.org/blink/trunk@162156 bbb929c8-","Google Chrome before 24.0.1312.52 does not properly handle image data in PDF documents, which allows remote attackers to cause a denial of service (out-of-bounds read) via a crafted document.","void PageSerializer::serializeFrame(Frame* frame)
+{
+    Document* document = frame->document();
+    KURL url = document->url();
+    if (!url.isValid() || url.isBlankURL()) {
+        url = urlForBlankFrame(frame);
+    }
+
+    if (m_resourceURLs.contains(url)) {
+         return;
+     }
+ 
+    if (document->isImageDocument()) {
+        ImageDocument* imageDocument = toImageDocument(document);
+        addImageToResources(imageDocument->cachedImage(), imageDocument->imageElement()->renderer(), url);
+        return;
+    }
+     Vector<Node*> nodes;
+    OwnPtr<SerializerMarkupAccumulator> accumulator;
+    if (m_URLs)
+        accumulator = adoptPtr(new LinkChangeSerializerMarkupAccumulator(this, document, &nodes, m_URLs, m_directory));
+    else
+        accumulator = adoptPtr(new SerializerMarkupAccumulator(this, document, &nodes));
+    String text = accumulator->serializeNodes(document, IncludeNode);
+     WTF::TextEncoding textEncoding(document->charset());
+     CString frameHTML = textEncoding.normalizeAndEncode(text, WTF::EntitiesForUnencodables);
+     m_resources->append(SerializedResource(url, document->suggestedMIMEType(), SharedBuffer::create(frameHTML.data(), frameHTML.length())));
+     m_resourceURLs.add(url);
+
+    for (Vector<Node*>::iterator iter = nodes.begin(); iter != nodes.end(); ++iter) {
+        Node* node = *iter;
+        if (!node->isElementNode())
+            continue;
+ 
+         Element* element = toElement(node);
+        if (element->isStyledElement()) {
+             retrieveResourcesForProperties(element->inlineStyle(), document);
+            retrieveResourcesForProperties(element->presentationAttributeStyle(), document);
+        }
+ 
+         if (element->hasTagName(HTMLNames::imgTag)) {
+             HTMLImageElement* imageElement = toHTMLImageElement(element);
+            KURL url = document->completeURL(imageElement->getAttribute(HTMLNames::srcAttr));
+            ImageResource* cachedImage = imageElement->cachedImage();
+            addImageToResources(cachedImage, imageElement->renderer(), url);
+        } else if (element->hasTagName(HTMLNames::inputTag)) {
+            HTMLInputElement* inputElement = toHTMLInputElement(element);
+            if (inputElement->isImageButton() && inputElement->hasImageLoader()) {
+                KURL url = inputElement->src();
+                ImageResource* cachedImage = inputElement->imageLoader()->image();
+                addImageToResources(cachedImage, inputElement->renderer(), url);
+            }
+        } else if (element->hasTagName(HTMLNames::linkTag)) {
+            HTMLLinkElement* linkElement = toHTMLLinkElement(element);
+            if (CSSStyleSheet* sheet = linkElement->sheet()) {
+                KURL url = document->completeURL(linkElement->getAttribute(HTMLNames::hrefAttr));
+                serializeCSSStyleSheet(sheet, url);
+                ASSERT(m_resourceURLs.contains(url));
+            }
+        } else if (element->hasTagName(HTMLNames::styleTag)) {
+            HTMLStyleElement* styleElement = toHTMLStyleElement(element);
+            if (CSSStyleSheet* sheet = styleElement->sheet())
+                serializeCSSStyleSheet(sheet, KURL());
+        }
+    }
+
+    for (Frame* childFrame = frame->tree().firstChild(); childFrame; childFrame = childFrame->tree().nextSibling())
+        serializeFrame(childFrame);
+}
+",,,,
+10,Chrome,3ca8e38ff57e83fcce76f9b54cd8f8bfa09c34ad,CVE-2013-2920,CWE-119,"Fix OOB read when parsing protocol-relative URLs
+
+BUG=285742
+
+Review URL: https://chromiumcodereview.appspot.com/23902014
+
+git-svn-id: svn://svn.chromium.org/chrome/trunk/src@223735 0039d316-1c4b-4281-b951-d872f2087c98","The DoResolveRelativeHost function in url/url_canon_relative.cc in Google Chrome before 30.0.1599.66 allows remote attackers to cause a denial of service (out-of-bounds read) via a relative URL containing a hostname, as demonstrated by a protocol-relative URL beginning with a //www.google.com/ substring.","bool DoResolveRelativeHost(const char* base_url,
+                           const url_parse::Parsed& base_parsed,
+                           const CHAR* relative_url,
+                           const url_parse::Component& relative_component,
+                           CharsetConverter* query_converter,
+                           CanonOutput* output,
+                           url_parse::Parsed* out_parsed) {
+   url_parse::Parsed relative_parsed;  // Everything but the scheme is valid.
+  url_parse::ParseAfterScheme(&relative_url[relative_component.begin],
+                              relative_component.len, relative_component.begin,
+                              &relative_parsed);
+ 
+  Replacements<CHAR> replacements;
+  replacements.SetUsername(relative_url, relative_parsed.username);
+  replacements.SetPassword(relative_url, relative_parsed.password);
+  replacements.SetHost(relative_url, relative_parsed.host);
+  replacements.SetPort(relative_url, relative_parsed.port);
+  replacements.SetPath(relative_url, relative_parsed.path);
+  replacements.SetQuery(relative_url, relative_parsed.query);
+  replacements.SetRef(relative_url, relative_parsed.ref);
+
+  return ReplaceStandardURL(base_url, base_parsed, replacements,
+                            query_converter, output, out_parsed);
+}
+",,,,
+11,libtiff,3ca657a8793dd011bf869695d72ad31c779c3cc1,CVE-2016-9535,CWE-119,"* libtiff/tif_predict.h, libtiff/tif_predict.c:
+Replace assertions by runtime checks to avoid assertions in debug mode,
+or buffer overflows in release mode. Can happen when dealing with
+unusual tile size like YCbCr with subsampling. Reported as MSVR 35105
+by Axel Souchet	& Vishal Chauhan from the MSRC Vulnerabilities & Mitigations
+team.","tif_predict.h and tif_predict.c in libtiff 4.0.6 have assertions that can lead to assertion failures in debug mode, or buffer overflows in release mode, when dealing with unusual tile size like YCbCr with subsampling. Reported as MSVR 35105, aka *Predictor heap-buffer-overflow.*","PredictorEncodeRow(TIFF* tif, uint8* bp, tmsize_t cc, uint16 s)
+{
+	TIFFPredictorState *sp = PredictorState(tif);
+
+	assert(sp != NULL);
+	assert(sp->encodepfunc != NULL);
+ 	assert(sp->encoderow != NULL);
+ 
+ 	/* XXX horizontal differencing alters user's data XXX */
+	(*sp->encodepfunc)(tif, bp, cc);
+ 	return (*sp->encoderow)(tif, bp, cc, s);
+ }
+",,,,
+12,Android,5a9753fca56f0eeb9f61e342b2fccffc364f9426,CVE-2016-1621,CWE-119,"Merge Conflict Fix CL to lmp-mr1-release for ag/849478
+
+DO NOT MERGE - libvpx: Pull from upstream
+
+Current HEAD: 7105df53d7dc13d5e575bc8df714ec8d1da36b06
+
+BUG=23452792
+
+Change-Id: Ic78176fc369e0bacc71d423e0e2e6075d004aaec
+","libvpx in mediaserver in Android 4.x before 4.4.4, 5.x before 5.1.1 LMY49H, and 6.0 before 2016-03-01 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file, related to libwebm/mkvparser.cpp and other files, aka internal bug 23452792.","int main(int argc, char **argv) {
+ int frame_cnt = 0;
+ FILE *outfile = NULL;
+ vpx_codec_ctx_t codec;
+ const VpxInterface *decoder = NULL;
+ VpxVideoReader *reader = NULL;
+ const VpxVideoInfo *info = NULL;
+ int n = 0;
+ int m = 0;
+ int is_range = 0;
+ char *nptr = NULL;
+
+  exec_name = argv[0];
+
+ if (argc != 4)
+    die(""Invalid number of arguments."");
+
+  reader = vpx_video_reader_open(argv[1]);
+ if (!reader)
+    die(""Failed to open %s for reading."", argv[1]);
+
+ if (!(outfile = fopen(argv[2], ""wb"")))
+    die(""Failed to open %s for writing."", argv[2]);
+
+  n = strtol(argv[3], &nptr, 0);
+  m = strtol(nptr + 1, NULL, 0);
+  is_range = (*nptr == '-');
+ if (!n || !m || (*nptr != '-' && *nptr != '/'))
+    die(""Couldn't parse pattern %s.\n"", argv[3]);
+
+  info = vpx_video_reader_get_info(reader);
+
+  decoder = get_vpx_decoder_by_fourcc(info->codec_fourcc);
+
+   if (!decoder)
+     die(""Unknown input codec."");
+ 
+  printf(""Using %s\n"", vpx_codec_iface_name(decoder->interface()));
+ 
+  if (vpx_codec_dec_init(&codec, decoder->interface(), NULL, 0))
+     die_codec(&codec, ""Failed to initialize decoder."");
+ 
+   while (vpx_video_reader_read_frame(reader)) {
+ vpx_codec_iter_t iter = NULL;
+ vpx_image_t *img = NULL;
+ size_t frame_size = 0;
+ int skip;
+ const unsigned char *frame = vpx_video_reader_get_frame(reader,
+ &frame_size);
+ if (vpx_codec_decode(&codec, frame, (unsigned int)frame_size, NULL, 0))
+      die_codec(&codec, ""Failed to decode frame."");
+
+ ++frame_cnt;
+
+    skip = (is_range && frame_cnt >= n && frame_cnt <= m) ||
+ (!is_range && m - (frame_cnt - 1) % m <= n);
+
+ if (!skip) {
+      putc('.', stdout);
+
+ while ((img = vpx_codec_get_frame(&codec, &iter)) != NULL)
+        vpx_img_write(img, outfile);
+ } else {
+      putc('X', stdout);
+ }
+
+    fflush(stdout);
+ }
+
+  printf(""Processed %d frames.\n"", frame_cnt);
+ if (vpx_codec_destroy(&codec))
+    die_codec(&codec, ""Failed to destroy codec."");
+
+  printf(""Play: ffplay -f rawvideo -pix_fmt yuv420p -s %dx%d %s\n"",
+         info->frame_width, info->frame_height, argv[2]);
+
+  vpx_video_reader_close(reader);
+  fclose(outfile);
+
+ return EXIT_SUCCESS;
+}
+",,,,
+13,Android,5a9753fca56f0eeb9f61e342b2fccffc364f9426,CVE-2016-1621,CWE-119,"Merge Conflict Fix CL to lmp-mr1-release for ag/849478
+
+DO NOT MERGE - libvpx: Pull from upstream
+
+Current HEAD: 7105df53d7dc13d5e575bc8df714ec8d1da36b06
+
+BUG=23452792
+
+Change-Id: Ic78176fc369e0bacc71d423e0e2e6075d004aaec
+","libvpx in mediaserver in Android 4.x before 4.4.4, 5.x before 5.1.1 LMY49H, and 6.0 before 2016-03-01 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file, related to libwebm/mkvparser.cpp and other files, aka internal bug 23452792.","  void RunFwdTxfm(int16_t *in, int16_t *out, int stride) {
+     fwd_txfm_(in, out, stride, tx_type_);
+   }
+",,,,
+14,miniupnp,b238cade9a173c6f751a34acf8ccff838a62aa47,CVE-2016-3178,CWE-125,minissdpd: Fix broken overflow test (p+l > buf+n) thanks to Salva Piero,The processRequest function in minissdpd.c in MiniSSDPd 1.2.20130907-3 allows local users to cause a denial of service (out-of-bounds memory access and daemon crash) via vectors involving a negative length value.,"void processRequest(struct reqelem * req)
+{
+	ssize_t n;
+	unsigned int l, m;
+	unsigned char buf[2048];
+	const unsigned char * p;
+	enum request_type type;
+	struct device * d = devlist;
+	unsigned char rbuf[RESPONSE_BUFFER_SIZE];
+	unsigned char * rp;
+	unsigned char nrep = 0;
+	time_t t;
+	struct service * newserv = NULL;
+	struct service * serv;
+
+	n = read(req->socket, buf, sizeof(buf));
+	if(n<0) {
+		if(errno == EINTR || errno == EAGAIN || errno == EWOULDBLOCK)
+			return;	/* try again later */
+		syslog(LOG_ERR, ""(s=%d) processRequest(): read(): %m"", req->socket);
+		goto error;
+	}
+	if(n==0) {
+		syslog(LOG_INFO, ""(s=%d) request connection closed"", req->socket);
+		goto error;
+	}
+	t = time(NULL);
+ 	type = buf[0];
+ 	p = buf + 1;
+ 	DECODELENGTH_CHECKLIMIT(l, p, buf + n);
+	if(p+l > buf+n) {
+ 		syslog(LOG_WARNING, ""bad request (length encoding l=%u n=%u)"",
+ 		       l, (unsigned)n);
+ 		goto error;
+	}
+	if(l == 0 && type != MINISSDPD_SEARCH_ALL
+	   && type != MINISSDPD_GET_VERSION && type != MINISSDPD_NOTIF) {
+		syslog(LOG_WARNING, ""bad request (length=0, type=%d)"", type);
+		goto error;
+	}
+	syslog(LOG_INFO, ""(s=%d) request type=%d str='%.*s'"",
+	       req->socket, type, l, p);
+	switch(type) {
+	case MINISSDPD_GET_VERSION:
+		rp = rbuf;
+		CODELENGTH((sizeof(MINISSDPD_VERSION) - 1), rp);
+		memcpy(rp, MINISSDPD_VERSION, sizeof(MINISSDPD_VERSION) - 1);
+		rp += (sizeof(MINISSDPD_VERSION) - 1);
+		if(write_or_buffer(req, rbuf, rp - rbuf) < 0) {
+			syslog(LOG_ERR, ""(s=%d) write: %m"", req->socket);
+			goto error;
+		}
+		break;
+	case MINISSDPD_SEARCH_TYPE:	/* request by type */
+	case MINISSDPD_SEARCH_USN:	/* request by USN (unique id) */
+	case MINISSDPD_SEARCH_ALL:	/* everything */
+		rp = rbuf+1;
+		while(d && (nrep < 255)) {
+			if(d->t < t) {
+				syslog(LOG_INFO, ""outdated device"");
+			} else {
+				/* test if we can put more responses in the buffer */
+				if(d->headers[HEADER_LOCATION].l + d->headers[HEADER_NT].l
+				  + d->headers[HEADER_USN].l + 6
+				  + (rp - rbuf) >= (int)sizeof(rbuf))
+					break;
+				if( (type==MINISSDPD_SEARCH_TYPE && 0==memcmp(d->headers[HEADER_NT].p, p, l))
+				  ||(type==MINISSDPD_SEARCH_USN && 0==memcmp(d->headers[HEADER_USN].p, p, l))
+				  ||(type==MINISSDPD_SEARCH_ALL) ) {
+					/* response :
+					 * 1 - Location
+					 * 2 - NT (device/service type)
+					 * 3 - usn */
+					m = d->headers[HEADER_LOCATION].l;
+					CODELENGTH(m, rp);
+					memcpy(rp, d->headers[HEADER_LOCATION].p, d->headers[HEADER_LOCATION].l);
+					rp += d->headers[HEADER_LOCATION].l;
+					m = d->headers[HEADER_NT].l;
+					CODELENGTH(m, rp);
+					memcpy(rp, d->headers[HEADER_NT].p, d->headers[HEADER_NT].l);
+					rp += d->headers[HEADER_NT].l;
+					m = d->headers[HEADER_USN].l;
+					CODELENGTH(m, rp);
+					memcpy(rp, d->headers[HEADER_USN].p, d->headers[HEADER_USN].l);
+					rp += d->headers[HEADER_USN].l;
+					nrep++;
+				}
+			}
+			d = d->next;
+		}
+		/* Also look in service list */
+		for(serv = servicelisthead.lh_first;
+		    serv && (nrep < 255);
+		    serv = serv->entries.le_next) {
+			/* test if we can put more responses in the buffer */
+			if(strlen(serv->location) + strlen(serv->st)
+			  + strlen(serv->usn) + 6 + (rp - rbuf) >= sizeof(rbuf))
+			  	break;
+			if( (type==MINISSDPD_SEARCH_TYPE && 0==strncmp(serv->st, (const char *)p, l))
+			  ||(type==MINISSDPD_SEARCH_USN && 0==strncmp(serv->usn, (const char *)p, l))
+			  ||(type==MINISSDPD_SEARCH_ALL) ) {
+				/* response :
+				 * 1 - Location
+				 * 2 - NT (device/service type)
+				 * 3 - usn */
+				m = strlen(serv->location);
+				CODELENGTH(m, rp);
+				memcpy(rp, serv->location, m);
+				rp += m;
+				m = strlen(serv->st);
+				CODELENGTH(m, rp);
+				memcpy(rp, serv->st, m);
+				rp += m;
+				m = strlen(serv->usn);
+				CODELENGTH(m, rp);
+				memcpy(rp, serv->usn, m);
+				rp += m;
+				nrep++;
+			}
+		}
+		rbuf[0] = nrep;
+		syslog(LOG_DEBUG, ""(s=%d) response : %d device%s"",
+		       req->socket, nrep, (nrep > 1) ? ""s"" : """");
+		if(write_or_buffer(req, rbuf, rp - rbuf) < 0) {
+			syslog(LOG_ERR, ""(s=%d) write: %m"", req->socket);
+			goto error;
+		}
+		break;
+	case MINISSDPD_SUBMIT:	/* submit service */
+		newserv = malloc(sizeof(struct service));
+		if(!newserv) {
+			syslog(LOG_ERR, ""cannot allocate memory"");
+			goto error;
+		}
+		memset(newserv, 0, sizeof(struct service));	/* set pointers to NULL */
+		if(containsForbiddenChars(p, l)) {
+			syslog(LOG_ERR, ""bad request (st contains forbidden chars)"");
+			goto error;
+		}
+		newserv->st = malloc(l + 1);
+		if(!newserv->st) {
+			syslog(LOG_ERR, ""cannot allocate memory"");
+			goto error;
+		}
+		memcpy(newserv->st, p, l);
+		newserv->st[l] = '\0';
+		p += l;
+		if(p >= buf + n) {
+			syslog(LOG_WARNING, ""bad request (missing usn)"");
+ 			goto error;
+ 		}
+ 		DECODELENGTH_CHECKLIMIT(l, p, buf + n);
+		if(p+l > buf+n) {
+ 			syslog(LOG_WARNING, ""bad request (length encoding)"");
+ 			goto error;
+ 		}
+		if(containsForbiddenChars(p, l)) {
+			syslog(LOG_ERR, ""bad request (usn contains forbidden chars)"");
+			goto error;
+		}
+		syslog(LOG_INFO, ""usn='%.*s'"", l, p);
+		newserv->usn = malloc(l + 1);
+		if(!newserv->usn) {
+			syslog(LOG_ERR, ""cannot allocate memory"");
+			goto error;
+		}
+		memcpy(newserv->usn, p, l);
+ 		newserv->usn[l] = '\0';
+ 		p += l;
+ 		DECODELENGTH_CHECKLIMIT(l, p, buf + n);
+		if(p+l > buf+n) {
+ 			syslog(LOG_WARNING, ""bad request (length encoding)"");
+ 			goto error;
+ 		}
+		if(containsForbiddenChars(p, l)) {
+			syslog(LOG_ERR, ""bad request (server contains forbidden chars)"");
+			goto error;
+		}
+		syslog(LOG_INFO, ""server='%.*s'"", l, p);
+		newserv->server = malloc(l + 1);
+		if(!newserv->server) {
+			syslog(LOG_ERR, ""cannot allocate memory"");
+			goto error;
+		}
+		memcpy(newserv->server, p, l);
+ 		newserv->server[l] = '\0';
+ 		p += l;
+ 		DECODELENGTH_CHECKLIMIT(l, p, buf + n);
+		if(p+l > buf+n) {
+ 			syslog(LOG_WARNING, ""bad request (length encoding)"");
+ 			goto error;
+ 		}
+		if(containsForbiddenChars(p, l)) {
+			syslog(LOG_ERR, ""bad request (location contains forbidden chars)"");
+			goto error;
+		}
+		syslog(LOG_INFO, ""location='%.*s'"", l, p);
+		newser",,,,
+15,libXrandr,a0df3e1c7728205e5c7650b2e6dce684139254a6,CVE-2016-7948,CWE-787,,X.org libXrandr before 1.5.1 allows remote X servers to trigger out-of-bounds write operations by leveraging mishandling of reply data.,"XRRGetOutputInfo (Display *dpy, XRRScreenResources *resources, RROutput output)
+{
+    XExtDisplayInfo		*info = XRRFindDisplay(dpy);
+    xRRGetOutputInfoReply	rep;
+    xRRGetOutputInfoReq		*req;
+    int				nbytes, nbytesRead, rbytes;
+    XRROutputInfo		*xoi;
+
+    RRCheckExtension (dpy, info, NULL);
+
+    LockDisplay (dpy);
+    GetReq (RRGetOutputInfo, req);
+    req->reqType = info->codes->major_opcode;
+    req->randrReqType = X_RRGetOutputInfo;
+    req->output = output;
+    req->configTimestamp = resources->configTimestamp;
+
+    if (!_XReply (dpy, (xReply *) &rep, OutputInfoExtra >> 2, xFalse))
+    {
+	UnlockDisplay (dpy);
+	SyncHandle ();
+	return NULL;
+ 	return NULL;
+     }
+ 
+     nbytes = ((long) (rep.length) << 2) - OutputInfoExtra;
+ 
+     nbytesRead = (long) (rep.nCrtcs * 4 +
+	      rep.nCrtcs * sizeof (RRCrtc) +
+	      rep.nModes * sizeof (RRMode) +
+	      rep.nClones * sizeof (RROutput) +
+	      rep.nameLength + 1);	    /* '\0' terminate name */
+
+    xoi = (XRROutputInfo *) Xmalloc(rbytes);
+    if (xoi == NULL) {
+	_XEatDataWords (dpy, rep.length - (OutputInfoExtra >> 2));
+	UnlockDisplay (dpy);
+	SyncHandle ();
+	return NULL;
+    }
+
+    xoi->timestamp = rep.timestamp;
+    xoi->crtc = rep.crtc;
+    xoi->mm_width = rep.mmWidth;
+    xoi->mm_height = rep.mmHeight;
+    xoi->connection = rep.connection;
+    xoi->subpixel_order = rep.subpixelOrder;
+    xoi->ncrtc = rep.nCrtcs;
+    xoi->crtcs = (RRCrtc *) (xoi + 1);
+    xoi->nmode = rep.nModes;
+    xoi->npreferred = rep.nPreferred;
+    xoi->modes = (RRMode *) (xoi->crtcs + rep.nCrtcs);
+    xoi->nclone = rep.nClones;
+    xoi->clones = (RROutput *) (xoi->modes + rep.nModes);
+    xoi->name = (char *) (xoi->clones + rep.nClones);
+
+    _XRead32 (dpy, (long *) xoi->crtcs, rep.nCrtcs << 2);
+    _XRead32 (dpy, (long *) xoi->modes, rep.nModes << 2);
+    _XRead32 (dpy, (long *) xoi->clones, rep.nClones << 2);
+
+    /*
+     * Read name and '\0' terminate
+     */
+    _XReadPad (dpy, xoi->name, rep.nameLength);
+    xoi->name[rep.nameLength] = '\0';
+    xoi->nameLen = rep.nameLength;
+
+    /*
+     * Skip any extra data
+     */
+    if (nbytes > nbytesRead)
+	_XEatData (dpy, (unsigned long) (nbytes - nbytesRead));
+
+    UnlockDisplay (dpy);
+    SyncHandle ();
+    return (XRROutputInfo *) xoi;
+}
+",,,,
+16,Android,04839626ed859623901ebd3a5fd483982186b59d,CVE-2016-1621,CWE-119,"libwebm: Pull from upstream
+
+Rolling mkvparser from upstream. Primarily for fixing a bug on parsing
+failures with certain Opus WebM files.
+
+Upstream commit hash of this pull: 574045edd4ecbeb802ee3f1d214b5510269852ae
+
+The diff is so huge because there were some style clean ups upstream.
+But it was ensured that there were no breaking changes when the style
+clean ups was done upstream.
+
+Change-Id: Ib6e907175484b4b0ae1b55ab39522ea3188ad039","libvpx in mediaserver in Android 4.x before 4.4.4, 5.x before 5.1.1 LMY49H, and 6.0 before 2016-03-01 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file, related to libwebm/mkvparser.cpp and other files, aka internal bug 23452792.","const CuePoint* Cues::GetFirst() const
+{
+    if (m_cue_points == NULL)
+        return NULL;
+    if (m_count == 0)
+        return NULL;
+ 
+ #if 0
+     LoadCuePoint();  //init cues
+
+ const size_t count = m_count + m_preload_count;
+
+ if (count == 0) //weird
+
+         return NULL;
+ #endif
+ 
+    CuePoint* const* const pp = m_cue_points;
+    assert(pp);
+ 
+    CuePoint* const pCP = pp[0];
+    assert(pCP);
+    assert(pCP->GetTimeCode() >= 0);
+ 
+    return pCP;
+ }
+",,,,
+17,Android,590d1729883f700ab905cdc9ad850f3ddd7e1f56,CVE-2016-3819,CWE-119,"Fix potential overflow
+
+Bug: 28533562
+Change-Id: I798ab24caa4c81f3ba564cad7c9ee019284fb702
+","Integer overflow in codecs/on2/h264dec/source/h264bsd_dpb.c in libstagefright in mediaserver in Android 4.x before 4.4.4, 5.0.x before 5.0.2, 5.1.x before 5.1.1, and 6.x before 2016-08-01 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file, aka internal bug 28533562.","u32 h264bsdInitDpb(
+ dpbStorage_t *dpb,
+  u32 picSizeInMbs,
+  u32 dpbSize,
+  u32 maxRefFrames,
+  u32 maxFrameNum,
+  u32 noReordering)
+{
+
+/* Variables */
+
+    u32 i;
+
+/* Code */
+
+    ASSERT(picSizeInMbs);
+    ASSERT(maxRefFrames <= MAX_NUM_REF_PICS);
+    ASSERT(maxRefFrames <= dpbSize);
+
+     ASSERT(maxFrameNum);
+     ASSERT(dpbSize);
+ 
+     dpb->maxLongTermFrameIdx = NO_LONG_TERM_FRAME_INDICES;
+     dpb->maxRefFrames        = MAX(maxRefFrames, 1);
+     if (noReordering)
+        dpb->dpbSize         = dpb->maxRefFrames;
+ else
+        dpb->dpbSize         = dpbSize;
+    dpb->maxFrameNum         = maxFrameNum;
+    dpb->noReordering        = noReordering;
+    dpb->fullness            = 0;
+    dpb->numRefFrames        = 0;
+    dpb->prevRefFrameNum     = 0;
+
+    ALLOCATE(dpb->buffer, MAX_NUM_REF_IDX_L0_ACTIVE + 1, dpbPicture_t);
+ if (dpb->buffer == NULL)
+ return(MEMORY_ALLOCATION_ERROR);
+    H264SwDecMemset(dpb->buffer, 0,
+ (MAX_NUM_REF_IDX_L0_ACTIVE + 1)*sizeof(dpbPicture_t));
+ for (i = 0; i < dpb->dpbSize + 1; i++)
+ {
+ /* Allocate needed amount of memory, which is:
+         * image size + 32 + 15, where 32 cames from the fact that in ARM OpenMax
+         * DL implementation Functions may read beyond the end of an array,
+         * by a maximum of 32 bytes. And +15 cames for the need to align memory
+         * to 16-byte boundary */
+        ALLOCATE(dpb->buffer[i].pAllocatedData, (picSizeInMbs*384 + 32+15), u8);
+ if (dpb->buffer[i].pAllocatedData == NULL)
+ return(MEMORY_ALLOCATION_ERROR);
+
+        dpb->buffer[i].data = ALIGN(dpb->buffer[i].pAllocatedData, 16);
+ }
+
+    ALLOCATE(dpb->list, MAX_NUM_REF_IDX_L0_ACTIVE + 1, dpbPicture_t*);
+    ALLOCATE(dpb->outBuf, dpb->dpbSize+1, dpbOutPicture_t);
+
+ if (dpb->list == NULL || dpb->outBuf == NULL)
+ return(MEMORY_ALLOCATION_ERROR);
+
+    H264SwDecMemset(dpb->list, 0,
+ ((MAX_NUM_REF_IDX_L0_ACTIVE + 1) * sizeof(dpbPicture_t*)) );
+
+    dpb->numOut = dpb->outIndex = 0;
+
+ return(HANTRO_OK);
+
+}
+",,,,
+18,ngiflib,b588a2249c7abbfc52173e32ee11d6facef82f89,CVE-2018-10677,CWE-119,"check GIF image position and dimensions
+
+fixes #1","The DecodeGifImg function in ngiflib.c in MiniUPnP ngiflib 0.4 lacks certain checks against width and height, which allows remote attackers to cause a denial of service (WritePixels heap-based buffer overflow and application crash) or possibly have unspecified other impact via a crafted GIF file.","static int DecodeGifImg(struct ngiflib_img * i) {
+	struct ngiflib_decode_context context;
+	long npix;
+	u8 * stackp;
+	u8 * stack_top;
+	u16 clr;
+	u16 eof;
+	u16 free;
+	u16 act_code = 0;
+	u16 old_code = 0;
+	u16 read_byt;
+	u16 ab_prfx[4096];
+	u8 ab_suffx[4096];
+	u8 ab_stack[4096];
+	u8 flags;
+	u8 casspecial = 0;
+
+	if(!i) return -1;
+
+	i->posX = GetWord(i->parent);	/* offsetX */
+	i->posY = GetWord(i->parent);	/* offsetY */
+ 	i->width = GetWord(i->parent);	/* SizeX   */
+ 	i->height = GetWord(i->parent);	/* SizeY   */
+ 
+ 	context.Xtogo = i->width;
+ 	context.curY = i->posY;
+ #ifdef NGIFLIB_INDEXED_ONLY
+	#ifdef NGIFLIB_ENABLE_CALLBACKS
+	context.line_p.p8 = i->parent->frbuff.p8 + (u32)i->posY*i->parent->width;
+	context.frbuff_p.p8 = context.line_p.p8 + i->posX;
+	#else
+	context.frbuff_p.p8 = i->parent->frbuff.p8 + (u32)i->posY*i->parent->width + i->posX;
+	#endif /* NGIFLIB_ENABLE_CALLBACKS */
+#else
+	if(i->parent->mode & NGIFLIB_MODE_INDEXED) {
+		#ifdef NGIFLIB_ENABLE_CALLBACKS
+		context.line_p.p8 = i->parent->frbuff.p8 + (u32)i->posY*i->parent->width;
+		context.frbuff_p.p8 = context.line_p.p8 + i->posX;
+		#else
+		context.frbuff_p.p8 = i->parent->frbuff.p8 + (u32)i->posY*i->parent->width + i->posX;
+		#endif /* NGIFLIB_ENABLE_CALLBACKS */
+	} else {
+		#ifdef NGIFLIB_ENABLE_CALLBACKS
+		context.line_p.p32 = i->parent->frbuff.p32 + (u32)i->posY*i->parent->width;
+		context.frbuff_p.p32 = context.line_p.p32 + i->posX;
+		#else
+		context.frbuff_p.p32 = i->parent->frbuff.p32 + (u32)i->posY*i->parent->width + i->posX;
+		#endif /* NGIFLIB_ENABLE_CALLBACKS */
+	}
+#endif /* NGIFLIB_INDEXED_ONLY */
+
+	npix = (long)i->width * i->height;
+	flags = GetByte(i->parent);
+	i->interlaced = (flags & 64) >> 6;
+	context.pass = i->interlaced ? 1 : 0;
+	i->sort_flag = (flags & 32) >> 5;	/* is local palette sorted by color frequency ? */
+	i->localpalbits = (flags & 7) + 1;
+	if(flags&128) { /* palette locale */
+		int k;
+		int localpalsize = 1 << i->localpalbits;
+#if !defined(NGIFLIB_NO_FILE)
+		if(i->parent && i->parent->log) fprintf(i->parent->log, ""Local palette\n"");
+#endif /* !defined(NGIFLIB_NO_FILE) */
+		i->palette = (struct ngiflib_rgb *)ngiflib_malloc(sizeof(struct ngiflib_rgb)*localpalsize);
+		for(k=0; k<localpalsize; k++) {
+			i->palette[k].r = GetByte(i->parent);
+			i->palette[k].g = GetByte(i->parent);
+			i->palette[k].b = GetByte(i->parent);
+		}
+#ifdef NGIFLIB_ENABLE_CALLBACKS
+		if(i->parent->palette_cb) i->parent->palette_cb(i->parent, i->palette, localpalsize);
+#endif /* NGIFLIB_ENABLE_CALLBACKS */
+	} else {
+		i->palette = i->parent->palette;
+		i->localpalbits = i->parent->imgbits;
+	}
+	i->ncolors = 1 << i->localpalbits;
+	
+	i->imgbits = GetByte(i->parent);	/* LZW Minimum Code Size */
+
+#if !defined(NGIFLIB_NO_FILE)
+	if(i->parent && i->parent->log) {
+		if(i->interlaced) fprintf(i->parent->log, ""interlaced "");
+		fprintf(i->parent->log, ""img pos(%hu,%hu) size %hux%hu palbits=%hhu imgbits=%hhu ncolors=%hu\n"",
+	       i->posX, i->posY, i->width, i->height, i->localpalbits, i->imgbits, i->ncolors);
+	}
+#endif /* !defined(NGIFLIB_NO_FILE) */
+
+	if(i->imgbits==1) {	/* fix for 1bit images ? */
+		i->imgbits = 2;
+	}
+	clr = 1 << i->imgbits;
+	eof = clr + 1;
+	free = clr + 2;
+	context.nbbit = i->imgbits + 1;
+	context.max = clr + clr - 1; /* (1 << context.nbbit) - 1 */
+	stackp = stack_top = ab_stack + 4096;
+	
+	context.restbits = 0;	/* initialise le ""buffer"" de lecture */
+	context.restbyte = 0;	/* des codes LZW */
+	context.lbyte = 0;
+	for(;;) {
+		act_code = GetGifWord(i, &context);
+		if(act_code==eof) {
+#if !defined(NGIFLIB_NO_FILE)
+			if(i->parent && i->parent->log) fprintf(i->parent->log, ""End of image code\n"");
+#endif /* !defined(NGIFLIB_NO_FILE) */
+			return 0;
+		}
+		if(npix==0) {
+#if !defined(NGIFLIB_NO_FILE)
+			if(i->parent && i->parent->log) fprintf(i->parent->log, ""assez de pixels, On se casse !\n"");
+#endif /* !defined(NGIFLIB_NO_FILE) */
+			return 1;
+		}	
+		if(act_code==clr) {
+#if !defined(NGIFLIB_NO_FILE)
+			if(i->parent && i->parent->log) fprintf(i->parent->log, ""Code clear (free=%hu) npix=%ld\n"", free, npix);
+#endif /* !defined(NGIFLIB_NO_FILE) */
+			/* clear */
+			free = clr + 2;
+			context.nbbit = i->imgbits + 1;
+			context.max = clr + clr - 1; /* (1 << context.nbbit) - 1 */
+			act_code = GetGifWord(i, &context);
+			casspecial = (u8)act_code;
+			old_code = act_code;
+			WritePixel(i, &context, casspecial); npix--;
+		} else {
+			read_byt = act_code;
+			if(act_code >= free) {	/* code pas encore dans alphabet */
+/*				printf(""Code pas dans alphabet : %d>=%d push %d\n"", act_code, free, casspecial); */
+				*(--stackp) = casspecial; /* dernier debut de chaine ! */
+				act_code = old_code;
+			}
+/*			printf(""actcode=%d\n"", act_code); */
+			while(act_code > clr) { /* code non concret */
+				/* fillstackloop empile les suffixes ! */
+				*(--stackp) = ab_suffx[act_code];
+				act_code = ab_prfx[act_code];	/* prefixe */
+			}
+			/* act_code est concret */
+			casspecial = (u8)act_code;	/* dernier debut de chaine ! */
+			*(--stackp) = casspecial;	/* push on stack */
+			WritePixels(i, &context, stackp, stack_top - stackp);	/* unstack all pixels at once */
+			npix -= (stack_top - stackp);
+			stackp = stack_top;
+/*			putchar('\n'); */
+			if(free < 4096) { /* la taille du dico est 4096 max ! */
+				ab_prfx[free] = old_code;
+				ab_suffx[free] = (u8)act_code;
+				free++;
+				if((free > context.max) && (context.nbbit < 12)) {
+					context.nbbit++;	/* 1 bit de plus pour les codes LZW */
+					context.max += context.max + 1;
+				}
+			}
+			old_code = read_byt;
+		}
+			
+	}
+	return 0;
+}
+",,,,
+19,gst-plugins-ugly,d21017b52a585f145e8d62781bcc1c5fefc7ee37,CVE-2017-5847,CWE-125,"asfdemux: Check that we have enough data available before parsing bool/uint extended content descriptors
+
+https://bugzilla.gnome.org/show_bug.cgi?id=777955",The gst_asf_demux_process_ext_content_desc function in gst/asfdemux/gstasfdemux.c in gst-plugins-ugly in GStreamer allows remote attackers to cause a denial of service (out-of-bounds heap read) via vectors involving extended content descriptors.,"gst_asf_demux_process_ext_content_desc (GstASFDemux * demux, guint8 * data,
+    guint64 size)
+{
+  /* Other known (and unused) 'text/unicode' metadata available :
+   *
+   *   WM/Lyrics =
+   *   WM/MediaPrimaryClassID = {D1607DBC-E323-4BE2-86A1-48A42A28441E}
+   *   WMFSDKVersion = 9.00.00.2980
+   *   WMFSDKNeeded = 0.0.0.0000
+   *   WM/UniqueFileIdentifier = AMGa_id=R    15334;AMGp_id=P     5149;AMGt_id=T  2324984
+   *   WM/Publisher = 4AD
+   *   WM/Provider = AMG
+   *   WM/ProviderRating = 8
+   *   WM/ProviderStyle = Rock (similar to WM/Genre)
+   *   WM/GenreID (similar to WM/Genre)
+   *   WM/TrackNumber (same as WM/Track but as a string)
+   *
+   * Other known (and unused) 'non-text' metadata available :
+   *
+   *   WM/EncodingTime
+   *   WM/MCDI
+   *   IsVBR
+   *
+   * We might want to read WM/TrackNumber and use atoi() if we don't have
+   * WM/Track
+   */
+
+  GstTagList *taglist;
+  guint16 blockcount, i;
+  gboolean content3D = FALSE;
+
+  struct
+  {
+    const gchar *interleave_name;
+    GstASF3DMode interleaving_type;
+  } stereoscopic_layout_map[] = {
+    {
+    ""SideBySideRF"", GST_ASF_3D_SIDE_BY_SIDE_HALF_RL}, {
+    ""SideBySideLF"", GST_ASF_3D_SIDE_BY_SIDE_HALF_LR}, {
+    ""OverUnderRT"", GST_ASF_3D_TOP_AND_BOTTOM_HALF_RL}, {
+    ""OverUnderLT"", GST_ASF_3D_TOP_AND_BOTTOM_HALF_LR}, {
+    ""DualStream"", GST_ASF_3D_DUAL_STREAM}
+  };
+  GST_INFO_OBJECT (demux, ""object is an extended content description"");
+
+  taglist = gst_tag_list_new_empty ();
+
+  /* Content Descriptor Count */
+  if (size < 2)
+    goto not_enough_data;
+
+  blockcount = gst_asf_demux_get_uint16 (&data, &size);
+
+  for (i = 1; i <= blockcount; ++i) {
+    const gchar *gst_tag_name;
+    guint16 datatype;
+    guint16 value_len;
+    guint16 name_len;
+    GValue tag_value = { 0, };
+    gsize in, out;
+    gchar *name;
+    gchar *name_utf8 = NULL;
+    gchar *value;
+
+    /* Descriptor */
+    if (!gst_asf_demux_get_string (&name, &name_len, &data, &size))
+      goto not_enough_data;
+
+    if (size < 2) {
+      g_free (name);
+      goto not_enough_data;
+    }
+    /* Descriptor Value Data Type */
+    datatype = gst_asf_demux_get_uint16 (&data, &size);
+
+    /* Descriptor Value (not really a string, but same thing reading-wise) */
+    if (!gst_asf_demux_get_string (&value, &value_len, &data, &size)) {
+      g_free (name);
+      goto not_enough_data;
+    }
+
+    name_utf8 =
+        g_convert (name, name_len, ""UTF-8"", ""UTF-16LE"", &in, &out, NULL);
+
+    if (name_utf8 != NULL) {
+      GST_DEBUG (""Found tag/metadata %s"", name_utf8);
+
+      gst_tag_name = gst_asf_demux_get_gst_tag_from_tag_name (name_utf8);
+      GST_DEBUG (""gst_tag_name %s"", GST_STR_NULL (gst_tag_name));
+
+      switch (datatype) {
+        case ASF_DEMUX_DATA_TYPE_UTF16LE_STRING:{
+          gchar *value_utf8;
+
+          value_utf8 = g_convert (value, value_len, ""UTF-8"", ""UTF-16LE"",
+              &in, &out, NULL);
+
+          /* get rid of tags with empty value */
+          if (value_utf8 != NULL && *value_utf8 != '\0') {
+            GST_DEBUG (""string value %s"", value_utf8);
+
+            value_utf8[out] = '\0';
+
+            if (gst_tag_name != NULL) {
+              if (strcmp (gst_tag_name, GST_TAG_DATE_TIME) == 0) {
+                guint year = atoi (value_utf8);
+
+                if (year > 0) {
+                  g_value_init (&tag_value, GST_TYPE_DATE_TIME);
+                  g_value_take_boxed (&tag_value, gst_date_time_new_y (year));
+                }
+              } else if (strcmp (gst_tag_name, GST_TAG_GENRE) == 0) {
+                guint id3v1_genre_id;
+                const gchar *genre_str;
+
+                if (sscanf (value_utf8, ""(%u)"", &id3v1_genre_id) == 1 &&
+                    ((genre_str = gst_tag_id3_genre_get (id3v1_genre_id)))) {
+                  GST_DEBUG (""Genre: %s -> %s"", value_utf8, genre_str);
+                  g_free (value_utf8);
+                  value_utf8 = g_strdup (genre_str);
+                }
+              } else {
+                GType tag_type;
+
+                /* convert tag from string to other type if required */
+                tag_type = gst_tag_get_type (gst_tag_name);
+                g_value_init (&tag_value, tag_type);
+                if (!gst_value_deserialize (&tag_value, value_utf8)) {
+                  GValue from_val = { 0, };
+
+                  g_value_init (&from_val, G_TYPE_STRING);
+                  g_value_set_string (&from_val, value_utf8);
+                  if (!g_value_transform (&from_val, &tag_value)) {
+                    GST_WARNING_OBJECT (demux,
+                        ""Could not transform string tag to "" ""%s tag type %s"",
+                        gst_tag_name, g_type_name (tag_type));
+                    g_value_unset (&tag_value);
+                  }
+                  g_value_unset (&from_val);
+                }
+              }
+            } else {
+              /* metadata ! */
+              GST_DEBUG (""Setting metadata"");
+              g_value_init (&tag_value, G_TYPE_STRING);
+              g_value_set_string (&tag_value, value_utf8);
+              /* If we found a stereoscopic marker, look for StereoscopicLayout
+               * metadata */
+              if (content3D) {
+                guint i;
+                if (strncmp (""StereoscopicLayout"", name_utf8,
+                        strlen (name_utf8)) == 0) {
+                  for (i = 0; i < G_N_ELEMENTS (stereoscopic_layout_map); i++) {
+                    if (g_str_equal (stereoscopic_layout_map[i].interleave_name,
+                            value_utf8)) {
+                      demux->asf_3D_mode =
+                          stereoscopic_layout_map[i].interleaving_type;
+                      GST_INFO (""find interleave type %u"", demux->asf_3D_mode);
+                    }
+                  }
+                }
+                GST_INFO_OBJECT (demux, ""3d type is %u"", demux->asf_3D_mode);
+              } else {
+                demux->asf_3D_mode = GST_ASF_3D_NONE;
+                GST_INFO_OBJECT (demux, ""None 3d type"");
+              }
+            }
+          } else if (value_ut",,,,
+20,Android,04839626ed859623901ebd3a5fd483982186b59d,CVE-2016-1621,CWE-119,"libwebm: Pull from upstream
+
+Rolling mkvparser from upstream. Primarily for fixing a bug on parsing
+failures with certain Opus WebM files.
+
+Upstream commit hash of this pull: 574045edd4ecbeb802ee3f1d214b5510269852ae
+
+The diff is so huge because there were some style clean ups upstream.
+But it was ensured that there were no breaking changes when the style
+clean ups was done upstream.
+
+Change-Id: Ib6e907175484b4b0ae1b55ab39522ea3188ad039","libvpx in mediaserver in Android 4.x before 4.4.4, 5.x before 5.1.1 LMY49H, and 6.0 before 2016-03-01 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file, related to libwebm/mkvparser.cpp and other files, aka internal bug 23452792.","unsigned long long Track::GetCodecDelay() const
+{
+    return m_info.codecDelay;
+}
+",,,,
+21,Android,5a9753fca56f0eeb9f61e342b2fccffc364f9426,CVE-2016-1621,CWE-119,"Merge Conflict Fix CL to lmp-mr1-release for ag/849478
+
+DO NOT MERGE - libvpx: Pull from upstream
+
+Current HEAD: 7105df53d7dc13d5e575bc8df714ec8d1da36b06
+
+BUG=23452792
+
+Change-Id: Ic78176fc369e0bacc71d423e0e2e6075d004aaec
+","libvpx in mediaserver in Android 4.x before 4.4.4, 5.x before 5.1.1 LMY49H, and 6.0 before 2016-03-01 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file, related to libwebm/mkvparser.cpp and other files, aka internal bug 23452792.","  void RunAccuracyCheck() {
+     ACMRandom rnd(ACMRandom::DeterministicSeed());
+     uint32_t max_error = 0;
+     int64_t total_error = 0;
+     const int count_test_block = 10000;
+     for (int i = 0; i < count_test_block; ++i) {
+      DECLARE_ALIGNED_ARRAY(16, int16_t, test_input_block, kNumCoeffs);
+      DECLARE_ALIGNED_ARRAY(16, int16_t, test_temp_block, kNumCoeffs);
+      DECLARE_ALIGNED_ARRAY(16, uint8_t, dst, kNumCoeffs);
+      DECLARE_ALIGNED_ARRAY(16, uint8_t, src, kNumCoeffs);
+ 
+       for (int j = 0; j < kNumCoeffs; ++j) {
+        src[j] = rnd.Rand8();
+        dst[j] = rnd.Rand8();
+        test_input_block[j] = src[j] - dst[j];
+       }
+ 
+      REGISTER_STATE_CHECK(RunFwdTxfm(test_input_block,
+                                      test_temp_block, pitch_));
+      REGISTER_STATE_CHECK(RunInvTxfm(test_temp_block, dst, pitch_));
+ 
+       for (int j = 0; j < kNumCoeffs; ++j) {
+         const uint32_t diff = dst[j] - src[j];
+         const uint32_t error = diff * diff;
+         if (max_error < error)
+           max_error = error;
+        total_error += error;
+
+       }
+     }
+ 
+    EXPECT_GE(1u, max_error)
+        << ""Error: 4x4 FHT/IHT has an individual round trip error > 1"";
+ 
+    EXPECT_GE(count_test_block , total_error)
+        << ""Error: 4x4 FHT/IHT has average round trip error > 1 per block"";
+   }
+",,,,
+22,Android,04839626ed859623901ebd3a5fd483982186b59d,CVE-2016-1621,CWE-119,"libwebm: Pull from upstream
+
+Rolling mkvparser from upstream. Primarily for fixing a bug on parsing
+failures with certain Opus WebM files.
+
+Upstream commit hash of this pull: 574045edd4ecbeb802ee3f1d214b5510269852ae
+
+The diff is so huge because there were some style clean ups upstream.
+But it was ensured that there were no breaking changes when the style
+clean ups was done upstream.
+
+Change-Id: Ib6e907175484b4b0ae1b55ab39522ea3188ad039","libvpx in mediaserver in Android 4.x before 4.4.4, 5.x before 5.1.1 LMY49H, and 6.0 before 2016-03-01 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file, related to libwebm/mkvparser.cpp and other files, aka internal bug 23452792.","Chapters::Display::~Display()
+{
+}
+",,,,
+23,yara,992480c30f75943e9cd6245bb2015c7737f9b661,CVE-2017-9465,CWE-125,Fix buffer overrun (issue #678). Add assert for detecting this kind of issues earlier.,The yr_arena_write_data function in YARA 3.6.1 allows remote attackers to cause a denial of service (buffer over-read and application crash) or obtain sensitive information from process memory via a crafted file that is mishandled in the yr_re_fast_exec function in libyara/re.c and the _yr_scan_match_callback function in libyara/scan.c.,"int _yr_scan_match_callback(
+    uint8_t* match_data,
+    int32_t match_length,
+    int flags,
+    void* args)
+{
+  CALLBACK_ARGS* callback_args = (CALLBACK_ARGS*) args;
+
+  YR_STRING* string = callback_args->string;
+  YR_MATCH* new_match;
+
+  int result = ERROR_SUCCESS;
+  int tidx = callback_args->context->tidx;
+
+  size_t match_offset = match_data - callback_args->data;
+
+   match_length += callback_args->forward_matches;
+ 
+   if (callback_args->full_word)
+   {
+     if (flags & RE_FLAGS_WIDE)
+    {
+      if (match_offset >= 2 &&
+          *(match_data - 1) == 0 &&
+          isalnum(*(match_data - 2)))
+        return ERROR_SUCCESS;
+
+      if (match_offset + match_length + 1 < callback_args->data_size &&
+          *(match_data + match_length + 1) == 0 &&
+          isalnum(*(match_data + match_length)))
+        return ERROR_SUCCESS;
+    }
+    else
+    {
+      if (match_offset >= 1 &&
+          isalnum(*(match_data - 1)))
+        return ERROR_SUCCESS;
+
+      if (match_offset + match_length < callback_args->data_size &&
+          isalnum(*(match_data + match_length)))
+        return ERROR_SUCCESS;
+    }
+  }
+
+  if (STRING_IS_CHAIN_PART(string))
+  {
+    result = _yr_scan_verify_chained_string_match(
+        string,
+        callback_args->context,
+        match_data,
+        callback_args->data_base,
+        match_offset,
+        match_length);
+  }
+  else
+  {
+    if (string->matches[tidx].count == 0)
+    {
+
+      FAIL_ON_ERROR(yr_arena_write_data(
+          callback_args->context->matching_strings_arena,
+          &string,
+          sizeof(string),
+          NULL));
+    }
+
+    FAIL_ON_ERROR(yr_arena_allocate_memory(
+        callback_args->context->matches_arena,
+        sizeof(YR_MATCH),
+        (void**) &new_match));
+
+    new_match->data_length = yr_min(match_length, MAX_MATCH_DATA);
+
+    FAIL_ON_ERROR(yr_arena_write_data(
+        callback_args->context->matches_arena,
+        match_data,
+        new_match->data_length,
+        (void**) &new_match->data));
+
+    if (result == ERROR_SUCCESS)
+    {
+      new_match->base = callback_args->data_base;
+      new_match->offset = match_offset;
+      new_match->match_length = match_length;
+      new_match->prev = NULL;
+      new_match->next = NULL;
+
+      FAIL_ON_ERROR(_yr_scan_add_match_to_list(
+          new_match,
+          &string->matches[tidx],
+          STRING_IS_GREEDY_REGEXP(string)));
+    }
+  }
+
+  return result;
+}
+",,,,
+24,Android,04839626ed859623901ebd3a5fd483982186b59d,CVE-2016-1621,CWE-119,"libwebm: Pull from upstream
+
+Rolling mkvparser from upstream. Primarily for fixing a bug on parsing
+failures with certain Opus WebM files.
+
+Upstream commit hash of this pull: 574045edd4ecbeb802ee3f1d214b5510269852ae
+
+The diff is so huge because there were some style clean ups upstream.
+But it was ensured that there were no breaking changes when the style
+clean ups was done upstream.
+
+Change-Id: Ib6e907175484b4b0ae1b55ab39522ea3188ad039","libvpx in mediaserver in Android 4.x before 4.4.4, 5.x before 5.1.1 LMY49H, and 6.0 before 2016-03-01 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file, related to libwebm/mkvparser.cpp and other files, aka internal bug 23452792.","long Segment::Load()
+{
+    assert(m_clusters == NULL);
+    assert(m_clusterSize == 0);
+    assert(m_clusterCount == 0);
+ 
+ 
+    const long long header_status = ParseHeaders();
+ 
+    if (header_status < 0)  //error
+        return static_cast<long>(header_status);
+ 
+    if (header_status > 0)  //underflow
+        return E_BUFFER_NOT_FULL;
+ 
+    assert(m_pInfo);
+    assert(m_pTracks);
+ 
+    for (;;)
+    {
+        const int status = LoadCluster();
+ 
+        if (status < 0)  //error
+            return status;
+ 
+        if (status >= 1)  //no more clusters
+            return 0;
+    }
+ }
+",,,,
+25,Android,04839626ed859623901ebd3a5fd483982186b59d,CVE-2016-1621,CWE-119,"libwebm: Pull from upstream
+
+Rolling mkvparser from upstream. Primarily for fixing a bug on parsing
+failures with certain Opus WebM files.
+
+Upstream commit hash of this pull: 574045edd4ecbeb802ee3f1d214b5510269852ae
+
+The diff is so huge because there were some style clean ups upstream.
+But it was ensured that there were no breaking changes when the style
+clean ups was done upstream.
+
+Change-Id: Ib6e907175484b4b0ae1b55ab39522ea3188ad039","libvpx in mediaserver in Android 4.x before 4.4.4, 5.x before 5.1.1 LMY49H, and 6.0 before 2016-03-01 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file, related to libwebm/mkvparser.cpp and other files, aka internal bug 23452792."," ContentEncoding::~ContentEncoding() {
+   ContentCompression** comp_i = compression_entries_;
+ ContentCompression** const comp_j = compression_entries_end_;
+
+ while (comp_i != comp_j) {
+ ContentCompression* const comp = *comp_i++;
+
+     delete comp;
+   }
+ 
+  delete [] compression_entries_;
+ 
+   ContentEncryption** enc_i = encryption_entries_;
+   ContentEncryption** const enc_j = encryption_entries_end_;
+
+ while (enc_i != enc_j) {
+ ContentEncryption* const enc = *enc_i++;
+
+     delete enc;
+   }
+ 
+  delete [] encryption_entries_;
+ }
+",,,,
+26,linux,412b65d15a7f8a93794653968308fc100f2aa87c,CVE-2017-18222,CWE-119,"net: hns: fix ethtool_get_strings overflow in hns driver
+
+hns_get_sset_count() returns HNS_NET_STATS_CNT and the data space allocated
+is not enough for ethtool_get_strings(), which will cause random memory
+corruption.
+
+When SLAB and DEBUG_SLAB are both enabled, memory corruptions like the
+the following can be observed without this patch:
+[   43.115200] Slab corruption (Not tainted): Acpi-ParseExt start=ffff801fb0b69030, len=80
+[   43.115206] Redzone: 0x9f911029d006462/0x5f78745f31657070.
+[   43.115208] Last user: [<5f7272655f746b70>](0x5f7272655f746b70)
+[   43.115214] 010: 70 70 65 31 5f 74 78 5f 70 6b 74 00 6b 6b 6b 6b  ppe1_tx_pkt.kkkk
+[   43.115217] 030: 70 70 65 31 5f 74 78 5f 70 6b 74 5f 6f 6b 00 6b  ppe1_tx_pkt_ok.k
+[   43.115218] Next obj: start=ffff801fb0b69098, len=80
+[   43.115220] Redzone: 0x706d655f6f666966/0x9f911029d74e35b.
+[   43.115229] Last user: [<ffff0000084b11b0>](acpi_os_release_object+0x28/0x38)
+[   43.115231] 000: 74 79 00 6b 6b 6b 6b 6b 70 70 65 31 5f 74 78 5f  ty.kkkkkppe1_tx_
+[   43.115232] 010: 70 6b 74 5f 65 72 72 5f 63 73 75 6d 5f 66 61 69  pkt_err_csum_fai
+
+Signed-off-by: Timmy Li <lixiaoping3@huawei.com>
+Signed-off-by: David S. Miller <davem@davemloft.net>","In the Linux kernel before 4.12, Hisilicon Network Subsystem (HNS) does not consider the ETH_SS_PRIV_FLAGS case when retrieving sset_count data, which allows local users to cause a denial of service (buffer overflow and memory corruption) or possibly have unspecified other impact, as demonstrated by incompatibility between hns_get_sset_count and ethtool_get_strings."," static int hns_gmac_get_sset_count(int stringset)
+ {
+	if (stringset == ETH_SS_STATS)
+ 		return ARRAY_SIZE(g_gmac_stats_string);
+ 
+ 	return 0;
+}
+",,,,
+27,busybox,74d9f1ba37010face4bd1449df4d60dd84450b06,CVE-2019-5747,CWE-125,,"An issue was discovered in BusyBox through 1.30.0. An out of bounds read in udhcp components (consumed by the DHCP server, client, and/or relay) might allow a remote attacker to leak sensitive information from the stack by sending a crafted DHCP message. This is related to assurance of a 4-byte length when decoding DHCP_SUBNET. NOTE: this issue exists because of an incomplete fix for CVE-2018-20679.","uint8_t* FAST_FUNC udhcp_get_option32(struct dhcp_packet *packet, int code)
+ {
+ 	uint8_t *r = udhcp_get_option(packet, code);
+ 	if (r) {
+		if (r[-1] != 4)
+ 			r = NULL;
+ 	}
+ 	return r;
+}
+",,,,
+28,Android,5a9753fca56f0eeb9f61e342b2fccffc364f9426,CVE-2016-1621,CWE-119,"Merge Conflict Fix CL to lmp-mr1-release for ag/849478
+
+DO NOT MERGE - libvpx: Pull from upstream
+
+Current HEAD: 7105df53d7dc13d5e575bc8df714ec8d1da36b06
+
+BUG=23452792
+
+Change-Id: Ic78176fc369e0bacc71d423e0e2e6075d004aaec
+","libvpx in mediaserver in Android 4.x before 4.4.4, 5.x before 5.1.1 LMY49H, and 6.0 before 2016-03-01 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file, related to libwebm/mkvparser.cpp and other files, aka internal bug 23452792."," int main(int argc, char **argv) {
+   FILE *infile = NULL;
+  VpxVideoWriter *writer = NULL;
+   vpx_codec_ctx_t codec;
+   vpx_codec_enc_cfg_t cfg;
+   vpx_image_t raw;
+   vpx_codec_err_t res;
+  vpx_fixed_buf_t stats = {0};
+  VpxVideoInfo info = {0};
+   const VpxInterface *encoder = NULL;
+  int pass;
+   const int fps = 30;        // TODO(dkovalev) add command line argument
+   const int bitrate = 200;   // kbit/s TODO(dkovalev) add command line argument
+   const char *const codec_arg = argv[1];
+ const char *const width_arg = argv[2];
+ const char *const height_arg = argv[3];
+ const char *const infile_arg = argv[4];
+ const char *const outfile_arg = argv[5];
+  exec_name = argv[0];
+
+ if (argc != 6)
+    die(""Invalid number of arguments."");
+
+  encoder = get_vpx_encoder_by_name(codec_arg);
+
+   if (!encoder)
+     die(""Unsupported codec."");
+ 
+  info.codec_fourcc = encoder->fourcc;
+  info.time_base.numerator = 1;
+  info.time_base.denominator = fps;
+  info.frame_width = strtol(width_arg, NULL, 0);
+  info.frame_height = strtol(height_arg, NULL, 0);
+ 
+  if (info.frame_width <= 0 ||
+      info.frame_height <= 0 ||
+      (info.frame_width % 2) != 0 ||
+      (info.frame_height % 2) != 0) {
+    die(""Invalid frame size: %dx%d"", info.frame_width, info.frame_height);
+  }
+ 
+  if (!vpx_img_alloc(&raw, VPX_IMG_FMT_I420, info.frame_width,
+                                             info.frame_height, 1)) {
+    die(""Failed to allocate image"", info.frame_width, info.frame_height);
+  }
+ 
+  writer = vpx_video_writer_open(outfile_arg, kContainerIVF, &info);
+  if (!writer)
+    die(""Failed to open %s for writing"", outfile_arg);
+ 
+  printf(""Using %s\n"", vpx_codec_iface_name(encoder->interface()));
+  res = vpx_codec_enc_config_default(encoder->interface(), &cfg, 0);
+   if (res)
+     die_codec(&codec, ""Failed to get default codec config."");
+ 
+  cfg.g_w = info.frame_width;
+  cfg.g_h = info.frame_height;
+  cfg.g_timebase.num = info.time_base.numerator;
+  cfg.g_timebase.den = info.time_base.denominator;
+   cfg.rc_target_bitrate = bitrate;
+ 
+  for (pass = 0; pass < 2; ++pass) {
+    int frame_count = 0;
+ 
+    if (pass == 0) {
+      cfg.g_pass = VPX_RC_FIRST_PASS;
+    } else {
+      cfg.g_pass = VPX_RC_LAST_PASS;
+      cfg.rc_twopass_stats_in = stats;
+    }
+ 
+    if (!(infile = fopen(infile_arg, ""rb"")))
+      die(""Failed to open %s for reading"", infile_arg);
+    if (vpx_codec_enc_init(&codec, encoder->interface(), &cfg, 0))
+      die_codec(&codec, ""Failed to initialize encoder"");
+    while (vpx_img_read(&raw, infile)) {
+      ++frame_count;
+      if (pass == 0) {
+        get_frame_stats(&codec, &raw, frame_count, 1, 0, VPX_DL_BEST_QUALITY,
+                        &stats);
+      } else {
+        encode_frame(&codec, &raw, frame_count, 1, 0, VPX_DL_BEST_QUALITY,
+                     writer);
+      }
+    }
+    if (pass == 0) {
+      get_frame_stats(&codec, NULL, frame_count, 1, 0, VPX_DL_BEST_QUALITY,
+                      &stats);
+    } else {
+      printf(""\n"");
+    }
+    fclose(infile);
+    printf(""Pass %d complete. Processed %d frames.\n"", pass + 1, frame_count);
+    if (vpx_codec_destroy(&codec))
+      die_codec(&codec, ""Failed to destroy codec."");
+  }
+  vpx_img_free(&raw);
+   free(stats.buf);
+ 
+  vpx_video_writer_close(writer);
+ 
+   return EXIT_SUCCESS;
+ }
+",,,,
+29,php,dccda88f27a084bcbbb30198ace12b4e7ae961cc,CVE-2016-4539,CWE-119,,"The xml_parse_into_struct function in ext/xml/xml.c in PHP before 5.5.35, 5.6.x before 5.6.21, and 7.x before 7.0.6 allows remote attackers to cause a denial of service (buffer under-read and segmentation fault) or possibly have unspecified other impact via crafted XML data in the second argument, leading to a parser level of zero."," static zval *xml_call_handler(xml_parser *parser, zval *handler, zend_function *function_ptr, int argc, zval **argv)
+ {
+       int i;  
+        TSRMLS_FETCH();
+ 
+        if (parser && handler && !EG(exception)) {
+		zval ***args;
+		zval *retval;
+		int result;
+		zend_fcall_info fci;
+
+		args = safe_emalloc(sizeof(zval **), argc, 0);
+                for (i = 0; i < argc; i++) {
+                        args[i] = &argv[i];
+                }
+                fci.size = sizeof(fci);
+                fci.function_table = EG(function_table);
+                fci.function_name = handler;
+		fci.symbol_table = NULL;
+		fci.object_ptr = parser->object;
+		fci.retval_ptr_ptr = &retval;
+		fci.param_count = argc;
+		fci.params = args;
+		fci.no_separation = 0;
+		/*fci.function_handler_cache = &function_ptr;*/
+
+		result = zend_call_function(&fci, NULL TSRMLS_CC);
+		if (result == FAILURE) {
+			zval **method;
+			zval **obj;
+
+			if (Z_TYPE_P(handler) == IS_STRING) {
+				php_error_docref(NULL TSRMLS_CC, E_WARNING, ""Unable to call handler %s()"", Z_STRVAL_P(handler));
+			} else if (zend_hash_index_find(Z_ARRVAL_P(handler), 0, (void **) &obj) == SUCCESS &&
+					   zend_hash_index_find(Z_ARRVAL_P(handler), 1, (void **) &method) == SUCCESS &&
+                                           Z_TYPE_PP(obj) == IS_OBJECT &&
+                                           Z_TYPE_PP(method) == IS_STRING) {
+                                php_error_docref(NULL TSRMLS_CC, E_WARNING, ""Unable to call handler %s::%s()"", Z_OBJCE_PP(obj)->name, Z_STRVAL_PP(method));
+                       } else 
+                                php_error_docref(NULL TSRMLS_CC, E_WARNING, ""Unable to call handler"");
+                }
+ 
+		for (i = 0; i < argc; i++) {
+			zval_ptr_dtor(args[i]);
+		}
+		efree(args);
+
+		if (result == FAILURE) {
+			return NULL;
+		} else {
+			return EG(exception) ? NULL : retval;
+		}
+	} else {
+		for (i = 0; i < argc; i++) {
+			zval_ptr_dtor(&argv[i]);
+		}
+		return NULL;
+	}
+}
+",,,,
+30,OpenSC,8fe377e93b4b56060e5bbfb6f3142ceaeca744fa,CVE-2018-16427,CWE-125,"fixed out of bounds reads
+
+Thanks to Eric Sesterhenn from X41 D-SEC GmbH
+for reporting and suggesting security fixes.",Various out of bounds reads when handling responses in OpenSC before 0.19.0-rc1 could be used by attackers able to supply crafted smartcards to potentially crash the opensc library using programs.,"authentic_process_fci(struct sc_card *card, struct sc_file *file,
+		 const unsigned char *buf, size_t buflen)
+{
+	struct sc_context *ctx = card->ctx;
+	size_t taglen;
+	int rv;
+	unsigned ii;
+	const unsigned char *tag = NULL;
+	unsigned char ops_DF[8] = {
+		SC_AC_OP_CREATE, SC_AC_OP_DELETE, SC_AC_OP_CRYPTO, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
+	};
+	unsigned char ops_EF[8] = {
+		SC_AC_OP_READ, SC_AC_OP_DELETE, SC_AC_OP_UPDATE, SC_AC_OP_RESIZE, 0xFF, 0xFF, 0xFF, 0xFF
+	};
+
+	LOG_FUNC_CALLED(ctx);
+
+	tag = sc_asn1_find_tag(card->ctx,  buf, buflen, 0x6F, &taglen);
+	if (tag != NULL) {
+		sc_log(ctx, ""  FCP length %""SC_FORMAT_LEN_SIZE_T""u"", taglen);
+		buf = tag;
+		buflen = taglen;
+	}
+
+	tag = sc_asn1_find_tag(card->ctx,  buf, buflen, 0x62, &taglen);
+	if (tag != NULL) {
+		sc_log(ctx, ""  FCP length %""SC_FORMAT_LEN_SIZE_T""u"", taglen);
+		buf = tag;
+		buflen = taglen;
+	}
+
+	rv = iso_ops->process_fci(card, file, buf, buflen);
+	LOG_TEST_RET(ctx, rv, ""ISO parse FCI failed"");
+
+	if (!file->sec_attr_len)   {
+		sc_log_hex(ctx, ""ACLs not found in data"", buf, buflen);
+		sc_log(ctx, ""Path:%s; Type:%X; PathType:%X"", sc_print_path(&file->path), file->type, file->path.type);
+		if (file->path.type == SC_PATH_TYPE_DF_NAME || file->type == SC_FILE_TYPE_DF)   {
+			file->type = SC_FILE_TYPE_DF;
+		}
+		else   {
+			LOG_TEST_RET(ctx, SC_ERROR_OBJECT_NOT_FOUND, ""ACLs tag missing"");
+		}
+ 	}
+ 
+ 	sc_log_hex(ctx, ""ACL data"", file->sec_attr, file->sec_attr_len);
+	for (ii = 0; ii < file->sec_attr_len / 2; ii++)  {
+ 		unsigned char op = file->type == SC_FILE_TYPE_DF ? ops_DF[ii] : ops_EF[ii];
+ 		unsigned char acl = *(file->sec_attr + ii*2);
+ 		unsigned char cred_id = *(file->sec_attr + ii*2 + 1);
+		unsigned sc = acl * 0x100 + cred_id;
+
+		sc_log(ctx, ""ACL(%i) op 0x%X, acl %X:%X"", ii, op, acl, cred_id);
+		if (op == 0xFF)
+			;
+		else if (!acl && !cred_id)
+			sc_file_add_acl_entry(file, op, SC_AC_NONE, 0);
+		else if (acl == 0xFF)
+			sc_file_add_acl_entry(file, op, SC_AC_NEVER, 0);
+		else if (acl & AUTHENTIC_AC_SM_MASK)
+			sc_file_add_acl_entry(file, op, SC_AC_SCB, sc);
+		else if (cred_id)
+			sc_file_add_acl_entry(file, op, SC_AC_CHV, cred_id);
+		else
+			sc_file_add_acl_entry(file, op, SC_AC_NEVER, 0);
+	}
+
+	LOG_FUNC_RETURN(ctx, 0);
+}
+",,,,
+31,ImageMagick,d9b2209a69ee90d8df81fb124eb66f593eb9f599,CVE-2016-7526,CWE-787,Fixed out-of-bounds write reported in: https://github.com/ImageMagick/ImageMagick/issues/102,coders/wpg.c in ImageMagick allows remote attackers to cause a denial of service (out-of-bounds write) via a crafted file.,"static Image *ReadWPGImage(const ImageInfo *image_info,
+  ExceptionInfo *exception)
+{
+  typedef struct
+  {
+    size_t FileId;
+    MagickOffsetType DataOffset;
+    unsigned int ProductType;
+    unsigned int FileType;
+    unsigned char MajorVersion;
+    unsigned char MinorVersion;
+    unsigned int EncryptKey;
+    unsigned int Reserved;
+  } WPGHeader;
+
+  typedef struct
+  {
+    unsigned char RecType;
+    size_t RecordLength;
+  } WPGRecord;
+
+  typedef struct
+  {
+    unsigned char Class;
+    unsigned char RecType;
+    size_t Extension;
+    size_t RecordLength;
+  } WPG2Record;
+
+  typedef struct
+  {
+    unsigned  HorizontalUnits;
+    unsigned  VerticalUnits;
+    unsigned char PosSizePrecision;
+  } WPG2Start;
+
+  typedef struct
+  {
+    unsigned int Width;
+    unsigned int Height;
+    unsigned int Depth;
+    unsigned int HorzRes;
+    unsigned int VertRes;
+  } WPGBitmapType1;
+
+  typedef struct
+  {
+    unsigned int Width;
+    unsigned int Height;
+    unsigned char Depth;
+    unsigned char Compression;
+  } WPG2BitmapType1;
+
+  typedef struct
+  {
+    unsigned int RotAngle;
+    unsigned int LowLeftX;
+    unsigned int LowLeftY;
+    unsigned int UpRightX;
+    unsigned int UpRightY;
+    unsigned int Width;
+    unsigned int Height;
+    unsigned int Depth;
+    unsigned int HorzRes;
+    unsigned int VertRes;
+  } WPGBitmapType2;
+
+  typedef struct
+  {
+    unsigned int StartIndex;
+    unsigned int NumOfEntries;
+  } WPGColorMapRec;
+
+  /*
+  typedef struct {
+    size_t PS_unknown1;
+    unsigned int PS_unknown2;
+    unsigned int PS_unknown3;
+  } WPGPSl1Record;
+  */
+
+  Image
+    *image;
+
+  unsigned int
+    status;
+
+  WPGHeader
+    Header;
+
+  WPGRecord
+    Rec;
+
+  WPG2Record
+    Rec2;
+
+  WPG2Start StartWPG;
+
+  WPGBitmapType1
+    BitmapHeader1;
+
+  WPG2BitmapType1
+    Bitmap2Header1;
+
+  WPGBitmapType2
+    BitmapHeader2;
+
+  WPGColorMapRec
+    WPG_Palette;
+
+  int
+    i,
+    bpp,
+    WPG2Flags;
+
+  ssize_t
+    ldblk;
+
+  size_t
+    one;
+
+  unsigned char
+    *BImgBuff;
+
+  tCTM CTM;         /*current transform matrix*/
+
+  /*
+    Open image file.
+  */
+  assert(image_info != (const ImageInfo *) NULL);
+  assert(image_info->signature == MagickSignature);
+  assert(exception != (ExceptionInfo *) NULL);
+  assert(exception->signature == MagickSignature);
+  one=1;
+  image=AcquireImage(image_info);
+  image->depth=8;
+  status=OpenBlob(image_info,image,ReadBinaryBlobMode,exception);
+  if (status == MagickFalse)
+    {
+      image=DestroyImageList(image);
+      return((Image *) NULL);
+    }
+  /*
+    Read WPG image.
+  */
+  Header.FileId=ReadBlobLSBLong(image);
+  Header.DataOffset=(MagickOffsetType) ReadBlobLSBLong(image);
+  Header.ProductType=ReadBlobLSBShort(image);
+  Header.FileType=ReadBlobLSBShort(image);
+  Header.MajorVersion=ReadBlobByte(image);
+  Header.MinorVersion=ReadBlobByte(image);
+  Header.EncryptKey=ReadBlobLSBShort(image);
+  Header.Reserved=ReadBlobLSBShort(image);
+
+  if (Header.FileId!=0x435057FF || (Header.ProductType>>8)!=0x16)
+    ThrowReaderException(CorruptImageError,""ImproperImageHeader"");
+  if (Header.EncryptKey!=0)
+    ThrowReaderException(CoderError,""EncryptedWPGImageFileNotSupported"");
+
+  image->columns = 1;
+  image->rows = 1;
+  image->colors = 0;
+  bpp=0;
+  BitmapHeader2.RotAngle=0;
+
+  switch(Header.FileType)
+    {
+    case 1:     /* WPG level 1 */
+      while(!EOFBlob(image)) /* object parser loop */
+        {
+          (void) SeekBlob(image,Header.DataOffset,SEEK_SET);
+          if(EOFBlob(image))
+            break;
+
+          Rec.RecType=(i=ReadBlobByte(image));
+          if(i==EOF)
+            break;
+          Rd_WP_DWORD(image,&Rec.RecordLength);
+          if(EOFBlob(image))
+            break;
+
+          Header.DataOffset=TellBlob(image)+Rec.RecordLength;
+
+          switch(Rec.RecType)
+            {
+            case 0x0B: /* bitmap type 1 */
+              BitmapHeader1.Width=ReadBlobLSBShort(image);
+              BitmapHeader1.Height=ReadBlobLSBShort(image);
+              if ((BitmapHeader1.Width == 0) || (BitmapHeader1.Height == 0))
+                ThrowReaderException(CorruptImageError,""ImproperImageHeader"");
+              BitmapHeader1.Depth=ReadBlobLSBShort(image);
+              BitmapHeader1.HorzRes=ReadBlobLSBShort(image);
+              BitmapHeader1.VertRes=ReadBlobLSBShort(image);
+
+              if(BitmapHeader1.HorzRes && BitmapHeader1.VertRes)
+                {
+                  image->units=PixelsPerCentimeterResolution;
+                  image->x_resolution=BitmapHeader1.HorzRes/470.0;
+                  image->y_resolution=BitmapHeader1.VertRes/470.0;
+                }
+              image->columns=BitmapHeader1.Width;
+              image->rows=BitmapHeader1.Height;
+              bpp=BitmapHeader1.Depth;
+
+              goto UnpackRaster;
+
+            case 0x0E:  /*Color palette */
+              WPG_Palette.StartIndex=ReadBlobLSBShort(image);
+              WPG_Palette.NumOfEntries=ReadBlobLSBShort(image);
+
+              image->colors=WPG_Palette.NumOfEntries;
+              if (!AcquireImageColormap(image,image->colors))
+                goto NoMemory;
+              for (i=WPG_Palette.StartIndex;
+                   i < (int)WPG_Palette.NumOfEntries; i++)
+                {
+                  image->colormap[i].red=ScaleCharToQuantum((unsigned char)
+                    ReadBlobByte(image));
+                  image->colormap[i].green=ScaleCharToQuantum((unsigned char)
+                    ReadBlobByte(image));
+                  image->colormap[i].blue=ScaleCharToQuantum((unsigned char)
+                    ReadBlobByte(image));
+                }
+              break;
+
+            case 0x11:  /* Start PS l1 */
+              if(Rec.RecordLength > 8)
+                image=ExtractPostscript(image,image_info,
+                  TellBlob(image)+8,   /* skip PS header in the wpg */
+                  (ssize_t) Rec.RecordLength-8,exception);
+              break;
+
+            case 0x14:  /* bitmap type 2 */
+              BitmapHeader2.RotAngle=ReadBlobLSBShort(image);
+              BitmapHeader2.LowLeftX=ReadBlobLSBShort",,,,
+32,tcpdump,c6e0531b5def26ecf912e8de6ade86cbdaed3751,CVE-2017-12899,CWE-125,"CVE-2017-12899/DECnet: Fix bounds checking.
+
+If we're skipping over padding before the *real* flags, check whether
+the real flags are in the captured data before fetching it.  This fixes
+a buffer over-read discovered by Kamil Frankowicz.
+
+Note one place where we don't need to do bounds checking as it's already
+been done.
+
+Add a test using the capture file supplied by the reporter(s).",The DECnet parser in tcpdump before 4.9.2 has a buffer over-read in print-decnet.c:decnet_print().,"decnet_print(netdissect_options *ndo,
+             register const u_char *ap, register u_int length,
+             register u_int caplen)
+{
+	register const union routehdr *rhp;
+	register int mflags;
+	int dst, src, hops;
+	u_int nsplen, pktlen;
+	const u_char *nspp;
+
+	if (length < sizeof(struct shorthdr)) {
+		ND_PRINT((ndo, ""%s"", tstr));
+		return;
+	}
+
+	ND_TCHECK2(*ap, sizeof(short));
+	pktlen = EXTRACT_LE_16BITS(ap);
+	if (pktlen < sizeof(struct shorthdr)) {
+		ND_PRINT((ndo, ""%s"", tstr));
+		return;
+	}
+	if (pktlen > length) {
+		ND_PRINT((ndo, ""%s"", tstr));
+		return;
+	}
+	length = pktlen;
+
+	rhp = (const union routehdr *)&(ap[sizeof(short)]);
+	ND_TCHECK(rhp->rh_short.sh_flags);
+	mflags = EXTRACT_LE_8BITS(rhp->rh_short.sh_flags);
+
+	if (mflags & RMF_PAD) {
+	    /* pad bytes of some sort in front of message */
+	    u_int padlen = mflags & RMF_PADMASK;
+	    if (ndo->ndo_vflag)
+		ND_PRINT((ndo, ""[pad:%d] "", padlen));
+	    if (length < padlen + 2) {
+		ND_PRINT((ndo, ""%s"", tstr));
+		return;
+	    }
+	    ND_TCHECK2(ap[sizeof(short)], padlen);
+	    ap += padlen;
+ 	    length -= padlen;
+ 	    caplen -= padlen;
+ 	    rhp = (const union routehdr *)&(ap[sizeof(short)]);
+ 	    mflags = EXTRACT_LE_8BITS(rhp->rh_short.sh_flags);
+ 	}
+ 
+	if (mflags & RMF_FVER) {
+		ND_PRINT((ndo, ""future-version-decnet""));
+		ND_DEFAULTPRINT(ap, min(length, caplen));
+		return;
+	}
+
+	/* is it a control message? */
+	if (mflags & RMF_CTLMSG) {
+		if (!print_decnet_ctlmsg(ndo, rhp, length, caplen))
+			goto trunc;
+		return;
+	}
+
+	switch (mflags & RMF_MASK) {
+	case RMF_LONG:
+	    if (length < sizeof(struct longhdr)) {
+		ND_PRINT((ndo, ""%s"", tstr));
+		return;
+	    }
+	    ND_TCHECK(rhp->rh_long);
+	    dst =
+		EXTRACT_LE_16BITS(rhp->rh_long.lg_dst.dne_remote.dne_nodeaddr);
+	    src =
+		EXTRACT_LE_16BITS(rhp->rh_long.lg_src.dne_remote.dne_nodeaddr);
+	    hops = EXTRACT_LE_8BITS(rhp->rh_long.lg_visits);
+	    nspp = &(ap[sizeof(short) + sizeof(struct longhdr)]);
+	    nsplen = length - sizeof(struct longhdr);
+	    break;
+	case RMF_SHORT:
+	    ND_TCHECK(rhp->rh_short);
+	    dst = EXTRACT_LE_16BITS(rhp->rh_short.sh_dst);
+	    src = EXTRACT_LE_16BITS(rhp->rh_short.sh_src);
+	    hops = (EXTRACT_LE_8BITS(rhp->rh_short.sh_visits) & VIS_MASK)+1;
+	    nspp = &(ap[sizeof(short) + sizeof(struct shorthdr)]);
+	    nsplen = length - sizeof(struct shorthdr);
+	    break;
+	default:
+	    ND_PRINT((ndo, ""unknown message flags under mask""));
+	    ND_DEFAULTPRINT((const u_char *)ap, min(length, caplen));
+	    return;
+	}
+
+	ND_PRINT((ndo, ""%s > %s %d "",
+			dnaddr_string(ndo, src), dnaddr_string(ndo, dst), pktlen));
+	if (ndo->ndo_vflag) {
+	    if (mflags & RMF_RQR)
+		ND_PRINT((ndo, ""RQR ""));
+	    if (mflags & RMF_RTS)
+		ND_PRINT((ndo, ""RTS ""));
+	    if (mflags & RMF_IE)
+		ND_PRINT((ndo, ""IE ""));
+	    ND_PRINT((ndo, ""%d hops "", hops));
+	}
+
+	if (!print_nsp(ndo, nspp, nsplen))
+		goto trunc;
+	return;
+
+trunc:
+	ND_PRINT((ndo, ""%s"", tstr));
+	return;
+}
+",,,,
+33,Android,5a9753fca56f0eeb9f61e342b2fccffc364f9426,CVE-2016-1621,CWE-119,"Merge Conflict Fix CL to lmp-mr1-release for ag/849478
+
+DO NOT MERGE - libvpx: Pull from upstream
+
+Current HEAD: 7105df53d7dc13d5e575bc8df714ec8d1da36b06
+
+BUG=23452792
+
+Change-Id: Ic78176fc369e0bacc71d423e0e2e6075d004aaec
+","libvpx in mediaserver in Android 4.x before 4.4.4, 5.x before 5.1.1 LMY49H, and 6.0 before 2016-03-01 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file, related to libwebm/mkvparser.cpp and other files, aka internal bug 23452792.","void usage_exit() {
+   fprintf(stderr, ""Usage: %s <codec> <width> <height> <infile> <outfile>\n"",
+           exec_name);
+   exit(EXIT_FAILURE);
+}
+",,,,
+34,busybox,6d3b4bb24da9a07c263f3c1acf8df85382ff562c,CVE-2018-20679,CWE-125,,"An issue was discovered in BusyBox before 1.30.0. An out of bounds read in udhcp components (consumed by the DHCP server, client, and relay) allows a remote attacker to leak sensitive information from the stack by sending a crafted DHCP message. This is related to verification in udhcp_get_option() in networking/udhcp/common.c that 4-byte options are indeed 4 bytes."," static uint32_t select_lease_time(struct dhcp_packet *packet)
+ {
+ 	uint32_t lease_time_sec = server_config.max_lease_sec;
+	uint8_t *lease_time_opt = udhcp_get_option(packet, DHCP_LEASE_TIME);
+ 	if (lease_time_opt) {
+ 		move_from_unaligned32(lease_time_sec, lease_time_opt);
+ 		lease_time_sec = ntohl(lease_time_sec);
+		if (lease_time_sec > server_config.max_lease_sec)
+			lease_time_sec = server_config.max_lease_sec;
+		if (lease_time_sec < server_config.min_lease_sec)
+			lease_time_sec = server_config.min_lease_sec;
+	}
+	return lease_time_sec;
+}
+",,,,
+35,Android,04839626ed859623901ebd3a5fd483982186b59d,CVE-2016-1621,CWE-119,"libwebm: Pull from upstream
+
+Rolling mkvparser from upstream. Primarily for fixing a bug on parsing
+failures with certain Opus WebM files.
+
+Upstream commit hash of this pull: 574045edd4ecbeb802ee3f1d214b5510269852ae
+
+The diff is so huge because there were some style clean ups upstream.
+But it was ensured that there were no breaking changes when the style
+clean ups was done upstream.
+
+Change-Id: Ib6e907175484b4b0ae1b55ab39522ea3188ad039","libvpx in mediaserver in Android 4.x before 4.4.4, 5.x before 5.1.1 LMY49H, and 6.0 before 2016-03-01 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file, related to libwebm/mkvparser.cpp and other files, aka internal bug 23452792.","long ContentEncoding::ParseEncryptionEntry(
+    long long start,
+    long long size,
+    IMkvReader* pReader,
+    ContentEncryption* encryption) {
+   assert(pReader);
+   assert(encryption);
+ 
+ long long pos = start;
+ const long long stop = start + size;
+
+ 
+   while (pos < stop) {
+     long long id, size;
+    const long status = ParseElementHeader(pReader,
+                                           pos,
+                                           stop,
+                                           id,
+                                           size);
+    if (status < 0)  //error
+       return status;
+ 
+     if (id == 0x7E1) {
+      encryption->algo = UnserializeUInt(pReader, pos, size);
+ if (encryption->algo != 5)
+
+         return E_FILE_FORMAT_INVALID;
+     } else if (id == 0x7E2) {
+      delete[] encryption->key_id;
+       encryption->key_id = NULL;
+       encryption->key_id_len = 0;
+ 
+ if (size <= 0)
+ return E_FILE_FORMAT_INVALID;
+
+ const size_t buflen = static_cast<size_t>(size);
+ typedef unsigned char* buf_t;
+ const buf_t buf = new (std::nothrow) unsigned char[buflen];
+
+       if (buf == NULL)
+         return -1;
+ 
+      const int read_status = pReader->Read(pos, buflen, buf);
+       if (read_status) {
+        delete [] buf;
+         return status;
+       }
+ 
+      encryption->key_id = buf;
+
+       encryption->key_id_len = buflen;
+     } else if (id == 0x7E3) {
+      delete[] encryption->signature;
+       encryption->signature = NULL;
+       encryption->signature_len = 0;
+ 
+ if (size <= 0)
+ return E_FILE_FORMAT_INVALID;
+
+ const size_t buflen = static_cast<size_t>(size);
+ typedef unsigned char* buf_t;
+ const buf_t buf = new (std::nothrow) unsigned char[buflen];
+
+       if (buf == NULL)
+         return -1;
+ 
+      const int read_status = pReader->Read(pos, buflen, buf);
+       if (read_status) {
+        delete [] buf;
+         return status;
+       }
+ 
+      encryption->signature = buf;
+
+       encryption->signature_len = buflen;
+     } else if (id == 0x7E4) {
+      delete[] encryption->sig_key_id;
+       encryption->sig_key_id = NULL;
+       encryption->sig_key_id_len = 0;
+ 
+ if (size <= 0)
+ return E_FILE_FORMAT_INVALID;
+
+ const size_t buflen = static_cast<size_t>(size);
+ typedef unsigned char* buf_t;
+ const buf_t buf = new (std::nothrow) unsigned char[buflen];
+
+       if (buf == NULL)
+         return -1;
+ 
+      const int read_status = pReader->Read(pos, buflen, buf);
+       if (read_status) {
+        delete [] buf;
+         return status;
+       }
+ 
+      encryption->sig_key_id = buf;
+      encryption->sig_key_id_len = buflen;
+ } else if (id == 0x7E5) {
+      encryption->sig_algo = UnserializeUInt(pReader, pos, size);
+ } else if (id == 0x7E6) {
+      encryption->sig_hash_algo = UnserializeUInt(pReader, pos, size);
+
+     } else if (id == 0x7E7) {
+       const long status = ParseContentEncAESSettingsEntry(
+          pos,
+          size,
+          pReader,
+          &encryption->aes_settings);
+       if (status)
+         return status;
+     }
+ 
+    pos += size;  //consume payload
+     assert(pos <= stop);
+   }
+ 
+   return 0;
+ }
+",,,,
+36,libsndfile,708e996c87c5fae77b104ccfeb8f6db784c32074,CVE-2017-7586,CWE-119,"src/ : Move to a variable length header buffer
+
+Previously, the `psf->header` buffer was a fixed length specified by
+`SF_HEADER_LEN` which was set to `12292`. This was problematic for
+two reasons; this value was un-necessarily large for the majority
+of files and too small for some others.
+
+Now the size of the header buffer starts at 256 bytes and grows as
+necessary up to a maximum of 100k.","In libsndfile before 1.0.28, an error in the *header_read()* function (common.c) when handling ID3 tags can be exploited to cause a stack-based buffer overflow via a specially crafted FLAC file."," header_put_be_short (SF_PRIVATE *psf, int x)
+{	if (psf->headindex < SIGNED_SIZEOF (psf->header) - 2)
+	{	psf->header [psf->headindex++] = (x >> 8) ;
+		psf->header [psf->headindex++] = x ;
+		} ;
+ } /* header_put_be_short */
+",,,,
+37,Android,a86eb798d077b9b25c8f8c77e3c02c2f287c1ce7,CVE-2017-0587,CWE-119,"Fix in handling header decode errors
+
+If header decode was unsuccessful, do not try decoding a frame
+
+Also, initialize pic_wd, pic_ht for reinitialization when
+decoder is created with smaller dimensions
+
+Bug: 28886651
+Bug: 35219737
+Change-Id: I8c06d9052910e47fce2e6fe25ad318d4c83d2c50
+(cherry picked from commit 2b9fa9ace2dbedfbac026fc9b6ab6cdac7f68c27)
+(cherry picked from commit c2395cd7cc0c286a66de674032dd2ed26500aef4)
+","A remote code execution vulnerability in libmpeg2 in Mediaserver could enable an attacker using a specially crafted file to cause memory corruption during media file and data processing. This issue is rated as Critical due to the possibility of remote code execution within the context of the Mediaserver process. Product: Android. Versions: 6.0, 6.0.1, 7.0, 7.1.1, 7.1.2. Android ID: A-35219737.","IMPEG2D_ERROR_CODES_T impeg2d_dec_seq_hdr(dec_state_t *ps_dec)
+{
+ stream_t *ps_stream;
+    ps_stream = &ps_dec->s_bit_stream;
+    UWORD16 u2_height;
+    UWORD16 u2_width;
+
+ if (impeg2d_bit_stream_nxt(ps_stream,START_CODE_LEN) != SEQUENCE_HEADER_CODE)
+ {
+        impeg2d_bit_stream_flush(ps_stream,START_CODE_LEN);
+ return IMPEG2D_FRM_HDR_START_CODE_NOT_FOUND;
+
+ }
+    impeg2d_bit_stream_flush(ps_stream,START_CODE_LEN);
+
+    u2_width    = impeg2d_bit_stream_get(ps_stream,12);
+    u2_height   = impeg2d_bit_stream_get(ps_stream,12);
+
+ if ((u2_width != ps_dec->u2_horizontal_size)
+ || (u2_height != ps_dec->u2_vertical_size))
+ {
+ if (0 == ps_dec->u2_header_done)
+ {
+ /* This is the first time we are reading the resolution */
+            ps_dec->u2_horizontal_size = u2_width;
+            ps_dec->u2_vertical_size = u2_height;
+ if (0 == ps_dec->u4_frm_buf_stride)
+ {
+                ps_dec->u4_frm_buf_stride  = (UWORD32) (u2_width);
+ }
+ }
+ else
+ {
+ if((u2_width > ps_dec->u2_create_max_width)
+ || (u2_height > ps_dec->u2_create_max_height))
+ {
+                IMPEG2D_ERROR_CODES_T e_error = IMPEG2D_UNSUPPORTED_DIMENSIONS;
+
+                ps_dec->u2_reinit_max_height   = u2_height;
+                ps_dec->u2_reinit_max_width    = u2_width;
+
+ return e_error;
+ }
+ else
+ {
+ /* The resolution has changed */
+ return (IMPEG2D_ERROR_CODES_T)IVD_RES_CHANGED;
+ }
+ }
+ }
+
+ if((ps_dec->u2_horizontal_size > ps_dec->u2_create_max_width)
+
+                     || (ps_dec->u2_vertical_size > ps_dec->u2_create_max_height))
+     {
+         IMPEG2D_ERROR_CODES_T e_error = IMPEG2D_UNSUPPORTED_DIMENSIONS;
+        return SET_IVD_FATAL_ERROR(e_error);
+     }
+ 
+ 
+ /*------------------------------------------------------------------------*/
+ /* Flush the following as they are not being used                         */
+ /* aspect_ratio_info (4 bits)                                             */
+ /*------------------------------------------------------------------------*/
+    ps_dec->u2_aspect_ratio_info = impeg2d_bit_stream_get(ps_stream,4);
+
+ /*------------------------------------------------------------------------*/
+ /* Frame rate code(4 bits)                                                */
+ /*------------------------------------------------------------------------*/
+    ps_dec->u2_frame_rate_code = impeg2d_bit_stream_get(ps_stream,4);
+ if (ps_dec->u2_frame_rate_code > MPEG2_MAX_FRAME_RATE_CODE)
+ {
+ return IMPEG2D_FRM_HDR_DECODE_ERR;
+ }
+ /*------------------------------------------------------------------------*/
+ /* Flush the following as they are not being used                         */
+ /* bit_rate_value (18 bits)                                               */
+ /*------------------------------------------------------------------------*/
+    impeg2d_bit_stream_flush(ps_stream,18);
+    GET_MARKER_BIT(ps_dec,ps_stream);
+ /*------------------------------------------------------------------------*/
+ /* Flush the following as they are not being used                         */
+ /* vbv_buffer_size_value(10 bits), constrained_parameter_flag (1 bit)     */
+ /*------------------------------------------------------------------------*/
+    impeg2d_bit_stream_flush(ps_stream,11);
+
+ /*------------------------------------------------------------------------*/
+ /* Quantization matrix for the intra blocks                               */
+ /*------------------------------------------------------------------------*/
+ if(impeg2d_bit_stream_get_bit(ps_stream) == 1)
+ {
+        UWORD16 i;
+ for(i = 0; i < NUM_PELS_IN_BLOCK; i++)
+ {
+            ps_dec->au1_intra_quant_matrix[gau1_impeg2_inv_scan_zig_zag[i]] = (UWORD8)impeg2d_bit_stream_get(ps_stream,8);
+ }
+
+ }
+ else
+ {
+        memcpy(ps_dec->au1_intra_quant_matrix,gau1_impeg2_intra_quant_matrix_default,
+                NUM_PELS_IN_BLOCK);
+ }
+
+ /*------------------------------------------------------------------------*/
+ /* Quantization matrix for the inter blocks                               */
+ /*------------------------------------------------------------------------*/
+ if(impeg2d_bit_stream_get_bit(ps_stream) == 1)
+ {
+        UWORD16 i;
+ for(i = 0; i < NUM_PELS_IN_BLOCK; i++)
+ {
+            ps_dec->au1_inter_quant_matrix[gau1_impeg2_inv_scan_zig_zag[i]] = (UWORD8)impeg2d_bit_stream_get(ps_stream,8);
+ }
+ }
+ else
+ {
+        memcpy(ps_dec->au1_inter_quant_matrix,gau1_impeg2_inter_quant_matrix_default,
+            NUM_PELS_IN_BLOCK);
+ }
+    impeg2d_next_start_code(ps_dec);
+
+ return (IMPEG2D_ERROR_CODES_T)IVD_ERROR_NONE;
+}
+",,,,
+38,rdesktop,4dca546d04321a610c1835010b5dad85163b65e1,CVE-2018-20182,CWE-119,"Malicious RDP server security fixes
+
+This commit includes fixes for a set of 21 vulnerabilities in
+rdesktop when a malicious RDP server is used.
+
+All vulnerabilities was identified and reported by Eyal Itkin.
+
+ * Add rdp_protocol_error function that is used in several fixes
+ * Refactor of process_bitmap_updates
+ * Fix possible integer overflow in s_check_rem() on 32bit arch
+ * Fix memory corruption in process_bitmap_data - CVE-2018-8794
+ * Fix remote code execution in process_bitmap_data - CVE-2018-8795
+ * Fix remote code execution in process_plane - CVE-2018-8797
+ * Fix Denial of Service in mcs_recv_connect_response - CVE-2018-20175
+ * Fix Denial of Service in mcs_parse_domain_params - CVE-2018-20175
+ * Fix Denial of Service in sec_parse_crypt_info - CVE-2018-20176
+ * Fix Denial of Service in sec_recv - CVE-2018-20176
+ * Fix minor information leak in rdpdr_process - CVE-2018-8791
+ * Fix Denial of Service in cssp_read_tsrequest - CVE-2018-8792
+ * Fix remote code execution in cssp_read_tsrequest - CVE-2018-8793
+ * Fix Denial of Service in process_bitmap_data - CVE-2018-8796
+ * Fix minor information leak in rdpsnd_process_ping - CVE-2018-8798
+ * Fix Denial of Service in process_secondary_order - CVE-2018-8799
+ * Fix remote code execution in in ui_clip_handle_data - CVE-2018-8800
+ * Fix major information leak in ui_clip_handle_data - CVE-2018-20174
+ * Fix memory corruption in rdp_in_unistr - CVE-2018-20177
+ * Fix Denial of Service in process_demand_active - CVE-2018-20178
+ * Fix remote code execution in lspci_process - CVE-2018-20179
+ * Fix remote code execution in rdpsnddbg_process - CVE-2018-20180
+ * Fix remote code execution in seamless_process - CVE-2018-20181
+ * Fix remote code execution in seamless_process_line - CVE-2018-20182",rdesktop versions up to and including v1.8.3 contain a Buffer Overflow over the global variables in the function seamless_process_line() that results in memory corruption and probably even a remote code execution.,"rdpsnd_process_training(STREAM in)
+{
+ 	uint16 tick;
+ 	uint16 packsize;
+ 	STREAM out;
+ 
+ 	in_uint16_le(in, tick);
+ 	in_uint16_le(in, packsize);
+
+	logger(Sound, Debug, ""rdpsnd_process_training(), tick=0x%04x"", (unsigned) tick);
+
+	out = rdpsnd_init_packet(SNDC_TRAINING, 4);
+	out_uint16_le(out, tick);
+	out_uint16_le(out, packsize);
+	s_mark_end(out);
+	rdpsnd_send(out);
+}
+",,,,
+39,Chrome,7f3d85b096f66870a15b37c2f40b219b2e292693,CVE-2015-8126,CWE-119,"third_party/libpng: update to 1.2.54
+
+TBR=darin@chromium.org
+BUG=560291
+
+Review URL: https://codereview.chromium.org/1467263003
+
+Cr-Commit-Position: refs/heads/master@{#362298}","Multiple buffer overflows in the (1) png_set_PLTE and (2) png_get_PLTE functions in libpng before 1.0.64, 1.1.x and 1.2.x before 1.2.54, 1.3.x and 1.4.x before 1.4.17, 1.5.x before 1.5.24, and 1.6.x before 1.6.19 allow remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact via a small bit-depth value in an IHDR (aka image header) chunk in a PNG image.","png_inflate(png_structp png_ptr, const png_byte *data, png_size_t size,
+        png_bytep output, png_size_t output_size)
+{
+   png_size_t count = 0;
+
+   png_ptr->zstream.next_in = (png_bytep)data; /* const_cast: VALID */
+   png_ptr->zstream.avail_in = size;
+
+   while (1)
+   {
+      int ret, avail;
+
+      /* Reset the output buffer each time round - we empty it
+       * after every inflate call.
+       */
+      png_ptr->zstream.next_out = png_ptr->zbuf;
+      png_ptr->zstream.avail_out = png_ptr->zbuf_size;
+
+      ret = inflate(&png_ptr->zstream, Z_NO_FLUSH);
+      avail = png_ptr->zbuf_size - png_ptr->zstream.avail_out;
+
+      /* First copy/count any new output - but only if we didn't
+       * get an error code.
+       */
+      if ((ret == Z_OK || ret == Z_STREAM_END) && avail > 0)
+      {
+         if (output != 0 && output_size > count)
+         {
+            png_size_t copy = output_size - count;
+            if ((png_size_t) avail < copy) copy = (png_size_t) avail;
+            png_memcpy(output + count, png_ptr->zbuf, copy);
+         }
+         count += avail;
+      }
+
+      if (ret == Z_OK)
+         continue;
+
+      /* Termination conditions - always reset the zstream, it
+       * must be left in inflateInit state.
+       */
+      png_ptr->zstream.avail_in = 0;
+      inflateReset(&png_ptr->zstream);
+
+      if (ret == Z_STREAM_END)
+         return count; /* NOTE: may be zero. */
+
+      /* Now handle the error codes - the API always returns 0
+       * and the error message is dumped into the uncompressed
+       * buffer if available.
+       */
+      {
+         PNG_CONST char *msg;
+         if (png_ptr->zstream.msg != 0)
+            msg = png_ptr->zstream.msg;
+         else
+         {
+#if defined(PNG_STDIO_SUPPORTED) && !defined(_WIN32_WCE)
+            char umsg[52];
+
+            switch (ret)
+            {
+               case Z_BUF_ERROR:
+                  msg = ""Buffer error in compressed datastream in %s chunk"";
+                  break;
+               case Z_DATA_ERROR:
+                  msg = ""Data error in compressed datastream in %s chunk"";
+                  break;
+               default:
+                  msg = ""Incomplete compressed datastream in %s chunk"";
+                  break;
+            }
+ 
+             png_snprintf(umsg, sizeof umsg, msg, png_ptr->chunk_name);
+             msg = umsg;
+ #else
+             msg = ""Damaged compressed datastream in chunk other than IDAT"";
+ #endif
+          }
+ 
+          png_warning(png_ptr, msg);
+       }
+ 
+       /* 0 means an error - notice that this code simple ignores
+       * zero length compressed chunks as a result.
+       */
+      return 0;
+   }
+}
+",,,,
+40,linux,0926f91083f34d047abc74f1ca4fa6a9c161f7db,CVE-2010-5332,CWE-119,"mlx4_en: Fix out of bounds array access
+
+When searching for a free entry in either mlx4_register_vlan() or
+mlx4_register_mac(), and there is no free entry, the loop terminates without
+updating the local variable free thus causing out of array bounds access. Fix
+this by adding a proper check outside the loop.
+
+Signed-off-by: Eli Cohen <eli@mellanox.co.il>
+Signed-off-by: David S. Miller <davem@davemloft.net>","In the Linux kernel before 2.6.37, an out of bounds array access happened in drivers/net/mlx4/port.c. When searching for a free entry in either mlx4_register_vlan() or mlx4_register_mac(), and there is no free entry, the loop terminates without updating the local variable free thus causing out of array bounds access.","int mlx4_register_mac(struct mlx4_dev *dev, u8 port, u64 mac, int *index)
+{
+	struct mlx4_mac_table *table = &mlx4_priv(dev)->port[port].mac_table;
+	int i, err = 0;
+	int free = -1;
+
+	mlx4_dbg(dev, ""Registering MAC: 0x%llx\n"", (unsigned long long) mac);
+	mutex_lock(&table->mutex);
+	for (i = 0; i < MLX4_MAX_MAC_NUM - 1; i++) {
+		if (free < 0 && !table->refs[i]) {
+			free = i;
+			continue;
+		}
+
+		if (mac == (MLX4_MAC_MASK & be64_to_cpu(table->entries[i]))) {
+			/* MAC already registered, increase refernce count */
+			*index = i;
+			++table->refs[i];
+ 			goto out;
+ 		}
+ 	}
+ 	mlx4_dbg(dev, ""Free MAC index is %d\n"", free);
+ 
+ 	if (table->total == table->max) {
+		/* No free mac entries */
+		err = -ENOSPC;
+		goto out;
+	}
+
+	/* Register new MAC */
+	table->refs[free] = 1;
+	table->entries[free] = cpu_to_be64(mac | MLX4_MAC_VALID);
+
+	err = mlx4_set_port_mac_table(dev, port, table->entries);
+	if (unlikely(err)) {
+		mlx4_err(dev, ""Failed adding MAC: 0x%llx\n"", (unsigned long long) mac);
+		table->refs[free] = 0;
+		table->entries[free] = 0;
+		goto out;
+	}
+
+	*index = free;
+	++table->total;
+out:
+	mutex_unlock(&table->mutex);
+	return err;
+}
+",,,,
+41,Android,5a9753fca56f0eeb9f61e342b2fccffc364f9426,CVE-2016-1621,CWE-119,"Merge Conflict Fix CL to lmp-mr1-release for ag/849478
+
+DO NOT MERGE - libvpx: Pull from upstream
+
+Current HEAD: 7105df53d7dc13d5e575bc8df714ec8d1da36b06
+
+BUG=23452792
+
+Change-Id: Ic78176fc369e0bacc71d423e0e2e6075d004aaec
+","libvpx in mediaserver in Android 4.x before 4.4.4, 5.x before 5.1.1 LMY49H, and 6.0 before 2016-03-01 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file, related to libwebm/mkvparser.cpp and other files, aka internal bug 23452792."," virtual void SetUp() {
+    fwd_txfm_ = GET_PARAM(0);
+    inv_txfm_ = GET_PARAM(1);
+
+     tx_type_  = GET_PARAM(2);
+     pitch_    = 4;
+     fwd_txfm_ref = fht4x4_ref;
+   }
+",,,,
+42,Chrome,3057be01bcbbd1d0938afb489e18f2ca6d9b8229,CVE-2011-2794,CWE-119,"Remove minimum and maximum scroll position as they are no
+longer required due to changes in ScrollViewBase.
+https://bugs.webkit.org/show_bug.cgi?id=87298
+
+Patch by Genevieve Mak <gmak@rim.com> on 2012-05-23
+Reviewed by Antonio Gomes.
+
+* WebKitSupport/InRegionScrollableArea.cpp:
+(BlackBerry::WebKit::InRegionScrollableArea::InRegionScrollableArea):
+* WebKitSupport/InRegionScrollableArea.h:
+(InRegionScrollableArea):
+
+git-svn-id: svn://svn.chromium.org/blink/trunk@118233 bbb929c8-8fbe-4397-9dbb-9b2b20218538","Google Chrome before 13.0.782.107 does not properly perform text iteration, which allows remote attackers to cause a denial of service (out-of-bounds read) via unspecified vectors.","Platform::IntPoint InRegionScrollableArea::calculateMinimumScrollPosition(const Platform::IntSize& viewportSize, float overscrollLimitFactor) const
+{
+    ASSERT(!allowsOverscroll());
+    return Platform::IntPoint(-(viewportSize.width() * overscrollLimitFactor),
+                              -(viewportSize.height() * overscrollLimitFactor));
+}
+",,,,
+43,Android,5a9753fca56f0eeb9f61e342b2fccffc364f9426,CVE-2016-1621,CWE-119,"Merge Conflict Fix CL to lmp-mr1-release for ag/849478
+
+DO NOT MERGE - libvpx: Pull from upstream
+
+Current HEAD: 7105df53d7dc13d5e575bc8df714ec8d1da36b06
+
+BUG=23452792
+
+Change-Id: Ic78176fc369e0bacc71d423e0e2e6075d004aaec
+","libvpx in mediaserver in Android 4.x before 4.4.4, 5.x before 5.1.1 LMY49H, and 6.0 before 2016-03-01 allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via a crafted media file, related to libwebm/mkvparser.cpp and other files, aka internal bug 23452792.","   virtual void SetUp() {
+     InitializeConfig();
+    SetMode(GET_PARAM(1));
+    set_cpu_used_ = GET_PARAM(2);
+   }
+",,,,
+44,wildmidi,660b513d99bced8783a4a5984ac2f742c74ebbdd,CVE-2017-11664,CWE-125,"Add a new size parameter to _WM_SetupMidiEvent() so that it knows
+where to stop reading, and adjust its users properly. Fixes bug #175
+(CVE-2017-11661, CVE-2017-11662, CVE-2017-11663, CVE-2017-11664.)",The _WM_SetupMidiEvent function in internal_midi.c:2122 in WildMIDI 0.4.2 can cause a denial of service (invalid memory read and application crash) via a crafted mid file.,"_WM_ParseNewHmp(uint8_t *hmp_data, uint32_t hmp_size) {
+    uint8_t is_hmp2 = 0;
+    uint32_t zero_cnt = 0;
+    uint32_t i = 0;
+    uint32_t hmp_file_length = 0;
+    uint32_t hmp_chunks = 0;
+    uint32_t hmp_divisions = 0;
+    uint32_t hmp_unknown = 0;
+    uint32_t hmp_bpm = 0;
+    uint32_t hmp_song_time = 0;
+    struct _mdi *hmp_mdi;
+    uint8_t **hmp_chunk;
+    uint32_t *chunk_length;
+    uint32_t *chunk_ofs;
+    uint32_t *chunk_delta;
+    uint8_t *chunk_end;
+    uint32_t chunk_num = 0;
+    uint32_t hmp_track = 0;
+    uint32_t smallest_delta = 0;
+    uint32_t subtract_delta = 0;
+    uint32_t end_of_chunks = 0;
+    uint32_t var_len_shift = 0;
+
+    float tempo_f = 500000.0;
+    float samples_per_delta_f = 0.0;
+
+
+    uint32_t sample_count = 0;
+    float sample_count_f = 0;
+    float sample_remainder = 0;
+
+    if (memcmp(hmp_data, ""HMIMIDIP"", 8)) {
+        _WM_GLOBAL_ERROR(__FUNCTION__, __LINE__, WM_ERR_NOT_HMP, NULL, 0);
+        return NULL;
+    }
+    hmp_data += 8;
+    hmp_size -= 8;
+
+    if (!memcmp(hmp_data, ""013195"", 6)) {
+        hmp_data += 6;
+        hmp_size -= 6;
+        is_hmp2 = 1;
+    }
+
+    if (is_hmp2) {
+        zero_cnt = 18;
+    } else {
+        zero_cnt = 24;
+    }
+    for (i = 0; i < zero_cnt; i++) {
+        if (hmp_data[i] != 0) {
+            _WM_GLOBAL_ERROR(__FUNCTION__, __LINE__, WM_ERR_NOT_HMP, NULL, 0);
+            return NULL;
+        }
+    }
+    hmp_data += zero_cnt;
+    hmp_size -= zero_cnt;
+
+    hmp_file_length = *hmp_data++;
+    hmp_file_length += (*hmp_data++ << 8);
+    hmp_file_length += (*hmp_data++ << 16);
+    hmp_file_length += (*hmp_data++ << 24);
+    hmp_size -= 4;
+
+    UNUSED(hmp_file_length);
+
+    hmp_data += 12;
+    hmp_size -= 12;
+
+    hmp_chunks = *hmp_data++;
+    hmp_chunks += (*hmp_data++ << 8);
+    hmp_chunks += (*hmp_data++ << 16);
+    hmp_chunks += (*hmp_data++ << 24);
+    hmp_size -= 4;
+
+    hmp_unknown = *hmp_data++;
+    hmp_unknown += (*hmp_data++ << 8);
+    hmp_unknown += (*hmp_data++ << 16);
+    hmp_unknown += (*hmp_data++ << 24);
+    hmp_size -= 4;
+
+    UNUSED(hmp_unknown);
+
+    hmp_divisions = 60;
+
+    hmp_bpm = *hmp_data++;
+    hmp_bpm += (*hmp_data++ << 8);
+    hmp_bpm += (*hmp_data++ << 16);
+    hmp_bpm += (*hmp_data++ << 24);
+    hmp_size -= 4;
+
+    /* Slow but needed for accuracy */
+    if ((_WM_MixerOptions & WM_MO_ROUNDTEMPO)) {
+        tempo_f = (float) (60000000 / hmp_bpm) + 0.5f;
+    } else {
+        tempo_f = (float) (60000000 / hmp_bpm);
+    }
+
+    samples_per_delta_f = _WM_GetSamplesPerTick(hmp_divisions, tempo_f);
+
+
+    hmp_song_time = *hmp_data++;
+    hmp_song_time += (*hmp_data++ << 8);
+    hmp_song_time += (*hmp_data++ << 16);
+    hmp_song_time += (*hmp_data++ << 24);
+    hmp_size -= 4;
+
+
+    UNUSED(hmp_song_time);
+
+    if (is_hmp2) {
+        hmp_data += 840;
+        hmp_size -= 840;
+    } else {
+        hmp_data += 712;
+        hmp_size -= 712;
+    }
+
+    hmp_mdi = _WM_initMDI();
+
+    _WM_midi_setup_divisions(hmp_mdi, hmp_divisions);
+    _WM_midi_setup_tempo(hmp_mdi, (uint32_t)tempo_f);
+
+    hmp_chunk = malloc(sizeof(uint8_t *) * hmp_chunks);
+    chunk_length = malloc(sizeof(uint32_t) * hmp_chunks);
+    chunk_delta = malloc(sizeof(uint32_t) * hmp_chunks);
+    chunk_ofs = malloc(sizeof(uint32_t) * hmp_chunks);
+    chunk_end = malloc(sizeof(uint8_t) * hmp_chunks);
+
+    smallest_delta = 0xffffffff;
+    for (i = 0; i < hmp_chunks; i++) {
+        hmp_chunk[i] = hmp_data;
+        chunk_ofs[i] = 0;
+
+        chunk_num = *hmp_data++;
+        chunk_num += (*hmp_data++ << 8);
+        chunk_num += (*hmp_data++ << 16);
+        chunk_num += (*hmp_data++ << 24);
+        chunk_ofs[i] += 4;
+
+        UNUSED(chunk_num);
+
+        chunk_length[i] = *hmp_data++;
+        chunk_length[i] += (*hmp_data++ << 8);
+        chunk_length[i] += (*hmp_data++ << 16);
+        chunk_length[i] += (*hmp_data++ << 24);
+        chunk_ofs[i] += 4;
+
+        if (chunk_length[i] > hmp_size) {
+            _WM_GLOBAL_ERROR(__FUNCTION__, __LINE__, WM_ERR_NOT_HMP, ""file too short"", 0);
+            goto _hmp_end;
+        }
+        hmp_size -= chunk_length[i];
+
+        hmp_track = *hmp_data++;
+        hmp_track += (*hmp_data++ << 8);
+        hmp_track += (*hmp_data++ << 16);
+        hmp_track += (*hmp_data++ << 24);
+        chunk_ofs[i] += 4;
+
+        UNUSED(hmp_track);
+
+        chunk_delta[i] = 0;
+        var_len_shift = 0;
+        if (*hmp_data < 0x80) {
+            do {
+                chunk_delta[i] = chunk_delta[i] | ((*hmp_data++ & 0x7F) << var_len_shift);
+                var_len_shift += 7;
+                chunk_ofs[i]++;
+            } while (*hmp_data < 0x80);
+        }
+        chunk_delta[i] = chunk_delta[i] | ((*hmp_data++ & 0x7F) << var_len_shift);
+        chunk_ofs[i]++;
+
+        if (chunk_delta[i] < smallest_delta) {
+            smallest_delta = chunk_delta[i];
+        }
+ 
+         hmp_data = hmp_chunk[i] + chunk_length[i];
+         hmp_chunk[i] += chunk_ofs[i]++;
+         chunk_end[i] = 0;
+     }
+
+    subtract_delta = smallest_delta;
+    sample_count_f = (((float) smallest_delta * samples_per_delta_f) + sample_remainder);
+
+    sample_count = (uint32_t) sample_count_f;
+    sample_remainder = sample_count_f - (float) sample_count;
+
+    hmp_mdi->events[hmp_mdi->event_count - 1].samples_to_next += sample_count;
+    hmp_mdi->extra_info.approx_total_samples += sample_count;
+
+    while (end_of_chunks < hmp_chunks) {
+        smallest_delta = 0;
+
+
+        for (i = 0; i < hmp_chunks; i++) {
+            if (chunk_end[i])
+                continue;
+
+            if (chunk_delta[i]) {
+                chunk_delta[i] -= subtract_delta;
+                if (chunk_delta[i]) {
+                    if ((!smallest_delta)
+                        || (smallest_delta > chunk_delta[i])) {
+                        smallest_delta = chunk_delta[i];
+                    }
+                    continue;
+                }
+            }
+            do {
+                if (((hmp_chunk[i][0] & 0xf0) == 0xb0 ) && ((hmp_chunk[i][1] == 110) || (hmp_chunk[i][1] == 111)) && (hmp_chunk[i][2] > 0x7f)",,,,
+45,ImageMagick,f6e9d0d9955e85bdd7540b251cd50d598dacc5e6,CVE-2016-10066,CWE-119,,Buffer overflow in the ReadVIFFImage function in coders/viff.c in ImageMagick before 6.9.4-5 allows remote attackers to cause a denial of service (application crash) via a crafted file.,"static Image *ReadDPXImage(const ImageInfo *image_info,ExceptionInfo *exception)
+{
+  char
+    magick[4],
+    value[MaxTextExtent];
+
+  DPXInfo
+    dpx;
+
+  Image
+    *image;
+
+  MagickBooleanType
+    status;
+
+  MagickOffsetType
+    offset;
+
+  QuantumInfo
+    *quantum_info;
+
+  QuantumType
+    quantum_type;
+
+  register ssize_t
+    i;
+
+  size_t
+    extent,
+    samples_per_pixel;
+
+  ssize_t
+    count,
+    n,
+    row,
+    y;
+
+  unsigned char
+    component_type;
+
+  /*
+    Open image file.
+  */
+  assert(image_info != (const ImageInfo *) NULL);
+  assert(image_info->signature == MagickSignature);
+  if (image_info->debug != MagickFalse)
+    (void) LogMagickEvent(TraceEvent,GetMagickModule(),""%s"",
+      image_info->filename);
+  assert(exception != (ExceptionInfo *) NULL);
+  assert(exception->signature == MagickSignature);
+  image=AcquireImage(image_info);
+  status=OpenBlob(image_info,image,ReadBinaryBlobMode,exception);
+  if (status == MagickFalse)
+    {
+      image=DestroyImageList(image);
+      return((Image *) NULL);
+    }
+  /*
+    Read DPX file header.
+  */
+  offset=0;
+  count=ReadBlob(image,4,(unsigned char *) magick);
+  offset+=count;
+  if ((count != 4) || ((LocaleNCompare(magick,""SDPX"",4) != 0) &&
+      (LocaleNCompare((char *) magick,""XPDS"",4) != 0)))
+    ThrowReaderException(CorruptImageError,""ImproperImageHeader"");
+  image->endian=LSBEndian;
+  if (LocaleNCompare(magick,""SDPX"",4) == 0)
+    image->endian=MSBEndian;
+  (void) ResetMagickMemory(&dpx,0,sizeof(dpx));
+  dpx.file.image_offset=ReadBlobLong(image);
+  offset+=4;
+  offset+=ReadBlob(image,sizeof(dpx.file.version),(unsigned char *)
+    dpx.file.version);
+  (void) FormatImageProperty(image,""dpx:file.version"",""%.8s"",dpx.file.version);
+  dpx.file.file_size=ReadBlobLong(image);
+  offset+=4;
+  dpx.file.ditto_key=ReadBlobLong(image);
+  offset+=4;
+  if (dpx.file.ditto_key != ~0U)
+    (void) FormatImageProperty(image,""dpx:file.ditto.key"",""%u"",
+      dpx.file.ditto_key);
+  dpx.file.generic_size=ReadBlobLong(image);
+  offset+=4;
+  dpx.file.industry_size=ReadBlobLong(image);
+  offset+=4;
+  dpx.file.user_size=ReadBlobLong(image);
+  offset+=4;
+  offset+=ReadBlob(image,sizeof(dpx.file.filename),(unsigned char *)
+    dpx.file.filename);
+  (void) FormatImageProperty(image,""dpx:file.filename"",""%.100s"",
+    dpx.file.filename);
+  (void) FormatImageProperty(image,""document"",""%.100s"",dpx.file.filename);
+  offset+=ReadBlob(image,sizeof(dpx.file.timestamp),(unsigned char *)
+    dpx.file.timestamp);
+  if (*dpx.file.timestamp != '\0')
+    (void) FormatImageProperty(image,""dpx:file.timestamp"",""%.24s"",
+      dpx.file.timestamp);
+  offset+=ReadBlob(image,sizeof(dpx.file.creator),(unsigned char *)
+    dpx.file.creator);
+  if (*dpx.file.creator == '\0')
+    {
+      (void) FormatImageProperty(image,""dpx:file.creator"",""%.100s"",
+        GetMagickVersion((size_t *) NULL));
+      (void) FormatImageProperty(image,""software"",""%.100s"",
+        GetMagickVersion((size_t *) NULL));
+    }
+  else
+    {
+      (void) FormatImageProperty(image,""dpx:file.creator"",""%.100s"",
+        dpx.file.creator);
+      (void) FormatImageProperty(image,""software"",""%.100s"",dpx.file.creator);
+    }
+  offset+=ReadBlob(image,sizeof(dpx.file.project),(unsigned char *)
+    dpx.file.project);
+  if (*dpx.file.project != '\0')
+    {
+      (void) FormatImageProperty(image,""dpx:file.project"",""%.200s"",
+        dpx.file.project);
+      (void) FormatImageProperty(image,""comment"",""%.100s"",dpx.file.project);
+    }
+  offset+=ReadBlob(image,sizeof(dpx.file.copyright),(unsigned char *)
+    dpx.file.copyright);
+  if (*dpx.file.copyright != '\0')
+    {
+      (void) FormatImageProperty(image,""dpx:file.copyright"",""%.200s"",
+        dpx.file.copyright);
+      (void) FormatImageProperty(image,""copyright"",""%.100s"",
+        dpx.file.copyright);
+    }
+  dpx.file.encrypt_key=ReadBlobLong(image);
+  offset+=4;
+  if (dpx.file.encrypt_key != ~0U)
+    (void) FormatImageProperty(image,""dpx:file.encrypt_key"",""%u"",
+      dpx.file.encrypt_key);
+  offset+=ReadBlob(image,sizeof(dpx.file.reserve),(unsigned char *)
+    dpx.file.reserve);
+  /*
+    Read DPX image header.
+  */
+  dpx.image.orientation=ReadBlobShort(image);
+  if (dpx.image.orientation > 7)
+    ThrowReaderException(CorruptImageError,""ImproperImageHeader"");
+  offset+=2;
+  if (dpx.image.orientation != (unsigned short) ~0)
+    (void) FormatImageProperty(image,""dpx:image.orientation"",""%d"",
+      dpx.image.orientation);
+  switch (dpx.image.orientation)
+  {
+    default:
+    case 0: image->orientation=TopLeftOrientation; break;
+    case 1: image->orientation=TopRightOrientation; break;
+    case 2: image->orientation=BottomLeftOrientation; break;
+    case 3: image->orientation=BottomRightOrientation; break;
+    case 4: image->orientation=LeftTopOrientation; break;
+    case 5: image->orientation=RightTopOrientation; break;
+    case 6: image->orientation=LeftBottomOrientation; break;
+    case 7: image->orientation=RightBottomOrientation; break;
+  }
+  dpx.image.number_elements=ReadBlobShort(image);
+  if (dpx.image.number_elements > MaxNumberImageElements)
+    ThrowReaderException(CorruptImageError,""ImproperImageHeader"");
+  offset+=2;
+  dpx.image.pixels_per_line=ReadBlobLong(image);
+  offset+=4;
+  image->columns=dpx.image.pixels_per_line;
+  dpx.image.lines_per_element=ReadBlobLong(image);
+  offset+=4;
+  image->rows=dpx.image.lines_per_element;
+  for (i=0; i < 8; i++)
+  {
+    char
+      property[MaxTextExtent];
+
+    dpx.image.image_element[i].data_sign=ReadBlobLong(image);
+    offset+=4;
+    dpx.image.image_element[i].low_data=ReadBlobLong(image);
+    offset+=4;
+    dpx.image.image_element[i].low_quantity=ReadBlobFloat(image);
+    offset+=4;
+    dpx.image.image_element[i].high_data=ReadBlobLong(image);
+    offset+=4;
+    dpx.image.image_element[i].high_quantity=ReadBlobFloat(image);
+    offset+=4;
+    dpx.image.image_element[i].descriptor=(unsigned char) ReadBlobByte(image);
+    offset++;
+    dpx.image.image_element[i].transfer_characteristic=(unsigned char)
+      ReadBlobByte(image);
+    (void",,,,
+46,linux,c0f5ecee4e741667b2493c742b60b6218d40b3aa,CVE-2013-1860,CWE-119,"USB: cdc-wdm: fix buffer overflow
+
+The buffer for responses must not overflow.
+If this would happen, set a flag, drop the data and return
+an error after user space has read all remaining data.
+
+Signed-off-by: Oliver Neukum <oliver@neukum.org>
+CC: stable@kernel.org
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>",Heap-based buffer overflow in the wdm_in_callback function in drivers/usb/class/cdc-wdm.c in the Linux kernel before 3.8.4 allows physically proximate attackers to cause a denial of service (system crash) or possibly execute arbitrary code via a crafted cdc-wdm USB device.,"static void wdm_in_callback(struct urb *urb)
+ {
+ 	struct wdm_device *desc = urb->context;
+ 	int status = urb->status;
+ 
+ 	spin_lock(&desc->iuspin);
+ 	clear_bit(WDM_RESPONDING, &desc->flags);
+
+	if (status) {
+		switch (status) {
+		case -ENOENT:
+			dev_dbg(&desc->intf->dev,
+				""nonzero urb status received: -ENOENT"");
+			goto skip_error;
+		case -ECONNRESET:
+			dev_dbg(&desc->intf->dev,
+				""nonzero urb status received: -ECONNRESET"");
+			goto skip_error;
+		case -ESHUTDOWN:
+			dev_dbg(&desc->intf->dev,
+				""nonzero urb status received: -ESHUTDOWN"");
+			goto skip_error;
+		case -EPIPE:
+			dev_err(&desc->intf->dev,
+				""nonzero urb status received: -EPIPE\n"");
+			break;
+		default:
+			dev_err(&desc->intf->dev,
+				""Unexpected error %d\n"", status);
+			break;
+		}
+ 	}
+ 
+ 	desc->rerr = status;
+	desc->reslength = urb->actual_length;
+	memmove(desc->ubuf + desc->length, desc->inbuf, desc->reslength);
+	desc->length += desc->reslength;
+ skip_error:
+ 	wake_up(&desc->wait);
+ 
+	set_bit(WDM_READ, &desc->flags);
+	spin_unlock(&desc->iuspin);
+}
+",,,,
+47,gstreamer,bdc20b9baf13564d9a061343416395f8f9a92b53,CVE-2009-0397,CWE-119,,"Heap-based buffer overflow in the qtdemux_parse_samples function in gst/qtdemux/qtdemux.c in GStreamer Good Plug-ins (aka gst-plugins-good) 0.10.9 through 0.10.11, and GStreamer Plug-ins (aka gstreamer-plugins) 0.8.5, might allow remote attackers to execute arbitrary code via crafted Time-to-sample (aka stts) atom data in a malformed QuickTime media .mov file.","qtdemux_parse_samples (GstQTDemux * qtdemux, QtDemuxStream * stream,
+    GNode * stbl)
+{
+  int offset;
+  GNode *stsc;
+  GNode *stsz;
+  GNode *stco;
+  GNode *co64;
+  GNode *stts;
+  GNode *stss;
+  GNode *ctts;
+  const guint8 *stsc_data, *stsz_data, *stco_data;
+  int sample_size;
+  int sample_index;
+  int n_samples;
+  int n_samples_per_chunk;
+  int n_sample_times;
+  QtDemuxSample *samples;
+  gint i, j, k;
+  int index;
+  guint64 timestamp, time;
+
+  /* sample to chunk */
+  if (!(stsc = qtdemux_tree_get_child_by_type (stbl, FOURCC_stsc)))
+    goto corrupt_file;
+  stsc_data = (const guint8 *) stsc->data;
+  /* sample size */
+  if (!(stsz = qtdemux_tree_get_child_by_type (stbl, FOURCC_stsz)))
+    goto corrupt_file;
+  stsz_data = (const guint8 *) stsz->data;
+  /* chunk offsets */
+  stco = qtdemux_tree_get_child_by_type (stbl, FOURCC_stco);
+  co64 = qtdemux_tree_get_child_by_type (stbl, FOURCC_co64);
+  if (stco) {
+    stco_data = (const guint8 *) stco->data;
+  } else {
+    stco_data = NULL;
+    if (co64 == NULL)
+      goto corrupt_file;
+  }
+  /* sample time */
+  if (!(stts = qtdemux_tree_get_child_by_type (stbl, FOURCC_stts)))
+    goto corrupt_file;
+
+  /* sample sync, can be NULL */
+  stss = qtdemux_tree_get_child_by_type (stbl, FOURCC_stss);
+
+  sample_size = QT_UINT32 (stsz_data + 12);
+  if (sample_size == 0 || stream->sampled) {
+    n_samples = QT_UINT32 (stsz_data + 16);
+    GST_DEBUG_OBJECT (qtdemux, ""stsz sample_size 0, allocating n_samples %d"",
+        n_samples);
+    stream->n_samples = n_samples;
+    samples = g_new0 (QtDemuxSample, n_samples);
+    stream->samples = samples;
+
+    for (i = 0; i < n_samples; i++) {
+      if (sample_size == 0)
+        samples[i].size = QT_UINT32 (stsz_data + i * 4 + 20);
+      else
+        samples[i].size = sample_size;
+
+      GST_LOG_OBJECT (qtdemux, ""sample %d has size %d"", i, samples[i].size);
+      /* init other fields to defaults for this sample */
+      samples[i].keyframe = FALSE;
+    }
+    n_samples_per_chunk = QT_UINT32 (stsc_data + 12);
+    index = 0;
+    for (i = 0; i < n_samples_per_chunk; i++) {
+      guint32 first_chunk, last_chunk;
+      guint32 samples_per_chunk;
+
+      first_chunk = QT_UINT32 (stsc_data + 16 + i * 12 + 0) - 1;
+      if (i == n_samples_per_chunk - 1) {
+        last_chunk = G_MAXUINT32;
+      } else {
+        last_chunk = QT_UINT32 (stsc_data + 16 + i * 12 + 12) - 1;
+      }
+      samples_per_chunk = QT_UINT32 (stsc_data + 16 + i * 12 + 4);
+
+      for (j = first_chunk; j < last_chunk; j++) {
+        guint64 chunk_offset;
+
+        if (stco) {
+          chunk_offset = QT_UINT32 (stco_data + 16 + j * 4);
+        } else {
+          chunk_offset = QT_UINT64 ((guint8 *) co64->data + 16 + j * 8);
+        }
+        for (k = 0; k < samples_per_chunk; k++) {
+          GST_LOG_OBJECT (qtdemux, ""Creating entry %d with offset %lld"",
+              index, chunk_offset);
+          samples[index].chunk = j;
+          samples[index].offset = chunk_offset;
+          chunk_offset += samples[index].size;
+          index++;
+          if (index >= n_samples)
+            goto done2;
+        }
+      }
+    }
+  done2:
+
+    n_sample_times = QT_UINT32 ((guint8 *) stts->data + 12);
+    timestamp = 0;
+     stream->min_duration = 0;
+     time = 0;
+     index = 0;
+    for (i = 0; i < n_sample_times; i++) {
+       guint32 n;
+       guint32 duration;
+ 
+       n = QT_UINT32 ((guint8 *) stts->data + 16 + 8 * i);
+       duration = QT_UINT32 ((guint8 *) stts->data + 16 + 8 * i + 4);
+      for (j = 0; j < n; j++) {
+         GST_DEBUG_OBJECT (qtdemux, ""sample %d: timestamp %"" GST_TIME_FORMAT,
+             index, GST_TIME_ARGS (timestamp));
+ 
+        samples[index].timestamp = timestamp;
+        /* take first duration for fps */
+        if (stream->min_duration == 0)
+          stream->min_duration = duration;
+        /* add non-scaled values to avoid rounding errors */
+        time += duration;
+        timestamp = gst_util_uint64_scale (time, GST_SECOND, stream->timescale);
+        samples[index].duration = timestamp - samples[index].timestamp;
+
+        index++;
+      }
+    }
+    if (stss) {
+      /* mark keyframes */
+      guint32 n_sample_syncs;
+
+      n_sample_syncs = QT_UINT32 ((guint8 *) stss->data + 12);
+      if (n_sample_syncs == 0) {
+        stream->all_keyframe = TRUE;
+      } else {
+        offset = 16;
+         for (i = 0; i < n_sample_syncs; i++) {
+           /* note that the first sample is index 1, not 0 */
+           index = QT_UINT32 ((guint8 *) stss->data + offset);
+          if (index > 0) {
+             samples[index - 1].keyframe = TRUE;
+             offset += 4;
+           }
+        }
+      }
+    } else {
+      /* no stss, all samples are keyframes */
+      stream->all_keyframe = TRUE;
+    }
+  } else {
+    GST_DEBUG_OBJECT (qtdemux,
+        ""stsz sample_size %d != 0, treating chunks as samples"", sample_size);
+
+    /* treat chunks as samples */
+    if (stco) {
+      n_samples = QT_UINT32 (stco_data + 12);
+    } else {
+      n_samples = QT_UINT32 ((guint8 *) co64->data + 12);
+    }
+    stream->n_samples = n_samples;
+    GST_DEBUG_OBJECT (qtdemux, ""allocating n_samples %d"", n_samples);
+    samples = g_new0 (QtDemuxSample, n_samples);
+    stream->samples = samples;
+
+    n_samples_per_chunk = QT_UINT32 (stsc_data + 12);
+    GST_DEBUG_OBJECT (qtdemux, ""n_samples_per_chunk %d"", n_samples_per_chunk);
+    sample_index = 0;
+    timestamp = 0;
+    for (i = 0; i < n_samples_per_chunk; i++) {
+      guint32 first_chunk, last_chunk;
+      guint32 samples_per_chunk;
+
+      first_chunk = QT_UINT32 (stsc_data + 16 + i * 12 + 0) - 1;
+      /* the last chunk of each entry is calculated by taking the first chunk
+       * of the next entry; except if there is no next, where we fake it with
+       * INT_MAX */
+      if (i == n_samples_per_chunk - 1) {
+        last_chunk = G_MAXUINT32;
+      } else {
+        last_chunk = QT_UINT32 (stsc_data + 16 + i * 12 + 12) - 1;
+      }
+      samples_per_chunk = QT_UINT32 (stsc_data + 16 + i * 12 + 4);
+
+      GST_LOG_OBJECT (qtdemux,
+",,,,
+48,Chrome,01e4ee2fda0a5e57a8d0c8cb829022eb84fdff12,CVE-2011-2806,CWE-119,"Rename isPositioned to isOutOfFlowPositioned for clarity
+https://bugs.webkit.org/show_bug.cgi?id=89836
+
+Reviewed by Antti Koivisto.
+
+RenderObject and RenderStyle had an isPositioned() method that was
+confusing, because it excluded relative positioning. Rename to
+isOutOfFlowPositioned(), which makes it clearer that it only applies
+to absolute and fixed positioning.
+
+Simple rename; no behavior change.
+
+Source/WebCore:
+
+* css/CSSComputedStyleDeclaration.cpp:
+(WebCore::getPositionOffsetValue):
+* css/StyleResolver.cpp:
+(WebCore::StyleResolver::collectMatchingRulesForList):
+* dom/Text.cpp:
+(WebCore::Text::rendererIsNeeded):
+* editing/DeleteButtonController.cpp:
+(WebCore::isDeletableElement):
+* editing/TextIterator.cpp:
+(WebCore::shouldEmitNewlinesBeforeAndAfterNode):
+* rendering/AutoTableLayout.cpp:
+(WebCore::shouldScaleColumns):
+* rendering/InlineFlowBox.cpp:
+(WebCore::InlineFlowBox::addToLine):
+(WebCore::InlineFlowBox::placeBoxesInInlineDirection):
+(WebCore::InlineFlowBox::requiresIdeographicBaseline):
+(WebCore::InlineFlowBox::adjustMaxAscentAndDescent):
+(WebCore::InlineFlowBox::computeLogicalBoxHeights):
+(WebCore::InlineFlowBox::placeBoxesInBlockDirection):
+(WebCore::InlineFlowBox::flipLinesInBlockDirection):
+(WebCore::InlineFlowBox::computeOverflow):
+(WebCore::InlineFlowBox::computeOverAnnotationAdjustment):
+(WebCore::InlineFlowBox::computeUnderAnnotationAdjustment):
+* rendering/InlineIterator.h:
+(WebCore::isIteratorTarget):
+* rendering/LayoutState.cpp:
+(WebCore::LayoutState::LayoutState):
+* rendering/RenderBlock.cpp:
+(WebCore::RenderBlock::MarginInfo::MarginInfo):
+(WebCore::RenderBlock::styleWillChange):
+(WebCore::RenderBlock::styleDidChange):
+(WebCore::RenderBlock::addChildToContinuation):
+(WebCore::RenderBlock::addChildToAnonymousColumnBlocks):
+(WebCore::RenderBlock::containingColumnsBlock):
+(WebCore::RenderBlock::columnsBlockForSpanningElement):
+(WebCore::RenderBlock::addChildIgnoringAnonymousColumnBlocks):
+(WebCore::getInlineRun):
+(WebCore::RenderBlock::isSelfCol","Google Chrome before 13.0.782.215 on Windows does not properly handle vertex data, which allows remote attackers to execute arbitrary code or cause a denial of service (memory corruption) via unspecified vectors.","static PassRefPtr<CSSValue> getPositionOffsetValue(RenderStyle* style, CSSPropertyID propertyID, RenderView* renderView)
+{
+    if (!style)
+        return 0;
+
+    Length l;
+    switch (propertyID) {
+        case CSSPropertyLeft:
+            l = style->left();
+            break;
+        case CSSPropertyRight:
+            l = style->right();
+            break;
+        case CSSPropertyTop:
+            l = style->top();
+            break;
+        case CSSPropertyBottom:
+            l = style->bottom();
+            break;
+        default:
+            return 0;
+    }
+
+    if (style->position() == AbsolutePosition || style->position() == FixedPosition) {
+        if (l.type() == WebCore::Fixed)
+            return zoomAdjustedPixelValue(l.value(), style);
+        else if (l.isViewportPercentage())
+            return zoomAdjustedPixelValue(valueForLength(l, 0, renderView), style);
+         return cssValuePool().createValue(l);
+     }
+ 
+    if (style->position() == RelativePosition)
+         return cssValuePool().createValue(l);
+ 
+     return cssValuePool().createIdentifierValue(CSSValueAuto);
+ }
+",,,,
+49,FFmpeg,e43a0a232dbf6d3c161823c2e07c52e76227a1bc,CVE-2013-4263,CWE-119,"avfilter: fix plane validity checks
+
+Fixes out of array accesses
+
+Signed-off-by: Michael Niedermayer <michaelni@gmx.at>","libavfilter in FFmpeg before 2.0.1 has unspecified impact and remote vectors related to a crafted *plane,* which triggers an out-of-bounds heap write.","static int filter_frame(AVFilterLink *inlink, AVFrame *in)
+{
+    DelogoContext *s = inlink->dst->priv;
+    AVFilterLink *outlink = inlink->dst->outputs[0];
+    const AVPixFmtDescriptor *desc = av_pix_fmt_desc_get(inlink->format);
+    AVFrame *out;
+    int hsub0 = desc->log2_chroma_w;
+    int vsub0 = desc->log2_chroma_h;
+    int direct = 0;
+    int plane;
+    AVRational sar;
+
+    if (av_frame_is_writable(in)) {
+        direct = 1;
+        out = in;
+    } else {
+        out = ff_get_video_buffer(outlink, outlink->w, outlink->h);
+        if (!out) {
+            av_frame_free(&in);
+            return AVERROR(ENOMEM);
+        }
+
+        av_frame_copy_props(out, in);
+    }
+
+    sar = in->sample_aspect_ratio;
+    /* Assume square pixels if SAR is unknown */
+     if (!sar.num)
+         sar.num = sar.den = 1;
+ 
+    for (plane = 0; plane < 4 && in->data[plane]; plane++) {
+         int hsub = plane == 1 || plane == 2 ? hsub0 : 0;
+         int vsub = plane == 1 || plane == 2 ? vsub0 : 0;
+ 
+        apply_delogo(out->data[plane], out->linesize[plane],
+                     in ->data[plane], in ->linesize[plane],
+                     FF_CEIL_RSHIFT(inlink->w, hsub),
+                     FF_CEIL_RSHIFT(inlink->h, vsub),
+                     sar, s->x>>hsub, s->y>>vsub,
+                     /* Up and left borders were rounded down, inject lost bits
+                      * into width and height to avoid error accumulation */
+                     FF_CEIL_RSHIFT(s->w + (s->x & ((1<<hsub)-1)), hsub),
+                     FF_CEIL_RSHIFT(s->h + (s->y & ((1<<vsub)-1)), vsub),
+                     s->band>>FFMIN(hsub, vsub),
+                     s->show, direct);
+    }
+
+    if (!direct)
+        av_frame_free(&in);
+
+    return ff_filter_frame(outlink, out);
+}
+",,,,
+50,ImageMagick,58d9c46929ca0828edde34d263700c3a5fe8dc3c,CVE-2019-10714,CWE-125,...,"LocaleLowercase in MagickCore/locale.c in ImageMagick before 7.0.8-32 allows out-of-bounds access, leading to a SIGSEGV."," MagickExport int LocaleLowercase(const int c)
+ {
+  if (c < 0)
+     return(c);
+ #if defined(MAGICKCORE_LOCALE_SUPPORT)
+   if (c_locale != (locale_t) NULL)
+    return(tolower_l((int) ((unsigned char) c),c_locale));
+#endif
+  return(tolower((int) ((unsigned char) c)));
+}
+",,,,

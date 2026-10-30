@@ -1,0 +1,10 @@
+{
+  "id": 116,
+  "project": "virglrenderer",
+  "commit_id": "28894a30a17a84529be102b21118e55d6c9f23fa",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2017-5580",
+  "file_name": "nan"
+}

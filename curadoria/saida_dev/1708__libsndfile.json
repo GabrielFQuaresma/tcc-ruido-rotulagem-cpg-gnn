@@ -1,0 +1,51 @@
+{
+  "alvo": "psf_binheader_writef",
+  "arquivo": "arquivo__common.c",
+  "linha_inicio": 552,
+  "linha_fim": 774,
+  "camada1": {
+    "por_categoria": {
+      "copia": 5
+    },
+    "por_nome": {
+      "memcpy": 5
+    },
+    "acessos_indexados": 8,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 28,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 16,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 15,
+    "sinks_indice": 8,
+    "fontes_parametro": 3,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 16,
+    "estruturas": {
+      "BREAK": 22,
+      "ELSE": 10,
+      "IF": 13,
+      "SWITCH": 1,
+      "WHILE": 2
+    }
+  },
+  "saude": {
+    "span": 223,
+    "nos_ast": 643,
+    "blocos": 25,
+    "locais": 19,
+    "chamadas_total": 202,
+    "chamadas_nao_operador": 37,
+    "estruturas_total": 48,
+    "externo": false
+  },
+  "item": "1708__libsndfile",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "libsndfile"
+}

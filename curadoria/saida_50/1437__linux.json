@@ -1,0 +1,43 @@
+{
+  "alvo": "hns_gmac_get_sset_count",
+  "arquivo": "arquivo__hns_dsaf_gmac.c",
+  "linha_inicio": 667,
+  "linha_fim": 673,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 0,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 0,
+    "fontes_parametro": 1,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 1,
+    "estruturas": {
+      "IF": 1
+    }
+  },
+  "saude": {
+    "span": 7,
+    "nos_ast": 18,
+    "blocos": 4,
+    "locais": 2,
+    "chamadas_total": 2,
+    "chamadas_nao_operador": 1,
+    "estruturas_total": 1,
+    "externo": false
+  },
+  "item": "1437__linux",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "linux"
+}

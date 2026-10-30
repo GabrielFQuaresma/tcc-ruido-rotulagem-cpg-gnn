@@ -1,0 +1,2 @@
+﻿=== inicio 2026-08-09T17:55:36.9656494-03:00 | cve_visivel | claude-opus-5 | R=1 ===
+=== fim 2026-08-09T18:04:08.5308968-03:00 | feitas=30 puladas=0 falhas=0 ===

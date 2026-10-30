@@ -1,0 +1,12 @@
+{
+  "id": 3,
+  "project": "php",
+  "commit_id": "c1224573c773b6845e83505f717fbf820fc18415",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": "arquivo__openssl.c",
+  "status_download": "ok",
+  "cve_id": "CVE-2013-6420",
+  "file_name": "nan",
+  "url_repo": "https://github.com/php/php-src.git",
+  "origem_url": "mapa"
+}

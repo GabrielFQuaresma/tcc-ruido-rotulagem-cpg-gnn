@@ -1,0 +1,45 @@
+{
+  "alvo": "check_entry_size_and_hooks",
+  "arquivo": "arquivo__ip_tables.c",
+  "linha_inicio": 728,
+  "linha_fim": 778,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 6,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 6,
+    "fontes_parametro": 7,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 8,
+    "estruturas": {
+      "CONTINUE": 1,
+      "FOR": 1,
+      "IF": 7
+    }
+  },
+  "saude": {
+    "span": 51,
+    "nos_ast": 156,
+    "blocos": 14,
+    "locais": 6,
+    "chamadas_total": 51,
+    "chamadas_nao_operador": 3,
+    "estruturas_total": 9,
+    "externo": false
+  },
+  "item": "0536__linux",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "linux"
+}

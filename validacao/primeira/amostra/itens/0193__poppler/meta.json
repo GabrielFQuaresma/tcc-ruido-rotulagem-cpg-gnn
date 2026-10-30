@@ -1,0 +1,10 @@
+{
+  "id": 193,
+  "project": "poppler",
+  "commit_id": "58e04a08afee39370283c494ee2e4e392fd3b684",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2013-7296",
+  "file_name": "nan"
+}

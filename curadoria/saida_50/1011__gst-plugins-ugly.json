@@ -1,0 +1,52 @@
+{
+  "alvo": "gst_asf_demux_process_ext_content_desc",
+  "arquivo": "arquivo__gstasfdemux.c",
+  "linha_inicio": 3251,
+  "linha_fim": 3516,
+  "camada1": {
+    "por_categoria": {
+      "entrada": 1
+    },
+    "por_nome": {
+      "sscanf": 1
+    },
+    "acessos_indexados": 3,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 1,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 3,
+    "fontes_parametro": 3,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 28,
+    "estruturas": {
+      "BREAK": 6,
+      "ELSE": 9,
+      "FOR": 2,
+      "GOTO": 4,
+      "IF": 25,
+      "SWITCH": 1
+    }
+  },
+  "saude": {
+    "span": 266,
+    "nos_ast": 590,
+    "blocos": 34,
+    "locais": 43,
+    "chamadas_total": 192,
+    "chamadas_nao_operador": 80,
+    "estruturas_total": 47,
+    "externo": false
+  },
+  "item": "1011__gst-plugins-ugly",
+  "cwe_bigvul": "CWE-125",
+  "projeto": "gst-plugins-ugly"
+}

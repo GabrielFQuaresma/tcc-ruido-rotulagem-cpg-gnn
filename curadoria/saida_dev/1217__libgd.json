@@ -1,0 +1,52 @@
+{
+  "alvo": "read_image_tga",
+  "arquivo": "arquivo__gd_tga.c",
+  "linha_inicio": 206,
+  "linha_fim": 336,
+  "camada1": {
+    "por_categoria": {
+      "copia": 2
+    },
+    "por_nome": {
+      "memcpy": 2
+    },
+    "acessos_indexados": 7,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 12,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 14,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 6,
+    "sinks_indice": 7,
+    "fontes_parametro": 2,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 18,
+    "estruturas": {
+      "BREAK": 2,
+      "ELSE": 1,
+      "FOR": 1,
+      "IF": 13,
+      "SWITCH": 1,
+      "WHILE": 3
+    }
+  },
+  "saude": {
+    "span": 131,
+    "nos_ast": 397,
+    "blocos": 30,
+    "locais": 15,
+    "chamadas_total": 141,
+    "chamadas_nao_operador": 24,
+    "estruturas_total": 21,
+    "externo": false
+  },
+  "item": "1217__libgd",
+  "cwe_bigvul": "CWE-125",
+  "projeto": "libgd"
+}

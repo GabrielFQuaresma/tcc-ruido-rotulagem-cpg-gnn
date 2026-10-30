@@ -1,0 +1,10 @@
+{
+  "id": 189,
+  "project": "libav",
+  "commit_id": "fb1473080223a634b8ac2cca48a632d037a0a69d",
+  "cwe_bigvul": "CWE-125",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2016-7393",
+  "file_name": "nan"
+}

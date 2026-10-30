@@ -1,0 +1,41 @@
+{
+  "alvo": "RunFwdTxfm",
+  "arquivo": "arquivo__dct16x16_test.cc",
+  "linha_inicio": 435,
+  "linha_fim": 437,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 0,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 0,
+    "fontes_parametro": 14,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 0,
+    "estruturas": {}
+  },
+  "saude": {
+    "span": 3,
+    "nos_ast": 57,
+    "blocos": 2,
+    "locais": 0,
+    "chamadas_total": 5,
+    "chamadas_nao_operador": 0,
+    "estruturas_total": 0,
+    "externo": false
+  },
+  "item": "2867__Android",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "Android"
+}

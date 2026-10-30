@@ -1,0 +1,10 @@
+{
+  "id": 184,
+  "project": "ghostscript",
+  "commit_id": "77ab465f1c394bb77f00966cd950650f3f53cb24",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2016-10133",
+  "file_name": "nan"
+}

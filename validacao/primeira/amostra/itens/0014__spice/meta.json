@@ -1,0 +1,10 @@
+{
+  "id": 14,
+  "project": "spice",
+  "commit_id": "8af619009660b24e0b41ad26b30289eea288fcc2",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2013-4282",
+  "file_name": "nan"
+}

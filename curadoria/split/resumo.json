@@ -1,0 +1,29 @@
+{
+  "alvo": {
+    "teste": 0.2,
+    "treino": 0.7,
+    "validacao": 0.1
+  },
+  "balanceado_por": "positivos",
+  "estratificado_por": "cwe_bigvul",
+  "gerado_em": "2026-09-05",
+  "maior_grupo_positivos": 365,
+  "n_grupos": 949,
+  "negativos": {
+    "teste": 7414,
+    "treino": 20061,
+    "validacao": 5004
+  },
+  "onde_cairam_os_50": {
+    "teste": 11,
+    "treino": 39,
+    "validacao": 0
+  },
+  "positivos": {
+    "teste": 574,
+    "treino": 2091,
+    "validacao": 292
+  },
+  "semente": 909,
+  "unidade_de_grupo": "componente conexo commit<->CVE"
+}

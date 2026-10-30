@@ -1,0 +1,44 @@
+{
+  "alvo": "RunAccuracyCheck",
+  "arquivo": "arquivo__fdct4x4_test.cc",
+  "linha_inicio": 60,
+  "linha_fim": 96,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 7,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 7,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 7,
+    "fontes_parametro": 1,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 4,
+    "estruturas": {
+      "FOR": 3,
+      "IF": 1
+    }
+  },
+  "saude": {
+    "span": 37,
+    "nos_ast": 163,
+    "blocos": 18,
+    "locais": 16,
+    "chamadas_total": 52,
+    "chamadas_nao_operador": 14,
+    "estruturas_total": 4,
+    "externo": false
+  },
+  "item": "2892__Android",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "Android"
+}

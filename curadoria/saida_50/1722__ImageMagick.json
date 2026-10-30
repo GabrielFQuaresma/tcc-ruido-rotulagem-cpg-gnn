@@ -1,0 +1,54 @@
+{
+  "alvo": "ReadWPGImage",
+  "arquivo": "arquivo__wpg.c",
+  "linha_inicio": 860,
+  "linha_fim": 1478,
+  "camada1": {
+    "por_categoria": {
+      "escrita": 1
+    },
+    "por_nome": {
+      "memset": 1
+    },
+    "acessos_indexados": 25,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 24,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 2,
+    "sinks_indice": 25,
+    "fontes_parametro": 2,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 64,
+    "estruturas": {
+      "BREAK": 25,
+      "CONTINUE": 2,
+      "ELSE": 3,
+      "FOR": 5,
+      "GOTO": 7,
+      "IF": 51,
+      "SWITCH": 5,
+      "WHILE": 3
+    }
+  },
+  "saude": {
+    "span": 619,
+    "nos_ast": 1844,
+    "blocos": 71,
+    "locais": 48,
+    "chamadas_total": 712,
+    "chamadas_nao_operador": 133,
+    "estruturas_total": 101,
+    "externo": false
+  },
+  "item": "1722__ImageMagick",
+  "cwe_bigvul": "CWE-787",
+  "projeto": "ImageMagick"
+}

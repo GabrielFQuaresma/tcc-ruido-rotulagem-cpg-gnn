@@ -1,0 +1,29 @@
+item	veredito	camada1	camada2	motivo
+0173__qemu	descartado	0	0	sem_camada1
+0187__gstreamer	confirmado	8	13	camada1=8 camada2=13
+0204__ghostscript	confirmado	1	4	camada1=1 camada2=4
+0207__libxfont	confirmado	10	17	camada1=10 camada2=17
+0281__FFmpeg	confirmado	21	15	camada1=21 camada2=15
+0475__openjpeg	confirmado	4	6	camada1=4 camada2=6
+0548__atheme	confirmado	4	8	camada1=4 camada2=8
+0650__krb5	descartado	0	0	sem_camada1
+0753__tcpdump	confirmado	9	32	camada1=9 camada2=32
+0758__tcpdump	descartado	0	0	sem_camada1
+0774__tcpdump	indeterminado	0	0	corpo_nao_parseado
+0856__tcpdump	descartado	0	0	sem_camada1
+1006__tnef	confirmado	14	24	camada1=14 camada2=24
+1415__leptonica	confirmado	18	27	camada1=18 camada2=27
+1615__tcpdump	descartado	8	0	sem_camada2
+1676__ImageMagick	confirmado	26	24	camada1=26 camada2=24
+1708__libsndfile	confirmado	13	44	camada1=13 camada2=44
+1907__Chrome	descartado	1	0	sem_camada2
+1986__Chrome	descartado	0	0	sem_camada1
+2036__Chrome	descartado	0	0	sem_camada1
+2101__Chrome	descartado	0	0	sem_camada1
+2229__Chrome	descartado	0	0	sem_camada1
+2356__Android	confirmado	1	9	camada1=1 camada2=9
+2594__Android	descartado	0	0	sem_camada1
+2683__Android	descartado	3	0	sem_camada2
+2824__Android	confirmado	13	2	camada1=13 camada2=2
+2925__Android	descartado	0	0	sem_camada1
+2935__Android	descartado	0	0	sem_camada1

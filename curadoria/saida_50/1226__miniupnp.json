@@ -1,0 +1,59 @@
+{
+  "alvo": "processRequest",
+  "arquivo": "arquivo__minissdpd.c",
+  "linha_inicio": 820,
+  "linha_fim": 1076,
+  "camada1": {
+    "por_categoria": {
+      "alocacao": 5,
+      "copia": 11,
+      "entrada": 1,
+      "escrita": 1
+    },
+    "por_nome": {
+      "malloc": 5,
+      "memcpy": 11,
+      "memset": 1,
+      "read": 1
+    },
+    "acessos_indexados": 25,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 32,
+    "fluxos_memoria_de_libc": 32,
+    "fluxos_indice_de_parametro": 4,
+    "fluxos_indice_de_libc": 4,
+    "fluxos_alocacao_de_parametro": 4,
+    "fluxos_alocacao_de_libc": 4,
+    "sinks_memoria": 37,
+    "sinks_indice": 25,
+    "fontes_parametro": 1,
+    "fontes_libc": 1
+  },
+  "guardas": {
+    "condicoes": 33,
+    "estruturas": {
+      "BREAK": 6,
+      "ELSE": 1,
+      "FOR": 2,
+      "GOTO": 21,
+      "IF": 29,
+      "SWITCH": 1,
+      "WHILE": 1
+    }
+  },
+  "saude": {
+    "span": 257,
+    "nos_ast": 1104,
+    "blocos": 56,
+    "locais": 34,
+    "chamadas_total": 395,
+    "chamadas_nao_operador": 110,
+    "estruturas_total": 61,
+    "externo": false
+  },
+  "item": "1226__miniupnp",
+  "cwe_bigvul": "CWE-125",
+  "projeto": "miniupnp"
+}

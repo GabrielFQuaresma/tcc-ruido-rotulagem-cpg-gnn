@@ -1,0 +1,43 @@
+{
+  "alvo": "GetMediaInterfaceFactory",
+  "arquivo": "arquivo__media_interface_proxy.cc",
+  "linha_inicio": 78,
+  "linha_fim": 89,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 0,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 0,
+    "fontes_parametro": 2,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 1,
+    "estruturas": {
+      "IF": 1
+    }
+  },
+  "saude": {
+    "span": 12,
+    "nos_ast": 28,
+    "blocos": 7,
+    "locais": 3,
+    "chamadas_total": 7,
+    "chamadas_nao_operador": 5,
+    "estruturas_total": 1,
+    "externo": false
+  },
+  "item": "2036__Chrome",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "Chrome"
+}

@@ -1,0 +1,10 @@
+{
+  "id": 175,
+  "project": "busybox",
+  "commit_id": "6d3b4bb24da9a07c263f3c1acf8df85382ff562c",
+  "cwe_bigvul": "CWE-125",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2018-20679",
+  "file_name": "nan"
+}

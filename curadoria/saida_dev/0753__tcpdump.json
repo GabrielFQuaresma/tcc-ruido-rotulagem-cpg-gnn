@@ -1,0 +1,51 @@
+{
+  "alvo": "decode_rt_routing_info",
+  "arquivo": "arquivo__print-bgp.c",
+  "linha_inicio": 758,
+  "linha_fim": 796,
+  "camada1": {
+    "por_categoria": {
+      "copia": 1,
+      "escrita": 1,
+      "formatacao": 2
+    },
+    "por_nome": {
+      "memcpy": 1,
+      "memset": 1,
+      "snprintf": 2
+    },
+    "acessos_indexados": 5,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 28,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 4,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 9,
+    "sinks_indice": 5,
+    "fontes_parametro": 4,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 4,
+    "estruturas": {
+      "IF": 4
+    }
+  },
+  "saude": {
+    "span": 39,
+    "nos_ast": 142,
+    "blocos": 18,
+    "locais": 3,
+    "chamadas_total": 49,
+    "chamadas_nao_operador": 10,
+    "estruturas_total": 4,
+    "externo": false
+  },
+  "item": "0753__tcpdump",
+  "cwe_bigvul": "CWE-125",
+  "projeto": "tcpdump"
+}

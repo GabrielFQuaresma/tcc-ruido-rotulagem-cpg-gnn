@@ -1,0 +1,10 @@
+{
+  "id": 24,
+  "project": "savannah",
+  "commit_id": "ba6b44f6745b14dce414761a8e4b35d31b176bba",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2017-13090",
+  "file_name": "nan"
+}

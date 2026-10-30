@@ -1,0 +1,12 @@
+{
+  "id": 9,
+  "project": "libxfont",
+  "commit_id": "d11ee5886e9d9ec610051a206b135a4cdc1e09a0",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": null,
+  "status_download": "clone_falhou",
+  "cve_id": "CVE-2011-2895",
+  "file_name": "nan",
+  "url_repo": "https://cgit.freedesktop.org/xorg/lib/libXfont.git",
+  "origem_url": "codelink"
+}

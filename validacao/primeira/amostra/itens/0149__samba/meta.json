@@ -1,0 +1,10 @@
+{
+  "id": 149,
+  "project": "samba",
+  "commit_id": "9280051bfba337458722fb157f3082f93cbd9f2b",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2010-1642",
+  "file_name": "nan"
+}

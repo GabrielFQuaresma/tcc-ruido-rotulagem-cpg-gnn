@@ -1,0 +1,46 @@
+{
+  "alvo": "decnet_print",
+  "arquivo": "arquivo__print-decnet.c",
+  "linha_inicio": 499,
+  "linha_fim": 609,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 5,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 5,
+    "fontes_parametro": 4,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 16,
+    "estruturas": {
+      "BREAK": 2,
+      "GOTO": 2,
+      "IF": 15,
+      "SWITCH": 1
+    }
+  },
+  "saude": {
+    "span": 111,
+    "nos_ast": 411,
+    "blocos": 32,
+    "locais": 13,
+    "chamadas_total": 141,
+    "chamadas_nao_operador": 47,
+    "estruturas_total": 20,
+    "externo": false
+  },
+  "item": "1685__tcpdump",
+  "cwe_bigvul": "CWE-125",
+  "projeto": "tcpdump"
+}

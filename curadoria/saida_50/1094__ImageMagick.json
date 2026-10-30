@@ -1,0 +1,48 @@
+{
+  "alvo": "ReadDPXImage",
+  "arquivo": "arquivo__dpx.c",
+  "linha_inicio": 647,
+  "linha_fim": 1285,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 39,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 20,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 39,
+    "fontes_parametro": 2,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 84,
+    "estruturas": {
+      "BREAK": 16,
+      "CONTINUE": 2,
+      "ELSE": 2,
+      "FOR": 7,
+      "IF": 74,
+      "SWITCH": 3
+    }
+  },
+  "saude": {
+    "span": 639,
+    "nos_ast": 3283,
+    "blocos": 128,
+    "locais": 65,
+    "chamadas_total": 1294,
+    "chamadas_nao_operador": 213,
+    "estruturas_total": 104,
+    "externo": false
+  },
+  "item": "1094__ImageMagick",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "ImageMagick"
+}

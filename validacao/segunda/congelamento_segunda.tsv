@@ -1,0 +1,8 @@
+arquivo	sha256	data_hora	o_que_e
+PRE_REGISTRO_SEGUNDA.md	c877d06a3b0c5cfddba56228b3d1061d7f1d5487a028a9e05294491b8ed34066	30/10/2026 14:06	pre-registro congelado (depois da anotacao, antes da chave; desvio declarado no topo do arquivo)
+PRE_REGISTRO_SEGUNDA.md (texto do plano antes do aviso de congelamento)	349b982b2aa2b7ac510493a7290a43c8ac9c08e00b33cd324b630acb70c8a442	30/10/2026 12:12	estado do arquivo desde a ultima modificacao (12:12), calculado as 14:06 antes de trocar o aviso
+anotacao_segunda.csv	11a916170d491a5b82bc8c5b38ea38b01f3fdd094b685abec00917751b9a6caa	30/10/2026 13:54	planilha anotada pelo autor, congelada antes da abertura da chave
+chave/chave_segunda.csv	013f16819667bf3d8b4225652c031165abc824f9f06f3638d0a5a5e8bcf50afb	30/10/2026 12:09	chave lacrada (igual ao da geracao; secao 13 do pre-registro)
+caderno_segunda.md	82de2a9f5ab0cccf78685ff9df3b8735b212a417ea2fb1003ea82211abf34ff8	30/10/2026 12:09	caderno lido pelo anotador
+../rubrica_v1.md	81f9d2495741537a27a189dedfd1d6da767afc8171608b3fbf425d8809567316	congelada em 2026-07	rubrica, a mesma da primeira validacao
+montar_segunda.py	468e764fa01502ae7a87094cec73fd8461e0fb0143bc669b2c8d89f06b75e783	21/10/2026 16:53	script que sorteou e montou a amostra

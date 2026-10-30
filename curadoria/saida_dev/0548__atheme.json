@@ -1,0 +1,51 @@
+{
+  "alvo": "xmlrpc_char_encode",
+  "arquivo": "arquivo__xmlrpclib.c",
+  "linha_inicio": 737,
+  "linha_fim": 782,
+  "camada1": {
+    "por_categoria": {
+      "copia": 1,
+      "formatacao": 1
+    },
+    "por_nome": {
+      "memcpy": 1,
+      "snprintf": 1
+    },
+    "acessos_indexados": 2,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 8,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 5,
+    "sinks_indice": 2,
+    "fontes_parametro": 2,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 7,
+    "estruturas": {
+      "ELSE": 5,
+      "FOR": 1,
+      "IF": 6
+    }
+  },
+  "saude": {
+    "span": 46,
+    "nos_ast": 144,
+    "blocos": 12,
+    "locais": 5,
+    "chamadas_total": 40,
+    "chamadas_nao_operador": 4,
+    "estruturas_total": 12,
+    "externo": false
+  },
+  "item": "0548__atheme",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "atheme"
+}

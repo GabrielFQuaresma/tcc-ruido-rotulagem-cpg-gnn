@@ -1,0 +1,46 @@
+{
+  "alvo": "ip6_print",
+  "arquivo": "arquivo__print-ip6.c",
+  "linha_inicio": 213,
+  "linha_fim": 412,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 0,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 0,
+    "fontes_parametro": 3,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 14,
+    "estruturas": {
+      "BREAK": 7,
+      "IF": 12,
+      "SWITCH": 1,
+      "WHILE": 1
+    }
+  },
+  "saude": {
+    "span": 200,
+    "nos_ast": 543,
+    "blocos": 52,
+    "locais": 35,
+    "chamadas_total": 147,
+    "chamadas_nao_operador": 40,
+    "estruturas_total": 21,
+    "externo": false
+  },
+  "item": "0856__tcpdump",
+  "cwe_bigvul": "CWE-125",
+  "projeto": "tcpdump"
+}

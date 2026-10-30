@@ -1,0 +1,46 @@
+{
+  "alvo": "serializeFrame",
+  "arquivo": "arquivo__PageSerializer.cpp",
+  "linha_inicio": 271,
+  "linha_fim": 346,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 0,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 0,
+    "fontes_parametro": 3,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 15,
+    "estruturas": {
+      "CONTINUE": 1,
+      "ELSE": 4,
+      "FOR": 2,
+      "IF": 13
+    }
+  },
+  "saude": {
+    "span": 76,
+    "nos_ast": 359,
+    "blocos": 32,
+    "locais": 33,
+    "chamadas_total": 131,
+    "chamadas_nao_operador": 71,
+    "estruturas_total": 20,
+    "externo": false
+  },
+  "item": "1996__Chrome",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "Chrome"
+}

@@ -1,0 +1,53 @@
+{
+  "alvo": "_WM_ParseNewHmp",
+  "arquivo": "arquivo__f_hmp.c",
+  "linha_inicio": 41,
+  "linha_fim": 353,
+  "camada1": {
+    "por_categoria": {
+      "alocacao": 5
+    },
+    "por_nome": {
+      "malloc": 5
+    },
+    "acessos_indexados": 80,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 2,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 80,
+    "fontes_parametro": 2,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 29,
+    "estruturas": {
+      "CONTINUE": 3,
+      "DO": 3,
+      "ELSE": 5,
+      "FOR": 3,
+      "GOTO": 4,
+      "IF": 22,
+      "WHILE": 1
+    }
+  },
+  "saude": {
+    "span": 313,
+    "nos_ast": 1161,
+    "blocos": 134,
+    "locais": 41,
+    "chamadas_total": 466,
+    "chamadas_nao_operador": 34,
+    "estruturas_total": 41,
+    "externo": false
+  },
+  "item": "0898__wildmidi",
+  "cwe_bigvul": "CWE-125",
+  "projeto": "wildmidi"
+}

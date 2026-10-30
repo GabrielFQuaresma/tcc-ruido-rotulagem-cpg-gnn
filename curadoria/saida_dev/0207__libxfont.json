@@ -1,0 +1,52 @@
+{
+  "alvo": "CatalogueRescan",
+  "arquivo": "arquivo__catalogue.c",
+  "linha_inicio": 126,
+  "linha_fim": 229,
+  "camada1": {
+    "por_categoria": {
+      "copia": 5,
+      "formatacao": 1
+    },
+    "por_nome": {
+      "memcpy": 4,
+      "memmove": 1,
+      "snprintf": 1
+    },
+    "acessos_indexados": 4,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 15,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 2,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 17,
+    "sinks_indice": 4,
+    "fontes_parametro": 1,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 11,
+    "estruturas": {
+      "CONTINUE": 5,
+      "IF": 10,
+      "WHILE": 1
+    }
+  },
+  "saude": {
+    "span": 104,
+    "nos_ast": 298,
+    "blocos": 30,
+    "locais": 16,
+    "chamadas_total": 106,
+    "chamadas_nao_operador": 30,
+    "estruturas_total": 16,
+    "externo": false
+  },
+  "item": "0207__libxfont",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "libxfont"
+}

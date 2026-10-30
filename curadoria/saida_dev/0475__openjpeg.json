@@ -1,0 +1,45 @@
+{
+  "alvo": "opj_pi_create_decode",
+  "arquivo": "arquivo__pi.c",
+  "linha_inicio": 1155,
+  "linha_fim": 1351,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 4,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 6,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 4,
+    "fontes_parametro": 3,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 11,
+    "estruturas": {
+      "ELSE": 1,
+      "FOR": 6,
+      "IF": 5
+    }
+  },
+  "saude": {
+    "span": 197,
+    "nos_ast": 581,
+    "blocos": 78,
+    "locais": 31,
+    "chamadas_total": 221,
+    "chamadas_nao_operador": 18,
+    "estruturas_total": 12,
+    "externo": false
+  },
+  "item": "0475__openjpeg",
+  "cwe_bigvul": "CWE-125",
+  "projeto": "openjpeg"
+}

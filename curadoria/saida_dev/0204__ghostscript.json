@@ -1,0 +1,44 @@
+{
+  "alvo": "pdf_read_new_xref_section",
+  "arquivo": "arquivo__pdf-xref.c",
+  "linha_inicio": 930,
+  "linha_fim": 970,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 1,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 4,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 1,
+    "fontes_parametro": 8,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 7,
+    "estruturas": {
+      "FOR": 4,
+      "IF": 3
+    }
+  },
+  "saude": {
+    "span": 41,
+    "nos_ast": 206,
+    "blocos": 9,
+    "locais": 10,
+    "chamadas_total": 65,
+    "chamadas_nao_operador": 7,
+    "estruturas_total": 7,
+    "externo": false
+  },
+  "item": "0204__ghostscript",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "ghostscript"
+}

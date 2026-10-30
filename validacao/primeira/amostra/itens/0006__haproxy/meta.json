@@ -1,0 +1,12 @@
+{
+  "id": 6,
+  "project": "haproxy",
+  "commit_id": "efbbdf72992cd20458259962346044cafd9331c0",
+  "cwe_bigvul": "CWE-125",
+  "arquivo_inteiro": null,
+  "status_download": "sem_url",
+  "cve_id": "CVE-2018-20102",
+  "file_name": "nan",
+  "url_repo": null,
+  "origem_url": "nao_resolvido"
+}

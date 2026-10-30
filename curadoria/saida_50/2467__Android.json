@@ -1,0 +1,46 @@
+{
+  "alvo": "impeg2d_get_slice_pos",
+  "arquivo": "arquivo__impeg2d_dec_hdr.c",
+  "linha_inicio": 1099,
+  "linha_fim": 1230,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 9,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 9,
+    "fontes_parametro": 1,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 13,
+    "estruturas": {
+      "BREAK": 3,
+      "FOR": 1,
+      "IF": 10,
+      "WHILE": 2
+    }
+  },
+  "saude": {
+    "span": 132,
+    "nos_ast": 443,
+    "blocos": 37,
+    "locais": 22,
+    "chamadas_total": 165,
+    "chamadas_nao_operador": 11,
+    "estruturas_total": 16,
+    "externo": false
+  },
+  "item": "2467__Android",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "Android"
+}

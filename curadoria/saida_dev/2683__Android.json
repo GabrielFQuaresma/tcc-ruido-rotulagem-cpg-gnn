@@ -1,0 +1,45 @@
+{
+  "alvo": "GetLast",
+  "arquivo": "arquivo__mkvparser.cpp",
+  "linha_inicio": 2771,
+  "linha_fim": 2809,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 3,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 3,
+    "fontes_parametro": 6,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 7,
+    "estruturas": {
+      "BREAK": 1,
+      "FOR": 1,
+      "IF": 6
+    }
+  },
+  "saude": {
+    "span": 39,
+    "nos_ast": 158,
+    "blocos": 36,
+    "locais": 19,
+    "chamadas_total": 33,
+    "chamadas_nao_operador": 7,
+    "estruturas_total": 8,
+    "externo": false
+  },
+  "item": "2683__Android",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "Android"
+}

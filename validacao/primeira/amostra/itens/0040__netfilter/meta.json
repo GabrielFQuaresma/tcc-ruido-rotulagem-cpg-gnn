@@ -1,0 +1,10 @@
+{
+  "id": 40,
+  "project": "netfilter",
+  "commit_id": "2ae1099a42e6a0f06de305ca13a842ac83d4683e",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2019-11360",
+  "file_name": "nan"
+}

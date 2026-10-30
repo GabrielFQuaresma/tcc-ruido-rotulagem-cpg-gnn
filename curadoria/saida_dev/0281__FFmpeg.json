@@ -1,0 +1,47 @@
+{
+  "alvo": "get_siz",
+  "arquivo": "arquivo__jpeg2000dec.c",
+  "linha_inicio": 224,
+  "linha_fim": 355,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 21,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 15,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 21,
+    "fontes_parametro": 1,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 16,
+    "estruturas": {
+      "BREAK": 5,
+      "ELSE": 1,
+      "FOR": 3,
+      "IF": 12,
+      "SWITCH": 1
+    }
+  },
+  "saude": {
+    "span": 132,
+    "nos_ast": 742,
+    "blocos": 53,
+    "locais": 22,
+    "chamadas_total": 304,
+    "chamadas_nao_operador": 37,
+    "estruturas_total": 22,
+    "externo": false
+  },
+  "item": "0281__FFmpeg",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "FFmpeg"
+}

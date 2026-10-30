@@ -1,0 +1,48 @@
+{
+  "alvo": "gplotRead",
+  "arquivo": "arquivo__gplot.c",
+  "linha_inicio": 820,
+  "linha_fim": 895,
+  "camada1": {
+    "por_categoria": {
+      "entrada": 15
+    },
+    "por_nome": {
+      "fgets": 3,
+      "fscanf": 12
+    },
+    "acessos_indexados": 3,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 6,
+    "fluxos_memoria_de_libc": 12,
+    "fluxos_indice_de_parametro": 3,
+    "fluxos_indice_de_libc": 6,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 6,
+    "sinks_indice": 3,
+    "fontes_parametro": 1,
+    "fontes_libc": 3
+  },
+  "guardas": {
+    "condicoes": 5,
+    "estruturas": {
+      "IF": 5
+    }
+  },
+  "saude": {
+    "span": 76,
+    "nos_ast": 321,
+    "blocos": 64,
+    "locais": 16,
+    "chamadas_total": 125,
+    "chamadas_nao_operador": 50,
+    "estruturas_total": 5,
+    "externo": false
+  },
+  "item": "1415__leptonica",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "leptonica"
+}

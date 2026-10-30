@@ -1,0 +1,46 @@
+{
+  "alvo": "qtdemux_parse_samples",
+  "arquivo": "arquivo__qtdemux.c",
+  "linha_inicio": 2953,
+  "linha_fim": 3210,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 20,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 34,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 20,
+    "fontes_parametro": 3,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 31,
+    "estruturas": {
+      "ELSE": 11,
+      "FOR": 11,
+      "GOTO": 6,
+      "IF": 20
+    }
+  },
+  "saude": {
+    "span": 258,
+    "nos_ast": 955,
+    "blocos": 54,
+    "locais": 53,
+    "chamadas_total": 340,
+    "chamadas_nao_operador": 45,
+    "estruturas_total": 48,
+    "externo": false
+  },
+  "item": "0046__gstreamer",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "gstreamer"
+}

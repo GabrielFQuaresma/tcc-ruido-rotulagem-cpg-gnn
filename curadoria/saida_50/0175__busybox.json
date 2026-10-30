@@ -1,0 +1,43 @@
+{
+  "alvo": "select_lease_time",
+  "arquivo": "arquivo__dhcpd.c",
+  "linha_inicio": 640,
+  "linha_fim": 653,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 0,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 0,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 0,
+    "fontes_parametro": 1,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 3,
+    "estruturas": {
+      "IF": 3
+    }
+  },
+  "saude": {
+    "span": 14,
+    "nos_ast": 58,
+    "blocos": 8,
+    "locais": 4,
+    "chamadas_total": 16,
+    "chamadas_nao_operador": 3,
+    "estruturas_total": 3,
+    "externo": false
+  },
+  "item": "0175__busybox",
+  "cwe_bigvul": "CWE-125",
+  "projeto": "busybox"
+}

@@ -1,0 +1,37 @@
+nome	categoria	dest	src	size	fonte	nota
+memcpy	copia	0	1	2	li2018	caso do BASELINE_libgd
+memmove	copia	0	1	2	libc	mesma assinatura de memcpy
+memccpy	copia	0	1	3	libc	para no byte c; limite e o arg 3
+bcopy	copia	1	0	2	libc	ORDEM INVERTIDA: origem vem primeiro
+memset	escrita	0	-	2	libc	sem origem; so destino e tamanho
+strcpy	copia	0	1	-	li2018	sem argumento de tamanho
+strncpy	copia	0	1	2	li2018	nao garante terminador
+stpcpy	copia	0	1	-	libc	variante de strcpy
+stpncpy	copia	0	1	2	libc	variante de strncpy
+strlcpy	copia	0	1	2	libc	BSD; tamanho do destino
+wcscpy	copia	0	1	-	li2018	wide char
+wcsncpy	copia	0	1	2	libc	wide char
+strcat	concat	0	1	-	li2018	sem argumento de tamanho
+strncat	concat	0	1	2	libc	tamanho e do que resta, nao do buffer
+strlcat	concat	0	1	2	libc	BSD
+wcscat	concat	0	1	-	libc	wide char
+wcsncat	concat	0	1	2	libc	wide char
+sprintf	formatacao	0	-	-	li2018	variadica; sem limite de escrita
+snprintf	formatacao	0	-	1	libc	limite no arg 1
+vsprintf	formatacao	0	-	-	libc	variante va_list de sprintf
+vsnprintf	formatacao	0	-	1	libc	variante va_list de snprintf
+swprintf	formatacao	0	-	1	libc	wide char
+gets	entrada	0	-	-	li2018	sem limite; removida no C11
+fgets	entrada	0	-	1	libc	tambem e fonte nao confiavel
+read	entrada	1	-	2	libc	tambem e fonte nao confiavel
+pread	entrada	1	-	2	libc	tambem e fonte nao confiavel
+recv	entrada	1	-	2	libc	tambem e fonte nao confiavel
+recvfrom	entrada	1	-	2	libc	tambem e fonte nao confiavel
+fread	entrada	0	-	2	libc	tamanho efetivo e arg2*arg3; tambem e fonte
+scanf	entrada	-	-	-	li2018	destinos vem em ...; nao rastreavel por posicao
+sscanf	entrada	-	-	-	libc	destinos vem em ...; nao rastreavel por posicao
+fscanf	entrada	-	-	-	libc	destinos vem em ...; nao rastreavel por posicao
+malloc	alocacao	-	-	0	li2018	sink de tamanho; ver README antes de usar
+calloc	alocacao	-	-	1	libc	tamanho efetivo e arg0*arg1
+realloc	alocacao	-	-	1	libc	sink de tamanho
+alloca	alocacao	-	-	0	libc	pilha; estouro nao e detectavel em runtime

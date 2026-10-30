@@ -1,0 +1,2958 @@
+item	nome	acao	linha	motivo	definicoes_com_corpo	origem
+0001__php		avaliar				sem_evidencia_v2
+0002__php	scan	avaliar			1	grafo_unico
+0003__php		avaliar				sem_evidencia_v2
+0004__savannah	gnutls_session_get_data	avaliar			1	grafo_unico
+0005__savannah	gnutls_session_get_data	avaliar			1	grafo_unico
+0006__haproxy		avaliar				sem_evidencia_v2
+0007__pengutronix	nfs_readlink_req	avaliar			1	grafo_unico
+0008__pengutronix	nfs_readlink_reply	avaliar			1	grafo_unico
+0009__libxfont	BufCompressedFill	avaliar			1	grafo_unico
+0010__musl	dns_parse_callback	avaliar			1	grafo_unico
+0011__poppler	extractPages	avaliar			1	grafo_unico
+0012__ghostscript	mcid_char_imp	avaliar			1	grafo_unico
+0013__ghostscript	walk_string	avaliar			1	grafo_unico
+0014__spice	reds_handle_ticket	avaliar			1	grafo_unico
+0015__poppler	convertToType0	avaliar			1	grafo_unico
+0016__postgresql	datum_to_json	avaliar			1	grafo_unico
+0017__postgresql	parse_array	avaliar			1	grafo_unico
+0018__postgresql	parse_object	avaliar			1	grafo_unico
+0019__postgresql	setPath	avaliar			1	grafo_unico
+0020__xserver	tbGetBuffer	avaliar			1	grafo_unico
+0021__libxfont	PatternMatch	avaliar			1	grafo_unico
+0022__ghostscript	zsetstrokecolor	avaliar			1	grafo_unico
+0023__ghostscript	zsetstrokecolorspace	avaliar			1	grafo_unico
+0024__savannah	fd_read_body	avaliar			1	grafo_unico
+0025__ghostscript	aes_crypt_ecb	avaliar			1	grafo_unico
+0026__ghostscript	s_aes_process	avaliar			1	grafo_unico
+0027__qemu	fdctrl_handle_drive_specification_command	avaliar			1	grafo_unico
+0028__qemu	fdctrl_read_data	avaliar			1	grafo_unico
+0029__haproxy		avaliar				sem_evidencia_v2
+0030__savannah	new_msg_register_event	avaliar			0	indeterminado_v2
+0031__savannah	_asn1_ltostr	avaliar			1	grafo_unico
+0032__poppler	lookChar	excluir		colisao_hash_nao_casa	11	colisao
+0033__poppler	makeDashedPath	avaliar			1	grafo_unico
+0034__poppler	scaleMaskYuXd	avaliar			1	grafo_unico
+0035__poppler	vertFlipImage	avaliar			1	grafo_unico
+0036__poppler	scaleMaskYdXu	avaliar			1	grafo_unico
+0037__ghostscript	token_continue	avaliar			1	grafo_unico
+0038__libx11	XGetFontPath	avaliar			1	grafo_unico
+0039__libx11	XListExtensions	avaliar			1	grafo_unico
+0040__netfilter		avaliar				sem_evidencia_v2
+0041__savannah	idna_strerror	avaliar			1	grafo_unico
+0042__savannah	stringprep_strerror	avaliar			0	indeterminado_v2
+0043__savannah	stringprep	avaliar			1	grafo_unico
+0044__xserver	ProcSendEvent	avaliar			1	grafo_unico
+0045__xserver	ProcXSendExtensionEvent	avaliar			1	grafo_unico
+0046__gstreamer	qtdemux_parse_samples	avaliar			1	grafo_unico
+0047__savannah		avaliar				sem_evidencia_v2
+0048__ghostscript	xps_encode_font_char_imp	avaliar			1	grafo_unico
+0049__ghostscript		avaliar				sem_evidencia_v2
+0050__ghostscript	gx_ttfReader__Read	avaliar			1	grafo_unico
+0051__ghostscript		avaliar				sem_evidencia_v2
+0052__ghostscript	xps_select_font_encoding	avaliar			1	grafo_unico
+0053__ghostscript	xps_select_best_font_encoding	avaliar			1	grafo_unico
+0054__ghostscript	xps_true_callback_glyph_name	avaliar			1	grafo_unico
+0055__ghostscript	xps_load_sfnt_name	avaliar			1	grafo_unico
+0056__ghostscript	xps_init_truetype_font	avaliar			0	indeterminado_v2
+0057__ghostscript	xps_load_sfnt_name	avaliar			1	grafo_unico
+0058__openssl	EVP_DecodeUpdate	avaliar			1	grafo_unico
+0059__savannah	_bdf_parse_glyphs	avaliar			1	grafo_unico
+0060__savannah	_bdf_parse_glyphs	avaliar			1	grafo_unico
+0061__savannah	parse_fond	avaliar			0	indeterminado_v2
+0062__savannah	tt_cmap8_validate	avaliar			0	indeterminado_v2
+0063__savannah	FT_Bitmap_Convert	avaliar			1	grafo_unico
+0064__savannah	FT_Bitmap_Copy	avaliar			1	grafo_unico
+0065__savannah	FT_Bitmap_Embolden	avaliar			1	grafo_unico
+0066__savannah	ft_bitmap_assure_buffer	avaliar			1	grafo_unico
+0067__savannah	ftc_snode_load	avaliar			1	grafo_unico
+0068__savannah	Horizontal_Sweep_Drop	avaliar			1	grafo_unico
+0069__savannah	Horizontal_Sweep_Span	avaliar			1	grafo_unico
+0070__savannah	Load_SBit_Png	avaliar			0	indeterminado_v2
+0071__savannah	parse_charstrings	avaliar			1	grafo_unico
+0072__savannah	t42_parse_charstrings	avaliar			1	grafo_unico
+0073__savannah	parse_charstrings	avaliar			1	grafo_unico
+0074__savannah	t42_parse_charstrings	avaliar			1	grafo_unico
+0075__savannah	tt_cmap4_validate	avaliar			0	indeterminado_v2
+0076__savannah	cf2_hintmap_build	avaliar			1	grafo_unico
+0077__savannah	cf2_interpT2CharString	avaliar			1	grafo_unico
+0078__savannah	tt_face_load_kern	avaliar			1	grafo_unico
+0079__savannah	tt_sbit_decoder_load_image	avaliar			1	grafo_unico
+0080__php	main	avaliar			1	grafo_unico
+0081__savannah	ps_parser_to_token	avaliar			1	grafo_unico
+0082__savannah	t1_decoder_parse_charstrings	avaliar			1	grafo_unico
+0083__savannah	tt_size_reset	avaliar			1	grafo_unico
+0084__savannah	sfnt_init_face	avaliar			1	grafo_unico
+0085__php	date_from_ISO8601	avaliar			1	grafo_unico
+0086__savannah		avaliar				sem_evidencia_v2
+0087__qemu	blit_is_unsafe	avaliar			1	grafo_unico
+0088__savannah	ft_var_readpackedpoints	avaliar			0	indeterminado_v2
+0089__ghostscript	set_text_distance	avaliar			1	grafo_unico
+0090__haproxy		avaliar				sem_evidencia_v2
+0091__qemu		avaliar				sem_evidencia_v2
+0092__libXvMC	XvMCGetDRInfo	avaliar			1	grafo_unico
+0093__libXrandr	XRRGetMonitors	avaliar			1	grafo_unico
+0094__libXrandr	XRRGetOutputInfo	avaliar			1	grafo_unico
+0095__libXrandr	XRRGetProviderResources	avaliar			1	grafo_unico
+0096__libx11		avaliar				sem_evidencia_v2
+0097__libx11	XGetModifierMapping	avaliar			1	grafo_unico
+0098__qemu	mptsas_process_scsi_io_request	avaliar			1	grafo_unico
+0099__tartarus		avaliar				sem_evidencia_v2
+0100__qemu	vmsvga_fifo_run	avaliar			1	grafo_unico
+0101__qemu	eth_rx	avaliar			1	grafo_unico
+0102__qemu	pvscsi_ring_init_data	avaliar			1	grafo_unico
+0103__busybox		avaliar				sem_evidencia_v2
+0104__busybox	fill_envp	avaliar			1	grafo_unico
+0105__qemu	vmxnet_tx_pkt_parse_headers	avaliar			1	grafo_unico
+0106__virglrenderer	parse_identifier	avaliar			1	grafo_unico
+0107__virglrenderer	vrend_create_vertex_elements_state	avaliar			1	grafo_unico
+0108__virglrenderer	vrend_decode_create_ve	avaliar			1	grafo_unico
+0109__infradead		avaliar				sem_evidencia_v2
+0110__qemu	esp_do_dma	avaliar			1	grafo_unico
+0111__openssl	MDC2_Update	avaliar			1	grafo_unico
+0112__php		avaliar				sem_evidencia_v2
+0113__php		avaliar				sem_evidencia_v2
+0114__savannah	stringprep_utf8_nfkc_normalize	avaliar			1	grafo_unico
+0115__savannah	main	avaliar			1	grafo_unico
+0116__virglrenderer	parse_instruction	avaliar			1	grafo_unico
+0117__exempi	ParseFileResources	avaliar			1	grafo_unico
+0118__exempi	ParsePSFile	avaliar			1	grafo_unico
+0119__exempi	ProcessXMP	avaliar			1	grafo_unico
+0120__savannah		avaliar				sem_evidencia_v2
+0121__savannah		avaliar				sem_evidencia_v2
+0122__savannah		avaliar				sem_evidencia_v2
+0123__savannah		avaliar				sem_evidencia_v2
+0124__savannah		avaliar				sem_evidencia_v2
+0125__savannah	Ins_IUP	avaliar			0	indeterminado_v2
+0126__savannah	Mac_Read_POST_Resource	avaliar			0	indeterminado_v2
+0127__savannah	Mac_Read_POST_Resource	avaliar			0	indeterminado_v2
+0128__libXv	XvQueryAdaptors	avaliar			1	grafo_unico
+0129__qemu		avaliar				sem_evidencia_v2
+0130__qemu	pci_read	avaliar			1	grafo_unico
+0131__php		avaliar				sem_evidencia_v2
+0132__php		avaliar				sem_evidencia_v2
+0133__php		avaliar				sem_evidencia_v2
+0134__php	PHP_FUNCTION	avaliar			0	indeterminado_v2
+0135__php	PHP_FUNCTION	avaliar			0	indeterminado_v2
+0136__php	PHP_FUNCTION	avaliar			0	indeterminado_v2
+0137__php	PHP_MINIT_FUNCTION	avaliar			0	indeterminado_v2
+0138__php	_xml_add_to_info	avaliar			0	indeterminado_v2
+0139__php	_xml_characterDataHandler	avaliar			0	indeterminado_v2
+0140__php	_xml_endElementHandler	avaliar			0	indeterminado_v2
+0141__php	_xml_startElementHandler	avaliar			0	indeterminado_v2
+0142__php	_xml_unparsedEntityDeclHandler	avaliar			0	indeterminado_v2
+0143__php	_xml_xmlchar_zval	avaliar			0	indeterminado_v2
+0144__php	php_xml_parser_create_impl	avaliar			0	indeterminado_v2
+0145__php	xml_call_handler	avaliar			0	indeterminado_v2
+0146__php		avaliar				sem_evidencia_v2
+0147__gnupg		avaliar				sem_evidencia_v2
+0148__gnupg		avaliar				sem_evidencia_v2
+0149__samba		avaliar				sem_evidencia_v2
+0150__enlightment		avaliar				sem_evidencia_v2
+0151__enlightment		avaliar				sem_evidencia_v2
+0152__libav		avaliar				sem_evidencia_v2
+0153__strongswan		avaliar				sem_evidencia_v2
+0154__gnupg		avaliar				sem_evidencia_v2
+0155__gnupg		avaliar				sem_evidencia_v2
+0156__php		avaliar				sem_evidencia_v2
+0157__php		avaliar				sem_evidencia_v2
+0158__php	php_wddx_pop_element	avaliar			0	indeterminado_v2
+0159__openssl	SRP_Calc_u	avaliar			1	grafo_unico
+0160__openssl	srp_Calc_k	avaliar			1	grafo_unico
+0161__qemu	rng_egd_request_entropy	avaliar			1	grafo_unico
+0162__qemu	rng_backend_request_entropy	avaliar			1	grafo_unico
+0163__qemu	net_checksum_calculate	avaliar			1	grafo_unico
+0164__openssl	_dopr	avaliar			1	grafo_unico
+0165__savannah	bgp_nlri_parse_vpnv4	avaliar			1	grafo_unico
+0166__openssl	X509_NAME_oneline	avaliar			1	grafo_unico
+0167__openssl	BN_to_ASN1_INTEGER	avaliar			1	grafo_unico
+0168__openssl	i2c_ASN1_INTEGER	avaliar			1	grafo_unico
+0169__openssl	ASN1_TYPE_cmp	avaliar			1	grafo_unico
+0170__openssl	asn1_ex_c2i	avaliar			1	grafo_unico
+0171__openssl	asn1_ex_i2c	avaliar			1	grafo_unico
+0172__mindrot	ssh_packet_read_poll2	avaliar			1	grafo_unico
+0173__qemu	load_device_tree	avaliar			1	grafo_unico
+0174__busybox	udhcpc_main	avaliar			0	indeterminado_v2
+0175__busybox	select_lease_time	avaliar			1	grafo_unico
+0176__busybox	udhcpd_main	avaliar			0	indeterminado_v2
+0177__ghostscript	xps_begin_opacity	avaliar			1	grafo_unico
+0178__ghostscript	xps_parse_color	avaliar			1	grafo_unico
+0179__ghostscript	xps_parse_glyphs	avaliar			0	indeterminado_v2
+0180__ghostscript	xps_parse_gradient_stops	avaliar			1	grafo_unico
+0181__ghostscript	xps_parse_path	avaliar			0	indeterminado_v2
+0182__savannah	cff_parser_run	avaliar			1	grafo_unico
+0183__libXpm	XpmCreateDataFromXpmImage	avaliar			1	grafo_unico
+0184__ghostscript	jsR_calllwfunction	avaliar			1	grafo_unico
+0185__libav	dpcm_decode_frame	avaliar			1	grafo_unico
+0186__libav	avpriv_dv_produce_packet	avaliar			1	grafo_unico
+0187__gstreamer	flx_set_palette_vector	avaliar			1	grafo_unico
+0188__harfbuzz		avaliar				sem_evidencia_v2
+0189__libav	aac_sync	avaliar			1	grafo_unico
+0190__openssl	dtls1_reassemble_fragment	avaliar			1	grafo_unico
+0191__qemu	virtio_load	avaliar			1	grafo_unico
+0192__qemu	pcnet_receive	avaliar			1	grafo_unico
+0193__poppler	readSegments	avaliar			1	grafo_unico
+0194__php		avaliar				sem_evidencia_v2
+0195__libxfont	bdfReadCharacters	avaliar			1	grafo_unico
+0196__busybox		avaliar				sem_evidencia_v2
+0197__libbsd	fgetwln	avaliar			1	grafo_unico
+0198__qemu	tsc210x_load	avaliar			1	grafo_unico
+0199__qemu	ssd0323_load	avaliar			1	grafo_unico
+0200__qemu	get_int32_le	avaliar			1	grafo_unico
+0201__qemu	virtio_net_load	avaliar			1	grafo_unico
+0202__qemu	virtio_net_load	avaliar			1	grafo_unico
+0203__qemu	cirrus_invalidate_region	avaliar			1	grafo_unico
+0204__ghostscript	pdf_read_new_xref_section	avaliar			1	grafo_unico
+0205__ghostscript	pdf_read_old_xref	avaliar			1	grafo_unico
+0206__qemu	qcow2_snapshot_load_tmp	avaliar			1	grafo_unico
+0207__libxfont	CatalogueRescan	avaliar			1	grafo_unico
+0208__savannah	tt_cmap14_validate	avaliar			0	indeterminado_v2
+0209__savannah	ps_parser_skip_PS_token	avaliar			1	grafo_unico
+0210__savannah	T1_Get_Private_Dict	avaliar			1	grafo_unico
+0211__savannah		avaliar				sem_evidencia_v2
+0212__savannah		avaliar				sem_evidencia_v2
+0213__qemu	check_pointer_type_change	avaliar			1	grafo_unico
+0214__qemu	vnc_hextile_send_framebuffer_update	avaliar			0	indeterminado_v2
+0215__qemu	check_solid_tile	avaliar			1	grafo_unico
+0216__qemu	send_full_color_rect	avaliar			1	grafo_unico
+0217__qemu	send_solid_rect	avaliar			1	grafo_unico
+0218__qemu	tight_can_send_png_rect	avaliar			0	indeterminado_v2
+0219__qemu	tight_detect_smooth_image	avaliar			1	grafo_unico
+0220__qemu	tight_detect_smooth_image24	avaliar			1	grafo_unico
+0221__qemu	tight_fill_palette	avaliar			1	grafo_unico
+0222__qemu	tight_filter_gradient24	avaliar			1	grafo_unico
+0223__qemu	zrle_send_framebuffer_update	avaliar			1	grafo_unico
+0224__qemu		avaliar				sem_evidencia_v2
+0225__qemu	vnc_dpy_update	avaliar			1	grafo_unico
+0226__savannah	pch_write_line	avaliar			1	grafo_unico
+0227__ghostscript	jbig2_word_stream_buf_get_next_word	avaliar			1	grafo_unico
+0228__ghostscript	jbig2_immediate_generic_region	avaliar			1	grafo_unico
+0229__ghostscript	jbig2_decode_gray_scale_image	avaliar			1	grafo_unico
+0230__ghostscript	huff_get_next_word	avaliar			1	grafo_unico
+0231__ghostscript	jbig2_image_compose	avaliar			1	grafo_unico
+0232__ghostscript	jbig2_image_compose_unopt	avaliar			1	grafo_unico
+0233__ghostscript	jbig2_image_new	avaliar			1	grafo_unico
+0234__ghostscript	jbig2_image_resize	avaliar			1	grafo_unico
+0235__ghostscript	jbig2_decode_mmr_init	avaliar			1	grafo_unico
+0236__ghostscript	jbig2_find_changing_element	avaliar			1	grafo_unico
+0237__ghostscript	jbig2_end_of_stripe	avaliar			1	grafo_unico
+0238__ghostscript	jbig2_page_add_result	avaliar			1	grafo_unico
+0239__ghostscript	jbig2_parse_segment_header	avaliar			0	indeterminado_v2
+0240__ghostscript	jbig2_decode_symbol_dict	avaliar			1	grafo_unico
+0241__ghostscript	jbig2_sd_cat	avaliar			1	grafo_unico
+0242__ghostscript	jbig2_sd_count_referred	avaliar			1	grafo_unico
+0243__ghostscript	jbig2_sd_list_referred	avaliar			1	grafo_unico
+0244__ghostscript	jbig2_sd_new	avaliar			1	grafo_unico
+0245__ghostscript	jbig2_sd_release	avaliar			0	indeterminado_v2
+0246__ghostscript	jbig2_decode_text_region	avaliar			1	grafo_unico
+0247__ghostscript	jbig2_text_region	avaliar			1	grafo_unico
+0248__xcursor	_XcursorThemeInherits	avaliar			1	grafo_unico
+0249__nbd	mainloop	avaliar			1	grafo_unico
+0250__linux	udf_load_logicalvol	avaliar			1	grafo_unico
+0251__linux	copy_creds	avaliar			1	grafo_unico
+0252__linux	pid_ns_release_proc	avaliar			1	grafo_unico
+0253__linux		avaliar				sem_evidencia_v2
+0254__file	cdf_read_property_info	avaliar			1	grafo_unico
+0255__file	cdf_read_short_sector	avaliar			1	grafo_unico
+0256__file	cdf_read_short_sector_chain	avaliar			1	grafo_unico
+0257__pyfribidi	_pyfribidi_log2vis	avaliar			1	grafo_unico
+0258__pyfribidi	initpyfribidi	avaliar			1	grafo_unico
+0259__pyfribidi	log2vis_encoded_string	avaliar			1	grafo_unico
+0260__pyfribidi	log2vis_unicode	avaliar			1	grafo_unico
+0261__pyfribidi	log2vis_utf8	avaliar			1	grafo_unico
+0262__suhosin		avaliar				sem_evidencia_v2
+0263__suhosin		avaliar				sem_evidencia_v2
+0264__linux	journal_unmap_buffer	avaliar			1	grafo_unico
+0265__linux	dma_rx	avaliar			1	grafo_unico
+0266__linux	fuse_notify_inval_entry	avaliar			1	grafo_unico
+0267__linux	nl80211_start_sched_scan	avaliar			1	grafo_unico
+0268__linux	nl80211_trigger_scan	avaliar			1	grafo_unico
+0269__linux	ldm_frag_add	avaliar			1	grafo_unico
+0270__linux	opl3_panning	avaliar			1	grafo_unico
+0271__linux	opl3_setup_voice	avaliar			1	grafo_unico
+0272__linux	fuse_do_ioctl	avaliar			1	grafo_unico
+0273__linux	ieee80211_radiotap_iterator_init	avaliar			1	grafo_unico
+0274__FFmpeg	jpeg2000_decode_tile	avaliar			1	grafo_unico
+0275__FFmpeg	ff_combine_frame	avaliar			1	grafo_unico
+0276__FFmpeg	g2m_init_buffers	avaliar			1	grafo_unico
+0277__FFmpeg	read_header	avaliar			1	grafo_unico
+0278__FFmpeg	decode_cblk	avaliar			1	grafo_unico
+0279__FFmpeg	get_cox	avaliar			1	grafo_unico
+0280__FFmpeg	get_siz	avaliar			1	grafo_unico
+0281__FFmpeg	get_siz	avaliar			1	grafo_unico
+0282__FFmpeg	read_header	avaliar			1	grafo_unico
+0283__FFmpeg	rpza_decode_stream	avaliar			1	grafo_unico
+0284__linux	uio_mmap_physical	avaliar			1	grafo_unico
+0285__linux	au1100fb_fb_mmap	avaliar			1	grafo_unico
+0286__linux	au1200fb_fb_mmap	avaliar			1	grafo_unico
+0287__linux		avaliar				sem_evidencia_v2
+0288__linux	__nfs4_get_acl_uncached	avaliar			1	grafo_unico
+0289__linux		avaliar				sem_evidencia_v2
+0290__linux		avaliar				sem_evidencia_v2
+0291__linux	wvlan_set_station_nickname	avaliar			0	indeterminado_v2
+0292__linux	wvlan_uil_put_info	avaliar			0	indeterminado_v2
+0293__linux		avaliar				sem_evidencia_v2
+0294__linux		avaliar				sem_evidencia_v2
+0295__linux	ip6_append_data	avaliar			1	grafo_unico
+0296__linux	ip6_ufo_append_data	avaliar			1	grafo_unico
+0297__FFmpeg	kempf_decode_tile	avaliar			1	grafo_unico
+0298__FFmpeg	filter_frame	avaliar			1	grafo_unico
+0299__FFmpeg	filter_frame	avaliar			1	grafo_unico
+0300__FFmpeg	copy_fields	avaliar			1	grafo_unico
+0301__FFmpeg	filter_frame	avaliar			1	grafo_unico
+0302__FFmpeg	filter_frame	avaliar			1	grafo_unico
+0303__FFmpeg	filter_frame	avaliar			1	grafo_unico
+0304__FFmpeg	filter_frame	avaliar			1	grafo_unico
+0305__FFmpeg	filter_frame	avaliar			1	grafo_unico
+0306__FFmpeg	filter_frame	avaliar			1	grafo_unico
+0307__FFmpeg	get_video_buffer	avaliar			1	grafo_unico
+0308__FFmpeg	filter_frame	avaliar			1	grafo_unico
+0309__FFmpeg	filter_frame	avaliar			1	grafo_unico
+0310__libtiff	process	avaliar			1	grafo_unico
+0311__linux	iscsi_add_notunderstood_response	avaliar			1	grafo_unico
+0312__linux	iscsi_decode_text_input	avaliar			1	grafo_unico
+0313__linux	key_notify_policy_flush	avaliar			1	grafo_unico
+0314__linux	key_notify_policy_flush	avaliar			1	grafo_unico
+0315__linux	key_notify_sa_flush	avaliar			1	grafo_unico
+0316__php-radius	PHP_FUNCTION	avaliar_na_linha	542		25	colisao
+0317__php-radius	rad_get_vendor_attr	avaliar			1	grafo_unico
+0318__curl	Curl_urldecode	avaliar			1	grafo_unico
+0319__linux	tcp_read_sock	avaliar			1	grafo_unico
+0320__linux	host_start	avaliar			1	grafo_unico
+0321__linux	tg3_read_vpd	avaliar			1	grafo_unico
+0322__linux	wdm_in_callback	avaliar			1	grafo_unico
+0323__linux	wdm_post_reset	avaliar			1	grafo_unico
+0324__linux		avaliar				sem_evidencia_v2
+0325__linux	kvm_set_msr_common	avaliar			1	grafo_unico
+0326__linux	kvp_respond_to_host	avaliar			1	grafo_unico
+0327__linux	xlate_to_uni	avaliar			1	grafo_unico
+0328__linux	utf8s_to_utf16s	avaliar			1	grafo_unico
+0329__linux	call_console_drivers	avaliar			0	indeterminado_v2
+0330__tinc	receive_tcppacket	avaliar			1	grafo_unico
+0331__krb5	prep_reprocess_req	avaliar			1	grafo_unico
+0332__linux	cipso_v4_validate	avaliar			1	grafo_unico
+0333__linux	nci_extract_activation_params_iso_dep	avaliar			1	grafo_unico
+0334__linux	nci_extract_rf_params_nfca_passive_poll	avaliar			1	grafo_unico
+0335__linux	nci_extract_rf_params_nfcb_passive_poll	avaliar			1	grafo_unico
+0336__linux	nci_extract_rf_params_nfcf_passive_poll	avaliar			1	grafo_unico
+0337__linux	macvtap_get_user	avaliar			1	grafo_unico
+0338__linux	zerocopy_sg_from_iovec	avaliar			1	grafo_unico
+0339__linux		avaliar				sem_evidencia_v2
+0340__linux	gfs2_bmap_alloc	avaliar			1	grafo_unico
+0341__linux	empty_write_end	avaliar			1	grafo_unico
+0342__linux	fallocate_chunk	avaliar			1	grafo_unico
+0343__linux	gfs2_fallocate	avaliar			1	grafo_unico
+0344__linux	needs_empty_write	avaliar			1	grafo_unico
+0345__linux	write_empty_blocks	avaliar			1	grafo_unico
+0346__linux	iriap_getvaluebyclass_indication	avaliar			1	grafo_unico
+0347__tcpdump	ppp_hdlc	avaliar			1	grafo_unico
+0348__linux	ttusbdecfe_dvbs_diseqc_send_master_cmd	avaliar			1	grafo_unico
+0349__ettercap	FUNC_DECODER	avaliar			1	grafo_unico
+0350__linux	lzo1x_decompress_safe	avaliar			1	grafo_unico
+0351__cgminer	extract_sockaddr	avaliar			1	grafo_unico
+0352__cgminer	initiate_stratum	avaliar			1	grafo_unico
+0353__cgminer	parse_notify	avaliar			1	grafo_unico
+0354__cgminer	parse_reconnect	avaliar			1	grafo_unico
+0355__sgminer	extract_sockaddr	avaliar			1	grafo_unico
+0356__krb5	kg_unseal_v1	avaliar			1	grafo_unico
+0357__krb5	kg_unseal_v1_iov	avaliar			1	grafo_unico
+0358__php-src	php_parserr	avaliar			0	indeterminado_v2
+0359__miniupnp	getHTTPResponse	avaliar			1	grafo_unico
+0360__php-src	PHP_FUNCTION	excluir		colisao_hash_nao_casa	3	colisao
+0361__php-src	php_parserr	avaliar			0	indeterminado_v2
+0362__file	mconvert	avaliar			1	grafo_unico
+0363__linux	picolcd_raw_event	avaliar			1	grafo_unico
+0364__linux	command_port_read_callback	avaliar			1	grafo_unico
+0365__linux	ch_report_fixup	avaliar			1	grafo_unico
+0366__linux	kye_report_fixup	avaliar			1	grafo_unico
+0367__linux	lg_report_fixup	avaliar			1	grafo_unico
+0368__linux	mr_report_fixup	avaliar			1	grafo_unico
+0369__linux	pl_report_fixup	avaliar			1	grafo_unico
+0370__linux	sp_report_fixup	avaliar			1	grafo_unico
+0371__linux	logi_dj_ll_raw_request	avaliar			1	grafo_unico
+0372__linux	logi_dj_raw_event	avaliar			1	grafo_unico
+0373__linux	logi_dj_recv_add_djhid_device	avaliar			1	grafo_unico
+0374__linux	magicmouse_raw_event	avaliar			1	grafo_unico
+0375__ppp	getword	avaliar			1	grafo_unico
+0376__file	mget	avaliar			1	grafo_unico
+0377__linux	help	avaliar			1	grafo_unico
+0378__torque	disrsi_	avaliar			1	grafo_unico
+0379__file	cdf_read_property_info	avaliar			1	grafo_unico
+0380__file	cdf_read_short_sector	avaliar			1	grafo_unico
+0381__file	cdf_file_property_info	avaliar			1	grafo_unico
+0382__file	cdf_file_summary_info	avaliar			1	grafo_unico
+0383__file	file_trycdf	avaliar			1	grafo_unico
+0384__linux	futex_wait	avaliar			0	indeterminado_v2
+0385__linux		avaliar				sem_evidencia_v2
+0386__linux	queue_lock	avaliar			1	grafo_unico
+0387__linux	queue_unlock	avaliar			1	grafo_unico
+0388__linux	unqueue_me_pi	avaliar			1	grafo_unico
+0389__linux	cifs_iovec_write	avaliar			1	grafo_unico
+0390__postgres	PGTYPESdate_from_asc	avaliar			1	grafo_unico
+0391__postgres	DecodeNumberField	avaliar			1	grafo_unico
+0392__postgres	DecodeTime	avaliar			1	grafo_unico
+0393__linux	complete_emulated_mmio	avaliar			1	grafo_unico
+0394__qemu	scsi_disk_emulate_command	avaliar			1	grafo_unico
+0395__qemu	scsi_dma_restart_bh	avaliar			1	grafo_unico
+0396__qemu	scsi_free_request	avaliar			1	grafo_unico
+0397__qemu	scsi_init_iovec	avaliar			1	grafo_unico
+0398__qemu	scsi_new_request	avaliar			1	grafo_unico
+0399__qemu	scsi_send_command	avaliar			1	grafo_unico
+0400__miniupnp	IGDstartelt	avaliar			1	grafo_unico
+0401__linux		avaliar				sem_evidencia_v2
+0402__linux		avaliar				sem_evidencia_v2
+0403__linux		avaliar				sem_evidencia_v2
+0404__linux		avaliar				sem_evidencia_v2
+0405__linux	virtnet_probe	avaliar			1	grafo_unico
+0406__linux	vhost_scsi_make_tpg	avaliar			1	grafo_unico
+0407__linux	vhost_scsi_send_evt	avaliar			1	grafo_unico
+0408__linux	oz_usb_rx	avaliar			1	grafo_unico
+0409__t1utils	check_line_charstring	avaliar			1	grafo_unico
+0410__t1utils	is_integer	avaliar			1	grafo_unico
+0411__linux	__driver_rfc4106_decrypt	avaliar			0	indeterminado_v2
+0412__linux	pit_ioport_read	avaliar			1	grafo_unico
+0413__das_watchdog	get_pid_environ_val	avaliar			1	grafo_unico
+0414__krb5	iakerb_gss_export_sec_context	avaliar			1	grafo_unico
+0415__krb5	build_principal_va	avaliar			1	grafo_unico
+0416__linux	get_matching_model_microcode	avaliar			1	grafo_unico
+0417__openssl	X509_cmp_time	avaliar			1	grafo_unico
+0418__openssl	dtls1_buffer_record	avaliar			1	grafo_unico
+0419__openssl	dtls1_get_record	avaliar			1	grafo_unico
+0420__openssl	dtls1_process_buffered_records	avaliar			1	grafo_unico
+0421__openssl	dtls1_process_record	avaliar			1	grafo_unico
+0422__openssl	dtls1_read_bytes	avaliar			1	grafo_unico
+0423__file	mconvert	avaliar			1	grafo_unico
+0424__libsndfile	sd2_parse_rsrc_fork	avaliar			1	grafo_unico
+0425__openssl	dtls1_clear_queues	avaliar			1	grafo_unico
+0426__linux		avaliar				sem_evidencia_v2
+0427__linux	rtc_irq_eoi_tracking_reset	avaliar			1	grafo_unico
+0428__linux	nf_ct_frag6_gather	avaliar			1	grafo_unico
+0429__linux	ipv6_defrag	avaliar			1	grafo_unico
+0430__linux	sctp_sf_ootb	avaliar			1	grafo_unico
+0431__libtiff		avaliar				sem_evidencia_v2
+0432__libtiff		avaliar				sem_evidencia_v2
+0433__libtiff	readContigTilesIntoBuffer	avaliar			1	grafo_unico
+0434__libtiff	horizontalDifference16	avaliar			0	indeterminado_v2
+0435__libtiff	horizontalDifference8	avaliar			0	indeterminado_v2
+0436__libtiff	horizontalDifferenceF	avaliar			0	indeterminado_v2
+0437__libtiff	TIFFFlushData1	avaliar			1	grafo_unico
+0438__libtiff	t2p_process_jpeg_strip	avaliar			0	indeterminado_v2
+0439__libtiff	t2p_readwrite_pdf_image	avaliar			1	grafo_unico
+0440__libtiff	loadImage	avaliar			1	grafo_unico
+0441__libtiff	reverseSamplesBytes	avaliar			1	grafo_unico
+0442__libtiff	PredictorDecodeRow	avaliar			1	grafo_unico
+0443__libtiff	PredictorDecodeTile	avaliar			1	grafo_unico
+0444__libtiff	PredictorEncodeRow	avaliar			1	grafo_unico
+0445__libtiff	PredictorEncodeTile	avaliar			1	grafo_unico
+0446__libtiff	fpAcc	avaliar			1	grafo_unico
+0447__libtiff	fpDiff	avaliar			1	grafo_unico
+0448__libtiff	horAcc16	avaliar			1	grafo_unico
+0449__libtiff	horAcc32	avaliar			1	grafo_unico
+0450__libtiff	horAcc8	avaliar			1	grafo_unico
+0451__libtiff	horDiff16	avaliar			1	grafo_unico
+0452__libtiff	horDiff32	avaliar			1	grafo_unico
+0453__libtiff	horDiff8	avaliar			1	grafo_unico
+0454__libtiff	swabHorAcc16	avaliar			1	grafo_unico
+0455__libtiff	swabHorAcc32	avaliar			1	grafo_unico
+0456__libtiff	swabHorDiff16	avaliar			1	grafo_unico
+0457__libtiff	swabHorDiff32	avaliar			1	grafo_unico
+0458__w3m	Strgrow	avaliar			1	grafo_unico
+0459__linux	brcmf_cfg80211_start_ap	avaliar			1	grafo_unico
+0460__linux	fwnet_incoming_packet	avaliar			1	grafo_unico
+0461__linux	fwnet_receive_broadcast	avaliar			1	grafo_unico
+0462__linux	nfnetlink_rcv_batch	avaliar			1	grafo_unico
+0463__linux	hid_input_field	avaliar			1	grafo_unico
+0464__linux	assoc_array_insert_into_terminal_node	avaliar			1	grafo_unico
+0465__linux	arcmsr_iop_message_xfer	avaliar			1	grafo_unico
+0466__php-src	php_wddx_push_element	avaliar			0	indeterminado_v2
+0467__php-src	PHP_FUNCTION	avaliar_na_linha	98		2	colisao
+0468__php-src	phar_verify_signature	avaliar			1	grafo_unico
+0469__php-src	phar_parse_zipfile	avaliar			1	grafo_unico
+0470__php-src		avaliar				sem_evidencia_v2
+0471__php-src		avaliar				sem_evidencia_v2
+0472__php-src		avaliar				sem_evidencia_v2
+0473__php-src		avaliar				sem_evidencia_v2
+0474__php-src		avaliar				sem_evidencia_v2
+0475__openjpeg	opj_pi_create_decode	avaliar			1	grafo_unico
+0476__php-src	PHP_FUNCTION	avaliar			0	indeterminado_v2
+0477__php-src	PHP_FUNCTION	avaliar			0	indeterminado_v2
+0478__php-src	PHP_FUNCTION	avaliar_na_linha	3074		85	colisao
+0479__php-src	PHP_FUNCTION	avaliar_na_linha	1641		85	colisao
+0480__php-src	PHP_FUNCTION	avaliar_na_linha	5321		85	colisao
+0481__php-src	PHP_MINIT_FUNCTION	avaliar			1	grafo_unico
+0482__php-src	_php_image_convert	avaliar			1	grafo_unico
+0483__php-src	php_imagettftext_common	avaliar			0	indeterminado_v2
+0484__MAC-Telnet	handle_packet	avaliar			1	grafo_unico
+0485__MAC-Telnet	send_auth	avaliar			1	grafo_unico
+0486__MAC-Telnet	handle_data_packet	avaliar			1	grafo_unico
+0487__MAC-Telnet	user_login	avaliar			1	grafo_unico
+0488__libgd	read_image_tga	avaliar			1	grafo_unico
+0489__ImageMagick	ContrastStretchImage	avaliar			1	grafo_unico
+0490__ImageMagick	EqualizeImage	avaliar			1	grafo_unico
+0491__linux	ioctl_file_dedupe_range	avaliar			0	indeterminado_v2
+0492__ImageMagick	Get8BIMProperty	avaliar			1	grafo_unico
+0493__collectd	parse_packet	avaliar			1	grafo_unico
+0494__libgd		avaliar				sem_evidencia_v2
+0495__libgd	read_header_tga	avaliar			1	grafo_unico
+0496__linux	apparmor_setprocattr	avaliar			1	grafo_unico
+0497__linux	hiddev_ioctl_usage	avaliar			0	indeterminado_v2
+0498__linux	vop_ioctl	avaliar			1	grafo_unico
+0499__linux	airspy_probe	avaliar			1	grafo_unico
+0500__wireshark	parse_wbxml_attribute_list	avaliar			1	grafo_unico
+0501__wireshark		avaliar				sem_evidencia_v2
+0502__wireshark	parse_wbxml_tag	avaliar			1	grafo_unico
+0503__wireshark		avaliar				sem_evidencia_v2
+0504__wireshark	parse_cosine_packet	avaliar			1	grafo_unico
+0505__wireshark	AirPDcapDecryptWPABroadcastKey	avaliar			1	grafo_unico
+0506__php-src	PHP_FUNCTION	avaliar_na_linha	431		16	colisao
+0507__php-src	PHP_FUNCTION	avaliar_na_linha	443		16	colisao
+0508__php-src	PHP_FUNCTION	avaliar_na_linha	455		16	colisao
+0509__php-src	PHP_FUNCTION	avaliar_na_linha	607		16	colisao
+0510__php-src	PHP_FUNCTION	avaliar_na_linha	619		16	colisao
+0511__php-src	PHP_FUNCTION	avaliar_na_linha	631		16	colisao
+0512__php-src	PHP_FUNCTION	avaliar_na_linha	643		16	colisao
+0513__php-src	PHP_FUNCTION	avaliar_na_linha	657		16	colisao
+0514__php-src	PHP_FUNCTION	avaliar_na_linha	671		16	colisao
+0515__php-src	PHP_FUNCTION	avaliar_na_linha	899		16	colisao
+0516__php-src	PHP_FUNCTION	avaliar_na_linha	1136		16	colisao
+0517__php-src	PHP_FUNCTION	avaliar_na_linha	1229		16	colisao
+0518__php-src	PHP_FUNCTION	avaliar_na_linha	1527		16	colisao
+0519__php-src	PHP_FUNCTION	avaliar_na_linha	1577		16	colisao
+0520__php-src	PHP_NAMED_FUNCTION	avaliar_na_linha	224		2	colisao
+0521__php-src		avaliar				sem_evidencia_v2
+0522__php-src	append_key_value	avaliar			1	grafo_unico
+0523__php-src		avaliar				sem_evidencia_v2
+0524__php-src	array_cleanup	avaliar			1	grafo_unico
+0525__php-src	getPreferredTag	avaliar			1	grafo_unico
+0526__php-src	getSingletonPos	avaliar			1	grafo_unico
+0527__php-src	getStrrtokenPos	avaliar			1	grafo_unico
+0528__php-src	get_icu_disp_value_src_php	avaliar			1	grafo_unico
+0529__php-src	get_icu_value_internal	avaliar			1	grafo_unico
+0530__php-src	get_icu_value_src_php	avaliar			1	grafo_unico
+0531__php-src	get_private_subtags	avaliar			1	grafo_unico
+0532__php-src		avaliar				sem_evidencia_v2
+0533__linux		avaliar				sem_evidencia_v2
+0534__linux	check_entry_size_and_hooks	avaliar			1	grafo_unico
+0535__linux		avaliar				sem_evidencia_v2
+0536__linux	check_entry_size_and_hooks	avaliar			1	grafo_unico
+0537__linux		avaliar				sem_evidencia_v2
+0538__linux	check_entry_size_and_hooks	avaliar			1	grafo_unico
+0539__dosfstools	dump_boot	avaliar			1	grafo_unico
+0540__dosfstools	read_boot	avaliar			1	grafo_unico
+0541__ImageMagick	DrawClipPath	avaliar			1	grafo_unico
+0542__ImageMagick	DrawDashPolygon	avaliar			1	grafo_unico
+0543__ImageMagick	DrawImage	avaliar			1	grafo_unico
+0544__ImageMagick	DrawPrimitive	avaliar			1	grafo_unico
+0545__ImageMagick	DrawStrokePolygon	avaliar			1	grafo_unico
+0546__ImageMagick	GetDrawInfo	avaliar			1	grafo_unico
+0547__ImageMagick	TraceStrokePolygon	avaliar			1	grafo_unico
+0548__atheme	xmlrpc_char_encode	avaliar			1	grafo_unico
+0549__iperf	cJSON_AddItemReferenceToArray	avaliar			1	grafo_unico
+0550__iperf	cJSON_AddItemReferenceToObject	avaliar			1	grafo_unico
+0551__iperf	cJSON_AddItemToArray	avaliar			1	grafo_unico
+0552__iperf	cJSON_AddItemToObject	avaliar			1	grafo_unico
+0553__iperf	cJSON_CreateArray	avaliar			1	grafo_unico
+0554__iperf	cJSON_CreateBool	avaliar			1	grafo_unico
+0555__iperf	cJSON_CreateFalse	avaliar			1	grafo_unico
+0556__iperf	cJSON_CreateFloat	avaliar			1	grafo_unico
+0557__iperf	cJSON_CreateFloatArray	avaliar			1	grafo_unico
+0558__iperf	cJSON_CreateInt	avaliar			1	grafo_unico
+0559__iperf	cJSON_CreateIntArray	avaliar			1	grafo_unico
+0560__iperf	cJSON_CreateNull	avaliar			1	grafo_unico
+0561__iperf	cJSON_CreateObject	avaliar			1	grafo_unico
+0562__iperf	cJSON_CreateString	avaliar			1	grafo_unico
+0563__iperf	cJSON_CreateStringArray	avaliar			1	grafo_unico
+0564__iperf	cJSON_CreateTrue	avaliar			1	grafo_unico
+0565__iperf	cJSON_Delete	avaliar			1	grafo_unico
+0566__iperf	cJSON_DeleteItemFromArray	avaliar			1	grafo_unico
+0567__iperf	cJSON_DeleteItemFromObject	avaliar			1	grafo_unico
+0568__iperf	cJSON_DetachItemFromArray	avaliar			1	grafo_unico
+0569__iperf	cJSON_DetachItemFromObject	avaliar			1	grafo_unico
+0570__iperf	cJSON_GetArrayItem	avaliar			1	grafo_unico
+0571__iperf	cJSON_GetArraySize	avaliar			1	grafo_unico
+0572__iperf	cJSON_GetErrorPtr	avaliar			1	grafo_unico
+0573__iperf	cJSON_GetObjectItem	avaliar			1	grafo_unico
+0574__iperf	cJSON_InitHooks	avaliar			1	grafo_unico
+0575__iperf	cJSON_New_Item	avaliar			1	grafo_unico
+0576__iperf	cJSON_Parse	avaliar			1	grafo_unico
+0577__iperf	cJSON_Print	avaliar			1	grafo_unico
+0578__iperf	cJSON_PrintUnformatted	avaliar			1	grafo_unico
+0579__iperf	cJSON_ReplaceItemInArray	avaliar			1	grafo_unico
+0580__iperf	cJSON_ReplaceItemInObject	avaliar			1	grafo_unico
+0581__iperf	cJSON_strcasecmp	avaliar			1	grafo_unico
+0582__iperf	cJSON_strdup	avaliar			1	grafo_unico
+0583__iperf	create_reference	avaliar			1	grafo_unico
+0584__iperf	ipow	avaliar			1	grafo_unico
+0585__iperf	parse_array	avaliar			1	grafo_unico
+0586__iperf	parse_number	avaliar			1	grafo_unico
+0587__iperf	parse_object	avaliar			1	grafo_unico
+0588__iperf	parse_string	avaliar			1	grafo_unico
+0589__iperf	parse_value	avaliar			1	grafo_unico
+0590__iperf	print_array	avaliar			1	grafo_unico
+0591__iperf	print_number	avaliar			1	grafo_unico
+0592__iperf	print_object	avaliar			1	grafo_unico
+0593__iperf	print_string	avaliar			1	grafo_unico
+0594__iperf	print_string_ptr	avaliar			1	grafo_unico
+0595__iperf	print_value	avaliar			1	grafo_unico
+0596__iperf	skip	avaliar			1	grafo_unico
+0597__iperf	suffix_object	avaliar			1	grafo_unico
+0598__iperf	get_results	avaliar			1	grafo_unico
+0599__iperf	iperf_on_connect	avaliar			1	grafo_unico
+0600__iperf	send_parameters	avaliar			1	grafo_unico
+0601__iperf	send_results	avaliar			1	grafo_unico
+0602__iperf	iperf_json_printf	avaliar			1	grafo_unico
+0603__libarchive	parse_codes	avaliar			1	grafo_unico
+0604__libarchive	parse_device	avaliar			1	grafo_unico
+0605__linux	usbip_recv_xbuff	avaliar			1	grafo_unico
+0606__linux	check_entry_size_and_hooks	avaliar			1	grafo_unico
+0607__linux	check_underflow	avaliar			1	grafo_unico
+0608__linux	mark_source_chains	avaliar			1	grafo_unico
+0609__linux	unconditional	avaliar			1	grafo_unico
+0610__linux	check_entry_size_and_hooks	avaliar			1	grafo_unico
+0611__linux	check_underflow	avaliar			1	grafo_unico
+0612__linux	get_chainname_rulenum	avaliar			0	indeterminado_v2
+0613__linux	mark_source_chains	avaliar			1	grafo_unico
+0614__linux	unconditional	avaliar			1	grafo_unico
+0615__linux	check_entry_size_and_hooks	avaliar			1	grafo_unico
+0616__linux	check_underflow	avaliar			1	grafo_unico
+0617__linux	get_chainname_rulenum	avaliar			0	indeterminado_v2
+0618__linux	mark_source_chains	avaliar			1	grafo_unico
+0619__linux	unconditional	avaliar			1	grafo_unico
+0620__FFmpeg	mov_read_dref	avaliar			1	grafo_unico
+0621__kamailio	encode_msg	avaliar			1	grafo_unico
+0622__git	record_recent_object	avaliar			1	grafo_unico
+0623__git	show_object	avaliar			1	grafo_unico
+0624__git	finish_object	avaliar			1	grafo_unico
+0625__git	show_object	avaliar			1	grafo_unico
+0626__git	process_blob	avaliar			1	grafo_unico
+0627__git	process_tree	avaliar			1	grafo_unico
+0628__git	traverse_commit_list	avaliar			1	grafo_unico
+0629__git	show_object	avaliar			1	grafo_unico
+0630__git	show_object	avaliar			1	grafo_unico
+0631__git	test_show_object	avaliar			1	grafo_unico
+0632__git	mark_commit	avaliar			1	grafo_unico
+0633__git	mark_object	avaliar			1	grafo_unico
+0634__git	path_name	avaliar			1	grafo_unico
+0635__git	show_object_with_name	avaliar			1	grafo_unico
+0636__git	pool_strdup	avaliar			1	grafo_unico
+0637__git	path_name	avaliar			1	grafo_unico
+0638__openssl	TS_OBJ_print_bio	avaliar			1	grafo_unico
+0639__linux	ecryptfs_privileged_open	avaliar			1	grafo_unico
+0640__linux	proc_mount	avaliar			1	grafo_unico
+0641__linux	schedule_debug	avaliar			1	grafo_unico
+0642__file	file_check_mem	avaliar			1	grafo_unico
+0643__jq	check_literal	avaliar			1	grafo_unico
+0644__jq	tokenadd	avaliar			1	grafo_unico
+0645__libtiff	NeXTDecode	avaliar			0	indeterminado_v2
+0646__krb5	chpass_principal3_2_svc	avaliar			1	grafo_unico
+0647__krb5	chpass_principal_2_svc	avaliar			1	grafo_unico
+0648__krb5	chrand_principal3_2_svc	avaliar			1	grafo_unico
+0649__krb5	chrand_principal_2_svc	avaliar			1	grafo_unico
+0650__krb5	create_policy_2_svc	avaliar			1	grafo_unico
+0651__krb5	create_principal3_2_svc	avaliar			1	grafo_unico
+0652__krb5	create_principal_2_svc	avaliar			1	grafo_unico
+0653__krb5	delete_policy_2_svc	avaliar			1	grafo_unico
+0654__krb5	delete_principal_2_svc	avaliar			1	grafo_unico
+0655__krb5	get_policy_2_svc	avaliar			1	grafo_unico
+0656__krb5	get_pols_2_svc	avaliar			1	grafo_unico
+0657__krb5	get_principal_2_svc	avaliar			1	grafo_unico
+0658__krb5	get_princs_2_svc	avaliar			1	grafo_unico
+0659__krb5	get_privs_2_svc	avaliar			1	grafo_unico
+0660__krb5	get_strings_2_svc	avaliar			1	grafo_unico
+0661__krb5	init_2_svc	avaliar			1	grafo_unico
+0662__krb5	modify_policy_2_svc	avaliar			1	grafo_unico
+0663__krb5	modify_principal_2_svc	avaliar			1	grafo_unico
+0664__krb5	purgekeys_2_svc	avaliar			1	grafo_unico
+0665__krb5	rename_principal_2_svc	avaliar			1	grafo_unico
+0666__krb5	set_string_2_svc	avaliar			1	grafo_unico
+0667__krb5	setkey_principal3_2_svc	avaliar			1	grafo_unico
+0668__krb5	setkey_principal_2_svc	avaliar			1	grafo_unico
+0669__krb5	setv4key_principal_2_svc	avaliar			1	grafo_unico
+0670__krb5	xdr_nullstring	avaliar			1	grafo_unico
+0671__libgd	_gdContributionsCalc	avaliar			1	grafo_unico
+0672__linux	unix_attach_fds	avaliar			1	grafo_unico
+0673__linux	unix_inflight	avaliar			1	grafo_unico
+0674__linux	unix_notinflight	avaliar			1	grafo_unico
+0675__linux		avaliar				sem_evidencia_v2
+0676__linux		avaliar				sem_evidencia_v2
+0677__linux	l2cap_build_conf_req	avaliar			1	grafo_unico
+0678__linux	l2cap_config_req	avaliar			1	grafo_unico
+0679__linux	l2cap_config_rsp	avaliar			1	grafo_unico
+0680__linux	l2cap_connect_rsp	avaliar			1	grafo_unico
+0681__linux	l2cap_parse_conf_req	avaliar			1	grafo_unico
+0682__linux	l2cap_sock_connect	avaliar			1	grafo_unico
+0683__linux	l2cap_sock_listen	avaliar			1	grafo_unico
+0684__file		avaliar				sem_evidencia_v2
+0685__tcmu-runner	glfs_check_config	avaliar			1	grafo_unico
+0686__linux	check_stack_boundary	avaliar			1	grafo_unico
+0687__linux	check_ptr_alignment	avaliar			1	grafo_unico
+0688__linux	regsafe	avaliar			1	grafo_unico
+0689__linux	adjust_scalar_min_max_vals	avaliar			1	grafo_unico
+0690__linux	adjust_scalar_min_max_vals	avaliar			1	grafo_unico
+0691__linux	hmac_create	avaliar			1	grafo_unico
+0692__linux	shash_no_setkey	avaliar			1	grafo_unico
+0693__FFmpeg	gmc_mmx	avaliar			0	indeterminado_v2
+0694__linux	adjust_scalar_min_max_vals	avaliar			1	grafo_unico
+0695__linux	check_alu_op	avaliar			1	grafo_unico
+0696__linux	check_mem_access	avaliar			1	grafo_unico
+0697__linux	check_alu_op	avaliar			1	grafo_unico
+0698__radare2	r_bin_dwarf_dump_debug_info	avaliar			1	grafo_unico
+0699__radare2	r_bin_dwarf_parse_attr_value	avaliar			1	grafo_unico
+0700__radare2	r_bin_dwarf_parse_comp_unit	avaliar			1	grafo_unico
+0701__libav	smacker_decode_tree	avaliar			1	grafo_unico
+0702__linux	ims_pcu_get_cdc_union_desc	avaliar			1	grafo_unico
+0703__linux	parse_hid_report_descriptor	avaliar			1	grafo_unico
+0704__ImageMagick	ReadWPGImage	avaliar			1	grafo_unico
+0705__linux	usb_get_bos_descriptor	avaliar			1	grafo_unico
+0706__linux	cdc_parse_cdc_header	avaliar			1	grafo_unico
+0707__linux	usbhid_parse	avaliar			1	grafo_unico
+0708__linux	usb_parse_configuration	avaliar			1	grafo_unico
+0709__linux	uas_switch_interface	avaliar			1	grafo_unico
+0710__linux	snd_usb_create_streams	avaliar			1	grafo_unico
+0711__linux	uwbd_start	avaliar			1	grafo_unico
+0712__linux	uwbd_stop	avaliar			1	grafo_unico
+0713__radare2	store_versioninfo_gnu_verdef	avaliar			0	indeterminado_v2
+0714__radare2	store_versioninfo_gnu_verneed	avaliar			0	indeterminado_v2
+0715__radare2	store_versioninfo_gnu_verdef	avaliar			0	indeterminado_v2
+0716__radare2	store_versioninfo_gnu_verneed	avaliar			0	indeterminado_v2
+0717__radare2	store_versioninfo_gnu_verdef	avaliar			0	indeterminado_v2
+0718__radare2	wasm_dis	avaliar			1	grafo_unico
+0719__radare2	r_flag_get_nearest_list	avaliar			1	grafo_unico
+0720__FFmpeg	sdp_parse_fmtp_config_h264	avaliar			1	grafo_unico
+0721__weechat	logger_get_mask_expanded	avaliar			1	grafo_unico
+0722__libarchive	read_header	avaliar			1	grafo_unico
+0723__linux	tpacket_rcv	avaliar			1	grafo_unico
+0724__libarchive	atol10	avaliar			0	indeterminado_v2
+0725__libarchive	atol8	avaliar			0	indeterminado_v2
+0726__openjpeg	opj_tcd_code_block_enc_allocate_data	avaliar			1	grafo_unico
+0727__libzip	_zip_read_eocd64	avaliar			1	grafo_unico
+0728__openjpeg	pgxtoimage	avaliar			1	grafo_unico
+0729__openjpeg	get_ushort	avaliar			1	grafo_unico
+0730__openjpeg	tga_readheader	avaliar			1	grafo_unico
+0731__openjpeg	tgatoimage	avaliar			1	grafo_unico
+0732__tcpdump		avaliar				sem_evidencia_v2
+0733__tcpdump	ikev1_cert_print	avaliar			0	indeterminado_v2
+0734__tcpdump	ikev1_cr_print	avaliar			0	indeterminado_v2
+0735__tcpdump	ikev1_hash_print	avaliar			0	indeterminado_v2
+0736__tcpdump	ikev1_ke_print	avaliar			0	indeterminado_v2
+0737__tcpdump	ikev1_sig_print	avaliar			0	indeterminado_v2
+0738__tcpdump	ikev1_sub_print	avaliar			1	grafo_unico
+0739__tcpdump	ikev1_vid_print	avaliar			0	indeterminado_v2
+0740__tcpdump	ikev2_ID_print	avaliar			0	indeterminado_v2
+0741__tcpdump	ikev2_auth_print	avaliar			0	indeterminado_v2
+0742__tcpdump	ikev2_gen_print	avaliar			1	grafo_unico
+0743__tcpdump	ikev2_ke_print	avaliar			0	indeterminado_v2
+0744__tcpdump		avaliar				sem_evidencia_v2
+0745__tcpdump	ikev2_sa_print	avaliar			0	indeterminado_v2
+0746__tcpdump	ikev2_sub_print	avaliar			1	grafo_unico
+0747__tcpdump	ikev2_vid_print	avaliar			0	indeterminado_v2
+0748__tcpdump	ikev1_id_print	avaliar			0	indeterminado_v2
+0749__tcpdump	olsr_print	avaliar			1	grafo_unico
+0750__ImageMagick	ReadOneMNGImage	avaliar			0	indeterminado_v2
+0751__tcpdump	isis_print_is_reach_subtlv	avaliar			1	grafo_unico
+0752__tcpdump	lldp_private_8023_print	avaliar			1	grafo_unico
+0753__tcpdump	decode_rt_routing_info	avaliar			1	grafo_unico
+0754__tcpdump	cfm_network_addr_print	avaliar			1	grafo_unico
+0755__tcpdump	cfm_print	avaliar			1	grafo_unico
+0756__tcpdump	rsvp_obj_print	avaliar			1	grafo_unico
+0757__tcpdump	rpki_rtr_pdu_print	avaliar			1	grafo_unico
+0758__tcpdump	rpki_rtr_print	avaliar			1	grafo_unico
+0759__tcpdump	ubik_print	avaliar			1	grafo_unico
+0760__tcpdump	rsvp_obj_print	avaliar			1	grafo_unico
+0761__tcpdump	esis_print	avaliar			1	grafo_unico
+0762__tcpdump	bgp_attr_print	avaliar			1	grafo_unico
+0763__tcpdump	vqp_print	avaliar			1	grafo_unico
+0764__tcpdump	dhcpv4_print	avaliar			1	grafo_unico
+0765__tcpdump	decode_multicast_vpn	avaliar			1	grafo_unico
+0766__tcpdump	dhcpv6_print	avaliar			1	grafo_unico
+0767__tcpdump	icmp6_nodeinfo_print	avaliar			1	grafo_unico
+0768__tcpdump	mp_capable_print	avaliar			1	grafo_unico
+0769__tcpdump	mp_dss_len	avaliar			1	grafo_unico
+0770__tcpdump	mp_dss_print	avaliar			1	grafo_unico
+0771__tcpdump	mp_join_print	avaliar			1	grafo_unico
+0772__tcpdump	ikev1_attr_print	avaliar			1	grafo_unico
+0773__tcpdump	ikev1_attrmap_print	avaliar			1	grafo_unico
+0774__tcpdump	ikev1_n_print	avaliar			0	indeterminado_v2
+0775__tcpdump	ikev1_t_print	avaliar			0	indeterminado_v2
+0776__tcpdump	ikev2_t_print	avaliar			1	grafo_unico
+0777__tcpdump	handle_mlppp	avaliar			1	grafo_unico
+0778__tcpdump	ip_optprint	avaliar			1	grafo_unico
+0779__tcpdump	ip_printts	avaliar			1	grafo_unico
+0780__tcpdump	ospf6_decode_v3	avaliar			1	grafo_unico
+0781__tcpdump	isis_print_id	avaliar			1	grafo_unico
+0782__tcpdump	pgm_print	avaliar			1	grafo_unico
+0783__tcpdump	vtp_print	avaliar			1	grafo_unico
+0784__tcpdump	print_attr_string	avaliar			1	grafo_unico
+0785__tcpdump	frag6_print	avaliar			1	grafo_unico
+0786__tcpdump	cisco_autorp_print	avaliar			1	grafo_unico
+0787__tcpdump	pim_print	avaliar			1	grafo_unico
+0788__tcpdump	pimv1_join_prune_print	avaliar			1	grafo_unico
+0789__tcpdump	pimv1_print	avaliar			1	grafo_unico
+0790__tcpdump	pimv2_addr_print	avaliar			1	grafo_unico
+0791__tcpdump	pimv2_print	avaliar			1	grafo_unico
+0792__tcpdump	print_bacp_config_options	avaliar			1	grafo_unico
+0793__tcpdump	print_ccp_config_options	avaliar			1	grafo_unico
+0794__tcpdump	print_ipcp_config_options	avaliar			1	grafo_unico
+0795__tcpdump	print_lcp_config_options	avaliar			1	grafo_unico
+0796__tcpdump	lldp_mgmt_addr_tlv_print	avaliar			1	grafo_unico
+0797__tcpdump	isis_print_mt_capability_subtlv	avaliar			1	grafo_unico
+0798__tcpdump	isis_print_mt_port_cap_subtlv	avaliar			1	grafo_unico
+0799__tcpdump	mobility_opt_print	avaliar			1	grafo_unico
+0800__tcpdump	mobility_opt_print	avaliar			1	grafo_unico
+0801__tcpdump	mobility_opt_print	avaliar			1	grafo_unico
+0802__tcpdump	ip_optprint	avaliar			1	grafo_unico
+0803__tcpdump	ip_printroute	avaliar			1	grafo_unico
+0804__tcpdump	icmp6_print	avaliar			1	grafo_unico
+0805__tcpdump	vtp_print	avaliar			1	grafo_unico
+0806__tcpdump	pgm_print	avaliar			1	grafo_unico
+0807__tcpdump	pgm_print	avaliar			1	grafo_unico
+0808__tcpdump	dhcp6opt_print	avaliar			1	grafo_unico
+0809__tcpdump	esis_print	avaliar			1	grafo_unico
+0810__tcpdump	eap_print	avaliar			1	grafo_unico
+0811__tcpdump	wb_prep	avaliar			1	grafo_unico
+0812__tcpdump	wb_print	avaliar			1	grafo_unico
+0813__tcpdump	arp_print	avaliar			1	grafo_unico
+0814__tcpdump	atmarp_print	avaliar			1	grafo_unico
+0815__tcpdump	icmp_print	avaliar			1	grafo_unico
+0816__tcpdump	bittok2str_internal	avaliar			1	grafo_unico
+0817__tcpdump	beep_print	avaliar			1	grafo_unico
+0818__tcpdump	l_strnstart	avaliar			1	grafo_unico
+0819__tcpdump		avaliar				sem_evidencia_v2
+0820__tcpdump	parse_elements	avaliar			1	grafo_unico
+0821__tcpdump	pktap_if_print	avaliar			0	indeterminado_v2
+0822__tcpdump	l2tp_accm_print	avaliar			1	grafo_unico
+0823__tcpdump	l2tp_avp_print	avaliar			1	grafo_unico
+0824__tcpdump	l2tp_bearer_cap_print	avaliar			1	grafo_unico
+0825__tcpdump	l2tp_bearer_type_print	avaliar			1	grafo_unico
+0826__tcpdump	l2tp_call_errors_print	avaliar			1	grafo_unico
+0827__tcpdump	l2tp_framing_cap_print	avaliar			1	grafo_unico
+0828__tcpdump	l2tp_framing_type_print	avaliar			1	grafo_unico
+0829__tcpdump	l2tp_msgtype_print	avaliar			1	grafo_unico
+0830__tcpdump	l2tp_ppp_discon_cc_print	avaliar			1	grafo_unico
+0831__tcpdump	l2tp_proto_ver_print	avaliar			1	grafo_unico
+0832__tcpdump	l2tp_proxy_auth_id_print	avaliar			1	grafo_unico
+0833__tcpdump	l2tp_proxy_auth_type_print	avaliar			1	grafo_unico
+0834__tcpdump	l2tp_q931_cc_print	avaliar			1	grafo_unico
+0835__tcpdump	l2tp_result_code_print	avaliar			1	grafo_unico
+0836__tcpdump	xid_map_enter	avaliar			1	grafo_unico
+0837__tcpdump	lmp_print	avaliar			1	grafo_unico
+0838__tcpdump	aodv_extension	avaliar			1	grafo_unico
+0839__tcpdump	nfs_printfh	avaliar			1	grafo_unico
+0840__tcpdump	ieee802_15_4_if_print	avaliar			1	grafo_unico
+0841__tcpdump	isis_print	avaliar			1	grafo_unico
+0842__tcpdump	isis_print_extd_ip_reach	avaliar			1	grafo_unico
+0843__tcpdump	pimv2_print	avaliar			1	grafo_unico
+0844__tcpdump	bgp_attr_print	avaliar			1	grafo_unico
+0845__tcpdump	juniper_atm1_print	avaliar			0	indeterminado_v2
+0846__tcpdump	juniper_atm2_print	avaliar			0	indeterminado_v2
+0847__tcpdump	juniper_es_print	avaliar			0	indeterminado_v2
+0848__tcpdump	juniper_ggsn_print	avaliar			0	indeterminado_v2
+0849__tcpdump	juniper_monitor_print	avaliar			0	indeterminado_v2
+0850__tcpdump	juniper_parse_header	avaliar			1	grafo_unico
+0851__tcpdump	juniper_pppoe_atm_print	avaliar			0	indeterminado_v2
+0852__tcpdump	juniper_services_print	avaliar			0	indeterminado_v2
+0853__tcpdump	ripng_print	avaliar			1	grafo_unico
+0854__tcpdump	bgp_attr_print	avaliar			1	grafo_unico
+0855__tcpdump	telnet_parse	avaliar			1	grafo_unico
+0856__tcpdump	ip6_print	avaliar			1	grafo_unico
+0857__tcpdump		avaliar				sem_evidencia_v2
+0858__openjpeg	bmp_read_info_header	avaliar			1	grafo_unico
+0859__tcpdump	parse_field	avaliar			1	grafo_unico
+0860__tcpdump	zephyr_print	avaliar			1	grafo_unico
+0861__tcpdump	eigrp_print	avaliar			1	grafo_unico
+0862__tcpdump	interp_reply	avaliar			1	grafo_unico
+0863__tcpdump	nfsreq_print_noaddr	avaliar			1	grafo_unico
+0864__tcpdump	parse_wcc_attr	avaliar			1	grafo_unico
+0865__tcpdump	parserep	avaliar			1	grafo_unico
+0866__tcpdump	atm_if_print	avaliar			1	grafo_unico
+0867__tcpdump	chdlc_print	avaliar			1	grafo_unico
+0868__tcpdump	ethertype_print	avaliar			1	grafo_unico
+0869__tcpdump	fr_print	avaliar			1	grafo_unico
+0870__tcpdump	gre_print_0	avaliar			1	grafo_unico
+0871__tcpdump	isoclns_print	avaliar			1	grafo_unico
+0872__tcpdump	juniper_atm1_print	avaliar			0	indeterminado_v2
+0873__tcpdump	juniper_atm2_print	avaliar			0	indeterminado_v2
+0874__tcpdump	juniper_mfr_print	avaliar			0	indeterminado_v2
+0875__tcpdump	juniper_mlfr_print	avaliar			0	indeterminado_v2
+0876__tcpdump	juniper_mlppp_print	avaliar			0	indeterminado_v2
+0877__tcpdump	llc_print	avaliar			1	grafo_unico
+0878__tcpdump	mpls_print	avaliar			1	grafo_unico
+0879__tcpdump	null_if_print	avaliar			1	grafo_unico
+0880__tcpdump	handle_ppp	avaliar			1	grafo_unico
+0881__tcpdump	icmp_print	avaliar			1	grafo_unico
+0882__tcpdump	le64addr_string	avaliar			1	grafo_unico
+0883__tcpdump	linkaddr_string	avaliar			1	grafo_unico
+0884__tcpdump	lookup_bytestring	avaliar			1	grafo_unico
+0885__tcpdump	name_len	avaliar			1	grafo_unico
+0886__ImageMagick	ContrastStretchImage	avaliar			1	grafo_unico
+0887__ImageMagick	EqualizeImage	avaliar			1	grafo_unico
+0888__ImageMagick	ReadOneMNGImage	avaliar			0	indeterminado_v2
+0889__ioq3	Huff_Compress	avaliar			1	grafo_unico
+0890__ioq3	Huff_offsetReceive	avaliar			1	grafo_unico
+0891__ioq3	Huff_offsetTransmit	avaliar			1	grafo_unico
+0892__ioq3	Huff_transmit	avaliar			1	grafo_unico
+0893__ioq3	send	avaliar			1	grafo_unico
+0894__ioq3	MSG_ReadBits	avaliar			1	grafo_unico
+0895__ioq3	MSG_WriteBits	avaliar			1	grafo_unico
+0896__FFmpeg	dnxhd_decode_header	avaliar			1	grafo_unico
+0897__wildmidi	_WM_ParseNewHmi	avaliar			1	grafo_unico
+0898__wildmidi	_WM_ParseNewHmp	avaliar			1	grafo_unico
+0899__wildmidi	_WM_ParseNewMidi	avaliar			1	grafo_unico
+0900__wildmidi	_WM_ParseNewMus	avaliar			1	grafo_unico
+0901__wildmidi	_WM_ParseNewXmi	avaliar			1	grafo_unico
+0902__wildmidi	_WM_SetupMidiEvent	avaliar			1	grafo_unico
+0903__FFmpeg	ape_decode_frame	avaliar			1	grafo_unico
+0904__yara	module_load	avaliar			1	grafo_unico
+0905__yara	yr_object_array_set_item	avaliar			1	grafo_unico
+0906__radare2	grub_disk_read	avaliar			1	grafo_unico
+0907__sthttpd	de_dotdot	avaliar			1	grafo_unico
+0908__FFmpeg	cdxl_decode_frame	avaliar			1	grafo_unico
+0909__FFmpeg	decompress_i	avaliar			1	grafo_unico
+0910__FFmpeg	vp78_decode_frame	avaliar			1	grafo_unico
+0911__FFmpeg	vp8_lossy_decode_frame	avaliar			1	grafo_unico
+0912__FFmpeg	decode_dds1	avaliar			1	grafo_unico
+0913__FFmpeg	xwd_decode_frame	avaliar			1	grafo_unico
+0914__FFmpeg	color_string_to_rgba	avaliar			1	grafo_unico
+0915__FFmpeg		avaliar				sem_evidencia_v2
+0916__FFmpeg	xpm_decode_frame	avaliar			1	grafo_unico
+0917__linux	snd_msndmidi_input_read	avaliar			1	grafo_unico
+0918__linux	snd_msnd_interrupt	avaliar			1	grafo_unico
+0919__radare2	_server_handle_vCont	avaliar			1	grafo_unico
+0920__radare2	grub_ext2_iterate_dir	avaliar			1	grafo_unico
+0921__radare2	grub_ext2_read_block	avaliar			1	grafo_unico
+0922__radare2	grub_fshelp_read_file	avaliar			1	grafo_unico
+0923__radare2	cmd_mount	avaliar			1	grafo_unico
+0924__radare2	grub_ext2_read_block	avaliar			1	grafo_unico
+0925__radare2	grub_ext4_find_leaf	avaliar			1	grafo_unico
+0926__radare2	find_file	avaliar			1	grafo_unico
+0927__radare2	grubfs_free	avaliar			1	grafo_unico
+0928__radare2	read_foo	avaliar			1	grafo_unico
+0929__yara	yr_re_fast_exec	avaliar			1	grafo_unico
+0930__yara	_yr_scan_match_callback	avaliar			1	grafo_unico
+0931__oniguruma	forward_search_range	avaliar			1	grafo_unico
+0932__oniguruma	unicode_unfold_key	avaliar			1	grafo_unico
+0933__oniguruma	match_at	avaliar			1	grafo_unico
+0934__imageworsener	get_exif_tag_dbl_value	avaliar			0	indeterminado_v2
+0935__imageworsener	get_exif_tag_int_value	avaliar			0	indeterminado_v2
+0936__imageworsener	iwjpeg_scan_exif	avaliar			0	indeterminado_v2
+0937__imageworsener	iwjpeg_scan_exif_ifd	avaliar			0	indeterminado_v2
+0938__imageworsener	bmpr_read_rle	avaliar			1	grafo_unico
+0939__imageworsener	iw_process_rows_intermediate_to_final	avaliar			1	grafo_unico
+0940__linux	ipv6_gso_segment	avaliar			1	grafo_unico
+0941__linux	ip6_fragment	avaliar			1	grafo_unico
+0942__linux	ip6_find_1stfragopt	avaliar			1	grafo_unico
+0943__linux	udp6_ufo_fragment	avaliar			1	grafo_unico
+0944__media-tree	saa7164_bus_get	avaliar			1	grafo_unico
+0945__varnish-cache	vbf_stp_error	avaliar			1	grafo_unico
+0946__yara	yr_execute_code	avaliar			1	grafo_unico
+0947__yara	yr_re_exec	avaliar			1	grafo_unico
+0948__yara	yr_re_match	avaliar			1	grafo_unico
+0949__yara	_yr_scan_verify_re_match	avaliar			1	grafo_unico
+0950__weechat	irc_ctcp_dcc_filename_without_quotes	avaliar			1	grafo_unico
+0951__linux	catc_probe	avaliar			1	grafo_unico
+0952__linux	get_registers	avaliar			1	grafo_unico
+0953__linux	set_registers	avaliar			1	grafo_unico
+0954__linux	get_registers	avaliar			1	grafo_unico
+0955__linux	set_register	avaliar			1	grafo_unico
+0956__linux	set_registers	avaliar			1	grafo_unico
+0957__linux	put_chars	avaliar			1	grafo_unico
+0958__linux	gs_usb_probe	avaliar			1	grafo_unico
+0959__linux	crypto_ccm_auth	avaliar			1	grafo_unico
+0960__linux	dvb_usbv2_disconnect	avaliar			1	grafo_unico
+0961__linux	cxusb_ctrl_msg	avaliar			1	grafo_unico
+0962__linux	m88rs2000_frontend_attach	avaliar			1	grafo_unico
+0963__linux	su3000_frontend_attach	avaliar			1	grafo_unico
+0964__linux	su3000_i2c_transfer	avaliar			1	grafo_unico
+0965__linux	su3000_power_ctrl	avaliar			1	grafo_unico
+0966__linux	t220_frontend_attach	avaliar			1	grafo_unico
+0967__linux	tt_s2_4600_frontend_attach	avaliar			1	grafo_unico
+0968__linux	usb_cypress_load_firmware	avaliar			1	grafo_unico
+0969__linux	nfs3svc_decode_symlinkargs	avaliar			1	grafo_unico
+0970__linux	nfs3svc_decode_writeargs	avaliar			1	grafo_unico
+0971__linux	nfssvc_decode_writeargs	avaliar			1	grafo_unico
+0972__feh	enl_ipc_get	avaliar			1	grafo_unico
+0973__FFmpeg	decode_zbuf	avaliar			1	grafo_unico
+0974__FFmpeg	avcodec_align_dimensions2	avaliar			1	grafo_unico
+0975__FFmpeg	decode_frame_common	avaliar			1	grafo_unico
+0976__FFmpeg	decode_trns_chunk	avaliar			1	grafo_unico
+0977__FFmpeg	decode_frame	avaliar			1	grafo_unico
+0978__radare2	consume_init_expr	avaliar			1	grafo_unico
+0979__radare2	r_bin_wasm_get_data_entries	avaliar			1	grafo_unico
+0980__radare2	r_bin_wasm_get_element_entries	avaliar			1	grafo_unico
+0981__radare2	r_bin_wasm_get_global_entries	avaliar			1	grafo_unico
+0982__libsndfile	flac_buffer_copy	avaliar			0	indeterminado_v2
+0983__libsndfile	flac_read_loop	avaliar			0	indeterminado_v2
+0984__libsndfile	id3_skip	avaliar			1	grafo_unico
+0985__linux	brcmf_cfg80211_mgmt_tx	avaliar			1	grafo_unico
+0986__linux	sock_queue_err_skb	avaliar			1	grafo_unico
+0987__linux	__sock_recv_timestamp	avaliar			1	grafo_unico
+0988__libsndfile	aiff_read_chanmap	avaliar			1	grafo_unico
+0989__LibRaw-demosaic-pack-GPL2		avaliar				sem_evidencia_v2
+0990__LibRaw-demosaic-pack-GPL2		avaliar				sem_evidencia_v2
+0991__ImageMagick	ReadWEBPImage	avaliar			0	indeterminado_v2
+0992__ImageMagick	ReadSUNImage	avaliar			1	grafo_unico
+0993__radare2	dalvik_disassemble	avaliar			1	grafo_unico
+0994__libplist	parse_bin_node	avaliar			1	grafo_unico
+0995__libplist	parse_string_node	avaliar			1	grafo_unico
+0996__ettercap	compile_tree	avaliar			1	grafo_unico
+0997__ettercap	main	avaliar			1	grafo_unico
+0998__ettercap	write_output	avaliar			1	grafo_unico
+0999__tcpreplay	main	avaliar			1	grafo_unico
+1000__radare2	dex_loadcode	avaliar			1	grafo_unico
+1001__linux	ip_cmsg_recv_checksum	avaliar			1	grafo_unico
+1002__radare2	dex_parse_debug_item	avaliar			1	grafo_unico
+1003__tnef	file_add_mapi_attrs	avaliar			1	grafo_unico
+1004__tnef	get_html_data	avaliar			1	grafo_unico
+1005__tnef	parse_file	avaliar			1	grafo_unico
+1006__tnef	mapi_attr_read	avaliar			1	grafo_unico
+1007__radare2	load_bytes	avaliar			1	grafo_unico
+1008__radare2	relocs	avaliar			1	grafo_unico
+1009__radare2	search_old_relocation	avaliar			1	grafo_unico
+1010__yara		avaliar				sem_evidencia_v2
+1011__gst-plugins-ugly	gst_asf_demux_process_ext_content_desc	avaliar			1	grafo_unico
+1012__libarchive	lha_read_file_header_1	avaliar			1	grafo_unico
+1013__linux	atusb_get_and_show_build	avaliar			1	grafo_unico
+1014__linux	atusb_get_and_show_revision	avaliar			1	grafo_unico
+1015__linux	atusb_read_reg	avaliar			1	grafo_unico
+1016__linux	k90_backlight_get	avaliar			1	grafo_unico
+1017__linux	k90_show_current_profile	avaliar			1	grafo_unico
+1018__linux	k90_show_macro_mode	avaliar			1	grafo_unico
+1019__libplist	main	avaliar			1	grafo_unico
+1020__mapserver	FLTGetIsLikeComparisonExpression	avaliar			0	indeterminado_v2
+1021__mapserver	FLTGetIsLikeComparisonCommonExpression	avaliar			0	indeterminado_v2
+1022__ImageMagick	ReadPSDLayers	avaliar			1	grafo_unico
+1023__ImageMagick	WritePSDChannel	avaliar			1	grafo_unico
+1024__ImageMagick	AcquireCompactPixels	avaliar			1	grafo_unico
+1025__ImageMagick	ReadPSDChannelRLE	avaliar			1	grafo_unico
+1026__ImageMagick	ReadPSDLayers	avaliar			1	grafo_unico
+1027__ImageMagick	WritePSDChannels	avaliar			1	grafo_unico
+1028__ImageMagick	ReadTIFFImage	avaliar			0	indeterminado_v2
+1029__libtiff		avaliar				sem_evidencia_v2
+1030__libtiff		avaliar				sem_evidencia_v2
+1031__libtiff	pickCopyFunc	avaliar			1	grafo_unico
+1032__libtiff	tiffcp	avaliar			1	grafo_unico
+1033__libplist	base64decode	avaliar			1	grafo_unico
+1034__libplist	base64decode_block	avaliar			1	grafo_unico
+1035__openssl	aes_ccm_ctrl	avaliar			1	grafo_unico
+1036__openssl	aes_gcm_ctrl	avaliar			1	grafo_unico
+1037__openssl	chacha20_poly1305_ctrl	avaliar			1	grafo_unico
+1038__openjpeg	opj_tcd_code_block_enc_allocate_data	avaliar			1	grafo_unico
+1039__yodl	queue_push	avaliar			1	grafo_unico
+1040__libtiff	readContigStripsIntoBuffer	avaliar			1	grafo_unico
+1041__libtiff	ChopUpSingleUncompressedStrip	avaliar			1	grafo_unico
+1042__libtiff	TIFFNumberOfStrips	avaliar			1	grafo_unico
+1043__libtiff	LogLuvClose	avaliar			0	indeterminado_v2
+1044__libtiff	LogLuvSetupEncode	avaliar			0	indeterminado_v2
+1045__libtiff	PixarLogClose	avaliar			0	indeterminado_v2
+1046__linux	ext4_fill_super	avaliar			1	grafo_unico
+1047__libevent	search_make_new	avaliar			1	grafo_unico
+1048__libevent	evutil_parse_sockaddr_port	avaliar			1	grafo_unico
+1049__libevent	name_parse	avaliar			1	grafo_unico
+1050__FFmpeg	http_receive_data	avaliar			1	grafo_unico
+1051__FFmpeg	rtmp_packet_read_one_chunk	avaliar			1	grafo_unico
+1052__FFmpeg	http_buf_read	avaliar			1	grafo_unico
+1053__FFmpeg	http_connect	avaliar			1	grafo_unico
+1054__FFmpeg	http_open	avaliar			1	grafo_unico
+1055__FFmpeg	http_proxy_open	avaliar			0	indeterminado_v2
+1056__FFmpeg	http_read_header	avaliar			1	grafo_unico
+1057__FFmpeg	http_read_stream	avaliar			1	grafo_unico
+1058__FFmpeg	http_seek_internal	avaliar			1	grafo_unico
+1059__FFmpeg	parse_content_range	avaliar			1	grafo_unico
+1060__FFmpeg	process_line	avaliar			1	grafo_unico
+1061__FFmpeg	store_icy	avaliar			1	grafo_unico
+1062__WavPack	read_new_config_info	avaliar			1	grafo_unico
+1063__WavPack	get_word	avaliar			1	grafo_unico
+1064__Little-CMS	Type_MLU_Read	avaliar			1	grafo_unico
+1065__php-src		avaliar				sem_evidencia_v2
+1066__php-src		avaliar				sem_evidencia_v2
+1067__linux	smbhash	avaliar			1	grafo_unico
+1068__libgit2	git_pkt_parse_line	avaliar			1	grafo_unico
+1069__ImageMagick	ReadMATImage	avaliar			1	grafo_unico
+1070__ImageMagick	ReadMATImage	avaliar			1	grafo_unico
+1071__ImageMagick	ReadLABELImage	avaliar			1	grafo_unico
+1072__ImageMagick	CheckMemoryOverflow	avaliar			1	grafo_unico
+1073__ImageMagick	ReadVIFFImage	avaliar			1	grafo_unico
+1074__ImageMagick	CatchException	avaliar			1	grafo_unico
+1075__ImageMagick	AcquireAlignedMemory	avaliar			1	grafo_unico
+1076__ImageMagick	AcquireQuantumMemory	avaliar			1	grafo_unico
+1077__ImageMagick	AcquireVirtualMemory	avaliar			1	grafo_unico
+1078__ImageMagick	ResizeQuantumMemory	avaliar			1	grafo_unico
+1079__ImageMagick	ReadAAIImage	avaliar			1	grafo_unico
+1080__ImageMagick	ReadARTImage	avaliar			1	grafo_unico
+1081__ImageMagick	ReadAVSImage	avaliar			1	grafo_unico
+1082__ImageMagick	ReadBGRImage	avaliar			1	grafo_unico
+1083__ImageMagick	ReadBMPImage	avaliar			1	grafo_unico
+1084__ImageMagick	ReadCINImage	avaliar			1	grafo_unico
+1085__ImageMagick	ReadCLIPBOARDImage	avaliar			0	indeterminado_v2
+1086__ImageMagick	ReadCMYKImage	avaliar			1	grafo_unico
+1087__ImageMagick	ReadCUTImage	avaliar			1	grafo_unico
+1088__ImageMagick	ReadDCMImage	avaliar			1	grafo_unico
+1089__ImageMagick	ReadDDSImage	avaliar			1	grafo_unico
+1090__ImageMagick	ReadDIBImage	avaliar			1	grafo_unico
+1091__ImageMagick	ReadOneDJVUImage	avaliar			0	indeterminado_v2
+1092__ImageMagick	get_page_image	avaliar			0	indeterminado_v2
+1093__ImageMagick	ReadDPSImage	avaliar			0	indeterminado_v2
+1094__ImageMagick	ReadDPXImage	avaliar			1	grafo_unico
+1095__ImageMagick	ReadEMFImage	avaliar			0	indeterminado_v2
+1096__ImageMagick	ReadEXRImage	avaliar			0	indeterminado_v2
+1097__ImageMagick	ReadFAXImage	avaliar			1	grafo_unico
+1098__ImageMagick	ReadFITSImage	avaliar			1	grafo_unico
+1099__ImageMagick	ReadFPXImage	avaliar			0	indeterminado_v2
+1100__ImageMagick	ReadGIFImage	avaliar			1	grafo_unico
+1101__ImageMagick	ReadGRAYImage	avaliar			1	grafo_unico
+1102__ImageMagick	ReadHALDImage	avaliar			1	grafo_unico
+1103__ImageMagick	ReadHDRImage	avaliar			1	grafo_unico
+1104__ImageMagick	ReadHRZImage	avaliar			1	grafo_unico
+1105__ImageMagick	ReadICONImage	avaliar			1	grafo_unico
+1106__ImageMagick	ReadIPLImage	avaliar			1	grafo_unico
+1107__ImageMagick	ReadJBIGImage	avaliar			0	indeterminado_v2
+1108__ImageMagick	ReadJP2Image	avaliar			0	indeterminado_v2
+1109__ImageMagick	ReadJPEGImage	avaliar			0	indeterminado_v2
+1110__ImageMagick	ReadLABELImage	avaliar			1	grafo_unico
+1111__ImageMagick	ReadMACImage	avaliar			1	grafo_unico
+1112__ImageMagick	ReadMAPImage	avaliar			1	grafo_unico
+1113__ImageMagick	ReadMATImage	avaliar			1	grafo_unico
+1114__ImageMagick	ReadMIFFImage	avaliar			1	grafo_unico
+1115__ImageMagick	ReadMONOImage	avaliar			1	grafo_unico
+1116__ImageMagick	ReadMPCImage	avaliar			1	grafo_unico
+1117__ImageMagick	ReadMTVImage	avaliar			1	grafo_unico
+1118__ImageMagick	ReadMVGImage	avaliar			1	grafo_unico
+1119__ImageMagick	ReadNULLImage	avaliar			1	grafo_unico
+1120__ImageMagick	ReadOTBImage	avaliar			1	grafo_unico
+1121__ImageMagick	ReadPALMImage	avaliar			1	grafo_unico
+1122__ImageMagick	ReadPANGOImage	avaliar			0	indeterminado_v2
+1123__ImageMagick	ReadPCDImage	avaliar			1	grafo_unico
+1124__ImageMagick	ReadPCXImage	avaliar			1	grafo_unico
+1125__ImageMagick	ReadPDBImage	avaliar			1	grafo_unico
+1126__ImageMagick	ReadPICTImage	avaliar			1	grafo_unico
+1127__ImageMagick	ReadPIXImage	avaliar			1	grafo_unico
+1128__ImageMagick	ReadPSDImage	avaliar			1	grafo_unico
+1129__ImageMagick	ReadRAWImage	avaliar			1	grafo_unico
+1130__ImageMagick	ReadRGBImage	avaliar			1	grafo_unico
+1131__ImageMagick	ReadRGFImage	avaliar			1	grafo_unico
+1132__ImageMagick	ReadRLAImage	avaliar			1	grafo_unico
+1133__ImageMagick	ReadRLEImage	avaliar			1	grafo_unico
+1134__ImageMagick	ReadSCRImage	avaliar			1	grafo_unico
+1135__ImageMagick	ReadSCREENSHOTImage	avaliar			1	grafo_unico
+1136__ImageMagick	ReadSCTImage	avaliar			1	grafo_unico
+1137__ImageMagick	ReadSGIImage	avaliar			1	grafo_unico
+1138__ImageMagick	ReadSTEGANOImage	avaliar			1	grafo_unico
+1139__ImageMagick	ReadSUNImage	avaliar			1	grafo_unico
+1140__ImageMagick	ReadSVGImage	avaliar			0	indeterminado_v2
+1141__ImageMagick	ReadTGAImage	avaliar			1	grafo_unico
+1142__ImageMagick	ReadTIFFImage	avaliar			0	indeterminado_v2
+1143__ImageMagick	ReadTILEImage	avaliar			1	grafo_unico
+1144__ImageMagick	ReadTIMImage	avaliar			1	grafo_unico
+1145__ImageMagick	ReadTTFImage	avaliar			0	indeterminado_v2
+1146__ImageMagick	ReadTEXTImage	avaliar			1	grafo_unico
+1147__ImageMagick	ReadTXTImage	avaliar			1	grafo_unico
+1148__ImageMagick	ReadUYVYImage	avaliar			1	grafo_unico
+1149__ImageMagick	ReadVICARImage	avaliar			1	grafo_unico
+1150__ImageMagick	ReadVIFFImage	avaliar			1	grafo_unico
+1151__ImageMagick	ReadVIPSImage	avaliar			1	grafo_unico
+1152__ImageMagick	ReadWBMPImage	avaliar			1	grafo_unico
+1153__ImageMagick	ReadWEBPImage	avaliar			0	indeterminado_v2
+1154__ImageMagick	ReadWMFImage	avaliar			0	indeterminado_v2
+1155__ImageMagick	ReadWPGImage	avaliar			1	grafo_unico
+1156__ImageMagick	ReadTIFFImage	avaliar			0	indeterminado_v2
+1157__ImageMagick	ReadTIFFImage	avaliar			0	indeterminado_v2
+1158__ImageMagick	ReadJPEGImage	avaliar			0	indeterminado_v2
+1159__ImageMagick	ReadTIFFImage	avaliar			0	indeterminado_v2
+1160__ImageMagick	WriteMAPImage	avaliar			1	grafo_unico
+1161__ImageMagick	WritePDBImage	avaliar			1	grafo_unico
+1162__ImageMagick	WriteSIXELImage	avaliar			1	grafo_unico
+1163__ImageMagick	sixel_decode	avaliar			1	grafo_unico
+1164__ImageMagick	WriteGROUP4Image	avaliar			0	indeterminado_v2
+1165__ImageMagick	WriteProfile	avaliar			0	indeterminado_v2
+1166__ImageMagick	ReadRLEImage	avaliar			1	grafo_unico
+1167__ImageMagick	ReadRLEImage	avaliar			1	grafo_unico
+1168__ImageMagick	DrawImage	avaliar			1	grafo_unico
+1169__src	mm_zalloc	avaliar			1	grafo_unico
+1170__src	monitor_apply_keystate	avaliar			1	grafo_unico
+1171__src	monitor_init	avaliar			1	grafo_unico
+1172__src	newkeys_from_blob	avaliar			1	grafo_unico
+1173__src	newkeys_to_blob	avaliar			1	grafo_unico
+1174__src	ssh_packet_get_compress_state	avaliar			1	grafo_unico
+1175__src	ssh_packet_get_state	avaliar			1	grafo_unico
+1176__src	ssh_packet_set_compress_state	avaliar			1	grafo_unico
+1177__src	ssh_packet_set_postauth	avaliar			1	grafo_unico
+1178__src	ssh_packet_set_state	avaliar			1	grafo_unico
+1179__src	ssh_kex2	avaliar			1	grafo_unico
+1180__src	do_ssh2_kex	avaliar			1	grafo_unico
+1181__src	privsep_preauth	avaliar			1	grafo_unico
+1182__php-src	php_wddx_push_element	avaliar			0	indeterminado_v2
+1183__php-src	gdImageFillToBorder	avaliar			1	grafo_unico
+1184__jasper	jpc_dec_tileinit	avaliar			1	grafo_unico
+1185__ImageMagick	ReadSGIImage	avaliar			1	grafo_unico
+1186__tor	chunk_grow	avaliar			0	indeterminado_v2
+1187__tor	chunk_new_with_alloc_size	avaliar			0	indeterminado_v2
+1188__libarchive	read_Header	avaliar			1	grafo_unico
+1189__libarchive	next_line	avaliar			1	grafo_unico
+1190__libarchive	safe_fprintf	avaliar			1	grafo_unico
+1191__ImageMagick	ReadTIFFImage	avaliar			0	indeterminado_v2
+1192__libgd	dynamicGetbuf	avaliar			1	grafo_unico
+1193__libass	calc_coeff	avaliar			1	grafo_unico
+1194__ImageMagick	SyncExifProfile	avaliar			1	grafo_unico
+1195__ImageMagick	RemoveICCProfileFromResourceBlock	avaliar			1	grafo_unico
+1196__ImageMagick	ReadPDBImage	avaliar			1	grafo_unico
+1197__ImageMagick	WritePDBImage	avaliar			1	grafo_unico
+1198__ImageMagick		avaliar				sem_evidencia_v2
+1199__ImageMagick	GetQuantumExtent	avaliar			1	grafo_unico
+1200__ImageMagick	ReadWPGImage	avaliar			1	grafo_unico
+1201__ImageMagick	RemoveResolutionFromResourceBlock	avaliar			1	grafo_unico
+1202__ImageMagick	WritePSDImage	avaliar			1	grafo_unico
+1203__ImageMagick	load_tile	avaliar			1	grafo_unico
+1204__ImageMagick	ReadVIFFImage	avaliar			1	grafo_unico
+1205__ImageMagick	ExtractPostscript	avaliar			1	grafo_unico
+1206__ImageMagick	InsertRow	avaliar			1	grafo_unico
+1207__ImageMagick	GetPSDRowSize	avaliar			1	grafo_unico
+1208__ImageMagick	ReadPSDImage	avaliar			1	grafo_unico
+1209__ImageMagick	DecodePSDPixels	avaliar			1	grafo_unico
+1210__ImageMagick	WriteHDRImage	avaliar			1	grafo_unico
+1211__ImageMagick	ReadRLEImage	avaliar			1	grafo_unico
+1212__ImageMagick	ReadPSDChannelPixels	avaliar			1	grafo_unico
+1213__php-src	SPL_METHOD	excluir		colisao_hash_nao_casa	27	colisao
+1214__ImageMagick	ReadSGIImage	avaliar			1	grafo_unico
+1215__libgd	dynamicGetbuf	avaliar			1	grafo_unico
+1216__libgd	createFromTiffRgba	avaliar			0	indeterminado_v2
+1217__libgd	read_image_tga	avaliar			1	grafo_unico
+1218__ext-http	parse_scheme	avaliar			1	grafo_unico
+1219__ext-http		avaliar				sem_evidencia_v2
+1220__openjpeg	color_cmyk_to_rgb	avaliar			1	grafo_unico
+1221__openjpeg	color_sycc_to_rgb	avaliar			1	grafo_unico
+1222__openjpeg	sycc420_to_rgb	avaliar			1	grafo_unico
+1223__openjpeg	sycc422_to_rgb	avaliar			1	grafo_unico
+1224__openjpeg	sycc444_to_rgb	avaliar			1	grafo_unico
+1225__openjpeg	imagetobmp	avaliar			1	grafo_unico
+1226__miniupnp	processRequest	avaliar			1	grafo_unico
+1227__miniupnp	main	avaliar			1	grafo_unico
+1228__quagga	rtadv_read	avaliar			0	indeterminado_v2
+1229__ImageMagick	ReadSUNImage	avaliar			1	grafo_unico
+1230__ImageMagick	ReadSUNImage	avaliar			1	grafo_unico
+1231__ImageMagick	SpliceImage	avaliar			1	grafo_unico
+1232__exfat	exfat_mount	avaliar			1	grafo_unico
+1233__systemd	_nss_mymachines_getgrnam_r	avaliar			1	grafo_unico
+1234__systemd	_nss_mymachines_getpwnam_r	avaliar			1	grafo_unico
+1235__linux	__videobuf_mmap_mapper	avaliar			1	grafo_unico
+1236__linux	videobuf_vm_close	avaliar			1	grafo_unico
+1237__linux	videobuf_vm_open	avaliar			1	grafo_unico
+1238__linux	setup_arch	avaliar			1	grafo_unico
+1239__FFmpeg	read_quant_matrix_ext	avaliar			1	grafo_unico
+1240__FFmpeg	mxf_parse_structural_metadata	avaliar			1	grafo_unico
+1241__FFmpeg	parse_video_info	avaliar			1	grafo_unico
+1242__FFmpeg	ff_mms_asf_header_parser	avaliar			1	grafo_unico
+1243__stb	decode_residue	avaliar			1	grafo_unico
+1244__stb	start_decoder	avaliar			1	grafo_unico
+1245__tcpreplay	_our_safe_pcap_next	avaliar			1	grafo_unico
+1246__tcpreplay	_our_safe_pcap_next_ex	avaliar			1	grafo_unico
+1247__libxsmm	edge_sparse_csr_reader_double	avaliar			1	grafo_unico
+1248__libxsmm	my_csr_reader	avaliar			1	grafo_unico
+1249__libxsmm	libxsmm_sparse_csc_reader	avaliar			1	grafo_unico
+1250__libxsmm	libxsmm_sparse_csr_reader	avaliar			1	grafo_unico
+1251__radare2	r_bin_dyldcache_extract	avaliar			1	grafo_unico
+1252__radare2	r_bin_dyldcache_from_bytes_new	avaliar			1	grafo_unico
+1253__radare2	parseOperand	avaliar			1	grafo_unico
+1254__radare2	opmov	avaliar			1	grafo_unico
+1255__radare2	getToken	avaliar			1	grafo_unico
+1256__WavPack	WavpackVerifySingleBlock	avaliar			1	grafo_unico
+1257__sleuthkit	hfs_cat_traverse	avaliar			1	grafo_unico
+1258__uriparser	URI_FUNC	avaliar			0	indeterminado_v2
+1259__uriparser	UriSuite	avaliar			1	grafo_unico
+1260__keepalived	extract_status_code	avaliar			1	grafo_unico
+1261__linux	adjust_scalar_min_max_vals	avaliar			1	grafo_unico
+1262__gnulib	convert_to_decimal	avaliar			0	indeterminado_v2
+1263__gnulib	test_function	avaliar			1	grafo_unico
+1264__texlive-source	t1_check_unusual_charstring	avaliar			1	grafo_unico
+1265__texlive-source	t1_check_unusual_charstring	avaliar			1	censo_proprio_arquivo
+1266__liblouis	matchCurrentInput	avaliar			1	grafo_unico
+1267__curl	voutf	avaliar			1	grafo_unico
+1268__curl	Curl_auth_create_plain_message	avaliar			1	grafo_unico
+1269__mongo-c-driver	_bson_iter_next_internal	avaliar			1	grafo_unico
+1270__mongo-c-driver	test_bson_validate	avaliar			1	grafo_unico
+1271__ImageMagick	InsertRow	avaliar			1	grafo_unico
+1272__OpenSC	sc_asn1_read_tag	avaliar			1	grafo_unico
+1273__OpenSC	asepcos_parse_sec_attr	avaliar			1	grafo_unico
+1274__OpenSC	authentic_process_fci	avaliar			0	indeterminado_v2
+1275__OpenSC	authentic_set_current_files	avaliar			0	indeterminado_v2
+1276__OpenSC	cac_read_binary	avaliar			1	grafo_unico
+1277__OpenSC	coolkey_find_attribute	avaliar			1	grafo_unico
+1278__OpenSC	entersafe_gen_key	avaliar			0	indeterminado_v2
+1279__OpenSC	construct_mac_tlv	avaliar			0	indeterminado_v2
+1280__OpenSC	decrypt_response	avaliar			0	indeterminado_v2
+1281__OpenSC	epass2003_sm_unwrap_apdu	avaliar			0	indeterminado_v2
+1282__OpenSC	gpk_parse_fileinfo	avaliar			0	indeterminado_v2
+1283__OpenSC	iasecc_get_serialnr	avaliar			0	indeterminado_v2
+1284__OpenSC	auth_read_binary	avaliar			0	indeterminado_v2
+1285__OpenSC	auth_select_file	avaliar			0	indeterminado_v2
+1286__OpenSC	pgp_enumerate_blob	avaliar			1	grafo_unico
+1287__OpenSC	piv_general_io	avaliar			1	grafo_unico
+1288__OpenSC	piv_match_card_continued	avaliar			1	grafo_unico
+1289__OpenSC	rtecp_select_file	avaliar			1	grafo_unico
+1290__OpenSC	parse_sec_attr_44	avaliar			1	grafo_unico
+1291__OpenSC	sc_parse_ef_gdo_content	avaliar			1	grafo_unico
+1292__OpenSC	itacns_add_data_files	avaliar			1	grafo_unico
+1293__OpenSC	insert_key	avaliar			1	grafo_unico
+1294__OpenSC	insert_pin	avaliar			1	grafo_unico
+1295__OpenSC	enum_dir	avaliar			1	grafo_unico
+1296__libgit2	ng_pkt	avaliar			1	grafo_unico
+1297__pango	_pango_emoji_iter_next	avaliar			1	grafo_unico
+1298__libmspack	kwajd_read_headers	avaliar			1	grafo_unico
+1299__neomutt	nntp_add_group	avaliar			1	grafo_unico
+1300__neomutt	imap_auth_cram_md5	avaliar			1	grafo_unico
+1301__neomutt	imap_auth_gss	avaliar			1	grafo_unico
+1302__neomutt	mutt_b64_decode	avaliar			1	grafo_unico
+1303__neomutt	rfc2047_decode_word	avaliar			1	grafo_unico
+1304__neomutt	test_base64_decode	avaliar			1	censo_proprio_arquivo
+1305__neomutt	test_base64_lengths	avaliar			1	censo_proprio_arquivo
+1306__neomutt	msg_parse_fetch	avaliar			1	grafo_unico
+1307__radare2	r_bin_mdmp_init_directory	avaliar			1	grafo_unico
+1308__radare2	r_bin_mdmp_init_directory_entry	avaliar			1	grafo_unico
+1309__radare2	r_bin_dwarf_parse_comp_unit	avaliar			1	grafo_unico
+1310__FFmpeg	handle_eac3	avaliar			0	indeterminado_v2
+1311__gpac	urn_Read	avaliar			1	grafo_unico
+1312__gpac	hdlr_dump	avaliar			1	grafo_unico
+1313__gpac	nalm_dump	avaliar			1	grafo_unico
+1314__gpac	oinf_entry_dump	avaliar			1	grafo_unico
+1315__gpac	sgpd_dump	avaliar			1	grafo_unico
+1316__gpac	tenc_dump	avaliar			1	grafo_unico
+1317__linux	__local_bh_enable	avaliar			1	grafo_unico
+1318__linux	update_max_tr	avaliar			0	indeterminado_v2
+1319__linux	predicate_parse	avaliar			1	grafo_unico
+1320__redis	cliRefreshPrompt	avaliar			1	grafo_unico
+1321__radare2	_6502_op	avaliar			1	grafo_unico
+1322__radare2	java_switch_op	avaliar			1	grafo_unico
+1323__mruby	fiber_switch	avaliar			1	grafo_unico
+1324__Espruino	__jspeAssignmentExpression	avaliar			1	grafo_unico
+1325__Espruino	jspeArrowFunction	avaliar			1	grafo_unico
+1326__Espruino	jspeFactor	avaliar			1	grafo_unico
+1327__Espruino	jsvGetString	avaliar			1	grafo_unico
+1328__Espruino	jslGetTokenString	avaliar			1	grafo_unico
+1329__Espruino	jslTokenAsString	avaliar			1	grafo_unico
+1330__Espruino	jspeArrowFunction	avaliar			1	grafo_unico
+1331__Espruino	jspeFactor	avaliar			1	grafo_unico
+1332__Espruino	jslTokenAsString	avaliar			1	grafo_unico
+1333__Espruino	jswrap_graphics_createArrayBuffer	avaliar			1	grafo_unico
+1334__linux	sr_do_ioctl	avaliar			1	grafo_unico
+1335__radare2	sh_op	avaliar			1	grafo_unico
+1336__radare2		avaliar				sem_evidencia_v2
+1337__radare2	string_scan_range	avaliar			1	grafo_unico
+1338__radare2	MACH0_	avaliar			0	indeterminado_v2
+1339__radare2	MACH0_	avaliar			0	indeterminado_v2
+1340__radare2		avaliar				sem_evidencia_v2
+1341__radare2		avaliar				sem_evidencia_v2
+1342__radare2	get_nb10	avaliar			1	grafo_unico
+1343__radare2	wasm_dis	avaliar			1	grafo_unico
+1344__radare2		avaliar				sem_evidencia_v2
+1345__radare2	process_constructors	avaliar			1	grafo_unico
+1346__radare2	bin_entry	avaliar			1	grafo_unico
+1347__radare2		avaliar				sem_evidencia_v2
+1348__PDFGen	jpeg_size	avaliar			1	grafo_unico
+1349__redis	mp_decode_to_lua_array	avaliar			1	grafo_unico
+1350__redis	mp_encode_lua_table_as_array	avaliar			1	grafo_unico
+1351__redis	mp_encode_lua_table_as_map	avaliar			1	grafo_unico
+1352__redis	mp_pack	avaliar			1	grafo_unico
+1353__redis	mp_unpack_full	avaliar			1	grafo_unico
+1354__linux	cdrom_ioctl_media_changed	avaliar			1	grafo_unico
+1355__libgit2	git_delta_apply	avaliar			1	grafo_unico
+1356__libgit2	git_delta_apply	avaliar			1	grafo_unico
+1357__ngiflib	DecodeGifImg	avaliar			1	grafo_unico
+1358__ngiflib	DecodeGifImg	avaliar			1	grafo_unico
+1359__WavPack	ParseDsdiffHeaderConfig	avaliar			1	grafo_unico
+1360__WavPack	ParseRiffHeaderConfig	avaliar			1	grafo_unico
+1361__WavPack	ParseWave64HeaderConfig	avaliar			1	grafo_unico
+1362__WavPack	ParseRiffHeaderConfig	avaliar			1	grafo_unico
+1363__WavPack	ParseWave64HeaderConfig	avaliar			1	grafo_unico
+1364__file		avaliar				sem_evidencia_v2
+1365__linux	kill_something_info	avaliar			1	grafo_unico
+1366__openmpt	GetLength	avaliar			1	grafo_unico
+1367__mbedtls	ssl_parse_server_psk_hint	avaliar			0	indeterminado_v2
+1368__mbedtls	ssl_parse_server_key_exchange	avaliar			0	indeterminado_v2
+1369__kamailio	tmx_check_pretran	avaliar			1	grafo_unico
+1370__FreeRDP	ntlm_free_message_fields_buffer	avaliar			1	grafo_unico
+1371__FreeRDP	ntlm_populate_message_header	avaliar			1	grafo_unico
+1372__FreeRDP	ntlm_print_message_fields	avaliar			1	grafo_unico
+1373__FreeRDP	ntlm_print_negotiate_flags	avaliar			1	grafo_unico
+1374__FreeRDP	ntlm_read_message_fields	avaliar			1	grafo_unico
+1375__FreeRDP	ntlm_read_message_fields_buffer	avaliar			1	grafo_unico
+1376__FreeRDP	ntlm_read_message_header	avaliar			1	grafo_unico
+1377__FreeRDP	ntlm_write_message_fields	avaliar			1	grafo_unico
+1378__FreeRDP	ntlm_write_message_fields_buffer	avaliar			1	grafo_unico
+1379__FreeRDP	ntlm_write_message_header	avaliar			1	grafo_unico
+1380__FreeRDP	nsc_decode	avaliar			1	grafo_unico
+1381__FreeRDP	nsc_process_message	avaliar			1	grafo_unico
+1382__FreeRDP	nsc_rle_decode	avaliar			1	grafo_unico
+1383__FreeRDP	nsc_rle_decompress_data	avaliar			1	grafo_unico
+1384__FreeRDP	nsc_context_initialize_encode	avaliar			1	grafo_unico
+1385__FreeRDP	nsc_encode	avaliar			1	grafo_unico
+1386__FreeRDP	nsc_encode_argb_to_aycocg	avaliar			1	grafo_unico
+1387__FreeRDP	nsc_encode_subsampling	avaliar			1	grafo_unico
+1388__FreeRDP	nsc_rle_encode	avaliar			1	grafo_unico
+1389__FreeRDP	nsc_encode_sse2	avaliar			1	grafo_unico
+1390__FreeRDP	update_read_bitmap_update	avaliar			1	grafo_unico
+1391__FreeRDP	zgfx_decompress	avaliar			1	grafo_unico
+1392__FreeRDP	zgfx_decompress_segment	avaliar			1	grafo_unico
+1393__FreeRDP	zgfx_GetBits	avaliar			0	indeterminado_v2
+1394__FreeRDP	zgfx_decompress_segment	avaliar			1	grafo_unico
+1395__libevt	libevt_record_values_read_event	avaliar			1	grafo_unico
+1396__gpac	gf_isom_oinf_read_entry	avaliar			1	grafo_unico
+1397__openjpeg	main	avaliar			1	grafo_unico
+1398__php-src		avaliar				sem_evidencia_v2
+1399__unixODBC	SQLSetDescField	avaliar			1	grafo_unico
+1400__unixODBC	SQLSetDescFieldW	avaliar			1	grafo_unico
+1401__unixODBC	ExecuteSQL	avaliar			1	grafo_unico
+1402__unixODBC	_multi_string_alloc_and_copy	avaliar			1	grafo_unico
+1403__unixODBC	_multi_string_alloc_and_expand	avaliar			1	grafo_unico
+1404__unixODBC	_single_string_alloc_and_copy	avaliar			1	grafo_unico
+1405__unixODBC	_single_string_alloc_and_expand	avaliar			1	grafo_unico
+1406__unixODBC	SQLWriteFileDSN	avaliar			1	grafo_unico
+1407__WavPack	ParseCaffHeaderConfig	avaliar			1	grafo_unico
+1408__WavPack	ParseDsdiffHeaderConfig	avaliar			1	grafo_unico
+1409__leptonica	pixHtmlViewer	avaliar			1	grafo_unico
+1410__leptonica	main	avaliar			1	grafo_unico
+1411__leptonica	gplotAddPlot	avaliar			1	grafo_unico
+1412__leptonica	gplotCreate	avaliar			1	grafo_unico
+1413__leptonica	gplotGenCommandFile	avaliar			1	grafo_unico
+1414__leptonica	gplotMakeOutput	avaliar			1	grafo_unico
+1415__leptonica	gplotRead	avaliar			1	grafo_unico
+1416__leptonica	ptaReadStream	avaliar			1	grafo_unico
+1417__leptonica	selReadStream	avaliar			1	grafo_unico
+1418__leptonica	selaGetCombName	avaliar			1	grafo_unico
+1419__WavPack	ParseRiffHeaderConfig	avaliar			1	grafo_unico
+1420__WavPack	WriteRiffHeader	avaliar			1	grafo_unico
+1421__openmpt	ConvertLoopSequence	avaliar			1	grafo_unico
+1422__openmpt	ConvertLoopSlice	avaliar			1	grafo_unico
+1423__openmpt	ReadSTP	avaliar			1	grafo_unico
+1424__linux	rds_rdma_extra_size	avaliar			1	grafo_unico
+1425__linux	flush_tmregs_to_thread	avaliar			0	indeterminado_v2
+1426__linux		avaliar				sem_evidencia_v2
+1427__linux		avaliar				sem_evidencia_v2
+1428__curl	Curl_smtp_escape_eob	avaliar			1	grafo_unico
+1429__thor	TEMPLATE	avaliar			0	indeterminado_v2
+1430__thor	read_sequence_header	avaliar			1	grafo_unico
+1431__miniupnp	ParseNameValue	avaliar			1	grafo_unico
+1432__wildmidi	WildMidi_Open	avaliar			1	grafo_unico
+1433__wildmidi	WildMidi_OpenBuffer	avaliar			1	grafo_unico
+1434__linux	common_timer_get	avaliar			1	grafo_unico
+1435__linux	common_timer_set	avaliar			1	grafo_unico
+1436__linux	good_sigevent	avaliar			1	grafo_unico
+1437__linux	hns_gmac_get_sset_count	avaliar			1	grafo_unico
+1438__linux	hns_ppe_get_sset_count	avaliar			1	grafo_unico
+1439__linux	hns_rcb_get_ring_sset_count	avaliar			1	grafo_unico
+1440__linux	hns_xgmac_get_sset_count	avaliar			1	grafo_unico
+1441__linux	f2fs_init_extent_tree	avaliar			1	grafo_unico
+1442__linux	hugetlb_mcopy_atomic_pte	avaliar			1	grafo_unico
+1443__curl		avaliar				sem_evidencia_v2
+1444__curl		avaliar				sem_evidencia_v2
+1445__curl		avaliar				sem_evidencia_v2
+1446__jasper	jpc_pi_nextcprl	avaliar			1	grafo_unico
+1447__jasper	jpc_pi_nextpcrl	avaliar			1	grafo_unico
+1448__jasper	jpc_pi_nextrlcp	avaliar			1	grafo_unico
+1449__jasper	jpc_pi_nextrpcl	avaliar			1	grafo_unico
+1450__jasper	jpc_dec_decodepkts	avaliar			1	grafo_unico
+1451__jasper	jpc_qmfb_join_colgrp	avaliar			1	grafo_unico
+1452__jasper	jpc_qmfb_split_col	avaliar			1	grafo_unico
+1453__jasper	jpc_qmfb_split_colgrp	avaliar			1	grafo_unico
+1454__jasper	jpc_qmfb_split_colres	avaliar			1	grafo_unico
+1455__libtiff	PixarLogDecode	avaliar			0	indeterminado_v2
+1456__libtiff	PixarLogSetupDecode	avaliar			0	indeterminado_v2
+1457__libmspack	chmd_read_headers	avaliar			1	grafo_unico
+1458__optee_os	syscall_asymm_operate	avaliar			1	grafo_unico
+1459__optee_os	syscall_asymm_verify	avaliar			1	grafo_unico
+1460__optee_os	syscall_cryp_derive_key	avaliar			1	grafo_unico
+1461__optee_os	syscall_obj_generate_key	avaliar			1	grafo_unico
+1462__optee_os	syscall_cryp_obj_populate	avaliar			1	grafo_unico
+1463__optee_os	tee_svc_copy_param	avaliar			1	grafo_unico
+1464__optee_os	utee_param_to_param	avaliar			1	grafo_unico
+1465__optee_os	set_rmem_param	avaliar			1	grafo_unico
+1466__VeraCrypt	ProcessMainDeviceControlIrp	avaliar			1	grafo_unico
+1467__libarchive	get_uncompressed_data	avaliar			1	grafo_unico
+1468__openmpt	ModPlug_InstrumentName	avaliar			1	grafo_unico
+1469__openmpt	ModPlug_SampleName	avaliar			1	grafo_unico
+1470__ngiflib	WritePixel	avaliar			1	grafo_unico
+1471__ngiflib	WritePixels	avaliar			1	grafo_unico
+1472__pam_p11	key_verify	avaliar			1	grafo_unico
+1473__OpenSC	asn1_decode_entry	avaliar			1	grafo_unico
+1474__OpenSC	decode_bit_string	avaliar			1	grafo_unico
+1475__linux	SMB2_negotiate	avaliar			1	grafo_unico
+1476__faad2	faad_resetbits	avaliar			1	grafo_unico
+1477__faad2	excluded_channels	avaliar			1	grafo_unico
+1478__gpmf-parser	IsValidSize	avaliar			1	grafo_unico
+1479__gpmf-parser	main	avaliar			1	grafo_unico
+1480__gpmf-parser	GetGPMFSampleRate	avaliar			1	grafo_unico
+1481__gpmf-parser	GetGPMFSampleRateAndTimes	avaliar			1	grafo_unico
+1482__gpmf-parser	GetPayload	avaliar			1	grafo_unico
+1483__gpmf-parser	GetPayloadTime	avaliar			1	grafo_unico
+1484__gpmf-parser	OpenMP4Source	avaliar			1	grafo_unico
+1485__gpmf-parser	OpenMP4SourceUDTA	avaliar			1	grafo_unico
+1486__gpmf-parser	SavePayload	avaliar			1	grafo_unico
+1487__ImageMagick6	WriteTIFFImage	avaliar			0	indeterminado_v2
+1488__ImageMagick	ReadXWDImage	avaliar			0	indeterminado_v2
+1489__ImageMagick	RegisterXWDImage	avaliar			1	grafo_unico
+1490__linux	qedi_dbg_err	avaliar			1	grafo_unico
+1491__linux	qedi_dbg_info	avaliar			1	grafo_unico
+1492__linux	qedi_dbg_notice	avaliar			1	grafo_unico
+1493__linux	qedi_dbg_warn	avaliar			1	grafo_unico
+1494__pdfresurrect	main	avaliar			1	grafo_unico
+1495__pdfresurrect	write_version	avaliar			1	grafo_unico
+1496__pdfresurrect	decode_text_string	avaliar			1	grafo_unico
+1497__pdfresurrect	get_header	avaliar			1	grafo_unico
+1498__pdfresurrect	get_object	avaliar			1	grafo_unico
+1499__pdfresurrect	load_xref_from_plaintext	avaliar			1	grafo_unico
+1500__pdfresurrect	new_creator	avaliar			1	grafo_unico
+1501__pdfresurrect	pdf_load_pages_kids	avaliar			1	grafo_unico
+1502__pdfresurrect	pdf_load_xrefs	avaliar			1	grafo_unico
+1503__pdfresurrect	pdf_new	avaliar			1	grafo_unico
+1504__pdfresurrect	pdf_summarize	avaliar			1	grafo_unico
+1505__linux	mwifiex_update_vs_ie	avaliar			1	grafo_unico
+1506__linux	mwifiex_set_uap_rates	avaliar			1	grafo_unico
+1507__linux	mwifiex_set_wmm_params	avaliar			1	grafo_unico
+1508__3proxy	adminchild	avaliar			1	grafo_unico
+1509__libmodbus	modbus_reply	avaliar			1	grafo_unico
+1510__ssdp-responder	ssdp_recv	avaliar			1	grafo_unico
+1511__linux	set_geometry	avaliar			1	grafo_unico
+1512__ImageMagick6	AnnotateImage	avaliar			1	grafo_unico
+1513__ImageMagick6	ComplexImages	avaliar			1	grafo_unico
+1514__ImageMagick6	EncodeImage	avaliar			1	grafo_unico
+1515__ImageMagick6	ComplexImages	avaliar			1	grafo_unico
+1516__ImageMagick6	AcquirePixelThreadSet	avaliar			1	grafo_unico
+1517__ImageMagick6	WritePNMImage	avaliar			1	grafo_unico
+1518__ImageMagick6	WritePNMImage	avaliar			1	grafo_unico
+1519__ImageMagick	WritePNMImage	avaliar			1	grafo_unico
+1520__ImageMagick	ComplexImages	avaliar			1	grafo_unico
+1521__ImageMagick6	AcquirePixelThreadSet	avaliar			1	grafo_unico
+1522__ImageMagick	EnhanceImage	avaliar			1	grafo_unico
+1523__ImageMagick6	AdaptiveThresholdImage	avaliar			1	grafo_unico
+1524__ImageMagick	AdaptiveThresholdImage	avaliar			1	grafo_unico
+1525__u-boot		avaliar				sem_evidencia_v2
+1526__u-boot		avaliar				sem_evidencia_v2
+1527__u-boot		avaliar				sem_evidencia_v2
+1528__u-boot		avaliar				sem_evidencia_v2
+1529__u-boot		avaliar				sem_evidencia_v2
+1530__u-boot		avaliar				sem_evidencia_v2
+1531__u-boot		avaliar				sem_evidencia_v2
+1532__u-boot		avaliar				sem_evidencia_v2
+1533__u-boot		avaliar				sem_evidencia_v2
+1534__u-boot		avaliar				sem_evidencia_v2
+1535__u-boot		avaliar				sem_evidencia_v2
+1536__u-boot		avaliar				sem_evidencia_v2
+1537__u-boot		avaliar				sem_evidencia_v2
+1538__u-boot		avaliar				sem_evidencia_v2
+1539__u-boot		avaliar				sem_evidencia_v2
+1540__u-boot		avaliar				sem_evidencia_v2
+1541__u-boot		avaliar				sem_evidencia_v2
+1542__u-boot		avaliar				sem_evidencia_v2
+1543__libming	decompileAction	avaliar			1	grafo_unico
+1544__libming	SWFShape_setLeftFillStyle	avaliar			1	grafo_unico
+1545__mujs	ctrycatchfinally	avaliar			1	grafo_unico
+1546__mujs	Np_toString	avaliar			1	grafo_unico
+1547__mujs	numtostr	avaliar			1	grafo_unico
+1548__FFmpeg	mpeg4_decode_studio_block	avaliar			1	grafo_unico
+1549__gpac	gf_bin128_parse	avaliar			1	grafo_unico
+1550__ImageMagick	LocaleLowercase	avaliar			1	grafo_unico
+1551__ImageMagick	LocaleUppercase	avaliar			1	grafo_unico
+1552__ImageMagick	format8BIM	avaliar			1	grafo_unico
+1553__libu2f-host	init_device	avaliar			1	grafo_unico
+1554__file		avaliar				sem_evidencia_v2
+1555__openjpeg	color_apply_icc_profile	avaliar			0	indeterminado_v2
+1556__linux	create_qp_common	avaliar			1	grafo_unico
+1557__linux	serdes_probe	avaliar			1	grafo_unico
+1558__linux	serdes_simple_xlate	avaliar			1	grafo_unico
+1559__gpac	mp4client_main	avaliar			1	grafo_unico
+1560__gpac	cat_multiple_files	avaliar			1	grafo_unico
+1561__gpac	GPAC_EventProc	avaliar			1	grafo_unico
+1562__gpac	mp4client_main	avaliar			1	grafo_unico
+1563__gpac	set_cfg_option	avaliar			1	grafo_unico
+1564__gpac	FFD_CanHandleURL	avaliar			1	grafo_unico
+1565__gpac	gf_sm_load_init	avaliar			1	grafo_unico
+1566__rdesktop	ber_parse_header	avaliar			1	grafo_unico
+1567__rdesktop	process_plane	avaliar			1	grafo_unico
+1568__rdesktop	cliprdr_process	avaliar			1	grafo_unico
+1569__rdesktop	cssp_read_tsrequest	avaliar			1	grafo_unico
+1570__rdesktop	lspci_process	avaliar			1	grafo_unico
+1571__rdesktop	mcs_parse_domain_params	avaliar			1	grafo_unico
+1572__rdesktop	mcs_recv_connect_response	avaliar			1	grafo_unico
+1573__rdesktop	process_secondary_order	avaliar			1	grafo_unico
+1574__rdesktop	process_bitmap_updates	avaliar			1	grafo_unico
+1575__rdesktop	process_demand_active	avaliar			1	grafo_unico
+1576__rdesktop	rdp_in_unistr	avaliar			1	grafo_unico
+1577__rdesktop	rdpdr_process	avaliar			1	grafo_unico
+1578__rdesktop	rdpsnd_process_training	avaliar			1	grafo_unico
+1579__rdesktop	rdpsnddbg_process	avaliar			1	grafo_unico
+1580__rdesktop	seamless_process	avaliar			1	grafo_unico
+1581__rdesktop	seamless_process_line	avaliar			1	grafo_unico
+1582__rdesktop	sec_decrypt	avaliar			1	grafo_unico
+1583__rdesktop	sec_recv	avaliar			1	grafo_unico
+1584__tcpdump	print_trans	avaliar			1	grafo_unico
+1585__tcpdump	bgp_attr_print	avaliar			1	grafo_unico
+1586__tcpdump	dccp_print_option	avaliar			1	grafo_unico
+1587__tcpdump	print_prefix	avaliar			1	grafo_unico
+1588__tcpdump	ieee802_11_print	avaliar			1	grafo_unico
+1589__tcpdump	icmp6_nodeinfo_print	avaliar			1	grafo_unico
+1590__tcpdump	icmp6_opt_print	avaliar			1	grafo_unico
+1591__tcpdump	icmp6_print	avaliar			1	grafo_unico
+1592__tcpdump	icmp6_rrenum_print	avaliar			1	grafo_unico
+1593__tcpdump	mldv2_query_print	avaliar			1	grafo_unico
+1594__tcpdump	mldv2_report_print	avaliar			1	grafo_unico
+1595__tcpdump	rpl_dao_print	avaliar			1	grafo_unico
+1596__tcpdump	rpl_daoack_print	avaliar			1	grafo_unico
+1597__tcpdump	rpl_dio_print	avaliar			1	grafo_unico
+1598__tcpdump	rpl_dio_printopt	avaliar			1	grafo_unico
+1599__tcpdump	rpl_print	avaliar			1	grafo_unico
+1600__tcpdump	bgp_capabilities_print	avaliar			1	grafo_unico
+1601__tcpdump	ospf6_print_lshdr	avaliar			1	grafo_unico
+1602__tcpdump	get_next_file	avaliar			1	grafo_unico
+1603__libjpeg-turbo	METHODDEF	avaliar			0	indeterminado_v2
+1604__libjpeg-turbo	start_input_bmp	avaliar			0	indeterminado_v2
+1605__libjpeg-turbo	METHODDEF	avaliar			0	indeterminado_v2
+1606__libjpeg-turbo	METHODDEF	avaliar			0	indeterminado_v2
+1607__libjpeg-turbo	read_pbm_integer	avaliar			0	indeterminado_v2
+1608__tcpdump	babel_print_v2	avaliar			1	grafo_unico
+1609__tcpdump	ikev1_n_print	avaliar			0	indeterminado_v2
+1610__tcpdump	mfr_print	avaliar			1	grafo_unico
+1611__tcpdump	bgp_capabilities_print	avaliar			1	grafo_unico
+1612__tcpdump	rx_cache_find	avaliar			1	grafo_unico
+1613__tcpdump	rx_cache_insert	avaliar			1	grafo_unico
+1614__tcpdump	rsvp_obj_print	avaliar			1	grafo_unico
+1615__tcpdump	lmp_print	avaliar			1	grafo_unico
+1616__tcpdump	lmp_print_data_link_subobjs	avaliar			1	grafo_unico
+1617__tcpdump	vrrp_print	avaliar			1	grafo_unico
+1618__tcpdump	icmp_print	avaliar			1	grafo_unico
+1619__tcpdump	ldp_pdu_print	avaliar			1	grafo_unico
+1620__tcpdump	ldp_tlv_print	avaliar			1	grafo_unico
+1621__linux	nvmet_fc_find_target_queue	avaliar			1	grafo_unico
+1622__linux	cqspi_setup_flash	avaliar			1	grafo_unico
+1623__cJSON	parse_string	avaliar			1	grafo_unico
+1624__capstone	X86_insn_reg_intel	avaliar			0	indeterminado_v2
+1625__linux	cx24116_send_diseqc_msg	avaliar			1	grafo_unico
+1626__linux	iwl_process_add_sta_resp	avaliar			1	grafo_unico
+1627__linux	iwl_sta_ucode_activate	avaliar			1	grafo_unico
+1628__linux	tcm_loop_make_naa_tpg	avaliar			1	grafo_unico
+1629__linux	mlx4_register_mac	avaliar			1	grafo_unico
+1630__linux	mlx4_register_vlan	avaliar			1	grafo_unico
+1631__linux	radeon_atom_get_tv_timings	avaliar			1	grafo_unico
+1632__linux	netlbl_cipsov4_add_common	avaliar			1	grafo_unico
+1633__linux	udf_load_logicalvol	avaliar			1	grafo_unico
+1634__file	cdf_read_property_info	avaliar			1	grafo_unico
+1635__file	cdf_read_sector	avaliar			1	grafo_unico
+1636__file	cdf_read_short_sector	avaliar			1	grafo_unico
+1637__cgminer	initiate_stratum	avaliar			1	grafo_unico
+1638__sgminer	parse_reconnect	avaliar			1	grafo_unico
+1639__qemu	scsi_read_complete	avaliar			1	grafo_unico
+1640__qemu	scsi_read_data	avaliar			1	grafo_unico
+1641__qemu	scsi_write_complete	avaliar			1	grafo_unico
+1642__qemu	scsi_write_data	avaliar			1	grafo_unico
+1643__linux	oz_usb_handle_ep_data	avaliar			1	grafo_unico
+1644__linux	udf_symlink_filler	avaliar			1	grafo_unico
+1645__libtiff	PredictorEncodeTile	avaliar			1	grafo_unico
+1646__libtiff	fpAcc	avaliar			1	grafo_unico
+1647__libtiff	fpDiff	avaliar			1	grafo_unico
+1648__openjpeg	opj_pi_create_decode	avaliar			1	grafo_unico
+1649__libgd	read_image_tga	avaliar			1	grafo_unico
+1650__ImageMagick	ReadProfileLong	avaliar			1	grafo_unico
+1651__ImageMagick	ReadProfileShort	avaliar			1	grafo_unico
+1652__ImageMagick	ReadResourceLong	avaliar			1	grafo_unico
+1653__ImageMagick	ReadResourceShort	avaliar			1	grafo_unico
+1654__ImageMagick	SyncExifProfile	avaliar			1	grafo_unico
+1655__ImageMagick		avaliar				sem_evidencia_v2
+1656__ImageMagick	GetEXIFProperty	avaliar			1	grafo_unico
+1657__ImageMagick	ReadPropertyMSBLong	avaliar			1	grafo_unico
+1658__ImageMagick	ReadPropertyMSBShort	avaliar			1	grafo_unico
+1659__ImageMagick	ReadPropertySignedLong	avaliar			1	grafo_unico
+1660__ImageMagick	ReadPropertySignedShort	avaliar			1	grafo_unico
+1661__ImageMagick	ReadPropertyUnsignedLong	avaliar			1	grafo_unico
+1662__ImageMagick	ReadPropertyUnsignedShort	avaliar			1	grafo_unico
+1663__ImageMagick	ReadWPGImage	avaliar			1	grafo_unico
+1664__ImageMagick	OpenPixelCache	avaliar			1	grafo_unico
+1665__ImageMagick	CloneImage	avaliar			1	grafo_unico
+1666__ImageMagick	ReadWPGImage	avaliar			1	grafo_unico
+1667__wireshark	cosine_read	avaliar			1	grafo_unico
+1668__wireshark	cosine_seek_read	avaliar			1	grafo_unico
+1669__wireshark	parse_cosine_hex_dump	avaliar			1	grafo_unico
+1670__wireshark	parse_cosine_rec_hdr	avaliar			1	grafo_unico
+1671__libgd	_gdContributionsCalc	avaliar			1	grafo_unico
+1672__libgd	_setEdgePixel	avaliar			1	grafo_unico
+1673__libgd	gdTransformAffineCopy	avaliar			1	grafo_unico
+1674__libgd	gdTransformAffineGetImage	avaliar			1	grafo_unico
+1675__file		avaliar				sem_evidencia_v2
+1676__ImageMagick	ReadWPGImage	avaliar			1	grafo_unico
+1677__tcpdump	chdlc_if_print	avaliar			1	grafo_unico
+1678__tcpdump	chdlc_print	avaliar			1	grafo_unico
+1679__tcpdump	bootp_print	avaliar			1	grafo_unico
+1680__tcpdump	juniper_parse_header	avaliar			1	grafo_unico
+1681__tcpdump	extract_header_length	avaliar			1	grafo_unico
+1682__tcpdump	ieee802_15_4_if_print	avaliar			1	grafo_unico
+1683__tcpdump	ieee802_15_4_if_print	avaliar			1	grafo_unico
+1684__tcpdump	parse_elements	avaliar			1	grafo_unico
+1685__tcpdump	decnet_print	avaliar			1	grafo_unico
+1686__tcpdump	print_decnet_ctlmsg	avaliar			1	grafo_unico
+1687__tcpdump	isakmp_rfc3948_print	avaliar			1	grafo_unico
+1688__FFmpeg	cdxl_decode_frame	avaliar			1	grafo_unico
+1689__FFmpeg	decode_unit	avaliar			1	grafo_unico
+1690__libsndfile	header_gets	avaliar			1	grafo_unico
+1691__libsndfile	header_put_be_3byte	avaliar			1	grafo_unico
+1692__libsndfile	header_put_be_8byte	avaliar			0	indeterminado_v2
+1693__libsndfile	header_put_be_8byte	avaliar			0	indeterminado_v2
+1694__libsndfile	header_put_be_int	avaliar			1	grafo_unico
+1695__libsndfile	header_put_be_short	avaliar			1	grafo_unico
+1696__libsndfile	header_put_byte	avaliar			1	grafo_unico
+1697__libsndfile	header_put_le_3byte	avaliar			1	grafo_unico
+1698__libsndfile	header_put_le_8byte	avaliar			0	indeterminado_v2
+1699__libsndfile	header_put_le_8byte	avaliar			0	indeterminado_v2
+1700__libsndfile	header_put_le_int	avaliar			1	grafo_unico
+1701__libsndfile	header_put_le_short	avaliar			1	grafo_unico
+1702__libsndfile	header_put_marker	avaliar			0	indeterminado_v2
+1703__libsndfile	header_put_marker	avaliar			0	indeterminado_v2
+1704__libsndfile	header_read	avaliar			1	grafo_unico
+1705__libsndfile	header_seek	avaliar			1	grafo_unico
+1706__libsndfile	psf_asciiheader_printf	avaliar			1	grafo_unico
+1707__libsndfile	psf_binheader_readf	avaliar			1	grafo_unico
+1708__libsndfile	psf_binheader_writef	avaliar			1	grafo_unico
+1709__libsndfile	psf_close	avaliar			1	grafo_unico
+1710__libsndfile	sf_open	avaliar			1	grafo_unico
+1711__libsndfile	sf_open_fd	avaliar			1	grafo_unico
+1712__libsndfile	sf_open_virtual	avaliar			1	grafo_unico
+1713__linux	__skb_complete_tx_timestamp	avaliar			1	grafo_unico
+1714__linux	__skb_tstamp_tx	avaliar			1	grafo_unico
+1715__linux	skb_complete_tx_timestamp	avaliar			1	grafo_unico
+1716__linux	__sock_recv_timestamp	avaliar			1	grafo_unico
+1717__ImageMagick	ReadPSDLayers	avaliar			1	grafo_unico
+1718__ImageMagick	WritePSDChannel	avaliar			1	grafo_unico
+1719__ImageMagick	WritePSDChannels	avaliar			1	grafo_unico
+1720__php-src	BGD_DECLARE	avaliar			0	indeterminado_v2
+1721__ImageMagick	InsertRow	avaliar			1	grafo_unico
+1722__ImageMagick	ReadWPGImage	avaliar			1	grafo_unico
+1723__ImageMagick	ReadPSDImage	avaliar			1	grafo_unico
+1724__ImageMagick	ReadPSDChannelPixels	avaliar			1	grafo_unico
+1725__ImageMagick	WriteImageChannels	avaliar			1	grafo_unico
+1726__ImageMagick	ReadSGIImage	avaliar			1	grafo_unico
+1727__libgd	read_image_tga	avaliar			1	grafo_unico
+1728__libgd	main	avaliar			1	grafo_unico
+1729__ImageMagick	ReadSUNImage	avaliar			1	grafo_unico
+1730__ImageMagick	ReadSUNImage	avaliar			1	grafo_unico
+1731__ImageMagick	ReadSUNImage	avaliar			1	grafo_unico
+1732__ImageMagick	ReadSUNImage	avaliar			1	grafo_unico
+1733__radare2	avr_op_analyze	avaliar			1	grafo_unico
+1734__redis	mp_pack	avaliar			1	grafo_unico
+1735__libgit2	git_delta_apply	avaliar			1	grafo_unico
+1736__mbedtls	ssl_parse_server_psk_hint	avaliar			0	indeterminado_v2
+1737__mbedtls	ssl_parse_server_key_exchange	avaliar			0	indeterminado_v2
+1738__jasper	jpc_pi_nextrpcl	avaliar			1	grafo_unico
+1739__ImageMagick6	AnnotateImage	avaliar			1	grafo_unico
+1740__ImageMagick6	ComplexImages	avaliar			1	grafo_unico
+1741__ImageMagick6	ComplexImages	avaliar			1	grafo_unico
+1742__ImageMagick6	EncodeImage	avaliar			1	grafo_unico
+1743__ImageMagick6	AcquirePixelThreadSet	avaliar			1	grafo_unico
+1744__ImageMagick6	WritePNMImage	avaliar			1	grafo_unico
+1745__ImageMagick6	WritePNMImage	avaliar			1	grafo_unico
+1746__ImageMagick	WritePNMImage	avaliar			1	grafo_unico
+1747__ImageMagick6	AcquirePixelThreadSet	avaliar			1	grafo_unico
+1748__ImageMagick6	AdaptiveThresholdImage	avaliar			1	grafo_unico
+1749__ImageMagick	AdaptiveThresholdImage	avaliar			1	grafo_unico
+1750__FFmpeg	decode_studio_vop_header	avaliar			1	grafo_unico
+1751__ImageMagick	LocaleLowercase	avaliar			1	grafo_unico
+1752__ImageMagick	LocaleUppercase	avaliar			1	grafo_unico
+1753__ImageMagick	LocaleLowercase	avaliar			1	grafo_unico
+1754__ImageMagick	LocaleUppercase	avaliar			1	grafo_unico
+1755__Chrome		avaliar				sem_evidencia_v2
+1756__Chrome		avaliar				sem_evidencia_v2
+1757__Chrome	ToggleFullscreenModeForTab	avaliar			1	grafo_unico
+1758__Chrome	WindowFullscreenStateChanged	avaliar			1	grafo_unico
+1759__Chrome	initialize	avaliar			1	grafo_unico
+1760__Chrome	CCThreadProxy	avaliar			1	grafo_unico
+1761__Chrome	scheduleBeginFrameAndCommit	avaliar			1	grafo_unico
+1762__Chrome	stop	avaliar			1	grafo_unico
+1763__Chrome		avaliar				sem_evidencia_v2
+1764__Chrome		avaliar				sem_evidencia_v2
+1765__Chrome		avaliar				sem_evidencia_v2
+1766__Chrome		avaliar				sem_evidencia_v2
+1767__Chrome		avaliar				sem_evidencia_v2
+1768__Chrome		avaliar				sem_evidencia_v2
+1769__Chrome		avaliar				sem_evidencia_v2
+1770__Chrome		avaliar				sem_evidencia_v2
+1771__Chrome	ping	avaliar_na_linha	74		2	colisao
+1772__Chrome	Initialize	avaliar			1	grafo_unico
+1773__Chrome	GetExtensionPath	avaliar			1	grafo_unico
+1774__Chrome	UpdateGpuFeatureFlags	avaliar			1	grafo_unico
+1775__Chrome	OnReadImageReply	avaliar			1	grafo_unico
+1776__Chrome	OnAcceptIncomingTcpConnection	avaliar			1	grafo_unico
+1777__Chrome	OnTexturesCreated	avaliar			1	grafo_unico
+1778__Chrome	ScaleYUVToRGB32	avaliar			1	grafo_unico
+1779__Chrome	ResolveCompositeGlyphs	avaliar			1	grafo_unico
+1780__Chrome	HandleDrawArrays	avaliar			1	grafo_unico
+1781__Chrome	HandleDrawElements	avaliar			1	grafo_unico
+1782__Chrome	SimulateAttrib0	avaliar			1	grafo_unico
+1783__Chrome	SimulateFixedAttribs	avaliar			1	grafo_unico
+1784__Chrome	AddExpectationsForSimulatedAttrib0	avaliar			1	grafo_unico
+1785__Chrome	getPositionOffsetValue	avaliar			1	grafo_unico
+1786__Chrome	SendDefaultResponse	avaliar			1	grafo_unico
+1787__Chrome	StartDataRequest	avaliar			1	grafo_unico
+1788__Chrome	HandleGetFaviconDominantColor	avaliar			1	grafo_unico
+1789__Chrome	OnFaviconDataAvailable	avaliar			1	grafo_unico
+1790__Chrome	InRegionScrollableArea	avaliar_na_linha	41		2	colisao
+1791__Chrome	calculateMaximumScrollPosition	avaliar			1	grafo_unico
+1792__Chrome	calculateMinimumScrollPosition	avaliar			1	grafo_unico
+1793__Chrome	AssertObserverCount	avaliar			1	grafo_unico
+1794__Chrome	TreeNodeChanged	avaliar			1	grafo_unico
+1795__Chrome	TreeNodesAdded	avaliar			1	grafo_unico
+1796__Chrome	TreeNodesRemoved	avaliar			1	grafo_unico
+1797__Chrome	PPVarToNPVariant	avaliar			1	grafo_unico
+1798__Chrome	xmlParseAttValueComplex	avaliar			1	grafo_unico
+1799__Chrome	FocusFirstNameField	avaliar			1	grafo_unico
+1800__Chrome		avaliar				sem_evidencia_v2
+1801__Chrome		avaliar				sem_evidencia_v2
+1802__Chrome	Init	avaliar			1	grafo_unico
+1803__Chrome	CreateCacheDirectories	avaliar			1	grafo_unico
+1804__Chrome	GetCachePaths	avaliar			1	grafo_unico
+1805__Chrome	ModifyCacheState	avaliar			1	grafo_unico
+1806__Chrome	Pin	avaliar			1	grafo_unico
+1807__Chrome	Initialize	avaliar			1	grafo_unico
+1808__Chrome	IsValidSymbolicLink	avaliar			1	grafo_unico
+1809__Chrome	RemoveInvalidFilesFromPersistentDirectory	avaliar			1	grafo_unico
+1810__Chrome	ScanCacheDirectory	avaliar			1	grafo_unico
+1811__Chrome	CreateFile	avaliar			1	grafo_unico
+1812__Chrome	CreateSymbolicLink	avaliar			1	grafo_unico
+1813__Chrome	SetUpCacheMetadata	avaliar			1	grafo_unico
+1814__Chrome	SetUpCacheWithVariousFiles	avaliar			1	grafo_unico
+1815__Chrome	DeleteSymlink	avaliar			1	grafo_unico
+1816__Chrome	CheckIfSuggestedPathExists	avaliar			1	grafo_unico
+1817__Chrome	CancelDownloadOnRename	avaliar			1	grafo_unico
+1818__Chrome	CompleteDownload	avaliar			1	grafo_unico
+1819__Chrome	RenameCompletingDownloadFile	avaliar			1	grafo_unico
+1820__Chrome	RenameInProgressDownloadFile	avaliar			1	grafo_unico
+1821__Chrome	CleanUp	avaliar			1	grafo_unico
+1822__Chrome	CreateFile	avaliar			1	grafo_unico
+1823__Chrome	RenameFile	avaliar			1	grafo_unico
+1824__Chrome	OnDownloadCompleting	avaliar			1	grafo_unico
+1825__Chrome	OnDownloadRenamedToFinalName	avaliar			1	grafo_unico
+1826__Chrome	OnIntermediatePathDetermined	avaliar			1	grafo_unico
+1827__Chrome	UpdateProgress	avaliar_na_linha	430		2	colisao
+1828__Chrome	UpdateProgress	avaliar_na_linha	451		2	colisao
+1829__Chrome	ButtonPressed	avaliar			1	grafo_unico
+1830__Chrome	CalculateIdealBounds	avaliar			1	grafo_unico
+1831__Chrome	GetPreferredSize	avaliar			1	grafo_unico
+1832__Chrome	Init	avaliar			1	grafo_unico
+1833__Chrome	IsShowingMenu	avaliar			1	grafo_unico
+1834__Chrome	LauncherView	avaliar			1	grafo_unico
+1835__Chrome	OnBoundsAnimatorProgressed	avaliar			1	grafo_unico
+1836__Chrome	OnBoundsChanged	avaliar			1	grafo_unico
+1837__Chrome	SetAlignment	avaliar			1	grafo_unico
+1838__Chrome	ShowOverflowMenu	avaliar			1	grafo_unico
+1839__Chrome	UpdateFirstButtonPadding	avaliar			1	grafo_unico
+1840__Chrome	CalculateAutoHideState	avaliar			1	grafo_unico
+1841__Chrome	FinishLoading	avaliar			1	grafo_unico
+1842__Chrome	RunCallback	avaliar			1	grafo_unico
+1843__Chrome	removeAllDOMObjects	avaliar			1	grafo_unico
+1844__Chrome	DeviceFound	avaliar			1	grafo_unico
+1845__Chrome	DeviceNotification	avaliar			1	grafo_unico
+1846__Chrome	DisplayPasskey	avaliar			0	indeterminado_v2
+1847__Chrome	GenerateFakeDeviceList	avaliar			1	grafo_unico
+1848__Chrome	GenerateFakeDiscoveredDevice	avaliar			1	grafo_unico
+1849__Chrome	GenerateFakePairing	avaliar			1	grafo_unico
+1850__Chrome	RequestConfirmation	avaliar			0	indeterminado_v2
+1851__Chrome	RequestPasskey	avaliar			0	indeterminado_v2
+1852__Chrome	xmlStringLenDecodeEntities	avaliar			1	grafo_unico
+1853__Chrome	InitCommonCommands	avaliar			1	grafo_unico
+1854__Chrome	GenerateMessageSection	avaliar			1	grafo_unico
+1855__Chrome	GetDialogTitle	avaliar			1	grafo_unico
+1856__Chrome	ShowInternal	avaliar			1	grafo_unico
+1857__Chrome	PanelSettingsMenuModel	avaliar			1	grafo_unico
+1858__Chrome	InstalledBubbleContent	avaliar			1	grafo_unico
+1859__Chrome	CreateNewTabHTML	avaliar			1	grafo_unico
+1860__Chrome	GetLocalizedValues	avaliar			1	grafo_unico
+1861__Chrome	OnReadCompleted	avaliar			1	grafo_unico
+1862__Chrome	OnSSLCertificateError	avaliar			1	grafo_unico
+1863__Chrome	PauseRequest	avaliar			1	grafo_unico
+1864__Chrome	ResourceDispatcherHostImpl	avaliar			1	grafo_unico
+1865__Chrome	OnSSLCertificateError	avaliar			1	grafo_unico
+1866__Chrome	SocketStreamDispatcherHost	avaliar			1	grafo_unico
+1867__Chrome	SSLCertErrorHandler	avaliar			1	grafo_unico
+1868__Chrome	SSLErrorHandler	avaliar			1	grafo_unico
+1869__Chrome	OnSSLCertificateError	avaliar			1	grafo_unico
+1870__Chrome	WillSendRequest	avaliar			1	grafo_unico
+1871__Chrome	CanRequestResource	avaliar			1	grafo_unico
+1872__Chrome	blend	avaliar			1	grafo_unico
+1873__Chrome	blendTransformOperations	avaliar			1	grafo_unico
+1874__Chrome	NonClientTopBorderHeight	avaliar			1	grafo_unico
+1875__Chrome	LazyInitializeInternal	avaliar			1	grafo_unico
+1876__Chrome	layoutAndCalculateWidgetRect	avaliar			1	grafo_unico
+1877__Chrome	refresh	avaliar			1	grafo_unico
+1878__Chrome	showInRect	avaliar			1	grafo_unico
+1879__Chrome	showPopup	avaliar			1	grafo_unico
+1880__Chrome	IsRestoring	avaliar			1	grafo_unico
+1881__Chrome	SessionRestoreImpl	avaliar			1	grafo_unico
+1882__Chrome	SessionRestoreImpl	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+1883__Chrome	FlipVertically	avaliar			0	indeterminado_v2
+1884__Chrome	reshape	avaliar			1	grafo_unico
+1885__Chrome	ParseResponse	avaliar			1	grafo_unico
+1886__Chrome	UserCloudPolicyManagerChromeOS	avaliar			1	grafo_unico
+1887__Chrome	CreateManagerForProfile	avaliar			1	grafo_unico
+1888__Chrome	InProcessBrowserTest	avaliar			1	grafo_unico
+1889__Chrome	PrepareTestCommandLine	avaliar			1	grafo_unico
+1890__Chrome		avaliar				sem_evidencia_v2
+1891__Chrome		avaliar				sem_evidencia_v2
+1892__Chrome	DoResolveRelativeHost	avaliar			1	grafo_unico
+1893__Chrome	xmlLoadEntityContent	avaliar			1	grafo_unico
+1894__Chrome	xmlParseAttValueComplex	avaliar			1	grafo_unico
+1895__Chrome	xmlParseAttValueInternal	avaliar			1	grafo_unico
+1896__Chrome	xmlParseAttributeListDecl	avaliar			1	grafo_unico
+1897__Chrome	xmlParseCDSect	avaliar			1	grafo_unico
+1898__Chrome	xmlParseCharData	avaliar			1	grafo_unico
+1899__Chrome	xmlParseCharDataComplex	avaliar			1	grafo_unico
+1900__Chrome	xmlParseCharRef	avaliar			1	grafo_unico
+1901__Chrome	xmlParseChunk	avaliar			0	indeterminado_v2
+1902__Chrome	xmlParseComment	avaliar			1	grafo_unico
+1903__Chrome	xmlParseCommentComplex	avaliar			1	grafo_unico
+1904__Chrome	xmlParseConditionalSections	avaliar			1	grafo_unico
+1905__Chrome	xmlParseDocTypeDecl	avaliar			1	grafo_unico
+1906__Chrome	xmlParseDocument	avaliar			1	grafo_unico
+1907__Chrome	xmlParseElement	avaliar			1	grafo_unico
+1908__Chrome	xmlParseElementChildrenContentDeclPriv	avaliar			1	grafo_unico
+1909__Chrome	xmlParseElementContentDecl	avaliar			1	grafo_unico
+1910__Chrome	xmlParseElementMixedContentDecl	avaliar			1	grafo_unico
+1911__Chrome	xmlParseEndTag2	avaliar			1	grafo_unico
+1912__Chrome	xmlParseEntityDecl	avaliar			1	grafo_unico
+1913__Chrome	xmlParseEntityRef	avaliar			1	grafo_unico
+1914__Chrome	xmlParseEntityValue	avaliar			1	grafo_unico
+1915__Chrome	xmlParseExtParsedEnt	avaliar			1	grafo_unico
+1916__Chrome	xmlParseExternalSubset	avaliar			1	grafo_unico
+1917__Chrome	xmlParseInternalSubset	avaliar			1	grafo_unico
+1918__Chrome	xmlParseMisc	avaliar			1	grafo_unico
+1919__Chrome	xmlParseNCNameComplex	avaliar			1	grafo_unico
+1920__Chrome	xmlParseNameAndCompare	avaliar			1	grafo_unico
+1921__Chrome	xmlParseNameComplex	avaliar			1	grafo_unico
+1922__Chrome	xmlParseNmtoken	avaliar			1	grafo_unico
+1923__Chrome	xmlParsePEReference	avaliar			1	grafo_unico
+1924__Chrome	xmlParsePI	avaliar			1	grafo_unico
+1925__Chrome	xmlParsePubidLiteral	avaliar			1	grafo_unico
+1926__Chrome	xmlParseStartTag	avaliar			0	indeterminado_v2
+1927__Chrome	xmlParseStartTag2	avaliar			1	grafo_unico
+1928__Chrome	xmlParseStringEntityRef	avaliar			1	grafo_unico
+1929__Chrome	xmlParseStringPEReference	avaliar			1	grafo_unico
+1930__Chrome	xmlParseSystemLiteral	avaliar			1	grafo_unico
+1931__Chrome	xmlParseTryOrFinish	avaliar			0	indeterminado_v2
+1932__Chrome	xmlParserHandlePEReference	avaliar			1	grafo_unico
+1933__Chrome	xmlPushInput	avaliar			1	grafo_unico
+1934__Chrome	xmlStopParser	avaliar			1	grafo_unico
+1935__Chrome	handleTextNode	avaliar_na_linha	1230		2	colisao
+1936__Chrome	CreateAuthenticatorFactory	avaliar			1	grafo_unico
+1937__Chrome	AssertFactoriesBuilt	avaliar			1	grafo_unico
+1938__Chrome	RegisterAllPermissions	avaliar			1	grafo_unico
+1939__Chrome	isAutofocusable	avaliar			1	grafo_unico
+1940__Chrome	createImageBitmap	avaliar_na_linha	171		14	colisao
+1941__Chrome	fulfillImageBitmap	avaliar			1	grafo_unico
+1942__Chrome	CommandReceived	avaliar			1	grafo_unico
+1943__Chrome	ConstructDataPacket	avaliar			1	grafo_unico
+1944__Chrome	QuicConnectionHelperTest	avaliar			1	grafo_unico
+1945__Chrome		avaliar				sem_evidencia_v2
+1946__Chrome	create	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+1947__Chrome	create	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+1948__Chrome	createFile	avaliar			1	grafo_unico
+1949__Chrome		avaliar				sem_evidencia_v2
+1950__Chrome	getDirectory	avaliar			1	grafo_unico
+1951__Chrome	getFile	avaliar			1	grafo_unico
+1952__Chrome	removeRecursively	avaliar			1	grafo_unico
+1953__Chrome	copyTo	avaliar			1	grafo_unico
+1954__Chrome	getMetadata	avaliar			1	grafo_unico
+1955__Chrome	moveTo	avaliar			1	grafo_unico
+1956__Chrome	remove	avaliar			1	grafo_unico
+1957__Chrome	deleteFileSystem	avaliar			1	grafo_unico
+1958__Chrome	deleteFileSystemInternal	avaliar			1	grafo_unico
+1959__Chrome	fileSystemAllowedInternal	avaliar			1	grafo_unico
+1960__Chrome	fileSystemNotAllowedInternal	avaliar			1	grafo_unico
+1961__Chrome	fileSystemNotAvailable	avaliar			1	grafo_unico
+1962__Chrome	requestFileSystem	avaliar			1	grafo_unico
+1963__Chrome	resolveURL	avaliar			1	grafo_unico
+1964__Chrome	resolveURLInternal	avaliar			1	grafo_unico
+1965__Chrome	webkitRequestFileSystemSync	avaliar			1	grafo_unico
+1966__Chrome	webkitResolveLocalFileSystemSyncURL	avaliar			1	grafo_unico
+1967__Chrome	stringToOrientations	avaliar			1	grafo_unico
+1968__Chrome	doApply	avaliar			1	grafo_unico
+1969__Chrome	styleDidChange	avaliar			1	grafo_unico
+1970__Chrome	styleWillChange	avaliar			1	grafo_unico
+1971__Chrome	styleDidChange	avaliar			1	grafo_unico
+1972__Chrome	styleWillChange	avaliar			1	grafo_unico
+1973__Chrome	styleDidChange	avaliar			1	grafo_unico
+1974__Chrome	styleWillChange	avaliar			1	grafo_unico
+1975__Chrome	styleDidChange	avaliar			1	grafo_unico
+1976__Chrome	Initialize	avaliar			1	grafo_unico
+1977__Chrome	FillBuffer	avaliar			1	grafo_unico
+1978__Chrome	OutputFasterPlayback	avaliar			1	grafo_unico
+1979__Chrome	OutputSlowerPlayback	avaliar			1	grafo_unico
+1980__Chrome	CheckFakeData	avaliar			1	grafo_unico
+1981__Chrome	DoCheckFakeData	avaliar			1	grafo_unico
+1982__Chrome	EnqueueData	avaliar			1	grafo_unico
+1983__Chrome	Initialize	avaliar_na_linha	35		2	colisao
+1984__Chrome	Initialize	avaliar_na_linha	39		2	colisao
+1985__Chrome	TestPlaybackRate	avaliar_na_linha	119		2	colisao
+1986__Chrome	TestPlaybackRate	avaliar_na_linha	127		2	colisao
+1987__Chrome	WriteFakeData	avaliar			1	grafo_unico
+1988__Chrome	LinkChangeSerializerMarkupAccumulator	avaliar			1	grafo_unico
+1989__Chrome	PageSerializer	avaliar			1	grafo_unico
+1990__Chrome	addImageToResources	avaliar			1	grafo_unico
+1991__Chrome	appendAttribute	avaliar			1	grafo_unico
+1992__Chrome	appendCustomAttributes	avaliar			1	grafo_unico
+1993__Chrome	appendElement	excluir		colisao_hash_nao_casa	2	colisao
+1994__Chrome	appendElement	avaliar_na_linha	200		2	colisao
+1995__Chrome	appendText	avaliar			1	grafo_unico
+1996__Chrome	serializeFrame	avaliar			1	grafo_unico
+1997__Chrome	serialize	avaliar_na_linha	105		2	colisao
+1998__Chrome	printResources	avaliar			1	grafo_unico
+1999__Chrome	registerRewriteURL	avaliar			1	grafo_unico
+2000__Chrome	registerURL	avaliar_na_linha	113		2	colisao
+2001__Chrome	registerURL	avaliar_na_linha	118		2	colisao
+2002__Chrome	serialize	avaliar			1	grafo_unico
+2003__Chrome	setRewriteURLFolder	avaliar			1	grafo_unico
+2004__Chrome	DoTouchScroll	avaliar			1	grafo_unico
+2005__Chrome	RestartWithAuth	avaliar			1	grafo_unico
+2006__Chrome	HandleInputEvent	avaliar			1	grafo_unico
+2007__Chrome	FramebufferInfoTest	avaliar			1	grafo_unico
+2008__Chrome	CheckFramebufferValid	avaliar			1	grafo_unico
+2009__Chrome	ClearUnclearedAttachments	avaliar			1	grafo_unico
+2010__Chrome		avaliar				sem_evidencia_v2
+2011__Chrome		avaliar				sem_evidencia_v2
+2012__Chrome		avaliar				sem_evidencia_v2
+2013__Chrome		avaliar				sem_evidencia_v2
+2014__Chrome	WriteImage	avaliar			1	grafo_unico
+2015__Chrome	GetVideoBuffer	avaliar			1	grafo_unico
+2016__Chrome	End	avaliar_na_linha	86		6	colisao
+2017__Chrome	GetNetworkList	avaliar			1	grafo_unico
+2018__Chrome	ChangeSelectionAfterCommand	avaliar			1	grafo_unico
+2019__Chrome	Clear	avaliar			1	grafo_unico
+2020__Chrome	IsHandleVisible	avaliar			1	grafo_unico
+2021__Chrome	MoveCaretSelection	avaliar			1	grafo_unico
+2022__Chrome	MoveRangeSelection	avaliar			1	grafo_unico
+2023__Chrome	MoveRangeSelectionExtent	avaliar			1	grafo_unico
+2024__Chrome	SelectAll	avaliar_na_linha	642		2	colisao
+2025__Chrome	SetSelectionDeprecated	avaliar			1	grafo_unico
+2026__Chrome	FinishComposingText	avaliar			1	grafo_unico
+2027__Chrome	ConvertToSelectionInDOMTree	avaliar			1	grafo_unico
+2028__Chrome	SetNonDirectionalSelectionIfNeeded	avaliar			1	grafo_unico
+2029__Chrome	NodeChildrenWillBeRemoved	avaliar			1	grafo_unico
+2030__Chrome	NodeWillBeRemoved	avaliar			1	grafo_unico
+2031__Chrome	defaultEventHandler	avaliar_na_linha	733		13	colisao
+2032__Chrome	defaultEventHandler	avaliar_na_linha	815		13	colisao
+2033__Chrome	isUserInteractionEventForSlider	avaliar			1	grafo_unico
+2034__Chrome	ConnectToService	avaliar			1	grafo_unico
+2035__Chrome	CreateCdm	avaliar			1	grafo_unico
+2036__Chrome	GetMediaInterfaceFactory	avaliar			1	grafo_unico
+2037__Chrome	OnConnectionError	avaliar			1	grafo_unico
+2038__Chrome	ServiceManagerContext	avaliar			1	grafo_unico
+2039__Chrome	AddServiceRequestHandlerOnIoThread	avaliar			1	grafo_unico
+2040__Chrome		avaliar				sem_evidencia_v2
+2041__Chrome	RegisterServices	avaliar			1	grafo_unico
+2042__Chrome	BuildServiceInstanceFor	avaliar			1	grafo_unico
+2043__Chrome	GetLogo	avaliar_na_linha	158		2	colisao
+2044__Chrome	GetLogo	avaliar_na_linha	167		2	colisao
+2045__Chrome	ImageDecodedHandlerWithTimeout	avaliar			1	grafo_unico
+2046__Chrome	LogoDelegateImpl	avaliar			1	grafo_unico
+2047__Chrome	LogoService	avaliar			1	grafo_unico
+2048__Chrome	ObserverOnLogoAvailable	avaliar			1	grafo_unico
+2049__Chrome	OnImageDecoded	avaliar			1	grafo_unico
+2050__Chrome	RunCallbacksWithDisabled	avaliar			1	grafo_unico
+2051__Chrome	SetClockForTests	avaliar			1	grafo_unico
+2052__Chrome	SetLogoCacheForTests	avaliar			1	grafo_unico
+2053__Chrome		avaliar				sem_evidencia_v2
+2054__Chrome	DispatchSendMidiData	avaliar			1	grafo_unico
+2055__Chrome	allowAutoplay	avaliar			1	grafo_unico
+2056__Chrome	isAutoplayAllowedPerSettings	avaliar			1	grafo_unico
+2057__Chrome	getDescriptorsImpl	avaliar			1	grafo_unico
+2058__Chrome	getPrimaryServicesImpl	avaliar			1	grafo_unico
+2059__Chrome	getCharacteristicsImpl	avaliar			1	grafo_unico
+2060__Chrome	Flush	avaliar			1	grafo_unico
+2061__Chrome	StartDetectionInRenderer	avaliar			1	grafo_unico
+2062__Chrome	Check	avaliar			1	grafo_unico
+2063__Chrome	png_convert_to_rfc1123	avaliar			0	indeterminado_v2
+2064__Chrome	png_get_copyright	avaliar			1	grafo_unico
+2065__Chrome	png_info_init_3	avaliar			0	indeterminado_v2
+2066__Chrome	png_zalloc	avaliar			0	indeterminado_v2
+2067__Chrome	png_get_asm_flags	avaliar			0	indeterminado_v2
+2068__Chrome	png_get_mmx_bitdepth_threshold	avaliar			0	indeterminado_v2
+2069__Chrome	png_get_mmx_rowbytes_threshold	avaliar			0	indeterminado_v2
+2070__Chrome	png_push_save_buffer	avaliar			0	indeterminado_v2
+2071__Chrome	png_read_init_3	avaliar			0	indeterminado_v2
+2072__Chrome	png_read_row	avaliar			0	indeterminado_v2
+2073__Chrome	png_do_rgb_to_gray	avaliar			0	indeterminado_v2
+2074__Chrome	png_do_read_interlace	avaliar			0	indeterminado_v2
+2075__Chrome	png_get_int_32	avaliar			0	indeterminado_v2
+2076__Chrome	png_get_uint_16	avaliar			0	indeterminado_v2
+2077__Chrome	png_get_uint_31	avaliar			0	indeterminado_v2
+2078__Chrome	png_get_uint_32	avaliar			0	indeterminado_v2
+2079__Chrome	png_handle_PLTE	avaliar			0	indeterminado_v2
+2080__Chrome	png_handle_iCCP	avaliar			0	indeterminado_v2
+2081__Chrome	png_inflate	avaliar			0	indeterminado_v2
+2082__Chrome	png_read_finish_row	avaliar			0	indeterminado_v2
+2083__Chrome	png_read_start_row	avaliar			0	indeterminado_v2
+2084__Chrome	png_set_IHDR	avaliar			0	indeterminado_v2
+2085__Chrome	png_set_PLTE	avaliar			0	indeterminado_v2
+2086__Chrome	png_set_tIME	avaliar			0	indeterminado_v2
+2087__Chrome	png_set_text_2	avaliar			0	indeterminado_v2
+2088__Chrome		avaliar				sem_evidencia_v2
+2089__Chrome	png_set_filter	avaliar			0	indeterminado_v2
+2090__Chrome	png_set_filter_heuristics	avaliar			0	indeterminado_v2
+2091__Chrome	png_write_destroy	avaliar			0	indeterminado_v2
+2092__Chrome	png_write_init_3	avaliar			0	indeterminado_v2
+2093__Chrome	png_do_write_interlace	avaliar			0	indeterminado_v2
+2094__Chrome	png_text_compress	avaliar			0	indeterminado_v2
+2095__Chrome	png_write_PLTE	avaliar			0	indeterminado_v2
+2096__Chrome	png_write_find_filter	avaliar			0	indeterminado_v2
+2097__Chrome	png_write_finish_row	avaliar			0	indeterminado_v2
+2098__Chrome	png_write_start_row	avaliar			0	indeterminado_v2
+2099__Chrome		avaliar				sem_evidencia_v2
+2100__Chrome	DrawingBufferClientRestorePixelPackAlignment	avaliar			1	grafo_unico
+2101__Chrome	Create	avaliar			1	grafo_unico
+2102__Chrome	DrawingBuffer	avaliar			1	grafo_unico
+2103__Chrome	FinishPrepareTextureMailboxGpu	avaliar			1	grafo_unico
+2104__Chrome	Initialize	avaliar			1	grafo_unico
+2105__Chrome	ReadBackFramebuffer	avaliar			1	grafo_unico
+2106__Chrome	RestoreAllState	avaliar			1	grafo_unico
+2107__Chrome	ScopedStateRestorer	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2108__Chrome	UpdateOrAddToOrigins	avaliar_na_linha	103		2	colisao
+2109__Chrome	UpdateOrAddToOrigins	avaliar_na_linha	110		2	colisao
+2110__Chrome	AddInitialUrlToPreconnectPrediction	avaliar			1	grafo_unico
+2111__Chrome	CleanupAbandonedStats	avaliar			1	grafo_unico
+2112__Chrome	RecordPreconnectStats	avaliar			1	grafo_unico
+2113__Chrome	ReportPreconnectAccuracy	avaliar			1	grafo_unico
+2114__Chrome	TestRedirectStatusHistogram	avaliar			1	grafo_unico
+2115__Chrome	FinishPreresolveJob	avaliar			1	grafo_unico
+2116__Chrome	PreconnectedRequestStats	avaliar			1	grafo_unico
+2117__Chrome	PreresolveJob	avaliar_na_linha	58		2	colisao
+2118__Chrome	Start	avaliar			1	grafo_unico
+2119__Chrome	GetRedirectEndpointsForPreconnect	avaliar			1	grafo_unico
+2120__Chrome	InitializeOriginStatFromOriginRequestSummary	avaliar			1	grafo_unico
+2121__Chrome	LearnOrigins	avaliar			1	grafo_unico
+2122__Chrome	PreconnectRequest	avaliar			1	grafo_unico
+2123__Chrome	PredictPreconnectOrigins	avaliar			1	grafo_unico
+2124__Chrome	EnableOESTextureHalfFloatLinear	avaliar			1	grafo_unico
+2125__Chrome	PrintPreviewDone	avaliar			1	grafo_unico
+2126__Chrome	RenderFrameDeleted	avaliar			1	grafo_unico
+2127__Chrome	ProcessText	avaliar			1	grafo_unico
+2128__Chrome	TryToShowTouchToFill	avaliar			1	grafo_unico
+2129__Chrome	OnBoundsChangeEvent	avaliar			1	grafo_unico
+2130__Chrome	OnPreWidgetCommit	avaliar			1	grafo_unico
+2131__Chrome	GetDevice	avaliar			1	grafo_unico
+2132__Chrome	OnBluetoothChooserEvent	avaliar			1	grafo_unico
+2133__Chrome	PostErrorCallback	avaliar			1	grafo_unico
+2134__Chrome	BluetoothDeviceChooserController	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2135__Chrome	IsPowered	avaliar			1	grafo_unico
+2136__Chrome	requestDevice	avaliar			1	grafo_unico
+2137__Chrome	requestLEScan	avaliar			1	grafo_unico
+2138__Chrome	DidBlockRequest	avaliar			1	grafo_unico
+2139__Chrome	DidReceiveResourceResponse	avaliar			1	grafo_unico
+2140__Chrome	WillSendRequest	avaliar			1	grafo_unico
+2141__Chrome	WillSendRequestInternal	avaliar			1	grafo_unico
+2142__Chrome	CachedResourceType	avaliar			1	grafo_unico
+2143__Chrome	CachedResourceTypeJson	avaliar			1	grafo_unico
+2144__Chrome	WillSendRequest	avaliar			1	grafo_unico
+2145__Chrome	CanRequest	avaliar			1	grafo_unico
+2146__Chrome	DispatchDidBlockRequest	avaliar			1	grafo_unico
+2147__Chrome	DispatchWillSendRequest	avaliar			1	grafo_unico
+2148__Chrome	DispatchDidBlockRequest	avaliar			1	grafo_unico
+2149__Chrome	DispatchWillSendRequest	avaliar			1	grafo_unico
+2150__Chrome	DispatchWillSendRequest	avaliar			0	indeterminado_v2
+2151__Chrome	DidLoadResourceFromMemoryCache	avaliar			1	grafo_unico
+2152__Chrome	StartLoad	avaliar			1	grafo_unico
+2153__Chrome	WillFollowRedirect	avaliar			1	grafo_unico
+2154__Chrome	LoadAndSave	avaliar			1	grafo_unico
+2155__Chrome	RecordResourceCompletionUMA	avaliar			1	grafo_unico
+2156__Chrome	StartSnapshot	avaliar			1	grafo_unico
+2157__Chrome	ImageBitmap	avaliar_na_linha	536		8	colisao
+2158__Chrome	copySkImageData	avaliar			1	grafo_unico
+2159__Chrome	cropImage	avaliar			1	grafo_unico
+2160__Chrome	dstBufferSizeHasOverflow	avaliar			1	grafo_unico
+2161__Chrome	flipSkImageVertically	avaliar			1	grafo_unico
+2162__Chrome	newSkImageFromRaster	avaliar			1	grafo_unico
+2163__Chrome	premulSkImageToUnPremul	avaliar			1	grafo_unico
+2164__Chrome	scaleSkImage	avaliar			1	grafo_unico
+2165__Chrome	swizzleImageData	avaliar			1	grafo_unico
+2166__Chrome	unPremulSkImageToPremul	avaliar			1	grafo_unico
+2167__Chrome	IsDataSaverEnabled	avaliar			1	grafo_unico
+2168__Chrome	RegisterOptimizationHintsComponent	avaliar			1	grafo_unico
+2169__Chrome	CreateDataReductionProxyChromeIOData	avaliar			1	grafo_unico
+2170__Chrome	DataReductionProxySettings	avaliar			1	grafo_unico
+2171__Chrome	GetOriginalProfilePrefs	avaliar			1	grafo_unico
+2172__Chrome	InitDataReductionProxySettings	avaliar			1	grafo_unico
+2173__Chrome	InitPrefMembers	avaliar			1	grafo_unico
+2174__Chrome	IsDataReductionProxyEnabled	avaliar			1	grafo_unico
+2175__Chrome	IsDataReductionProxyManaged	avaliar			1	grafo_unico
+2176__Chrome	IsDataSaverEnabledByUser	avaliar			1	grafo_unico
+2177__Chrome	MaybeActivateDataReductionProxy	avaliar			1	grafo_unico
+2178__Chrome	SetDataReductionProxyEnabled	avaliar			1	grafo_unico
+2179__Chrome	DataReductionProxySettings	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2180__Chrome	InitPrefMembers	avaliar			1	grafo_unico
+2181__Chrome	GetRelyingPartyIdString	avaliar			1	grafo_unico
+2182__Chrome	Abandon	avaliar			1	grafo_unico
+2183__Chrome	AcceleratedStaticBitmapImage	avaliar_na_linha	48		2	colisao
+2184__Chrome	AcceleratedStaticBitmapImage	avaliar_na_linha	59		2	colisao
+2185__Chrome	CheckThread	avaliar			1	grafo_unico
+2186__Chrome	CopyToTexture	avaliar			1	grafo_unico
+2187__Chrome	CreateImageFromMailboxIfNeeded	avaliar			1	grafo_unico
+2188__Chrome	DestroySkImageOnOriginalThread	avaliar			1	grafo_unico
+2189__Chrome	Draw	avaliar			1	grafo_unico
+2190__Chrome	EnsureMailbox	avaliar			1	grafo_unico
+2191__Chrome	PaintImageForCurrentFrame	avaliar			1	grafo_unico
+2192__Chrome	RetainOriginalSkImage	avaliar			1	grafo_unico
+2193__Chrome	Transfer	avaliar			1	grafo_unico
+2194__Chrome	AcceleratedStaticBitmapImage	excluir		colisao_hash_nao_casa	2	colisao
+2195__Chrome	Draw	avaliar			1	grafo_unico
+2196__Chrome	MakeAccelerated	avaliar			1	grafo_unico
+2197__Chrome	UnacceleratedStaticBitmapImage	avaliar_na_linha	21		2	colisao
+2198__Chrome	OnShutdownTaskQueue	avaliar			1	grafo_unico
+2199__Chrome	MediaRecorderHandler	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2200__Chrome	MediaRecorder	avaliar			1	grafo_unico
+2201__Chrome	GetTexParameterImpl	avaliar			1	grafo_unico
+2202__Chrome	TexStorageImpl	avaliar			1	grafo_unico
+2203__Chrome	TexImageHelperHTMLVideoElement	avaliar			1	grafo_unico
+2204__Chrome	TexImageImpl	avaliar			1	grafo_unico
+2205__Chrome	texImage2D	avaliar_na_linha	1053		13	colisao
+2206__Chrome	texImage3D	avaliar_na_linha	1671		8	colisao
+2207__Chrome	texImage3D	avaliar_na_linha	1687		8	colisao
+2208__Chrome	texImage3D	avaliar_na_linha	1711		8	colisao
+2209__Chrome	texSubImage2D	avaliar_na_linha	1083		13	colisao
+2210__Chrome	texSubImage3D	avaliar_na_linha	1868		7	colisao
+2211__Chrome	texSubImage3D	avaliar_na_linha	1893		7	colisao
+2212__Chrome	TexImageHelperDOMArrayBufferView	avaliar			1	grafo_unico
+2213__Chrome	ExtractTextureData	avaliar			1	grafo_unico
+2214__Chrome		avaliar				sem_evidencia_v2
+2215__Chrome	backingExpand	avaliar			1	grafo_unico
+2216__Chrome	backingFree	avaliar			1	grafo_unico
+2217__Chrome	backingShrink	avaliar			1	grafo_unico
+2218__Chrome	coalesce	avaliar			1	grafo_unico
+2219__Chrome	doAllocateLargeObjectPage	avaliar			1	grafo_unico
+2220__Chrome	expandObject	avaliar			1	grafo_unico
+2221__Chrome	findHeaderFromAddress	avaliar			1	grafo_unico
+2222__Chrome	markPointer	avaliar			1	grafo_unico
+2223__Chrome	objectPayloadSizeForTesting	avaliar_na_linha	1255		3	colisao
+2224__Chrome	promptlyFreeObject	avaliar			1	grafo_unico
+2225__Chrome	shrinkObject	avaliar			1	grafo_unico
+2226__Chrome		avaliar				sem_evidencia_v2
+2227__Chrome	AllocateCompletedOnIO	avaliar			1	grafo_unico
+2228__Chrome	CopyMetafileDataToSharedMem	avaliar			1	grafo_unico
+2229__Chrome	FinalizePrintReadyDocument	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2230__Chrome		avaliar				sem_evidencia_v2
+2231__Chrome		avaliar				sem_evidencia_v2
+2232__Chrome		avaliar				sem_evidencia_v2
+2233__Chrome	CallCompositorWithSuccess	avaliar			1	grafo_unico
+2234__Chrome	CreateMSKPInSharedMemory	avaliar			1	grafo_unico
+2235__Chrome	Composite	avaliar			1	grafo_unico
+2236__Chrome	GetShmFromMojoHandle	avaliar			1	grafo_unico
+2237__Chrome	NotifyAllocatedSharedBitmap	avaliar			1	grafo_unico
+2238__Chrome	ShareMetricsAllocatorToProcess	avaliar			1	grafo_unico
+2239__Chrome	CreateSharedRendererHistogramAllocator	avaliar			1	grafo_unico
+2240__Chrome	StreamCreated	avaliar			1	grafo_unico
+2241__Chrome	StreamCreated	avaliar			1	grafo_unico
+2242__Chrome	OnBufferCreated	avaliar			1	grafo_unico
+2243__Chrome	SimulateOnBufferCreated	avaliar			1	grafo_unico
+2244__Chrome	GetSharedBufferHandle	avaliar			1	grafo_unico
+2245__Chrome	AllocateAndMapSharedMemory	avaliar			1	grafo_unico
+2246__Chrome	GetHandleForInterProcessTransit	avaliar			1	grafo_unico
+2247__Chrome	InitFromMojoHandle	avaliar			1	grafo_unico
+2248__Chrome	UnwrapAndVerifyMojoHandle	avaliar			1	grafo_unico
+2249__Chrome	Decode	avaliar			1	grafo_unico
+2250__Chrome	Encode	avaliar			1	grafo_unico
+2251__Chrome	UseOutputBitstreamBuffer	avaliar			1	grafo_unico
+2252__Chrome	memory_handle	avaliar			1	grafo_unico
+2253__Chrome	MakeVideoFrameData	avaliar			1	grafo_unico
+2254__Chrome	OnStreamCreated	avaliar			1	grafo_unico
+2255__Chrome	Initialized	avaliar			1	grafo_unico
+2256__Chrome	OnStreamCreated	avaliar			1	grafo_unico
+2257__Chrome	Initialized	avaliar			1	grafo_unico
+2258__Chrome	UseOutputBitstreamBuffer	avaliar			1	grafo_unico
+2259__Chrome	UnwrapPlatformSharedBufferHandle	avaliar			1	grafo_unico
+2260__Chrome	WrapPlatformSharedBufferHandle	avaliar			1	grafo_unico
+2261__Chrome	UnwrapSharedMemoryHandle	avaliar			1	grafo_unico
+2262__Chrome	WrapSharedMemoryHandle	avaliar			1	grafo_unico
+2263__Chrome	shared_memory_handle	avaliar			1	grafo_unico
+2264__Chrome	InitSkBitmapDataForTransfer	avaliar			1	grafo_unico
+2265__Chrome	InitSkBitmapFromData	avaliar			1	grafo_unico
+2266__Chrome	Log	avaliar_na_linha	89		2	colisao
+2267__Chrome	Read	avaliar_na_linha	66		2	colisao
+2268__Chrome	Write	avaliar_na_linha	55		2	colisao
+2269__Chrome	OnStreamData	avaliar			1	grafo_unico
+2270__Chrome	HandleLocaltime	avaliar			1	grafo_unico
+2271__Chrome	ProxyLocaltimeCallToBrowser	avaliar			1	grafo_unico
+2272__Chrome	BlobFlattener	avaliar			1	grafo_unico
+2273__Chrome	OnPromiseHeaders	avaliar			1	grafo_unico
+2274__Chrome	DidHandleMessage	avaliar			1	grafo_unico
+2275__Chrome	PushMessagingServiceImpl	avaliar			1	grafo_unico
+2276__Chrome	Load	avaliar			1	grafo_unico
+2277__Chrome	LoadFile	avaliar			1	grafo_unico
+2278__Chrome	htmlInitParserCtxt	avaliar			0	indeterminado_v2
+2279__Chrome	htmlParseElementInternal	avaliar			0	indeterminado_v2
+2280__Chrome	htmlParseNameComplex	avaliar			0	indeterminado_v2
+2281__Chrome	xmlBufCreateStatic	avaliar			1	grafo_unico
+2282__Chrome	DoOpenDevice	avaliar			1	grafo_unico
+2283__Chrome	bindSampler	avaliar			1	grafo_unico
+2284__Chrome	bindVertexArray	avaliar			1	grafo_unico
+2285__Chrome	deleteVertexArray	avaliar			1	grafo_unico
+2286__Chrome	framebufferTextureLayer	avaliar			1	grafo_unico
+2287__Chrome	isTransformFeedback	avaliar			1	grafo_unico
+2288__Chrome	isVertexArray	avaliar			1	grafo_unico
+2289__Chrome	isBuffer	avaliar			1	grafo_unico
+2290__Chrome	isFramebuffer	avaliar			1	grafo_unico
+2291__Chrome	isProgram	avaliar			1	grafo_unico
+2292__Chrome	isRenderbuffer	avaliar			1	grafo_unico
+2293__Chrome	isShader	avaliar			1	grafo_unico
+2294__Chrome	isTexture	avaliar			1	grafo_unico
+2295__Chrome	RemoveDownloadsTester	avaliar			1	grafo_unico
+2296__Chrome	GetDownloadManagerDelegate	avaliar			1	grafo_unico
+2297__Chrome	SetDownloadManagerDelegateForTesting	avaliar			1	grafo_unico
+2298__Chrome	OnProvisionalSaveComplete	avaliar			1	grafo_unico
+2299__Chrome	TestProcessOverflow	avaliar			1	grafo_unico
+2300__Chrome	DoesSiteRequireDedicatedProcess	avaliar			1	grafo_unico
+2301__Chrome	ShouldLockToOrigin	avaliar			1	grafo_unico
+2302__Chrome	exsltCryptoPopString	avaliar			0	indeterminado_v2
+2303__Chrome	exsltCryptoRc4DecryptFunction	avaliar			0	indeterminado_v2
+2304__Chrome	exsltCryptoRc4EncryptFunction	avaliar			0	indeterminado_v2
+2305__Chrome	_exsltDateAdd	avaliar			1	grafo_unico
+2306__Chrome	_exsltDateTruncateDate	avaliar			1	grafo_unico
+2307__Chrome	exsltDateCreateDate	avaliar			1	grafo_unico
+2308__Chrome	exsltFuncFunctionComp	avaliar			1	grafo_unico
+2309__Chrome	exsltFuncFunctionFunction	avaliar			1	grafo_unico
+2310__Chrome		avaliar				sem_evidencia_v2
+2311__Chrome	exsltStrAlignFunction	avaliar			1	grafo_unico
+2312__Chrome	exsltStrPaddingFunction	avaliar			1	grafo_unico
+2313__Chrome	exsltStrXpathCtxtRegister	avaliar			1	grafo_unico
+2314__Chrome	xsltParseStylesheetAttributeSet	avaliar			1	grafo_unico
+2315__Chrome		avaliar				sem_evidencia_v2
+2316__Chrome	xsltRegisterExtModuleElement	avaliar			1	grafo_unico
+2317__Chrome	xsltDocumentFunctionLoadDocument	avaliar			1	censo_proprio_arquivo
+2318__Chrome	xsltGenerateIdFunction	avaliar			1	censo_proprio_arquivo
+2319__Chrome	xsltFindTemplate	avaliar			1	grafo_unico
+2320__Chrome	xsltInitCtxtKey	avaliar			1	grafo_unico
+2321__Chrome	xsltCopyNamespaceList	avaliar			1	grafo_unico
+2322__Chrome	xsltNumberFormat	avaliar			1	grafo_unico
+2323__Chrome	xsltNumberFormatAlpha	avaliar			1	grafo_unico
+2324__Chrome	xsltNumberFormatGetAnyLevel	avaliar			1	grafo_unico
+2325__Chrome	xsltNumberFormatGetMultipleLevel	avaliar			1	grafo_unico
+2326__Chrome	xsltAddTemplate	avaliar			1	grafo_unico
+2327__Chrome	xsltCompileIdKeyPattern	avaliar			1	grafo_unico
+2328__Chrome	xsltFreeTemplateHashes	avaliar			1	grafo_unico
+2329__Chrome	xsltReverseCompMatch	avaliar			1	grafo_unico
+2330__Chrome	xsltTestCompMatch	avaliar			1	grafo_unico
+2331__Chrome	xsltAttributeComp	avaliar			1	grafo_unico
+2332__Chrome	xsltElementComp	avaliar			1	grafo_unico
+2333__Chrome	xsltGetQNameProperty	avaliar			1	grafo_unico
+2334__Chrome	xsltStylePreCompute	avaliar			1	grafo_unico
+2335__Chrome	xsltApplyStylesheetInternal	avaliar			1	grafo_unico
+2336__Chrome	xsltApplyTemplates	avaliar			1	grafo_unico
+2337__Chrome		avaliar				sem_evidencia_v2
+2338__Chrome	xsltCopyOf	avaliar			1	grafo_unico
+2339__Chrome	xsltCopyTextString	avaliar			1	grafo_unico
+2340__Chrome	xsltCopyTreeInternal	avaliar			1	grafo_unico
+2341__Chrome	xsltDocumentElem	avaliar			1	grafo_unico
+2342__Chrome	xsltElement	avaliar			1	grafo_unico
+2343__Chrome	xsltForEach	avaliar			1	grafo_unico
+2344__Chrome	xsltIf	avaliar			1	grafo_unico
+2345__Chrome	xsltNumber	avaliar			1	grafo_unico
+2346__Chrome	xsltShallowCopyElem	avaliar			1	grafo_unico
+2347__Chrome	xsltValueOf	avaliar			1	grafo_unico
+2348__Chrome	xsltProcessUserParamInternal	avaliar			1	grafo_unico
+2349__Chrome	CommitText	avaliar			1	grafo_unico
+2350__Chrome	HasDevicePermission	avaliar_na_linha	203		2	colisao
+2351__Chrome	UsbChooserContext	avaliar			1	grafo_unico
+2352__Android	DownmixLib_Create	avaliar			1	grafo_unico
+2353__Android	Downmix_Command	avaliar			1	grafo_unico
+2354__Android	Downmix_Reset	avaliar			1	grafo_unico
+2355__Android	LELib_Create	avaliar			1	grafo_unico
+2356__Android	LE_command	avaliar			1	grafo_unico
+2357__Android	Effect_command	avaliar			1	grafo_unico
+2358__Android	EffectCreate	avaliar			1	grafo_unico
+2359__Android	Reverb_command	avaliar			1	grafo_unico
+2360__Android	NsGetParameter	avaliar			1	grafo_unico
+2361__Android	NsSetParameter	avaliar			1	grafo_unico
+2362__Android	PreProcessingFx_Command	avaliar			1	grafo_unico
+2363__Android	PreProcessingFx_ProcessReverse	avaliar			1	grafo_unico
+2364__Android	Visualizer_command	avaliar			1	grafo_unico
+2365__Android	findBufferHeader	avaliar			1	grafo_unico
+2366__Android	findBufferID	avaliar			1	grafo_unico
+2367__Android	invalidateBufferID	avaliar			0	indeterminado_v2
+2368__Android	makeBufferID	avaliar			1	grafo_unico
+2369__Android	fragmentedRead	avaliar			1	grafo_unico
+2370__Android	read	avaliar			1	grafo_unico
+2371__Android	readAt	avaliar			1	grafo_unico
+2372__Android	readAt	avaliar			1	grafo_unico
+2373__Android	parse3GPPMetaData	avaliar			1	grafo_unico
+2374__Android	parseChunk	avaliar_na_linha	762		2	colisao
+2375__Android	parseChunk	avaliar_na_linha	762		2	colisao
+2376__Android	connect	avaliar			1	grafo_unico
+2377__Android	calculate_camera_metadata_entry_data_size	avaliar			1	grafo_unico
+2378__Android	validate_camera_metadata_structure	avaliar			1	grafo_unico
+2379__Android	decoder_peek_si_internal	avaliar			1	grafo_unico
+2380__Android	outputBufferSafe	avaliar			1	grafo_unico
+2381__Android	allocFromUTF16	avaliar			1	grafo_unico
+2382__Android	allocFromUTF32	avaliar			1	grafo_unico
+2383__Android	utf16_to_utf8	avaliar			1	grafo_unico
+2384__Android	utf16_to_utf8_length	avaliar			1	grafo_unico
+2385__Android	utf32_to_utf8	avaliar			1	grafo_unico
+2386__Android		avaliar				sem_evidencia_v2
+2387__Android		avaliar				sem_evidencia_v2
+2388__Android	BufferMeta	avaliar_na_linha	104		3	colisao
+2389__Android	BufferMeta	avaliar_na_linha	109		3	colisao
+2390__Android	BufferMeta	avaliar_na_linha	114		3	colisao
+2391__Android	allocateBuffer	avaliar			1	grafo_unico
+2392__Android	allocateBufferWithBackup	avaliar			1	grafo_unico
+2393__Android	emptyBuffer	avaliar			1	grafo_unico
+2394__Android	fillBuffer	avaliar			1	grafo_unico
+2395__Android	findBufferHeader	avaliar			1	grafo_unico
+2396__Android	freeBuffer	avaliar			1	grafo_unico
+2397__Android	handleMessage	avaliar			1	grafo_unico
+2398__Android	updateGraphicBufferInMeta	avaliar			1	grafo_unico
+2399__Android	updateGraphicBufferInMeta_l	avaliar			1	grafo_unico
+2400__Android	useBuffer	avaliar			1	grafo_unico
+2401__Android	useGraphicBuffer	avaliar			1	grafo_unico
+2402__Android	useGraphicBuffer2_l	avaliar			1	grafo_unico
+2403__Android	ProcessExifDir	avaliar			1	grafo_unico
+2404__Android	ih264d_video_decode	avaliar			1	grafo_unico
+2405__Android	ih264d_parse_nal_unit	avaliar			1	grafo_unico
+2406__Android	ih264d_mark_err_slice_skip	avaliar			1	grafo_unico
+2407__Android	ih264d_parse_decode_slice	avaliar			1	grafo_unico
+2408__Android	ih264d_start_of_pic	avaliar			1	grafo_unico
+2409__Android	h264bsdInitDpb	avaliar			1	grafo_unico
+2410__Android	dexOptGenerateCacheFileName	avaliar			1	grafo_unico
+2411__Android	effect_command	avaliar			1	grafo_unico
+2412__Android	fx_command	avaliar			1	grafo_unico
+2413__Android	create_pbuf	avaliar			1	grafo_unico
+2414__Android	initFromDataSource	avaliar			1	grafo_unico
+2415__Android	setBuffers	avaliar			1	grafo_unico
+2416__Android	getTrack	avaliar			1	grafo_unico
+2417__Android	parseChunk	avaliar_na_linha	771		2	colisao
+2418__Android	seekTo	avaliar			1	grafo_unico
+2419__Android	h264bsdActivateParamSets	avaliar			1	grafo_unico
+2420__Android	read	avaliar			1	grafo_unico
+2421__Android	isCRCOkay	avaliar			1	grafo_unico
+2422__Android	onQueueFilled	avaliar			1	grafo_unico
+2423__Android	onQueueFilled	avaliar			1	grafo_unico
+2424__Android		avaliar				sem_evidencia_v2
+2425__Android		avaliar				sem_evidencia_v2
+2426__Android		avaliar				sem_evidencia_v2
+2427__Android		avaliar				sem_evidencia_v2
+2428__Android		avaliar				sem_evidencia_v2
+2429__Android		avaliar				sem_evidencia_v2
+2430__Android	release_output_done	avaliar			1	grafo_unico
+2431__Android		avaliar				sem_evidencia_v2
+2432__Android	onTransact	avaliar_na_linha	602		2	colisao
+2433__Android	Create	avaliar			1	grafo_unico
+2434__Android	configureCodec	avaliar			1	grafo_unico
+2435__Android	H264SwDecMalloc	avaliar			1	grafo_unico
+2436__Android	H264SwDecMalloc	avaliar			1	grafo_unico
+2437__Android	main	avaliar			1	grafo_unico
+2438__Android	H264SwDecInit	avaliar			1	grafo_unico
+2439__Android	H264SwDecMalloc	avaliar			1	grafo_unico
+2440__Android	h264bsdInit	avaliar			1	grafo_unico
+2441__Android	btif_dm_pin_reply	avaliar			1	grafo_unico
+2442__Android	read_metadata_vorbiscomment_	avaliar			1	grafo_unico
+2443__Android	aacDecoder_drcExtractAndMap	avaliar			1	grafo_unico
+2444__Android	onTransact	avaliar_na_linha	600		2	colisao
+2445__Android	onQueueFilled	avaliar			1	grafo_unico
+2446__Android	valid_length	avaliar			1	grafo_unico
+2447__Android	ih264d_read_mmco_commands	avaliar			1	grafo_unico
+2448__Android	ih264d_parse_bslice	avaliar			1	grafo_unico
+2449__Android	ih264d_parse_islice	avaliar			1	grafo_unico
+2450__Android	ih264d_parse_pslice	avaliar			1	grafo_unico
+2451__Android	MediaMetadataRetriever	avaliar			1	grafo_unico
+2452__Android	getService	avaliar			1	grafo_unico
+2453__Android	ih264d_cavlc_4x4res_block_totalcoeff_11to16	avaliar			1	grafo_unico
+2454__Android	ih264d_cavlc_4x4res_block_totalcoeff_2to10	avaliar			1	grafo_unico
+2455__Android	ih264d_rest_of_residual_cav_chroma_dc_block	avaliar			1	grafo_unico
+2456__Android	vol_prc_lib_release	avaliar			1	grafo_unico
+2457__Android	WT_Interpolate	avaliar			1	grafo_unico
+2458__Android	WT_InterpolateMono	avaliar			0	indeterminado_v2
+2459__Android	WT_InterpolateNoLoop	avaliar			1	grafo_unico
+2460__Android	WT_NoiseGenerator	avaliar			1	grafo_unico
+2461__Android	WT_VoiceFilter	avaliar			0	indeterminado_v2
+2462__Android	WT_VoiceGain	avaliar			1	grafo_unico
+2463__Android	WT_CheckSampleEnd	avaliar			1	grafo_unico
+2464__Android	read	avaliar			1	grafo_unico
+2465__Android	impeg2d_vld_decode	avaliar			1	grafo_unico
+2466__Android	impeg2d_dec_pic_data_thread	avaliar			1	grafo_unico
+2467__Android	impeg2d_get_slice_pos	avaliar			1	grafo_unico
+2468__Android	btif_config_flush	avaliar			1	grafo_unico
+2469__Android	btif_config_save	avaliar			1	grafo_unico
+2470__Android	init	avaliar			1	grafo_unico
+2471__Android	timer_config_save	avaliar			0	indeterminado_v2
+2472__Android	ih264d_parse_islice_data_cabac	avaliar			1	grafo_unico
+2473__Android	ih264d_parse_islice_data_cavlc	avaliar			1	grafo_unico
+2474__Android	ih264d_mark_err_slice_skip	avaliar			1	grafo_unico
+2475__Android	ih264d_parse_inter_slice_data_cabac	avaliar			1	grafo_unico
+2476__Android	ih264d_parse_inter_slice_data_cavlc	avaliar			1	grafo_unico
+2477__Android	notifyPreparedAndCleanup	avaliar			1	grafo_unico
+2478__Android	initEncParams	avaliar			1	grafo_unico
+2479__Android	initEncoder	avaliar			1	grafo_unico
+2480__Android	read_and_process_frames	avaliar			1	grafo_unico
+2481__Android	impeg2d_dec_p_b_slice	avaliar			1	grafo_unico
+2482__Android	decodeBase64	avaliar			1	grafo_unico
+2483__Android	ihevcd_parse_pps	avaliar			1	grafo_unico
+2484__Android	onQueueFilled	avaliar			1	grafo_unico
+2485__Android	FLACParser	avaliar			1	grafo_unico
+2486__Android	copyMono16	avaliar			1	grafo_unico
+2487__Android	copyMono24	avaliar			1	grafo_unico
+2488__Android	copyMono8	avaliar			1	grafo_unico
+2489__Android	copyMultiCh16	avaliar			1	grafo_unico
+2490__Android	copyMultiCh24	avaliar			1	grafo_unico
+2491__Android	copyMultiCh8	avaliar			1	grafo_unico
+2492__Android	copyStereo16	avaliar			1	grafo_unico
+2493__Android	copyStereo24	avaliar			1	grafo_unico
+2494__Android	copyStereo8	avaliar			1	grafo_unico
+2495__Android	copyTrespass	avaliar			1	grafo_unico
+2496__Android	init	avaliar_na_linha	520		3	colisao
+2497__Android	writeCallback	avaliar			1	grafo_unico
+2498__Android	ih264d_decode_gaps_in_frame_num	avaliar			1	grafo_unico
+2499__Android	ihevcd_parse_sps	avaliar			1	grafo_unico
+2500__Android	ihevcd_cabac_init	avaliar			1	grafo_unico
+2501__Android	ihevcd_parse_slice_data	avaliar			1	grafo_unico
+2502__Android	removeUnsynchronizationV2_4	avaliar			1	grafo_unico
+2503__Android	impeg2d_api_entity	avaliar			1	grafo_unico
+2504__Android	impeg2d_dec_seq_hdr	avaliar			1	grafo_unico
+2505__Android	impeg2d_dec_hdr	avaliar			1	grafo_unico
+2506__Android	ih264d_start_of_pic	avaliar			1	grafo_unico
+2507__Android	ih264d_video_decode	avaliar			1	grafo_unico
+2508__Android	PushcdlStack	avaliar			1	grafo_unico
+2509__Android	ihevcd_cabac_decode_bypass_bins_egk	avaliar			1	grafo_unico
+2510__Android	ihevcd_parse_transform_tree	avaliar			1	grafo_unico
+2511__Android	ihevcd_parse_sps	avaliar			1	grafo_unico
+2512__Android	ih264d_video_decode	avaliar			1	grafo_unico
+2513__Android	ih264d_mark_err_slice_skip	avaliar			1	grafo_unico
+2514__Android	ih264d_end_of_pic	avaliar			1	grafo_unico
+2515__Android	ih264d_parse_decode_slice	avaliar			1	grafo_unico
+2516__Android	smp_process_keypress_notification	avaliar			1	grafo_unico
+2517__Android	bta_av_proc_meta_cmd	avaliar			1	grafo_unico
+2518__Android	avrc_msg_cback	avaliar			1	grafo_unico
+2519__Android	mca_ccb_hdl_req	avaliar			1	grafo_unico
+2520__Android	sdp_copy_raw_data	avaliar			1	grafo_unico
+2521__Android	rfc_process_mx_message	avaliar			1	grafo_unico
+2522__Android	NewFromStream	avaliar			1	grafo_unico
+2523__Android	impeg2d_dec_seq_hdr	avaliar			1	grafo_unico
+2524__Android	impeg2d_dec_hdr	avaliar			1	grafo_unico
+2525__Android	ixheaacd_esbr_postradixcompute2	avaliar			1	grafo_unico
+2526__Android	ixheaacd_esbr_radix4bfly	avaliar			1	grafo_unico
+2527__Android	ixheaacd_shiftrountine_with_rnd_hq	avaliar			1	grafo_unico
+2528__Android	ixheaacd_complex_anal_filt	avaliar			1	grafo_unico
+2529__Android	ixheaacd_real_synth_filt	avaliar			1	grafo_unico
+2530__Android	ixheaacd_qmf_hbe_data_reinit	avaliar			1	grafo_unico
+2531__Android	xmlParse3986Port	avaliar			1	grafo_unico
+2532__Android	emptyBuffer	avaliar			1	grafo_unico
+2533__Android	outputBuffers	avaliar			1	grafo_unico
+2534__Android	readUtf8FromUtf16	avaliar_na_linha	1785		2	colisao
+2535__Android	unmarshallAudioAttributes	avaliar			1	grafo_unico
+2536__Android	utf16ToUtf8	avaliar			1	grafo_unico
+2537__Android	setBuffers	avaliar			1	grafo_unico
+2538__Android	onTransact	avaliar_na_linha	600		2	colisao
+2539__Android	internalGetParameter	avaliar			1	grafo_unico
+2540__Android	internalSetParameter	avaliar			1	grafo_unico
+2541__Android	internalGetParameter	avaliar			1	grafo_unico
+2542__Android	internalSetParameter	avaliar			1	grafo_unico
+2543__Android	internalGetParameter	avaliar			1	grafo_unico
+2544__Android	internalSetParameter	avaliar			1	grafo_unico
+2545__Android	internalGetParameter	avaliar			1	grafo_unico
+2546__Android	internalSetParameter	avaliar			1	grafo_unico
+2547__Android	internalGetParameter	avaliar			1	grafo_unico
+2548__Android	internalSetParameter	avaliar			1	grafo_unico
+2549__Android	internalGetParameter	avaliar			1	grafo_unico
+2550__Android	internalSetParameter	avaliar			1	grafo_unico
+2551__Android	internalGetParameter	avaliar			1	grafo_unico
+2552__Android	internalSetParameter	avaliar			1	grafo_unico
+2553__Android	internalGetParameter	avaliar			1	grafo_unico
+2554__Android	internalSetParameter	avaliar			1	grafo_unico
+2555__Android	setConfig	avaliar			1	grafo_unico
+2556__Android	internalGetParameter	avaliar			1	grafo_unico
+2557__Android	internalSetParameter	avaliar			1	grafo_unico
+2558__Android	internalGetParameter	avaliar			1	grafo_unico
+2559__Android	internalSetParameter	avaliar			1	grafo_unico
+2560__Android	internalGetParameter	avaliar			1	grafo_unico
+2561__Android	internalSetParameter	avaliar			1	grafo_unico
+2562__Android	internalGetParameter	avaliar			1	grafo_unico
+2563__Android	internalSetParameter	avaliar			1	grafo_unico
+2564__Android	internalGetParameter	avaliar			1	grafo_unico
+2565__Android	internalSetParameter	avaliar			1	grafo_unico
+2566__Android	internalGetParameter	avaliar			1	grafo_unico
+2567__Android	internalSetParameter	avaliar			1	grafo_unico
+2568__Android	setConfig	avaliar			1	grafo_unico
+2569__Android	internalGetParameter	avaliar			1	grafo_unico
+2570__Android	internalSetParameter	avaliar			1	grafo_unico
+2571__Android	internalGetParameter	avaliar			1	grafo_unico
+2572__Android	internalSetParameter	avaliar			1	grafo_unico
+2573__Android	internalGetParameter	avaliar			1	grafo_unico
+2574__Android	internalSetParameter	avaliar			1	grafo_unico
+2575__Android	internalGetParameter	avaliar			1	grafo_unico
+2576__Android	internalSetParameter	avaliar			1	grafo_unico
+2577__Android	getConfig	avaliar			1	grafo_unico
+2578__Android	internalGetParameter	avaliar			1	grafo_unico
+2579__Android	internalSetParameter	avaliar			1	grafo_unico
+2580__Android	onTransact	avaliar_na_linha	603		2	colisao
+2581__Android	setupAACCodec	avaliar			1	grafo_unico
+2582__Android	AppendCluster	avaliar			1	grafo_unico
+2583__Android	Atom	avaliar			0	indeterminado_v2
+2584__Android	AudioTrack	avaliar			1	grafo_unico
+2585__Android	Block	avaliar			1	grafo_unico
+2586__Android	BlockEntry	avaliar			1	grafo_unico
+2587__Android	BlockGroup	avaliar			1	grafo_unico
+2588__Android	Chapters	avaliar			1	grafo_unico
+2589__Android	Clear	avaliar_na_linha	4421		4	colisao
+2590__Android	Clear	avaliar_na_linha	4607		4	colisao
+2591__Android	Clear	avaliar_na_linha	4816		4	colisao
+2592__Android	Clear	avaliar_na_linha	5545		4	colisao
+2593__Android	Cluster	avaliar_na_linha	7891		2	colisao
+2594__Android	Cluster	avaliar_na_linha	7905		2	colisao
+2595__Android	ContentCompression	avaliar			1	grafo_unico
+2596__Android	ContentEncoding	avaliar			1	grafo_unico
+2597__Android	ContentEncryption	avaliar			1	grafo_unico
+2598__Android	Copy	avaliar			1	grafo_unico
+2599__Android	CopyStr	avaliar			1	grafo_unico
+2600__Android	Create	avaliar_na_linha	5496		2	colisao
+2601__Android	Create	avaliar_na_linha	7870		2	colisao
+2602__Android	CreateBlock	avaliar			1	grafo_unico
+2603__Android	CreateBlockGroup	avaliar			1	grafo_unico
+2604__Android	CreateInstance	avaliar			1	grafo_unico
+2605__Android	CreateSimpleBlock	avaliar			1	grafo_unico
+2606__Android	CuePoint	avaliar			1	grafo_unico
+2607__Android	Cues	avaliar			1	grafo_unico
+2608__Android	Display	avaliar			0	indeterminado_v2
+2609__Android	DoLoadCluster	avaliar			1	grafo_unico
+2610__Android	DoLoadClusterUnknownSize	avaliar			1	grafo_unico
+2611__Android	DoParseNext	avaliar			1	grafo_unico
+2612__Android	DoneParsing	avaliar_na_linha	2408		2	colisao
+2613__Android	DoneParsing	avaliar_na_linha	3235		2	colisao
+2614__Android	EBMLHeader	avaliar			1	grafo_unico
+2615__Android	EOS	avaliar_na_linha	7943		2	colisao
+2616__Android	EOS	avaliar_na_linha	9027		2	colisao
+2617__Android	EOSBlock	avaliar			1	grafo_unico
+2618__Android	Edition	avaliar			0	indeterminado_v2
+2619__Android	ExpandAtomsArray	avaliar			1	grafo_unico
+2620__Android	ExpandDisplaysArray	avaliar			1	grafo_unico
+2621__Android	ExpandEditionsArray	avaliar			1	grafo_unico
+2622__Android	Find	avaliar_na_linha	2552		2	colisao
+2623__Android	Find	avaliar_na_linha	3178		2	colisao
+2624__Android	FindCluster	avaliar			1	grafo_unico
+2625__Android	FindOrPreloadCluster	avaliar			1	grafo_unico
+2626__Android	GetAtom	avaliar			1	grafo_unico
+2627__Android	GetAtomCount	avaliar			1	grafo_unico
+2628__Android	GetBitDepth	avaliar			1	grafo_unico
+2629__Android	GetBlock	avaliar_na_linha	6107		5	colisao
+2630__Android	GetBlock	avaliar_na_linha	9068		5	colisao
+2631__Android	GetBlock	avaliar_na_linha	9128		5	colisao
+2632__Android	GetBlock	avaliar_na_linha	2862		5	colisao
+2633__Android	GetBlock	avaliar_na_linha	2876		5	colisao
+2634__Android	GetChannels	avaliar			1	grafo_unico
+2635__Android	GetChapters	avaliar			1	grafo_unico
+2636__Android	GetCluster	avaliar			1	grafo_unico
+2637__Android	GetCodecDelay	avaliar			1	grafo_unico
+2638__Android	GetCodecId	avaliar			1	grafo_unico
+2639__Android	GetCodecNameAsUTF8	avaliar			1	grafo_unico
+2640__Android	GetCodecPrivate	avaliar			1	grafo_unico
+2641__Android	GetContentEncodingByIndex	avaliar			1	grafo_unico
+2642__Android	GetCount	avaliar_na_linha	1994		3	colisao
+2643__Android	GetCount	avaliar_na_linha	2399		3	colisao
+2644__Android	GetCount	avaliar_na_linha	3285		3	colisao
+2645__Android	GetCountry	avaliar			1	grafo_unico
+2646__Android	GetCues	avaliar			1	grafo_unico
+2647__Android	GetDefaultDuration	avaliar			1	grafo_unico
+2648__Android	GetDiscardPadding	avaliar			1	grafo_unico
+2649__Android	GetDisplay	avaliar			1	grafo_unico
+2650__Android	GetDisplayCount	avaliar			1	grafo_unico
+2651__Android	GetDuration	avaliar_na_linha	4244		2	colisao
+2652__Android	GetDuration	avaliar_na_linha	5013		2	colisao
+2653__Android	GetDurationTimeCode	avaliar			1	grafo_unico
+2654__Android	GetEOS	avaliar			1	grafo_unico
+2655__Android	GetEdition	avaliar			1	grafo_unico
+2656__Android	GetEditionCount	avaliar			1	grafo_unico
+2657__Android	GetElementSize	avaliar			1	grafo_unico
+2658__Android	GetEncryptionByIndex	avaliar			1	grafo_unico
+2659__Android	GetEntry	avaliar_na_linha	7834		4	colisao
+2660__Android	GetEntry	avaliar_na_linha	8650		4	colisao
+2661__Android	GetEntry	excluir		colisao_hash_nao_casa	4	colisao
+2662__Android	GetEntry	avaliar_na_linha	1999		4	colisao
+2663__Android	GetEntryCount	avaliar			1	grafo_unico
+2664__Android	GetFirst	avaliar_na_linha	5715		4	colisao
+2665__Android	GetFirst	avaliar_na_linha	8533		4	colisao
+2666__Android	GetFirst	avaliar_na_linha	2743		4	colisao
+2667__Android	GetFirst	avaliar_na_linha	3259		4	colisao
+2668__Android	GetFirstTime	avaliar			1	grafo_unico
+2669__Android	GetFrame	avaliar			1	grafo_unico
+2670__Android	GetFrameCount	avaliar			1	grafo_unico
+2671__Android	GetFrameRate	avaliar			1	grafo_unico
+2672__Android	GetHeight	avaliar			1	grafo_unico
+2673__Android	GetIndex	avaliar_na_linha	7949		2	colisao
+2674__Android	GetIndex	avaliar_na_linha	9039		2	colisao
+2675__Android	GetInfo	avaliar			1	grafo_unico
+2676__Android	GetKind	avaliar_na_linha	6101		3	colisao
+2677__Android	GetKind	avaliar_na_linha	9062		3	colisao
+2678__Android	GetKind	avaliar_na_linha	9122		3	colisao
+2679__Android	GetLacing	avaliar_na_linha	5695		2	colisao
+2680__Android	GetLacing	avaliar_na_linha	9573		2	colisao
+2681__Android	GetLanguage	avaliar_na_linha	4788		2	colisao
+2682__Android	GetLanguage	avaliar_na_linha	5672		2	colisao
+2683__Android	GetLast	avaliar_na_linha	8563		3	colisao
+2684__Android	GetLast	avaliar_na_linha	2771		3	colisao
+2685__Android	GetLast	avaliar_na_linha	3271		3	colisao
+2686__Android	GetLastTime	avaliar			1	grafo_unico
+2687__Android	GetMuxingAppAsUTF8	avaliar			1	grafo_unico
+2688__Android	GetNameAsUTF8	avaliar			1	grafo_unico
+2689__Android	GetNext	avaliar_na_linha	5798		4	colisao
+2690__Android	GetNext	avaliar_na_linha	8599		4	colisao
+2691__Android	GetNext	avaliar_na_linha	2812		4	colisao
+2692__Android	GetNext	avaliar_na_linha	3291		4	colisao
+2693__Android	GetNextTimeCode	avaliar			1	grafo_unico
+2694__Android	GetNumber	avaliar			1	grafo_unico
+2695__Android	GetPosition	avaliar			1	grafo_unico
+2696__Android	GetPrevTimeCode	avaliar			1	grafo_unico
+2697__Android	GetSamplingRate	avaliar			1	grafo_unico
+2698__Android	GetSeekHead	avaliar			1	grafo_unico
+2699__Android	GetSeekPreRoll	avaliar			1	grafo_unico
+2700__Android	GetStartTime	avaliar			1	grafo_unico
+2701__Android	GetStartTimecode	avaliar			1	grafo_unico
+2702__Android	GetStopTime	avaliar			1	grafo_unico
+2703__Android	GetStopTimecode	avaliar			1	grafo_unico
+2704__Android	GetString	avaliar			1	grafo_unico
+2705__Android	GetStringUID	avaliar			1	grafo_unico
+2706__Android	GetTime	avaliar_na_linha	4701		4	colisao
+2707__Android	GetTime	avaliar_na_linha	8267		4	colisao
+2708__Android	GetTime	avaliar_na_linha	9527		4	colisao
+2709__Android	GetTime	avaliar_na_linha	3204		4	colisao
+2710__Android	GetTimeCode	avaliar_na_linha	8253		3	colisao
+2711__Android	GetTimeCode	avaliar_na_linha	9513		3	colisao
+2712__Android	GetTimeCode	avaliar_na_linha	3199		3	colisao
+2713__Android	GetTimeCodeScale	avaliar			1	grafo_unico
+2714__Android	GetTitleAsUTF8	avaliar			1	grafo_unico
+2715__Android	GetTrackByIndex	avaliar			1	grafo_unico
+2716__Android	GetTrackByNumber	avaliar			1	grafo_unico
+2717__Android	GetTrackNumber	avaliar			1	grafo_unico
+2718__Android	GetTracks	avaliar			1	grafo_unico
+2719__Android	GetTracksCount	avaliar			1	grafo_unico
+2720__Android	GetType	avaliar			1	grafo_unico
+2721__Android	GetUID	avaliar			1	grafo_unico
+2722__Android	GetUIntLength	avaliar			1	grafo_unico
+2723__Android	GetUid	avaliar			1	grafo_unico
+2724__Android	GetVersion	avaliar			1	grafo_unico
+2725__Android	GetVoidElement	avaliar			1	grafo_unico
+2726__Android	GetVoidElementCount	avaliar			1	grafo_unico
+2727__Android	GetWidth	avaliar			1	grafo_unico
+2728__Android	GetWritingAppAsUTF8	avaliar			1	grafo_unico
+2729__Android	HasBlockEntries	avaliar			1	grafo_unico
+2730__Android	Info	avaliar			1	grafo_unico
+2731__Android	Init	avaliar_na_linha	4405		5	colisao
+2732__Android	Init	avaliar_na_linha	4581		5	colisao
+2733__Android	Init	avaliar_na_linha	4800		5	colisao
+2734__Android	Init	avaliar_na_linha	478		5	colisao
+2735__Android	Init	avaliar_na_linha	2415		5	colisao
+2736__Android	IsInvisible	avaliar			1	grafo_unico
+2737__Android	IsKey	avaliar			1	grafo_unico
+2738__Android	Load	avaliar_na_linha	6984		3	colisao
+2739__Android	Load	avaliar_na_linha	1823		3	colisao
+2740__Android	Load	avaliar_na_linha	3013		3	colisao
+2741__Android	LoadCluster	avaliar			1	grafo_unico
+2742__Android	LoadCuePoint	avaliar			1	grafo_unico
+2743__Android	Match	avaliar_na_linha	363		2	colisao
+2744__Android	Match	avaliar_na_linha	410		2	colisao
+2745__Android	Parse	avaliar_na_linha	4279		15	colisao
+2746__Android	Parse	avaliar_na_linha	4436		15	colisao
+2747__Android	Parse	avaliar_na_linha	4625		15	colisao
+2748__Android	Parse	avaliar_na_linha	4829		15	colisao
+2749__Android	Parse	avaliar_na_linha	4914		15	colisao
+2750__Android	Parse	avaliar_na_linha	495		15	colisao
+2751__Android	Parse	avaliar_na_linha	6122		15	colisao
+2752__Android	Parse	avaliar_na_linha	6359		15	colisao
+2753__Android	Parse	avaliar_na_linha	6489		15	colisao
+2754__Android	Parse	avaliar_na_linha	7237		15	colisao
+2755__Android	Parse	avaliar_na_linha	9056		15	colisao
+2756__Android	Parse	avaliar_na_linha	9092		15	colisao
+2757__Android	Parse	avaliar_na_linha	9169		15	colisao
+2758__Android	Parse	avaliar_na_linha	1884		15	colisao
+2759__Android	Parse	avaliar_na_linha	3130		15	colisao
+2760__Android	ParseAtom	avaliar			1	grafo_unico
+2761__Android	ParseBlockGroup	avaliar			1	grafo_unico
+2762__Android	ParseCompressionEntry	avaliar			1	grafo_unico
+2763__Android	ParseContentEncAESSettingsEntry	avaliar			1	grafo_unico
+2764__Android	ParseContentEncodingEntry	avaliar			1	grafo_unico
+2765__Android	ParseContentEncodingsEntry	avaliar			1	grafo_unico
+2766__Android	ParseCues	avaliar			1	grafo_unico
+2767__Android	ParseDisplay	avaliar			1	grafo_unico
+2768__Android	ParseEdition	avaliar			1	grafo_unico
+2769__Android	ParseElementHeader	avaliar			1	grafo_unico
+2770__Android	ParseEncryptionEntry	avaliar			1	grafo_unico
+2771__Android	ParseEntry	avaliar			1	grafo_unico
+2772__Android	ParseHeaders	avaliar			1	grafo_unico
+2773__Android	ParseNext	avaliar			1	grafo_unico
+2774__Android	ParseSimpleBlock	avaliar			1	grafo_unico
+2775__Android	ParseTrackEntry	avaliar			1	grafo_unico
+2776__Android	PreloadCluster	avaliar			1	grafo_unico
+2777__Android	PreloadCuePoint	avaliar			1	grafo_unico
+2778__Android	Read	avaliar			1	grafo_unico
+2779__Android	ReadUInt	avaliar			1	grafo_unico
+2780__Android	Seek	avaliar_na_linha	5917		2	colisao
+2781__Android	Seek	avaliar_na_linha	6228		2	colisao
+2782__Android	SeekHead	avaliar			1	grafo_unico
+2783__Android	Segment	avaliar			1	grafo_unico
+2784__Android	SegmentInfo	avaliar			1	grafo_unico
+2785__Android	SetKey	avaliar			1	grafo_unico
+2786__Android	ShallowCopy	avaliar_na_linha	4413		3	colisao
+2787__Android	ShallowCopy	avaliar_na_linha	4594		3	colisao
+2788__Android	ShallowCopy	avaliar_na_linha	4808		3	colisao
+2789__Android	SimpleBlock	avaliar			1	grafo_unico
+2790__Android	Track	avaliar			1	grafo_unico
+2791__Android	Tracks	avaliar			1	grafo_unico
+2792__Android	UnserializeFloat	avaliar			1	grafo_unico
+2793__Android	UnserializeInt	avaliar			1	grafo_unico
+2794__Android	UnserializeString	avaliar			1	grafo_unico
+2795__Android	UnserializeUInt	avaliar			1	grafo_unico
+2796__Android	VetEntry	avaliar_na_linha	5899		2	colisao
+2797__Android	VetEntry	avaliar_na_linha	6223		2	colisao
+2798__Android	VideoTrack	avaliar			1	grafo_unico
+2799__Android	Atom	avaliar			0	indeterminado_v2
+2800__Android	Block	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2801__Android	BlockEntry	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2802__Android	Chapters	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2803__Android	Cluster	excluir		colisao_hash_nao_casa	2	colisao
+2804__Android	ContentCompression	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2805__Android	ContentEncoding	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2806__Android	ContentEncryption	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2807__Android	CuePoint	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2808__Android	Cues	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2809__Android	Display	avaliar			0	indeterminado_v2
+2810__Android	EBMLHeader	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2811__Android	Edition	avaliar			0	indeterminado_v2
+2812__Android		avaliar				sem_evidencia_v2
+2813__Android	Info	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2814__Android	SeekHead	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2815__Android	Segment	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2816__Android	SegmentInfo	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2817__Android	Track	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2818__Android	Tracks	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2819__Android	main	avaliar			1	grafo_unico
+2820__Android	usage_exit	avaliar			1	grafo_unico
+2821__Android	main	avaliar			1	grafo_unico
+2822__Android	usage_exit	avaliar			1	grafo_unico
+2823__Android	main	avaliar			1	grafo_unico
+2824__Android	main	avaliar			1	grafo_unico
+2825__Android	usage	avaliar			1	grafo_unico
+2826__Android	encode_frame	avaliar			1	grafo_unico
+2827__Android	main	avaliar			1	grafo_unico
+2828__Android	set_active_map	avaliar			1	grafo_unico
+2829__Android	set_roi_map	avaliar			1	grafo_unico
+2830__Android	unset_active_map	avaliar			1	grafo_unico
+2831__Android	usage_exit	avaliar			1	grafo_unico
+2832__Android	main	avaliar			1	grafo_unico
+2833__Android	encode_frame	avaliar			1	grafo_unico
+2834__Android	main	avaliar			1	grafo_unico
+2835__Android	usage_exit	avaliar			1	grafo_unico
+2836__Android	encode_frame	avaliar			1	grafo_unico
+2837__Android	get_frame_stats	avaliar			1	grafo_unico
+2838__Android	main	avaliar			1	grafo_unico
+2839__Android	usage_exit	avaliar			1	grafo_unico
+2840__Android	die	avaliar			1	grafo_unico
+2841__Android	die_codec	avaliar			1	grafo_unico
+2842__Android	main	avaliar			1	grafo_unico
+2843__Android	main	avaliar			1	grafo_unico
+2844__Android	usage_exit	avaliar			1	grafo_unico
+2845__Android	update_rate_histogram	avaliar			1	grafo_unico
+2846__Android	PreEncodeFrameHook	avaliar			1	grafo_unico
+2847__Android	FramePktHook	avaliar			1	grafo_unico
+2848__Android	ConvolveFunctions	avaliar			1	grafo_unico
+2849__Android	SetConstantInput	avaliar			1	grafo_unico
+2850__Android	SetUp	avaliar			1	grafo_unico
+2851__Android	SetUpTestCase	avaliar			1	grafo_unico
+2852__Android	TearDownTestCase	avaliar			1	grafo_unico
+2853__Android	filter_average_block2d_8_c	avaliar			1	grafo_unico
+2854__Android	filter_block2d_8_c	avaliar			1	grafo_unico
+2855__Android	input	avaliar			1	grafo_unico
+2856__Android	output	avaliar			1	grafo_unico
+2857__Android	FramePktHook	avaliar			1	grafo_unico
+2858__Android	PreEncodeFrameHook	avaliar			1	grafo_unico
+2859__Android	SetUp	avaliar			1	grafo_unico
+2860__Android	PreEncodeFrameHook	avaliar_na_linha	43		2	colisao
+2861__Android	PreEncodeFrameHook	avaliar_na_linha	275		2	colisao
+2862__Android	ResetModel	avaliar_na_linha	34		2	colisao
+2863__Android	ResetModel	avaliar_na_linha	199		2	colisao
+2864__Android	RunAccuracyCheck	avaliar			1	grafo_unico
+2865__Android	RunCoeffCheck	avaliar			1	grafo_unico
+2866__Android	RunFwdTxfm	avaliar_na_linha	435		2	colisao
+2867__Android	RunFwdTxfm	avaliar_na_linha	478		2	colisao
+2868__Android	RunInvAccuracyCheck	avaliar			1	grafo_unico
+2869__Android	RunInvTxfm	avaliar_na_linha	438		2	colisao
+2870__Android	RunInvTxfm	avaliar_na_linha	481		2	colisao
+2871__Android	RunMemCheck	avaliar			1	grafo_unico
+2872__Android	SetUp	avaliar_na_linha	425		2	colisao
+2873__Android	SetUp	avaliar_na_linha	468		2	colisao
+2874__Android	fdct16x16_ref	avaliar			1	grafo_unico
+2875__Android	fht16x16_ref	avaliar			1	grafo_unico
+2876__Android	SetUp	avaliar			1	grafo_unico
+2877__Android	reference_32x32_dct_1d	avaliar			1	grafo_unico
+2878__Android	reference_32x32_dct_2d	avaliar			1	grafo_unico
+2879__Android	DecodeFrame	avaliar			1	grafo_unico
+2880__Android	RunLoop	avaliar			1	grafo_unico
+2881__Android	EncodeFrameInternal	avaliar			1	grafo_unico
+2882__Android	Flush	avaliar			1	grafo_unico
+2883__Android	InitializeConfig	avaliar			1	grafo_unico
+2884__Android	MismatchHook	avaliar			1	grafo_unico
+2885__Android	RunLoop	avaliar			1	grafo_unico
+2886__Android	compare_img	avaliar			1	grafo_unico
+2887__Android	PreEncodeFrameHook	avaliar			1	grafo_unico
+2888__Android	Reset	avaliar			1	grafo_unico
+2889__Android	GetFreeFrameBuffer	avaliar			1	grafo_unico
+2890__Android	ReturnFrameBuffer	avaliar			1	grafo_unico
+2891__Android	SetUp	avaliar			1	grafo_unico
+2892__Android	RunAccuracyCheck	avaliar			1	grafo_unico
+2893__Android	RunCoeffCheck	avaliar			1	grafo_unico
+2894__Android	RunFwdTxfm	avaliar_na_linha	204		2	colisao
+2895__Android	RunFwdTxfm	avaliar_na_linha	247		2	colisao
+2896__Android	RunInvAccuracyCheck	avaliar			1	grafo_unico
+2897__Android	RunInvTxfm	avaliar_na_linha	207		2	colisao
+2898__Android	RunInvTxfm	avaliar_na_linha	251		2	colisao
+2899__Android	RunMemCheck	avaliar			1	grafo_unico
+2900__Android	SetUp	avaliar_na_linha	194		2	colisao
+2901__Android	SetUp	avaliar_na_linha	237		2	colisao
+2902__Android	fdct4x4_ref	avaliar			1	grafo_unico
+2903__Android	fht4x4_ref	avaliar			1	grafo_unico
+2904__Android	RunExtremalCheck	avaliar			1	grafo_unico
+2905__Android	RunRoundTripErrorCheck	avaliar			1	grafo_unico
+2906__Android	RunSignBiasCheck	avaliar			1	grafo_unico
+2907__Android	SetUp	avaliar_na_linha	228		2	colisao
+2908__Android	SetUp	avaliar_na_linha	268		2	colisao
+2909__Android	fdct8x8_ref	avaliar			1	grafo_unico
+2910__Android	fht8x8_ref	avaliar			1	grafo_unico
+2911__Android	Predict	avaliar_na_linha	262		2	colisao
+2912__Android	SetUp	avaliar			1	grafo_unico
+2913__Android	FramePktHook	avaliar			0	indeterminado_v2
+2914__Android	CheckSADs	avaliar			1	grafo_unico
+2915__Android	CheckSad	avaliar			1	grafo_unico
+2916__Android	FillConstant	avaliar			1	grafo_unico
+2917__Android	FillRandom	avaliar			1	grafo_unico
+2918__Android	GetReference	avaliar			1	grafo_unico
+2919__Android	ReferenceSAD	avaliar			1	grafo_unico
+2920__Android	SAD	avaliar			1	grafo_unico
+2921__Android	SADs	avaliar			1	grafo_unico
+2922__Android	SetUp	avaliar			1	grafo_unico
+2923__Android	SetUpTestCase	avaliar			1	grafo_unico
+2924__Android	TearDownTestCase	avaliar			1	grafo_unico
+2925__Android	SetUp	avaliar			1	grafo_unico
+2926__Android	SvcTest	avaliar			1	grafo_unico
+2927__Android	TearDown	avaliar			1	grafo_unico
+2928__Android	main	avaliar			1	grafo_unico
+2929__Android	TileIndependenceTest	avaliar			1	grafo_unico
+2930__Android	OneQuarterTest	avaliar			1	grafo_unico
+2931__Android	RefTest	avaliar			1	grafo_unico
+2932__Android	RefTest	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2933__Android	RefTest	excluir		funcao_unica_nao_e_a_rotulada	1	grafo_unico
+2934__Android	SetUp	avaliar			1	grafo_unico
+2935__Android	SetUp	avaliar			1	grafo_unico
+2936__Android	TearDown	avaliar			1	grafo_unico
+2937__Android	TearDown	avaliar			1	grafo_unico
+2938__Android	ZeroTest	avaliar			1	grafo_unico
+2939__Android		avaliar				sem_evidencia_v2
+2940__Android	subpel_variance_ref	avaliar			1	grafo_unico
+2941__Android	variance_ref	avaliar			1	grafo_unico
+2942__Android	LosslessTestLarge	avaliar			1	grafo_unico
+2943__Android	DecodeFile	avaliar			1	grafo_unico
+2944__Android	SetUp	avaliar			1	grafo_unico
+2945__Android	TearDown	avaliar			1	grafo_unico
+2946__Android	WT_Interpolate	avaliar			1	grafo_unico
+2947__Android	WT_InterpolateMono	avaliar			0	indeterminado_v2
+2948__Android	WT_InterpolateNoLoop	avaliar			1	grafo_unico
+2949__Android	WT_NoiseGenerator	avaliar			1	grafo_unico
+2950__Android	WT_VoiceFilter	avaliar			0	indeterminado_v2
+2951__Android	WT_VoiceGain	avaliar			1	grafo_unico
+2952__Android	WT_CheckSampleEnd	avaliar			1	grafo_unico
+2953__Android	impeg2d_dec_p_b_slice	avaliar			1	grafo_unico
+2954__Android	impeg2d_dec_p_mb_params	avaliar			1	grafo_unico
+2955__Android	impeg2d_dec_pnb_mb_params	avaliar			1	grafo_unico
+2956__Android	rfc_parse_data	avaliar			1	grafo_unico
+2957__Android	rfc_parse_data	avaliar			1	grafo_unico

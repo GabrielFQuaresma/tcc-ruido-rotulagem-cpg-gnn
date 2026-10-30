@@ -1,0 +1,135 @@
+# regra_veredito.toml — a regra que transforma EVIDENCIA em VEREDITO.
+#
+# O curadoria_v2.sc emite contagens e nao decide nada. A decisao mora aqui, num arquivo de
+# config, porque ela precisou ser fixada DEPOIS de ver a distribuicao da evidencia — e sem
+# essa separacao, mudar a regra exigiria reescrever a traversal.
+#
+# COMO ESTA REGRA FOI ESCOLHIDA (Etapa 4a, 09/08/2026)
+# ----------------------------------------------------
+# Nao foi por acuracia. Nenhum rotulo — nem humano, nem do modelo — foi consultado para
+# escrever este arquivo. Se o criterio de escolha fosse acuracia, o criterio de escolha e a
+# medida de resultado seriam a mesma quantidade, e o "resultado" do TCC seria o eco da escolha.
+#
+# A escolha saiu de dois eixos que nao conseguem vazar a resposta:
+#
+#   1. RASTREABILIDADE. Cada clausula abaixo tem que se rastrear ate uma frase da definicao da
+#      familia CWE-119/120/125/787. Clausula que nao se rastreia veio da amostra e e overfitting.
+#      Foi este eixo que eliminou os limiares de contagem (fluxo >= 2, >= 5, >= 10): "cinco
+#      fluxos" nao esta na definicao de CWE nenhuma. Sao parametros livres, e parametro livre
+#      escolhido sobre a amostra e exatamente o que a Etapa 4a existe para nao fazer.
+#
+#   2. TAMANHO DO M_cur, como VETO, nao como alvo. O tamanho nao foi mirado; foi conferido
+#      depois, e so precisava passar em dois testes grosseiros: nao pode ser tao pequeno que o
+#      M_ctrl (dimensionado por ele) perca poder, nem tao grande que M_cur ~ M_raw e o contraste
+#      central do TCC evapore. Ver ETAPA_4A.md para a curva inteira.
+#
+# A curva de encolhimento medida no dev set (27 itens de corpo sadio, semente 7, disjunto dos 50):
+#
+#     M_raw (sem filtro)        27   100,0%
+#     camada 1 sozinha          16    59,3%     <- rejeitada: a camada 2 contribuiria ZERO
+#     camada 1 E camada 2       13    48,1%     <- esta regra
+#     c1 E fluxo so de memoria   9    33,3%     <- rejeitada: privilegia uma forma de acesso
+#     c1 E fluxo so de indice   10    37,0%     <- rejeitada: idem
+#     c1 E (memoria E indice)    6    22,2%     <- rejeitada: conjuncao sem respaldo na definicao
+#
+# No lote de 50 da Etapa 3 (n=44 sadios) a mesma regra da 40,9%, contra 61,4% da camada 1
+# sozinha. Duas amostras independentes, mesma ordem de grandeza.
+#
+# POR QUE O CONECTOR E "E" E NAO O "OU" DA 4.5
+# ---------------------------------------------
+# Porque com "OU" a camada 2 nao participa do veredito — e nao e "participa pouco", e ZERO.
+# Os sinks da camada 2 sao argumentos exatamente das construcoes que a camada 1 conta, logo
+# camada2 ⊆ camada1 e (camada1 OU camada2) ≡ camada1. Medido no lote de 50: o balde "so camada 2"
+# deu 0 de 44, e isso e estrutural, nao acaso amostral (LOTE_50.md, achado 1). A 4.5 chama a
+# camada de fluxo de "mais precisa" e depois escreve uma regra em que ela nao entra. O erro nao e
+# o tamanho do corte, e a atribuicao.
+
+[meta]
+versao = "v1"
+fixada_em = "2026-08-09"
+etapa = "4a"
+dev_set = "dev_set.tsv"          # 30 itens, semente 7, disjuncao dos 50 provada
+evidencia = "saida_dev/"
+escolhida_olhando_rotulo = false # invariante da 4a. Ver [verificacao_4b] logo abaixo.
+
+[verificacao_4b]
+# 09/08/2026, depois de a regra ja estar escrita acima. Os rotulos do dev vieram do MODELO
+# (anotar_modelo.ps1, R=1, cve_visivel, rubrica sha256 81f9d249..., a mesma dos 50).
+#
+# A REGRA NAO FOI ALTERADA DEPOIS DE OLHAR. Isso importa para a frase do artigo: o texto pode
+# dizer "calibrada por tamanho e VERIFICADA contra um dev set independente". Se tivesse sido
+# mexida, teria de dizer "refinada", e o retorno para a 4a teria de virar linha nas ameacas.
+refinada_apos_4b = false
+
+# n = 27 comparaveis (28 com evidencia, menos 1 indeterminado; 2 dos 30 nao tem evidencia por
+# falha de download). Numeros pequenos — guarda-corpo grosso, nunca dial.
+taxa_base_dev = 48.1             # 13/27 rotulados D
+precisao_do_filtro = 69.2        # 9/13 confirmados sao D
+precisao_sem_irmaos_de_commit = 81.8   # 9/11, tirando os 6 itens de commit compartilhado
+# As duas leituras contam a mesma historia (+21,1 e +19,9 pontos sobre a respectiva taxa base),
+# que era a condicao declarada para a leitura valer.
+#
+# ESTES NUMEROS NAO SAO RESULTADO e nao entram em tabela nem no resumo do artigo. A precisao do
+# filtro e uma coisa so: a medida nos 50, depois do congelamento (Etapa 5).
+
+[camada1]
+# INGREDIENTE 1 DA FAMILIA: "um acesso a buffer — indice, aritmetica de ponteiro, ou API com
+# argumento de tamanho". As duas formas contam igual, porque a definicao nao privilegia nenhuma.
+categorias = ["copia", "escrita", "concat", "formatacao", "entrada"]
+minimo = 1
+
+# ALOCACAO FICA FORA. malloc/calloc/realloc/alloca aparecem em quase toda funcao C nao trivial:
+# contar alocacao como "acesso a buffer" faria a camada 1 disparar em praticamente tudo. E alem
+# disso alocar nao e acessar — a definicao fala do acesso. Ja declarado em dados/README.md.
+# (No dev set nenhum item tinha alocacao SEM outra presenca, entao aqui a exclusao nao mudou
+# contagem nenhuma; no lote de 50 havia 7 chamadas de alocacao. A exclusao e de desenho.)
+
+contar_acessos_indexados = true
+# `<operator>.indirectIndexAccess` — o `a[i]` sobre ponteiro. Construcao da linguagem, generica
+# por construcao: nao ha como envies-la para um projeto.
+
+contar_acessos_indexados_diretos = false
+# `<operator>.indexAccess`. Desligado por prudencia, e a decisao e VAZIA na pratica: nos 77 itens
+# ja rodados (dev + lote de 50) este contador deu 0 em todos. Se aparecer na rodada completa,
+# vira decisao de verdade e tem que ser reaberta aqui, nao no silencio.
+
+[camada2]
+# INGREDIENTES 2 E 3: "um indice ou tamanho que flui para esse acesso", "vindo de fora do
+# controle da funcao". As quatro contagens sao os pares (fonte, sink) que o .sc mede; somam
+# porque a definicao pede a EXISTENCIA de um fluxo, nao uma quantidade dele.
+fluxos = [
+  "fluxos_memoria_de_parametro",
+  "fluxos_memoria_de_libc",
+  "fluxos_indice_de_parametro",
+  "fluxos_indice_de_libc",
+]
+minimo = 1
+# minimo = 1 e presenca, nao limiar: e a traducao direta de "existe um fluxo". Qualquer valor
+# maior que 1 seria um parametro livre calibrado na amostra.
+
+# Fluxo de alocacao (fluxos_alocacao_*) fica fora pelo mesmo motivo da categoria alocacao.
+
+[veredito]
+conector = "E"                   # camada 1 E camada 2. Ver o cabecalho.
+
+[saude]
+# INGREDIENTE 4 da familia — "ausencia de uma checagem que domine o acesso" — NAO esta
+# implementado, de proposito: exigir prova de ausencia de checagem inverteria a regra de ouro do
+# TCC (o silencio nao confirma nada, so remove do curado). As guardas.condicoes existem na
+# evidencia como apoio a leitura e NAO entram no veredito.
+
+# Separar "nao achei padrao" de "nao consegui olhar". Corpo nao parseado tem o no do metodo
+# presente mas sem bloco e sem chamada. Medido em 07/08: sadios de 1,7 a 287,8 nos AST por linha,
+# quebrados todos em 0,1 — sem zona cinzenta. Confirmado no dev set (1 de 28).
+marcar_indeterminado_se_corpo_ausente = true
+blocos_maximo_para_ausente = 0
+chamadas_maximo_para_ausente = 0
+
+# Fluxo que estourou no motor de dataflow vem como -1 no JSON. Sem isto, uma falha de ferramenta
+# viraria "nao ha fluxo" e o item cairia do M_cur como se fosse rotulo suspeito. Nao ocorreu
+# nenhuma vez nos 77 itens ja rodados; a guarda existe para a rodada completa.
+marcar_indeterminado_se_fluxo_estourou = true
+
+# INDETERMINADO NAO E DESCARTADO. Nao entra no M_cur (nada foi corroborado) e tambem nao entra na
+# conta de ruido de rotulo, porque o que falhou foi a ferramenta, nao o rotulo. Sai reportado a
+# parte, e vira linha nas Ameacas a Validade.

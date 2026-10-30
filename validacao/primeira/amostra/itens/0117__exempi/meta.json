@@ -1,0 +1,10 @@
+{
+  "id": 117,
+  "project": "exempi",
+  "commit_id": "6cbd34025e5fd3ba47b29b602096e456507ce83b",
+  "cwe_bigvul": "CWE-125",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2018-7730",
+  "file_name": "nan"
+}

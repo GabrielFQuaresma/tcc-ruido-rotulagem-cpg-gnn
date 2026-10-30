@@ -1,0 +1,46 @@
+{
+  "alvo": "DecodeGifImg",
+  "arquivo": "arquivo__ngiflib.c",
+  "linha_inicio": 387,
+  "linha_fim": 548,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 7,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 7,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 7,
+    "fontes_parametro": 1,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 19,
+    "estruturas": {
+      "ELSE": 3,
+      "FOR": 2,
+      "IF": 16,
+      "WHILE": 1
+    }
+  },
+  "saude": {
+    "span": 162,
+    "nos_ast": 708,
+    "blocos": 53,
+    "locais": 19,
+    "chamadas_total": 277,
+    "chamadas_nao_operador": 20,
+    "estruturas_total": 22,
+    "externo": false
+  },
+  "item": "1358__ngiflib",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "ngiflib"
+}

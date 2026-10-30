@@ -1,0 +1,10 @@
+{
+  "id": 45,
+  "project": "xserver",
+  "commit_id": "8caed4df36b1f802b4992edcfd282cbeeec35d9d",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2017-10971",
+  "file_name": "nan"
+}

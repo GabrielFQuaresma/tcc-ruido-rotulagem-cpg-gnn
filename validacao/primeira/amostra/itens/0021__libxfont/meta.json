@@ -1,0 +1,10 @@
+{
+  "id": 21,
+  "project": "libxfont",
+  "commit_id": "d1e670a4a8704b8708e493ab6155589bcd570608",
+  "cwe_bigvul": "CWE-125",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2017-13720",
+  "file_name": "nan"
+}

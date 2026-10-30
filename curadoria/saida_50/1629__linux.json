@@ -1,0 +1,46 @@
+{
+  "alvo": "mlx4_register_mac",
+  "arquivo": "arquivo__port.c",
+  "linha_inicio": 93,
+  "linha_fim": 139,
+  "camada1": {
+    "por_categoria": {},
+    "por_nome": {},
+    "acessos_indexados": 8,
+    "acessos_indexados_diretos": 0
+  },
+  "camada2": {
+    "fluxos_memoria_de_parametro": 0,
+    "fluxos_memoria_de_libc": 0,
+    "fluxos_indice_de_parametro": 9,
+    "fluxos_indice_de_libc": 0,
+    "fluxos_alocacao_de_parametro": 0,
+    "fluxos_alocacao_de_libc": 0,
+    "sinks_memoria": 0,
+    "sinks_indice": 8,
+    "fontes_parametro": 4,
+    "fontes_libc": 0
+  },
+  "guardas": {
+    "condicoes": 5,
+    "estruturas": {
+      "CONTINUE": 1,
+      "FOR": 1,
+      "GOTO": 3,
+      "IF": 4
+    }
+  },
+  "saude": {
+    "span": 47,
+    "nos_ast": 187,
+    "blocos": 23,
+    "locais": 6,
+    "chamadas_total": 70,
+    "chamadas_nao_operador": 12,
+    "estruturas_total": 9,
+    "externo": false
+  },
+  "item": "1629__linux",
+  "cwe_bigvul": "CWE-119",
+  "projeto": "linux"
+}

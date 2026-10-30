@@ -1,0 +1,10 @@
+{
+  "id": 99,
+  "project": "tartarus",
+  "commit_id": "4ff22863d895cb7ebfced4cf923a012a614adaa8",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2017-6542",
+  "file_name": "nan"
+}

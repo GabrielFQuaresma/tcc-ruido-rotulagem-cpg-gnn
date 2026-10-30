@@ -1,0 +1,50 @@
+caso	item	commit	cve	veredito	motivo	c1	c2	humano	confianca	modelo
+1	1085__ImageMagick	f6e9d0d9955e85bdd7540b251cd50d598dacc5e6	CVE-2016-10066	indeterminado	corpo_nao_parseado	0	0	B	alta	B
+2	2408__Android	a78887bcffbc2995cf9ed72e0697acf560875e9e	CVE-2016-3820	confirmado	camada1=34 camada2=89	34	89	C	alta	C
+3	1954__Chrome	02c8303512ebed345011f7b545e2f418799be2f0	CVE-2013-0917	descartado	sem_camada1	0	0	B	baixo	B
+4	1217__libgd	fb0e0cce0b9f25389ab56604c3547351617e1415	CVE-2016-6906	confirmado	camada1=9 camada2=26	9	26	D	alta	D
+5	1308__radare2	40b021ba29c8f90ccf7c879fde2580bc73a17e8e	CVE-2018-14016	descartado	sem_camada2	9	0	A	alta	A
+6	0536__linux	6e94e0cfb0887e4013b3b930fa6ab1fe6bb6ba91	CVE-2016-4998	descartado	sem_camada2	6	0	D	alta	D
+7	2627__Android	04839626ed859623901ebd3a5fd483982186b59d	CVE-2016-1621	descartado	sem_camada1	0	0	?	baixo	B
+8	2467__Android	ba604d336b40fd4bde1622f64d67135bdbd61301	CVE-2016-0835	descartado	sem_camada2	9	0	D	alta	D
+9	1996__Chrome	7f0126ff011142c8619b10a6e64d04d1745c503a	CVE-2012-5157	descartado	sem_camada1	0	0	B	alta	B
+10	1892__Chrome	3ca8e38ff57e83fcce76f9b54cd8f8bfa09c34ad	CVE-2013-2920	confirmado	camada1=1 camada2=1	1	1	C	média	D
+11	0444__libtiff	3ca657a8793dd011bf869695d72ad31c779c3cc1	CVE-2016-9535	descartado	sem_camada1	0	0	B	alta	C
+12	2821__Android	5a9753fca56f0eeb9f61e342b2fccffc364f9426	CVE-2016-1621	descartado	sem_camada2	8	0	A	alta	B
+13	2867__Android	5a9753fca56f0eeb9f61e342b2fccffc364f9426	CVE-2016-1621	descartado	sem_camada1	0	0	B	alta	B
+14	1226__miniupnp	b238cade9a173c6f751a34acf8ccff838a62aa47	CVE-2016-3178	confirmado	camada1=38 camada2=72	38	72	D	alta	D
+15	0094__libXrandr	a0df3e1c7728205e5c7650b2e6dce684139254a6	CVE-2016-7948	confirmado	camada1=1 camada2=1	1	1	D	baixa	D
+16	2666__Android	04839626ed859623901ebd3a5fd483982186b59d	CVE-2016-1621	descartado	sem_camada2	3	0	B	alta	A
+17	2409__Android	590d1729883f700ab905cdc9ad850f3ddd7e1f56	CVE-2016-3819	confirmado	camada1=4 camada2=12	4	12	D	alta	D
+18	1358__ngiflib	b588a2249c7abbfc52173e32ee11d6facef82f89	CVE-2018-10677	confirmado	camada1=7 camada2=7	7	7	D	alta	D
+19	1011__gst-plugins-ugly	d21017b52a585f145e8d62781bcc1c5fefc7ee37	CVE-2017-5847	confirmado	camada1=4 camada2=1	4	1	D	alta	D
+20	2637__Android	04839626ed859623901ebd3a5fd483982186b59d	CVE-2016-1621	descartado	sem_camada1	0	0	B	alta	A
+21	2892__Android	5a9753fca56f0eeb9f61e342b2fccffc364f9426	CVE-2016-1621	confirmado	camada1=7 camada2=7	7	7	C	alta	B
+22	2809__Android	04839626ed859623901ebd3a5fd483982186b59d	CVE-2016-1621	indeterminado	corpo_nao_parseado	0	0	A	alta	A
+23	0930__yara	992480c30f75943e9cd6245bb2015c7737f9b661	CVE-2017-9465	descartado	sem_camada2	2	0	D	alta	C
+24	2739__Android	04839626ed859623901ebd3a5fd483982186b59d	CVE-2016-1621	descartado	sem_camada1	0	0	B	alta	A
+25	2805__Android	04839626ed859623901ebd3a5fd483982186b59d	CVE-2016-1621	descartado	sem_camada1	0	0	A	alta	A
+26	1437__linux	412b65d15a7f8a93794653968308fc100f2aa87c	CVE-2017-18222	descartado	sem_camada1	0	0	D	alta	D
+28	2838__Android	5a9753fca56f0eeb9f61e342b2fccffc364f9426	CVE-2016-1621	descartado	sem_camada2	6	0	C	baixa	B
+29	0145__php	dccda88f27a084bcbbb30198ace12b4e7ae961cc	CVE-2016-4539	indeterminado	corpo_nao_parseado	0	0	A	alta	A
+30	1274__OpenSC	8fe377e93b4b56060e5bbfb6f3142ceaeca744fa	CVE-2018-16427	indeterminado	corpo_nao_parseado	0	0	D	alta	D
+31	1722__ImageMagick	d9b2209a69ee90d8df81fb124eb66f593eb9f599	CVE-2016-7526	confirmado	camada1=26 camada2=24	26	24	C	alta	C
+32	1685__tcpdump	c6e0531b5def26ecf912e8de6ade86cbdaed3751	CVE-2017-12899	descartado	sem_camada2	5	0	D	alta	D
+33	2831__Android	5a9753fca56f0eeb9f61e342b2fccffc364f9426	CVE-2016-1621	descartado	sem_camada1	0	0	A	alta	B
+34	0175__busybox	6d3b4bb24da9a07c263f3c1acf8df85382ff562c	CVE-2018-20679	descartado	sem_camada1	0	0	C	alta	C
+35	2770__Android	04839626ed859623901ebd3a5fd483982186b59d	CVE-2016-1621	descartado	sem_camada1	0	0	B	alta	A
+36	1695__libsndfile	708e996c87c5fae77b104ccfeb8f6db784c32074	CVE-2017-7586	confirmado	camada1=2 camada2=4	2	4	D	alta	C
+37	2504__Android	a86eb798d077b9b25c8f8c77e3c02c2f287c1ce7	CVE-2017-0587	confirmado	camada1=6 camada2=7	6	7	C	baixa	C
+38	1578__rdesktop	4dca546d04321a610c1835010b5dad85163b65e1	CVE-2018-20182	descartado	sem_camada1	0	0	D	alta	B
+39	2081__Chrome	7f3d85b096f66870a15b37c2f40b219b2e292693	CVE-2015-8126	indeterminado	corpo_nao_parseado	0	0	B	alta	B
+40	1629__linux	0926f91083f34d047abc74f1ca4fa6a9c161f7db	CVE-2010-5332	confirmado	camada1=8 camada2=9	8	9	D	alta	D
+41	2901__Android	5a9753fca56f0eeb9f61e342b2fccffc364f9426	CVE-2016-1621	descartado	sem_camada1	0	0	C	baixa	B
+42	1792__Chrome	3057be01bcbbd1d0938afb489e18f2ca6d9b8229	CVE-2011-2794	descartado	sem_camada1	0	0	B	alta	B
+43	2859__Android	5a9753fca56f0eeb9f61e342b2fccffc364f9426	CVE-2016-1621	descartado	sem_camada1	0	0	B	alta	B
+44	0898__wildmidi	660b513d99bced8783a4a5984ac2f742c74ebbdd	CVE-2017-11664	confirmado	camada1=80 camada2=2	80	2	D	alta	C
+45	1094__ImageMagick	f6e9d0d9955e85bdd7540b251cd50d598dacc5e6	CVE-2016-10066	confirmado	camada1=39 camada2=20	39	20	C	alta	B
+46	0322__linux	c0f5ecee4e741667b2493c742b60b6218d40b3aa	CVE-2013-1860	confirmado	camada1=1 camada2=3	1	3	D	alta	D
+47	0046__gstreamer	bdc20b9baf13564d9a061343416395f8f9a92b53	CVE-2009-0397	confirmado	camada1=20 camada2=34	20	34	D	alta	D
+48	1785__Chrome	01e4ee2fda0a5e57a8d0c8cb829022eb84fdff12	CVE-2011-2806	descartado	sem_camada1	0	0	A	alta	A
+49	0299__FFmpeg	e43a0a232dbf6d3c161823c2e07c52e76227a1bc	CVE-2013-4263	descartado	sem_camada2	6	0	D	alta	D
+50	1753__ImageMagick	58d9c46929ca0828edde34d263700c3a5fe8dc3c	CVE-2019-10714	descartado	sem_camada1	0	0	D	alta	D

@@ -1,0 +1,10 @@
+{
+  "id": 113,
+  "project": "php",
+  "commit_id": "81406c0c1d45f75fcc7972ed974d2597abb0b9e9",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": null,
+  "status_download": "skip",
+  "cve_id": "CVE-2016-6297",
+  "file_name": "nan"
+}

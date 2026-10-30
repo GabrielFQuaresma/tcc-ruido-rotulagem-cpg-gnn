@@ -1,0 +1,12 @@
+{
+  "id": 7,
+  "project": "pengutronix",
+  "commit_id": "574ce994016107ad8ab0f845a785f28d7eaa5208",
+  "cwe_bigvul": "CWE-119",
+  "arquivo_inteiro": null,
+  "status_download": "clone_falhou",
+  "cve_id": "CVE-2019-15938",
+  "file_name": "nan",
+  "url_repo": "https://git.pengutronix.de/barebox.git",
+  "origem_url": "codelink"
+}
