@@ -53,8 +53,11 @@ def pct(x):
 
 
 def linha(nome, rg, posicao, trav):
+    # decide: só o PrimeVul e o VentiVul decidem a conclusão (Seção 3.6); essas duas linhas ganham
+    # fundo azul-claro (cores pedidas pelo autor em 13/11/2026, opções A, B e C).
     return {"nome": nome, "cur": rg["M_cur"]["f1"]["mediana"],
-            "ctrl": [rg[c]["f1"]["mediana"] for c in CTRL], "pos": posicao, "trav": trav}
+            "ctrl": [rg[c]["f1"]["mediana"] for c in CTRL], "pos": posicao, "trav": trav,
+            "decide": nome in ("PrimeVul", "VentiVul")}
 
 
 LINHAS = [linha("Teste do BigVul", B["resumo_geral"], B["comparacoes"]["principal"]["posicao"],
@@ -72,8 +75,8 @@ out = ["% GERADO por Tex/gerar_figura_regua.py a partir de modelo/resultado_test
        "% arenas/resultado_arenas.json (SHA-256 conferidos). NÃO EDITAR À MÃO: rodar o script de novo.",
        "\\begin{tikzpicture}[font=\\footnotesize]"]
 if COM_TRAVERSAL:
-    out.append(f"\\node[anchor=south west, font=\\scriptsize, text=gray!80!black] at ({XPOS},0.42) {{posição}};")
-    out.append(f"\\node[anchor=south, font=\\scriptsize, text=gray!80!black] at ({XTRAV},0.42) {{\\textit{{traversal}} pura}};")
+    out.append(f"\\node[anchor=south west, font=\\scriptsize, text=tccTexto] at ({XPOS},0.42) {{posição}};")
+    out.append(f"\\node[anchor=south, font=\\scriptsize, text=tccTexto] at ({XTRAV},0.42) {{\\textit{{traversal}} pura}};")
 for i, L in enumerate(LINHAS):
     y = -i * PASSO
     valores = L["ctrl"] + [L["cur"]]
@@ -85,17 +88,24 @@ for i, L in enumerate(LINHAS):
         return X0 + (v - lo) / (hi - lo) * (X1 - X0)
     cmin, cmax = min(L["ctrl"]), max(L["ctrl"])
     out.append(f"% {L['nome']}: curado {num(L['cur'])}; controles {', '.join(num(c) for c in L['ctrl'])}")
+    if L["decide"]:  # opção A: fundo nas arenas que decidem
+        out.append(f"\\fill[tccCurado!9, rounded corners=2pt] (-0.15,{y - 0.46:.2f}) rectangle ({XTRAV + 0.9:.2f},{y + 0.46:.2f});")
     out.append(f"\\node[anchor=west] at (0,{y:.2f}) {{{L['nome']}}};")
-    out.append(f"\\draw[gray!55] ({X0:.2f},{y:.2f}) -- ({X1:.2f},{y:.2f});")
-    out.append(f"\\fill[gray!22] ({x(cmin):.3f},{y - 0.13:.2f}) rectangle ({x(cmax):.3f},{y + 0.13:.2f});")
+    out.append(f"\\draw[tccEixo] ({X0:.2f},{y:.2f}) -- ({X1:.2f},{y:.2f});")
+    out.append(f"\\fill[tccFaixa] ({x(cmin):.3f},{y - 0.13:.2f}) rectangle ({x(cmax):.3f},{y + 0.13:.2f});")
     for c in L["ctrl"]:
-        out.append(f"\\fill[gray!65] ({x(c):.3f},{y:.2f}) circle (1.7pt);")
-    out.append(f"\\fill[black] ({x(L['cur']):.3f},{y:.2f}) circle (2.7pt);")
-    out.append(f"\\node[anchor=north, font=\\scriptsize, text=gray!80!black] at ({x(cmin):.3f},{y - 0.16:.2f}) {{{pct(cmin)}}};")
-    out.append(f"\\node[anchor=north, font=\\scriptsize, text=gray!80!black] at ({x(cmax):.3f},{y - 0.16:.2f}) {{{pct(cmax)}}};")
+        out.append(f"\\fill[tccControle] ({x(c):.3f},{y:.2f}) circle (1.7pt);")
+    out.append(f"\\fill[tccCurado] ({x(L['cur']):.3f},{y:.2f}) circle (2.7pt);")
+    out.append(f"\\node[anchor=north, font=\\scriptsize, text=tccTexto] at ({x(cmin):.3f},{y - 0.16:.2f}) {{{pct(cmin)}}};")
+    out.append(f"\\node[anchor=north, font=\\scriptsize, text=tccTexto] at ({x(cmax):.3f},{y - 0.16:.2f}) {{{pct(cmax)}}};")
     out.append(f"\\node[anchor=south, font=\\scriptsize\\bfseries] at ({x(L['cur']):.3f},{y + 0.12:.2f}) {{{pct(L['cur'])}}};")
-    out.append(f"\\node[anchor=west, font=\\footnotesize\\itshape] at ({XPOS},{y:.2f}) {{{L['pos']}}};")
+    # opção B: "acima" na cor do curado, em negrito; "dentro"/"abaixo" em cinza
+    cor_pos = "tccCurado, font=\\footnotesize\\itshape\\bfseries" if L["pos"] == "acima" else "tccTexto, font=\\footnotesize\\itshape"
+    out.append(f"\\node[anchor=west, text={cor_pos}] at ({XPOS},{y:.2f}) {{{L['pos']}}};")
     if COM_TRAVERSAL:
+        # opção C: losango verde-água, a cor da traversal na paleta, antes do número (que fica em preto)
+        xm = XTRAV - 0.62
+        out.append(f"\\fill[tccTraversal, rotate around={{45:({xm:.2f},{y:.2f})}}] ({xm - 0.065:.3f},{y - 0.065:.3f}) rectangle ({xm + 0.065:.3f},{y + 0.065:.3f});")
         out.append(f"\\node[anchor=center] at ({XTRAV},{y:.2f}) {{{pct(L['trav'])}\\%}};")
 out.append("\\end{tikzpicture}")
 

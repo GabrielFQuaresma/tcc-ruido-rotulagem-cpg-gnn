@@ -45,7 +45,7 @@ def coords(pts):
     return " ".join(f"({e},{100 * f:.2f})" for e, f in pts)
 
 
-ESTILO = {"ctrl": "gray!55, thin", "M_raw": "black!65, densely dashed, thin", "M_cur": "black, semithick"}
+ESTILO = {"ctrl": "tccControle!70, thin", "M_raw": "tccBruto, densely dashed, thin", "M_cur": "tccCurado, semithick"}
 out = ["% GERADO por Tex/gerar_figura_epocas.py a partir de ~/curadoria/modelo/ggnn/<braço>/historico.tsv.",
        "% NÃO EDITAR À MÃO: rodar o script de novo. SHA-256 dos históricos lidos:"]
 out += [f"%   {b}: {H[b]['sha']}" for b in BRACOS]
@@ -67,7 +67,7 @@ for b in BRACOS:
     else:
         out.append("\\addlegendentry{" + ("Curado" if b == "M_cur" else "Bruto") + "}")
 for b in BRACOS:
-    cor = "gray!60" if b in CTRL else ("black!65" if b == "M_raw" else "black")
+    cor = "tccControle" if b in CTRL else ("tccBruto" if b == "M_raw" else "tccCurado")
     e, f = H[b]["melhor"]
     out.append(f"\\addplot[forget plot, only marks, mark=*, mark size=1.5pt, {cor}] coordinates {{({e},{100 * f:.2f})}};")
 out += ["\\end{axis}", "\\end{tikzpicture}"]

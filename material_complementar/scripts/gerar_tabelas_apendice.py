@@ -234,7 +234,7 @@ w("\\caption{Checagem de tamanho, por arena e versão. Posição: o F1 do curado
   "V1: diferença, em pontos percentuais, entre as taxas de falso positivo das faixas de 340 nós ou mais e de até 46, no curado e (entre "
   "parênteses) nos controles; dispara se a do curado passa a de todos. V2: dispara se o curado fica acima dos "
   "controles em alguma faixa grande e em nenhuma pequena, contando só faixas com 30 vulneráveis. Só o veredito "
-  "do desenho principal qualifica a conclusão.}")
+  "da configuração principal qualifica a conclusão.}")
 w("\\label{tab:tamanho}")
 w("\\scriptsize")
 w("\\setlength{\\tabcolsep}{3pt}")
@@ -308,7 +308,7 @@ linhas =[ln for ln in anotados.splitlines() if re.match(r"^\| \d+ \|", ln)]
 w("\\begin{table}[htbp]")
 w("\\centering")
 w("\\caption{Os 9 casos da amostra anotada que caíram no teste do BigVul: em quantas das 30 repetições cada "
-  "braço acusou a função (para os controles, a menor e a maior contagem entre os cinco). Categoria: D é o sítio "
+  "braço sinalizou a função (para os controles, a menor e a maior contagem entre os cinco). Categoria: D é o local "
   "da vulnerabilidade; A, B e C, rótulo indevido. Nós: tamanho do grafo da função. Regra: o veredito da "
   "\\textit{traversal}. Observação qualitativa, prevista no pré-registro e feita depois da abertura.}")
 w("\\label{tab:anotados_teste}")

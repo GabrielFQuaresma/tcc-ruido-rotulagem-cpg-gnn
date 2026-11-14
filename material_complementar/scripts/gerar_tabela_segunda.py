@@ -66,10 +66,10 @@ linhas_sens = [
 out = [
     "% GERADO por Tex/gerar_tabela_segunda.py a partir de validacao_cega/segunda/resultado_segunda.json",
     f"% (SHA-256 {sha(RESULTADO)}), com os SHA-256 das entradas conferidos. NÃO EDITAR À MÃO.",
-    "\\begin{table}[htbp]",
+    "\\begin{table}[!htb]",  # 14/11/2026: sem "p", para não criar página só de tabelas no apêndice curto
     "\\centering",
     "\\caption{Segunda validação manual. Rótulo do autor nas 30 funções confirmadas e nas 30 descartadas"
-    " pelo filtro. D indica que a função é o sítio da vulnerabilidade; A, B e C, rótulo indevido; ?, sem"
+    " pelo filtro. D indica que a função é o local da vulnerabilidade; A, B e C, rótulo indevido; ?, sem"
     " decisão.}",
     "\\label{tab:segunda}",
     "\\small",
@@ -88,7 +88,7 @@ out += [
     "\\end{tabular}",
     "\\end{table}",
     "",
-    "\\begin{table}[htbp]",
+    "\\begin{table}[!htb]",  # 14/11/2026: sem "p", para não criar página só de tabelas no apêndice curto
     "\\centering",
     "\\caption{Segunda validação manual. Análise principal e análises de sensibilidade fixadas no"
     " pré-registro. A taxa base é ponderada pelo tamanho dos dois lados na moldura.}",
